@@ -21,7 +21,6 @@ public class PlayerMenuInput : Singleton<PlayerMenuInput>
   public static event System.Action MenuAcceptPressed;
   public static event System.Action MenuAcceptReleased;
   public static event System.Action MenuBackPressed;
-  public static event System.Action MenuDeletePressed;
 
   public static Vector2 MenuAxis => _menuAxis;
   public static float MenuScrollAxis => _scrollAxis;
@@ -73,7 +72,6 @@ public class PlayerMenuInput : Singleton<PlayerMenuInput>
     MenuAcceptPressed = null;
     MenuAcceptReleased = null;
     MenuBackPressed = null;
-    MenuDeletePressed = null;
   }
 #endif
 
@@ -179,7 +177,6 @@ public class PlayerMenuInput : Singleton<PlayerMenuInput>
     const int actionMenuAccept = RewiredConsts.Action.MenuAccept;
     const int actionMenuBack = RewiredConsts.Action.MenuBack;
     const int actionMenuScroll = RewiredConsts.Action.MenuAxisScroll;
-    const int actionMenuDelete = RewiredConsts.Action.MenuDelete;
 
     // Gather axis input
     _scrollAxis = p.GetAxis(actionMenuScroll);
@@ -234,11 +231,6 @@ public class PlayerMenuInput : Singleton<PlayerMenuInput>
 
       _acceptState = false;
       _acceptDown = false;
-    }
-
-    if (p.GetButtonDown(actionMenuDelete))
-    {
-      MenuDeletePressed?.Invoke();
     }
 
     if (p.GetButtonDown(actionMenuBack))

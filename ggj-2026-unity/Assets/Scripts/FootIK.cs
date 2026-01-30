@@ -2,38 +2,37 @@ using UnityEngine;
 
 public class FootIK : MonoBehaviour
 {
-  [SerializeField]
-  private FootInfo[] _feet = null;
+  public Vector3 SmoothVelocity => _smoothVelocity;
+  public float AverageStepT => _stepTAverage;
+  public float TotalStepT => _totalStepCount + _stepTAverage;
+  public int TotalStepCount => _totalStepCount;
+  public int CurrentStepSide => _currentStepSide;
+  public FootInfo[] Feet => _feet;
 
-  [SerializeField]
-  private float _footStepThreshold = 1.0f;
-
-  [SerializeField]
-  private float _footStepDuration = 1f;
-
-  [SerializeField]
-  private int _maxSteppingFeet = 1;
-
-  [SerializeField]
-  private AnimationCurve _footStepHeightCurve = null;
-
-  [SerializeField]
-  private float _footStepHeight = 1;
-
-  [SerializeField]
-  private float _minTimeBetweenSteps = 0.1f;
-
-  [SerializeField]
-  private LayerMask _footGroundMask = default;
-
-  [SerializeField]
-  private float _maxFootGroundSnapDist = 20;
+  [SerializeField] private FootInfo[] _feet = null;
+  [SerializeField] private RangedFloat _footStepThresholdRange = new RangedFloat(0.2f, 0.4f);
+  [SerializeField] private RangedFloat _footStepDurationRange = new RangedFloat(0.2f, 0.5f);
+  [SerializeField] private int _maxSteppingFeet = 1;
+  [SerializeField] private AnimationCurve _footStepHeightCurve = null;
+  [SerializeField] private float _footStepHeight = 1;
+  [SerializeField] private float _footHeightOffset = 0;
+  [SerializeField] private float _minTimeBetweenSteps = 0.1f;
+  [SerializeField] private LayerMask _footGroundMask = default;
+  [SerializeField] private float _maxFootGroundSnapDist = 20;
+  [SerializeField] private float _maxStrideSpeed = 2;
+  [SerializeField] private float _footVelocityOffsetScale = 0.2f;
 
   private int _steppingFeetCount = 0;
   private float _stepOffsetTimer;
+  private float _stepTAverage;
+  private int _totalStepCount;
+  private int _currentStepSide;
+  private float _smoothStrideT;
+  private Vector3 _lastPosition;
+  private Vector3 _smoothVelocity;
 
   [System.Serializable]
-  private struct FootInfo
+  public struct FootInfo
   {
     [Header("Config")]
     [HideInInspector]
@@ -65,41 +64,62 @@ public class FootIK : MonoBehaviour
     }
   }
 
-  private void Update()
+  private void Start()
+  {
+    _lastPosition = transform.position;
+  }
+
+  private void LateUpdate()
   {
     float dt = Time.deltaTime;
     _stepOffsetTimer -= dt;
+    _stepTAverage = 0;
+
+    float invDt = dt < Mathf.Epsilon ? 0 : 1 / dt;
+    Vector3 posDelta = transform.position - _lastPosition;
+    _smoothVelocity = Mathfx.Damp(_smoothVelocity, posDelta * invDt, 0.25f, dt * 10);
+    _lastPosition = transform.position;
+    _smoothStrideT = Mathf.Clamp01(_smoothVelocity.magnitude / _maxStrideSpeed);
 
     int nextFootStepIndex = -1;
     float biggestStepDistance = 0;
+    int currentSteppingCount = 0;
     for (int i = 0; i < _feet.Length; ++i)
     {
       FootInfo footInfo = _feet[i];
 
-      Vector3 restPosWorld = SnapPositionToGround(footInfo.Root.parent.TransformPoint(footInfo.RestPosLocal));
+      Vector3 restPosLocal = footInfo.RestPosLocal + transform.InverseTransformDirection(_smoothVelocity.normalized) * _smoothStrideT * _footVelocityOffsetScale;
+      Vector3 restPosWorld = footInfo.Root.parent.TransformPoint(restPosLocal);
+      Vector3 restPosWorldSnapped = SnapPositionToGround(restPosWorld);
       Quaternion restRotWorld = footInfo.Root.parent.rotation * footInfo.RestRotLocal;
-      Vector3 toRestPos = restPosWorld - footInfo.WorldPos;
+      Vector3 toRestPos = restPosWorldSnapped - footInfo.WorldPos;
       float distToRestPos = toRestPos.magnitude;
 
       if (footInfo.IsStepping)
       {
+        float stepDuration = _footStepDurationRange.Lerp(_smoothStrideT);
         footInfo.StepTimer += dt;
-        footInfo.StepT = Mathf.Clamp01(footInfo.StepTimer / _footStepDuration);
+        footInfo.StepT = Mathf.Clamp01(footInfo.StepTimer / stepDuration);
 
         float smoothT = Mathf.SmoothStep(0, 1, footInfo.StepT);
         float stepHeight = _footStepHeightCurve.Evaluate(smoothT) * _footStepHeight;
-        footInfo.WorldPos = Vector3.Lerp(footInfo.StepStartPos, restPosWorld, smoothT) + Vector3.up * stepHeight;
+        footInfo.WorldPos = Vector3.Lerp(footInfo.StepStartPos, restPosWorldSnapped, smoothT) + Vector3.up * stepHeight;
         footInfo.WorldRot = Quaternion.Slerp(footInfo.StepStartRot, restRotWorld, smoothT);
+
+        _stepTAverage += footInfo.StepT;
+        currentSteppingCount += 1;
 
         if (footInfo.StepT >= 1)
         {
           footInfo.IsStepping = false;
           _steppingFeetCount -= 1;
+          _totalStepCount += 1;
         }
       }
       else
       {
-        if (distToRestPos > biggestStepDistance && distToRestPos > _footStepThreshold)
+        float stepThreshold = _footStepThresholdRange.Lerp(_smoothStrideT);
+        if (distToRestPos > biggestStepDistance && distToRestPos > stepThreshold)
         {
           nextFootStepIndex = i;
           biggestStepDistance = distToRestPos;
@@ -107,10 +127,15 @@ public class FootIK : MonoBehaviour
       }
 
       // Assign transform info to foot object
-      footInfo.Root.position = footInfo.WorldPos;
+      footInfo.Root.position = footInfo.WorldPos + Vector3.up * _footHeightOffset;
       footInfo.Root.rotation = footInfo.WorldRot;
 
       _feet[i] = footInfo;
+    }
+
+    if (currentSteppingCount > 0)
+    {
+      _stepTAverage /= currentSteppingCount;
     }
 
     if (_steppingFeetCount < _maxSteppingFeet && nextFootStepIndex >= 0 && _stepOffsetTimer <= 0)
@@ -122,6 +147,7 @@ public class FootIK : MonoBehaviour
       footInfo.StepStartPos = footInfo.WorldPos;
       footInfo.StepStartRot = footInfo.WorldRot;
       _steppingFeetCount += 1;
+      _currentStepSide = (int)Mathf.Sign(footInfo.RestPosLocal.x);
       _feet[nextFootStepIndex] = footInfo;
     }
   }
