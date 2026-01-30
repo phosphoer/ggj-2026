@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 866eb2fa9d8c148a5874e4214b1d92fd
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _controllerMap: {fileID: 11400000, guid: e23b2ade007da4104beda814e4b68f6e, type: 2}
+  - _iconImage: {instanceID: 0}
+  - _iconTextImage: {instanceID: 0}
+  - _iconText: {instanceID: 0}
+  - _actionLabelText: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,279 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5777a6830e737454e80371b54fc1fb6d, type: 3}
+  m_Name: input-icons-playstation-dualsense
+  m_EditorClassIdentifier: 
+  UseTemplateIds: 0
+  _inputIcons:
+  - Comment: Left Stick X
+    InputId: 0
+    IconSprite: {fileID: 21300000, guid: 40eb23dd8b9316849858352aa59bb6b2, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: L
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Left Stick Y
+    InputId: 1
+    IconSprite: {fileID: 21300000, guid: ed7b7830e0a4f8045ac8d7443a957c1b, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: L
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Right Stick X
+    InputId: 2
+    IconSprite: {fileID: 21300000, guid: 40eb23dd8b9316849858352aa59bb6b2, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: R
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Right Stick Y
+    InputId: 3
+    IconSprite: {fileID: 21300000, guid: ed7b7830e0a4f8045ac8d7443a957c1b, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: R
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Cross
+    InputId: 6
+    IconSprite: {fileID: 21300000, guid: 759fa07ddbfc99640a04e9da02be71a3, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 21300000, guid: ae0dc0c896ff0824d9f6f45805495ca7, type: 3}
+    IconLabelColor: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Circle
+    InputId: 7
+    IconSprite: {fileID: 21300000, guid: 759fa07ddbfc99640a04e9da02be71a3, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 21300000, guid: a44ddf9ab74d3934f9e9efa31b3ab2ce, type: 3}
+    IconLabelColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Square
+    InputId: 8
+    IconSprite: {fileID: 21300000, guid: 759fa07ddbfc99640a04e9da02be71a3, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 21300000, guid: bbd39774209e93f41a88d56ece502f94, type: 3}
+    IconLabelColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Triangle
+    InputId: 9
+    IconSprite: {fileID: 21300000, guid: 759fa07ddbfc99640a04e9da02be71a3, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 21300000, guid: 47578162304014f4297d599c09b2d582, type: 3}
+    IconLabelColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: L1
+    InputId: 10
+    IconSprite: {fileID: 21300000, guid: a22c49481eaa9744c9d64114a4c0c4ac, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: L2
+    InputId: 4
+    IconSprite: {fileID: 21300000, guid: 604c6f8112426094cb7bf2143a5774aa, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: R1
+    InputId: 11
+    IconSprite: {fileID: 21300000, guid: 2c6923a33d1590d43a1a9d1fa5008f5f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: R2
+    InputId: 5
+    IconSprite: {fileID: 21300000, guid: 62ec18fbd51c5e0409da410362cb0d11, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Create
+    InputId: 12
+    IconSprite: {fileID: 21300000, guid: 8c08f36cf8a3d0444ac866eaa3510a88, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Options
+    InputId: 13
+    IconSprite: {fileID: 21300000, guid: e5b62e4a709790848beab5bbeff70a17, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: PS Button
+    InputId: 14
+    IconSprite: {fileID: 21300000, guid: 5e6b2c9cea544d24eb9a8d8b0f17abaa, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Touchpad Button
+    InputId: 15
+    IconSprite: {fileID: 21300000, guid: 904bbbd81803c4544bd5f78a54fa9dfe, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Mute
+    InputId: 24
+    IconSprite: {fileID: 0}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 1
+  - Comment: Left Stick Button
+    InputId: 16
+    IconSprite: {fileID: 21300000, guid: ecfbe3f0278029a41916ea117f2d52c3, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: L
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Right Stick Button
+    InputId: 17
+    IconSprite: {fileID: 21300000, guid: ecfbe3f0278029a41916ea117f2d52c3, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: R
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: D-Pad Up
+    InputId: 18
+    IconSprite: {fileID: 21300000, guid: a9dcb739ec8f9f845998eacd14f2e593, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: D-Pad Right
+    InputId: 19
+    IconSprite: {fileID: 21300000, guid: d3c977054fef115429ce6b59ebcbd74a, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: D-Pad Down
+    InputId: 20
+    IconSprite: {fileID: 21300000, guid: b5e4c96b2b6d97b4abeb5f29f78e8379, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: D-Pad Left
+    InputId: 21
+    IconSprite: {fileID: 21300000, guid: acb06e83978795d48b857b5bc9406d2b, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Left Stick
+    InputId: 22
+    IconSprite: {fileID: 0}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Right Stick
+    InputId: 23
+    IconSprite: {fileID: 0}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  _actionIconOverrides: []
+  _tiltIcon:
+    Comment: 
+    InputId: 0
+    IconSprite: {fileID: 0}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  _hardwareMap: {fileID: 11400000, guid: 3cab29e88959c2d42911cf27a48f2163, type: 2}

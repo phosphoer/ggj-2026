@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd487c7f77b84c7eb6465417b9193e5, type: 3}
+  m_Name: input-controller-mapping
+  m_EditorClassIdentifier: 
+  gamepadMap: {fileID: 11400000, guid: 75e14f56665714204838d97bbe1b8104, type: 2}
+  keyboardMap: {fileID: 11400000, guid: 0ca1fb28603ecf744b9b9bb7aed65d02, type: 2}
+  mouseMap: {fileID: 11400000, guid: 1901d9d766f0ded41995c6bd72cfb235, type: 2}
+  controllerMaps:
+  - Name: Xbox One / Series X
+    ControllerGuid: 19002688-7406-4f4a-8340-8d25335406c8
+    IconMap: {fileID: 11400000, guid: 3d7ef9cfea8d6cf488594eb3adcbbec7, type: 2}
+  - Name: Xbox 360
+    ControllerGuid: d74a350e-fe8b-4e9e-bbcd-efff16d34115
+    IconMap: {fileID: 11400000, guid: 3d7ef9cfea8d6cf488594eb3adcbbec7, type: 2}
+  - Name: DualSense
+    ControllerGuid: 5286706d-19b4-4a45-b635-207ce78d8394
+    IconMap: {fileID: 11400000, guid: d45e7e95617c51042971edd4f97e4dab, type: 2}
+  - Name: Dualshock 4
+    ControllerGuid: cd9718bf-a87a-44bc-8716-60a0def28a9f
+    IconMap: {fileID: 11400000, guid: 609d058872df9834fb07e83a1cf3eb05, type: 2}
+  - Name: Dualshock 3
+    ControllerGuid: 71dfe6c8-9e81-428f-a58e-c7e664b7fbed
+    IconMap: {fileID: 11400000, guid: 609d058872df9834fb07e83a1cf3eb05, type: 2}
+  - Name: Switch Handheld
+    ControllerGuid: 1fbdd13b-0795-4173-8a95-a2a75de9d204
+    IconMap: {fileID: 11400000, guid: fc28beee0b02d204480260f3b37dd5c0, type: 2}
+  - Name: Switch Joycon Dual
+    ControllerGuid: 521b808c-0248-4526-bc10-f1d16ee76bf1
+    IconMap: {fileID: 11400000, guid: bbd0f4b1c983e0048bd32fb2b07718be, type: 2}
+  - Name: Switch Pro Controller
+    ControllerGuid: 7bf3154b-9db8-4d52-950f-cd0eed8a5819
+    IconMap: {fileID: 11400000, guid: 903736dfba25e50489f0c987b6f2177d, type: 2}

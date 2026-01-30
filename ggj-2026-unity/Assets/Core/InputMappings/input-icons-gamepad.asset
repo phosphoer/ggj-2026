@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5777a6830e737454e80371b54fc1fb6d, type: 3}
+  m_Name: input-icons-gamepad
+  m_EditorClassIdentifier: 
+  inputIcons:
+  - Comment: Top Button
+    InputId: 8
+    IconSprite: {fileID: 21300000, guid: 479598a71b16048d788f81694eafd503, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+  - Comment: Right Button
+    InputId: 5
+    IconSprite: {fileID: 21300000, guid: 1d6fda02a5d534a649957d0e7574afe7, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+  - Comment: Down Button
+    InputId: 4
+    IconSprite: {fileID: 21300000, guid: 998aa8e39823045ed9d8faa8abe2c292, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+  - Comment: Left Button
+    InputId: 7
+    IconSprite: {fileID: 21300000, guid: d857988daec84401db7a5591024dd6c1, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+  - Comment: Dpad Up
+    InputId: 19
+    IconSprite: {fileID: 21300000, guid: 49a64ac5f9dd84b9caddb8a5b02a545d, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+  - Comment: Dpad Down
+    InputId: 21
+    IconSprite: {fileID: 21300000, guid: 48ae7f8a78e954502861d0ff32dee9f1, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+  - Comment: Left Stick Movement
+    InputId: 0
+    IconSprite: {fileID: 21300000, guid: 6c1cb70ed522b41e2bfbb8914be26e8b, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: L
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
+    IconLabelOffset: {x: 0, y: 7, z: 0}
+    FlipX: 0
+  - Comment: Right Stick Movement
+    InputId: 2
+    IconSprite: {fileID: 21300000, guid: 6c1cb70ed522b41e2bfbb8914be26e8b, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: R
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
+    IconLabelOffset: {x: 0, y: 7, z: 0}
+    FlipX: 0
+  - Comment: Left Trigger
+    InputId: 11
+    IconSprite: {fileID: 21300000, guid: 1a34f525e133c4a9abc65bc0a5548e54, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: LT
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+  - Comment: Right Trigger
+    InputId: 13
+    IconSprite: {fileID: 21300000, guid: 1a34f525e133c4a9abc65bc0a5548e54, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: RT
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+  - Comment: Left Bumper
+    InputId: 10
+    IconSprite: {fileID: 21300000, guid: fd517dccd4d1b417f82ea2e3807bd925, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: LB
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 1
+  - Comment: Right Bumper
+    InputId: 12
+    IconSprite: {fileID: 21300000, guid: fd517dccd4d1b417f82ea2e3807bd925, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: RB
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0

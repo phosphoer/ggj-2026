@@ -1,0 +1,1159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5777a6830e737454e80371b54fc1fb6d, type: 3}
+  m_Name: input-icons-keyboard
+  m_EditorClassIdentifier: 
+  UseTemplateIds: 1
+  _inputIcons:
+  - Comment: None
+    InputId: 0
+    IconSprite: {fileID: 868522004, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: None
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: A
+    InputId: 1
+    IconSprite: {fileID: -5885279730235207244, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: B
+    InputId: 2
+    IconSprite: {fileID: 685819224201001644, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: C
+    InputId: 3
+    IconSprite: {fileID: -3077796973006340679, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: D
+    InputId: 4
+    IconSprite: {fileID: 4609053676033695827, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: E
+    InputId: 5
+    IconSprite: {fileID: -5815899596534525439, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: F
+    InputId: 6
+    IconSprite: {fileID: -2751278291077010939, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: G
+    InputId: 7
+    IconSprite: {fileID: 5492328006235797474, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: H
+    InputId: 8
+    IconSprite: {fileID: -2623862554578125192, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: I
+    InputId: 9
+    IconSprite: {fileID: 5070219385007716720, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: J
+    InputId: 10
+    IconSprite: {fileID: -8061928322629013149, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: K
+    InputId: 11
+    IconSprite: {fileID: 7256834103407640302, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: L
+    InputId: 12
+    IconSprite: {fileID: -3647067407660996341, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: M
+    InputId: 13
+    IconSprite: {fileID: -5156019325118791521, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: N
+    InputId: 14
+    IconSprite: {fileID: -1584131996972035478, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: O
+    InputId: 15
+    IconSprite: {fileID: 6933667143328195547, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: P
+    InputId: 16
+    IconSprite: {fileID: 7445770971283823562, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Q
+    InputId: 17
+    IconSprite: {fileID: 1256042751417105653, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: R
+    InputId: 18
+    IconSprite: {fileID: -8455146524502481058, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: S
+    InputId: 19
+    IconSprite: {fileID: 4161336995454804240, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: T
+    InputId: 20
+    IconSprite: {fileID: -5676587458419710608, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: U
+    InputId: 21
+    IconSprite: {fileID: -1620208900950322201, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: V
+    InputId: 22
+    IconSprite: {fileID: 295531779034183593, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: W
+    InputId: 23
+    IconSprite: {fileID: -560891198988030842, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: X
+    InputId: 24
+    IconSprite: {fileID: -4456089772110215582, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Y
+    InputId: 25
+    IconSprite: {fileID: -8577065896165108205, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Z
+    InputId: 26
+    IconSprite: {fileID: -883713485659953491, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: 0
+    InputId: 27
+    IconSprite: {fileID: 1084870471915973256, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: 1
+    InputId: 28
+    IconSprite: {fileID: -5690122954830693929, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: 2
+    InputId: 29
+    IconSprite: {fileID: -8200298928030360504, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: 3
+    InputId: 30
+    IconSprite: {fileID: -5221031191145572345, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: 4
+    InputId: 31
+    IconSprite: {fileID: 1836571632104722114, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: 5
+    InputId: 32
+    IconSprite: {fileID: 3643243010867867535, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: 6
+    InputId: 33
+    IconSprite: {fileID: -2248371898726000278, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: 7
+    InputId: 34
+    IconSprite: {fileID: 3563901739678532456, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: 8
+    InputId: 35
+    IconSprite: {fileID: 154669901103437456, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: 9
+    InputId: 36
+    IconSprite: {fileID: -1806571898529049445, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Keypad 0
+    InputId: 37
+    IconSprite: {fileID: 1084870471915973256, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Keypad 1
+    InputId: 38
+    IconSprite: {fileID: -5690122954830693929, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Keypad 2
+    InputId: 39
+    IconSprite: {fileID: -8200298928030360504, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Keypad 3
+    InputId: 40
+    IconSprite: {fileID: -5221031191145572345, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Keypad 4
+    InputId: 41
+    IconSprite: {fileID: 1836571632104722114, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Keypad 5
+    InputId: 42
+    IconSprite: {fileID: 3643243010867867535, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Keypad 6
+    InputId: 43
+    IconSprite: {fileID: -2248371898726000278, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Keypad 7
+    InputId: 44
+    IconSprite: {fileID: 3563901739678532456, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Keypad 8
+    InputId: 45
+    IconSprite: {fileID: 154669901103437456, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Keypad 9
+    InputId: 46
+    IconSprite: {fileID: -1806571898529049445, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Keypad .
+    InputId: 47
+    IconSprite: {fileID: 2130862540958969577, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Keypad /
+    InputId: 48
+    IconSprite: {fileID: 1558941212564746076, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Keypad *
+    InputId: 49
+    IconSprite: {fileID: -8796748914094807703, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Keypad -
+    InputId: 50
+    IconSprite: {fileID: -3198702469325201262, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Keypad +
+    InputId: 51
+    IconSprite: {fileID: 4613145209668707862, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Keypad Enter
+    InputId: 52
+    IconSprite: {fileID: 8528096318205426777, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Keypad =
+    InputId: 53
+    IconSprite: {fileID: -607154543749298246, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Space
+    InputId: 54
+    IconSprite: {fileID: 5498313131402923664, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Backspace
+    InputId: 55
+    IconSprite: {fileID: -987535459870925767, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Tab
+    InputId: 56
+    IconSprite: {fileID: -61840614391959680, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Clear
+    InputId: 57
+    IconSprite: {fileID: 21300000, guid: 2a7009781f74740009440cc9994c5fc7, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: Clear
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Return
+    InputId: 58
+    IconSprite: {fileID: 5924515243614696843, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Pause
+    InputId: 59
+    IconSprite: {fileID: 21300000, guid: 2a7009781f74740009440cc9994c5fc7, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: Pause
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: ESC
+    InputId: 60
+    IconSprite: {fileID: 2831845422527330430, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: '"'
+    InputId: 62
+    IconSprite: {fileID: -3730398544329085944, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: +
+    InputId: 70
+    IconSprite: {fileID: 8235795099053544255, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: ','
+    InputId: 71
+    IconSprite: {fileID: 4054887820679773674, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: '-'
+    InputId: 72
+    IconSprite: {fileID: 21300000, guid: 2a7009781f74740009440cc9994c5fc7, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: '-'
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: .
+    InputId: 73
+    IconSprite: {fileID: 2130862540958969577, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: /
+    InputId: 74
+    IconSprite: {fileID: 1558941212564746076, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: ':'
+    InputId: 75
+    IconSprite: {fileID: -4492011989390700061, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: ;
+    InputId: 76
+    IconSprite: {fileID: 8700798676267084803, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: <
+    InputId: 77
+    IconSprite: {fileID: 7820082869091197065, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: =
+    InputId: 78
+    IconSprite: {fileID: -607154543749298246, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: '>'
+    InputId: 79
+    IconSprite: {fileID: 6336540833189840512, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: '?'
+    InputId: 80
+    IconSprite: {fileID: 5718954335794960632, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: '['
+    InputId: 82
+    IconSprite: {fileID: -5470834534841987211, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: \
+    InputId: 83
+    IconSprite: {fileID: 3748137105597498503, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: ']'
+    InputId: 84
+    IconSprite: {fileID: -6606634474783004117, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Back Quote
+    InputId: 87
+    IconSprite: {fileID: -3194480934741559568, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Delete
+    InputId: 88
+    IconSprite: {fileID: -1757962340006518228, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Up Arrow
+    InputId: 89
+    IconSprite: {fileID: -8570837327225013933, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Down Arrow
+    InputId: 90
+    IconSprite: {fileID: -4622718108568394392, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Right Arrow
+    InputId: 91
+    IconSprite: {fileID: 1211924819576812034, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Left Arrow
+    InputId: 92
+    IconSprite: {fileID: -5533145456356739346, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Insert
+    InputId: 93
+    IconSprite: {fileID: -8290301203597514192, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Home
+    InputId: 94
+    IconSprite: {fileID: -9190885730109128389, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: End
+    InputId: 95
+    IconSprite: {fileID: -6104407357554260854, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Page Up
+    InputId: 96
+    IconSprite: {fileID: 3865514904878348016, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Page Down
+    InputId: 97
+    IconSprite: {fileID: 2664725992842573479, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: F1
+    InputId: 98
+    IconSprite: {fileID: 6626582318068144694, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: F2
+    InputId: 99
+    IconSprite: {fileID: 980325285279587707, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: F3
+    InputId: 100
+    IconSprite: {fileID: 274992739551496144, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: F4
+    InputId: 101
+    IconSprite: {fileID: -8718881860631757177, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: F5
+    InputId: 102
+    IconSprite: {fileID: 1167966754902445666, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: F6
+    InputId: 103
+    IconSprite: {fileID: 5605798243962982034, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: F7
+    InputId: 104
+    IconSprite: {fileID: 6424265481012301982, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: F8
+    InputId: 105
+    IconSprite: {fileID: -7068584773889743973, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: F9
+    InputId: 106
+    IconSprite: {fileID: -5435271148111601988, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: F10
+    InputId: 107
+    IconSprite: {fileID: 8547072834364063096, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: F11
+    InputId: 108
+    IconSprite: {fileID: 583311588857549173, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: F12
+    InputId: 109
+    IconSprite: {fileID: -5638985436130746514, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Numlock
+    InputId: 113
+    IconSprite: {fileID: 6431813600972209659, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Caps Lock
+    InputId: 114
+    IconSprite: {fileID: 3552204179561777067, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Scroll Lock
+    InputId: 115
+    IconSprite: {fileID: 868522004, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: Scroll Lock
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Right Shift
+    InputId: 116
+    IconSprite: {fileID: 4641102488483464442, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Left Shift
+    InputId: 117
+    IconSprite: {fileID: 4641102488483464442, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Right Control
+    InputId: 118
+    IconSprite: {fileID: -4339012654887754660, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Left Control
+    InputId: 119
+    IconSprite: {fileID: -4339012654887754660, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Right Alt
+    InputId: 120
+    IconSprite: {fileID: 8174780149187557744, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Left Alt
+    InputId: 121
+    IconSprite: {fileID: 8174780149187557744, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Right Command
+    InputId: 122
+    IconSprite: {fileID: -5945869047338683604, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Left Command
+    InputId: 123
+    IconSprite: {fileID: -5945869047338683604, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Left Windows
+    InputId: 124
+    IconSprite: {fileID: -1529991394320669824, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Right Windows
+    InputId: 125
+    IconSprite: {fileID: -1529991394320669824, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  - Comment: Print
+    InputId: 128
+    IconSprite: {fileID: -8790075175949312808, guid: 0c4b58edbbc694c429c06a8173d84e6f, type: 3}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  _actionIconOverrides: []
+  _tiltIcon:
+    Comment: 
+    InputId: 0
+    IconSprite: {fileID: 0}
+    IconColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabel: 
+    IconLabelSprite: {fileID: 0}
+    IconLabelColor: {r: 1, g: 1, b: 1, a: 1}
+    IconLabelOffset: {x: 0, y: 0, z: 0}
+    FlipX: 0
+    DisableMapping: 0
+  _hardwareMap: {fileID: 0}
