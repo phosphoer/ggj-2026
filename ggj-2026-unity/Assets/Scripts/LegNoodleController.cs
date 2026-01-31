@@ -9,6 +9,12 @@ public class LegNoodleController : MonoBehaviour
     set => _footTarget = value;
   }
 
+  public float LegThickness
+  {
+    get => _lineRenderer.widthMultiplier;
+    set => _lineRenderer.widthMultiplier = value;
+  }
+
   [SerializeField] private Transform _footTarget = null;
   [SerializeField] private Transform[] _bones = null;
   [SerializeField] private Mathfx.Axis _forwardAxis = Mathfx.Axis.Z;

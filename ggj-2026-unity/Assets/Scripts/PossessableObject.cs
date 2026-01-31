@@ -3,6 +3,8 @@ using UnityEngine;
 public class PossessableObject : MonoBehaviour
 {
   public Transform[] LegSockets => _legSockets;
+  public float LegThickness = 0.1f;
+  public float FootSize = 0.1f;
   public int FootStepCount = 2;
   public float FootStepDuration = 0.5f;
   public float FootStepThreshold = 0.1f;
