@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eca67220b8284170be8ea4b97bd62a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PossessableObject
+  StandHeightOffset: 0
   AnimIdleBobScale: 0.05
   AnimIdleBobSpeed: 3
   AnimIdleWiggleScale: 5
@@ -259,7 +260,7 @@ MonoBehaviour:
   _interactableUIPrefab: {fileID: 7127637411871555855, guid: 7be408922929a49acaa7ae32a66663e9, type: 3}
   _interactionUIAnchor: {fileID: 5853935543858519123}
   _interactionUIHeight: 0.5
-  _interactionText: Possess
+  _interactionText: '!'
   _interactionRadius: 1.5
   _requiresLineOfSight: 0
   _autoInteract: 0

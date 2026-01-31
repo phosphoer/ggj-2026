@@ -282,7 +282,7 @@ MonoBehaviour:
   _interactableUIPrefab: {fileID: 7127637411871555855, guid: 7be408922929a49acaa7ae32a66663e9, type: 3}
   _interactionUIAnchor: {fileID: 6054700829761343563}
   _interactionUIHeight: 0.5
-  _interactionText: Possess
+  _interactionText: '!'
   _interactionRadius: 1.5
   _requiresLineOfSight: 0
   _autoInteract: 0

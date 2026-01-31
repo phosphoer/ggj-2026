@@ -130,6 +130,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &13099395 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5455714342224088886, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
 --- !u!114 &18622370 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7698129320455450668, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
@@ -141,9 +152,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &20907076 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7427090224068516901, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &37807283 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8145734653052660595, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &50098499 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2960427537879101367, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
 --- !u!114 &102875014 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3780946118113934898, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &105400339 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1751791451248633715, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
   m_PrefabInstance: {fileID: 296607019345484480}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -209,6 +264,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86558ffef45a0f54282fe7d08c294dee, type: 3}
+--- !u!114 &124394568 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1643674711432795202, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &168604537 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8863760941124612939, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
 --- !u!114 &172459944 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6370047999484361359, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
@@ -220,9 +297,130 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &179918468 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8316144730629896223, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &230642526 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8281203711284420415, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &262681158 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 644957425654149631, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
 --- !u!114 &304808985 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7202257384104879103, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &316457235 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4423428825535103975, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &339764800 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2726021102358279109, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &351288822 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7575041833616862161, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &365786098 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1017449159634487107, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &408949681 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6273231812489513285, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &428255627 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6252544452902112624, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &437921013 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2015365450063882859, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &472963545 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8633452851885974210, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
   m_PrefabInstance: {fileID: 296607019345484480}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -248,93 +446,325 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1840336526}
     - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
-      propertyPath: _desiredPossessableCount
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
-      propertyPath: _possessableSpawns.Array.size
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
-      propertyPath: '_possessableSpawns.Array.data[0]'
+      propertyPath: '_tinyPossessableSpawns.Array.data[0]'
       value: 
       objectReference: {fileID: 1440859981}
     - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
-      propertyPath: '_possessableSpawns.Array.data[1]'
+      propertyPath: '_tinyPossessableSpawns.Array.data[1]'
       value: 
       objectReference: {fileID: 591393112}
     - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
-      propertyPath: '_possessableSpawns.Array.data[2]'
+      propertyPath: '_tinyPossessableSpawns.Array.data[2]'
       value: 
       objectReference: {fileID: 102875014}
     - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
-      propertyPath: '_possessableSpawns.Array.data[3]'
+      propertyPath: '_tinyPossessableSpawns.Array.data[3]'
       value: 
       objectReference: {fileID: 1143305402}
     - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
-      propertyPath: '_possessableSpawns.Array.data[4]'
+      propertyPath: '_tinyPossessableSpawns.Array.data[4]'
       value: 
       objectReference: {fileID: 712739442}
     - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
-      propertyPath: '_possessableSpawns.Array.data[5]'
-      value: 
-      objectReference: {fileID: 1518197432}
-    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
-      propertyPath: '_possessableSpawns.Array.data[6]'
-      value: 
-      objectReference: {fileID: 985451368}
-    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
-      propertyPath: '_possessableSpawns.Array.data[7]'
-      value: 
-      objectReference: {fileID: 2045040101}
-    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
-      propertyPath: '_possessableSpawns.Array.data[8]'
-      value: 
-      objectReference: {fileID: 704948165}
-    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
-      propertyPath: '_possessableSpawns.Array.data[9]'
-      value: 
-      objectReference: {fileID: 18622370}
-    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
-      propertyPath: '_possessableSpawns.Array.data[10]'
+      propertyPath: '_tinyPossessableSpawns.Array.data[5]'
       value: 
       objectReference: {fileID: 2131038843}
     - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
-      propertyPath: '_possessableSpawns.Array.data[11]'
+      propertyPath: '_tinyPossessableSpawns.Array.data[6]'
       value: 
       objectReference: {fileID: 304808985}
     - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
-      propertyPath: '_possessableSpawns.Array.data[12]'
+      propertyPath: '_tinyPossessableSpawns.Array.data[7]'
       value: 
       objectReference: {fileID: 5060586}
     - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
-      propertyPath: '_possessableSpawns.Array.data[13]'
+      propertyPath: '_tinyPossessableSpawns.Array.data[8]'
       value: 
       objectReference: {fileID: 172459944}
     - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
-      propertyPath: '_possessableSpawns.Array.data[14]'
+      propertyPath: '_tinyPossessableSpawns.Array.data[9]'
       value: 
       objectReference: {fileID: 746071918}
     - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
-      propertyPath: '_possessableSpawns.Array.data[15]'
+      propertyPath: '_smallPossessableSpawns.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1518197432}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_smallPossessableSpawns.Array.data[1]'
+      value: 
+      objectReference: {fileID: 985451368}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_smallPossessableSpawns.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2045040101}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_smallPossessableSpawns.Array.data[3]'
+      value: 
+      objectReference: {fileID: 704948165}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_smallPossessableSpawns.Array.data[4]'
+      value: 
+      objectReference: {fileID: 18622370}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_smallPossessableSpawns.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2078125730}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_smallPossessableSpawns.Array.data[6]'
+      value: 
+      objectReference: {fileID: 1440104038}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_smallPossessableSpawns.Array.data[7]'
+      value: 
+      objectReference: {fileID: 1586598185}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_smallPossessableSpawns.Array.data[8]'
+      value: 
+      objectReference: {fileID: 767610611}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_smallPossessableSpawns.Array.data[9]'
+      value: 
+      objectReference: {fileID: 1402971987}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[10]'
       value: 
       objectReference: {fileID: 296607019345484490}
     - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
-      propertyPath: '_possessableSpawns.Array.data[16]'
+      propertyPath: '_tinyPossessableSpawns.Array.data[11]'
       value: 
       objectReference: {fileID: 296607019345484489}
     - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
-      propertyPath: '_possessableSpawns.Array.data[17]'
+      propertyPath: '_tinyPossessableSpawns.Array.data[12]'
       value: 
       objectReference: {fileID: 296607019345484488}
     - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
-      propertyPath: '_possessableSpawns.Array.data[18]'
+      propertyPath: '_tinyPossessableSpawns.Array.data[13]'
       value: 
       objectReference: {fileID: 296607019345484487}
     - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
-      propertyPath: '_possessableSpawns.Array.data[19]'
+      propertyPath: '_tinyPossessableSpawns.Array.data[14]'
       value: 
       objectReference: {fileID: 296607019345484486}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[15]'
+      value: 
+      objectReference: {fileID: 437921013}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[16]'
+      value: 
+      objectReference: {fileID: 105400339}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[17]'
+      value: 
+      objectReference: {fileID: 1444594689}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[18]'
+      value: 
+      objectReference: {fileID: 1607613297}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[19]'
+      value: 
+      objectReference: {fileID: 1327135387}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[20]'
+      value: 
+      objectReference: {fileID: 1132796353}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[21]'
+      value: 
+      objectReference: {fileID: 20907076}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[22]'
+      value: 
+      objectReference: {fileID: 1183665593}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[23]'
+      value: 
+      objectReference: {fileID: 945492887}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[24]'
+      value: 
+      objectReference: {fileID: 1318161713}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[25]'
+      value: 
+      objectReference: {fileID: 917004105}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[26]'
+      value: 
+      objectReference: {fileID: 1920095442}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[27]'
+      value: 
+      objectReference: {fileID: 339764800}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[28]'
+      value: 
+      objectReference: {fileID: 637596869}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[29]'
+      value: 
+      objectReference: {fileID: 1682185044}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[30]'
+      value: 
+      objectReference: {fileID: 858340139}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[31]'
+      value: 
+      objectReference: {fileID: 701346216}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[32]'
+      value: 
+      objectReference: {fileID: 1346648458}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[33]'
+      value: 
+      objectReference: {fileID: 870913243}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[34]'
+      value: 
+      objectReference: {fileID: 472963545}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[35]'
+      value: 
+      objectReference: {fileID: 1646280155}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[36]'
+      value: 
+      objectReference: {fileID: 917711010}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[37]'
+      value: 
+      objectReference: {fileID: 230642526}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[38]'
+      value: 
+      objectReference: {fileID: 1279832163}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[39]'
+      value: 
+      objectReference: {fileID: 1419779309}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[40]'
+      value: 
+      objectReference: {fileID: 1230052586}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[41]'
+      value: 
+      objectReference: {fileID: 675677914}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[42]'
+      value: 
+      objectReference: {fileID: 2105124418}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[43]'
+      value: 
+      objectReference: {fileID: 1369409309}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[44]'
+      value: 
+      objectReference: {fileID: 50098499}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[45]'
+      value: 
+      objectReference: {fileID: 428255627}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[46]'
+      value: 
+      objectReference: {fileID: 1170394709}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[47]'
+      value: 
+      objectReference: {fileID: 993811202}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[48]'
+      value: 
+      objectReference: {fileID: 1167127219}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[49]'
+      value: 
+      objectReference: {fileID: 2061815687}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[50]'
+      value: 
+      objectReference: {fileID: 365786098}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[51]'
+      value: 
+      objectReference: {fileID: 13099395}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[52]'
+      value: 
+      objectReference: {fileID: 1049030480}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[53]'
+      value: 
+      objectReference: {fileID: 1886574872}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[54]'
+      value: 
+      objectReference: {fileID: 351288822}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[55]'
+      value: 
+      objectReference: {fileID: 262681158}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[56]'
+      value: 
+      objectReference: {fileID: 1332047982}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[57]'
+      value: 
+      objectReference: {fileID: 168604537}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[58]'
+      value: 
+      objectReference: {fileID: 316457235}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_tinyPossessableSpawns.Array.data[59]'
+      value: 
+      objectReference: {fileID: 179918468}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_smallPossessableSpawns.Array.data[10]'
+      value: 
+      objectReference: {fileID: 971661047}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_smallPossessableSpawns.Array.data[11]'
+      value: 
+      objectReference: {fileID: 580949270}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_smallPossessableSpawns.Array.data[12]'
+      value: 
+      objectReference: {fileID: 124394568}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_smallPossessableSpawns.Array.data[13]'
+      value: 
+      objectReference: {fileID: 2103480498}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_smallPossessableSpawns.Array.data[14]'
+      value: 
+      objectReference: {fileID: 971261613}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_smallPossessableSpawns.Array.data[15]'
+      value: 
+      objectReference: {fileID: 1548255255}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_smallPossessableSpawns.Array.data[16]'
+      value: 
+      objectReference: {fileID: 408949681}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_smallPossessableSpawns.Array.data[17]'
+      value: 
+      objectReference: {fileID: 37807283}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_smallPossessableSpawns.Array.data[18]'
+      value: 
+      objectReference: {fileID: 675246017}
+    - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: '_smallPossessableSpawns.Array.data[19]'
+      value: 
+      objectReference: {fileID: 898514012}
     - target: {fileID: 1457427194962030437, guid: 797bc31feac49404b8221546ed310f04, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18.7983
@@ -380,9 +810,64 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+--- !u!114 &580949270 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5757831765043659798, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
 --- !u!114 &591393112 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6049740274144357453, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &637596869 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4998068209333317278, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &675246017 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7862699928337290026, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &675677914 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4028765441894313619, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &701346216 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7756659491568348740, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
   m_PrefabInstance: {fileID: 296607019345484480}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -416,6 +901,105 @@ MonoBehaviour:
 --- !u!114 &746071918 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2161493278727954110, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &767610611 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8798861486367074792, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &858340139 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8607668218293112224, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &870913243 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3962148165223730582, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &898514012 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 440595541732719692, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &917004105 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8926108858993505259, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &917711010 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6560069563314052115, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &945492887 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1619341626821048383, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &971261613 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7120974509875649546, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &971661047 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4483892664987159839, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
   m_PrefabInstance: {fileID: 296607019345484480}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -492,9 +1076,185 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &993811202 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2851474571504634572, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &1049030480 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2235101963895898968, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &1132796353 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3615696886778841388, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
 --- !u!114 &1143305402 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4136415654262644410, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &1167127219 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8042697185210268557, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &1170394709 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8388089195283701571, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &1183665593 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 494255496539632159, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &1230052586 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4958125677024267324, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &1279832163 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6387344357313259482, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &1318161713 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2143510636920887731, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &1327135387 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 314129476801700904, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &1332047982 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2123341952126151261, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &1346648458 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6167032873860648550, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &1369409309 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4231645474762243217, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &1402971987 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1944825169380096694, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &1419779309 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7227200749177929627, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &1440104038 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3579220498713271938, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
   m_PrefabInstance: {fileID: 296607019345484480}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -514,9 +1274,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &1444594689 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9169309402994145196, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
 --- !u!114 &1518197432 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4131869359473458029, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &1548255255 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6896133461866924015, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &1586598185 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8391477126541258280, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &1607613297 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5610940059324850358, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &1646280155 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2346567606415231927, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &1682185044 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3965116638360352557, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
   m_PrefabInstance: {fileID: 296607019345484480}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -714,9 +1540,75 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8892733515008037478, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
   m_PrefabInstance: {fileID: 296607019345484480}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1886574872 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2141686573124164841, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &1920095442 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1362034220037964664, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
 --- !u!114 &2045040101 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1079923719009066311, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &2061815687 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7823821142924508436, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &2078125730 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6182304950972051763, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &2103480498 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8449366063505474785, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5438b00e039e55643ad98f2571fb0085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PossessableSpawnPoint
+--- !u!114 &2105124418 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5039206896738355412, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
   m_PrefabInstance: {fileID: 296607019345484480}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
