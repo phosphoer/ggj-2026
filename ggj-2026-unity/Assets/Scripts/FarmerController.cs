@@ -1,5 +1,6 @@
 using Assets.Core;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -25,11 +26,14 @@ public class FarmerController : MonoBehaviour
     GameObject[] targets;
 
     List<GameObject> shuffledTargets = new List<GameObject>();
+    ObjectActorController _actor= null;
 
     public GameObject currentTarget = null;
 
     void Start()
     {
+        _actor= GetComponent<ObjectActorController>();
+
         targets = GameObject.FindGameObjectsWithTag("FarmerTarget");
         ShuffleTargets();
         ChangeState(new WalkState());
@@ -99,6 +103,26 @@ public class FarmerController : MonoBehaviour
         currentTarget = shuffledTargets[0];
         shuffledTargets.Remove(currentTarget);
     }
+
+    public void MoveTowards(Vector3 direction)
+    {
+      if (_actor != null)
+      {
+        _actor.MoveAxis = direction.XZ();
+      }
+      else
+      {
+        // if not facing target, turn towards it
+        if (direction != -transform.forward)
+        {
+          Quaternion targetRotation = Quaternion.LookRotation(direction);
+          transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * turnSpeed); // Smooth rotation
+        }
+
+        // if we made it this far, move toward the target
+        transform.position += direction * speed * Time.deltaTime;
+      }
+    }
 }
 
 public class WalkState : IState
@@ -130,20 +154,13 @@ public class WalkState : IState
         Vector3 heading = controller.currentTarget.transform.position - controller.transform.position;
         Vector3 direction = heading.NormalizedSafe();
 
-        // if not facing target, turn towards it
-        if (direction != -controller.transform.forward)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, targetRotation, Time.deltaTime * controller.turnSpeed); // Smooth rotation
-        }
-
-        // if we made it this far, move toward the target
-        controller.transform.position += direction * controller.speed * Time.deltaTime;        
+        controller.MoveTowards(direction);
     }
 
     public void OnExit(FarmerController controller)
     {
         // Cleanup patrol state
+        controller.MoveTowards(Vector3.zero);
     }
 }
 
