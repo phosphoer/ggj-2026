@@ -4,6 +4,9 @@ public class PossessableObject : MonoBehaviour
 {
   public Transform[] LegSockets => _legSockets;
 
+  [Header("Spook Attack")]
+  public ParticleSystem SpookAttackFX = null;
+
   [Header("Idle Animation")]
   public float StandHeightOffset = 0;
   public float AnimIdleBobScale = 0.05f;
