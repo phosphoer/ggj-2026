@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1992867632793082518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4398255515032797080}
+  m_Layer: 0
+  m_Name: interact-root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4398255515032797080
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992867632793082518}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6055152695176310489}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4020508822814769439
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,6 +197,7 @@ GameObject:
   - component: {fileID: 6055152695176310489}
   - component: {fileID: 8534716296250183078}
   - component: {fileID: 4245533315796348343}
+  - component: {fileID: 2321189227848134887}
   m_Layer: 0
   m_Name: Prop_Pumpkin
   m_TagString: Untagged
@@ -192,6 +224,7 @@ Transform:
   - {fileID: 3158710644838848231}
   - {fileID: 329591295135708562}
   - {fileID: 1999430185485607593}
+  - {fileID: 4398255515032797080}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8534716296250183078
@@ -206,6 +239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eca67220b8284170be8ea4b97bd62a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PossessableObject
+  LegThickness: 0.1
+  FootSize: 0.1
   FootStepCount: 2
   FootStepDuration: 0.5
   FootStepThreshold: 0.1
@@ -242,6 +277,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2321189227848134887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8875918820959913437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49d77b736500b5d40afac4ba1ed0b42f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interactable
+  _interactableUIPrefab: {fileID: 7127637411871555855, guid: 7be408922929a49acaa7ae32a66663e9, type: 3}
+  _interactionUIAnchor: {fileID: 4398255515032797080}
+  _interactionUIHeight: 0.5
+  _interactionText: Possess
+  _interactionRadius: 2
+  _requiresLineOfSight: 0
+  _autoInteract: 0
+  _enableInteraction: 1
+  _disableOnInteract: 0
 --- !u!1001 &6319404710702605574
 PrefabInstance:
   m_ObjectHideFlags: 0
