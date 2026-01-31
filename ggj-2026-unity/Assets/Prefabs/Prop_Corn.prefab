@@ -49,16 +49,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eca67220b8284170be8ea4b97bd62a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PossessableObject
+  SpookAttackFX: {fileID: 0}
   StandHeightOffset: 0
   AnimIdleBobScale: 0.05
   AnimIdleBobSpeed: 3
   AnimIdleWiggleScale: 5
-  AnimIdleWiggleSpeed: 1
+  AnimIdleWiggleSpeed: 4
   MoveSpeed: 2
-  RotateSpeed: 3
+  RotateSpeed: 2
   LegThickness: 0.1
-  FootSize: 0.1
-  FootStepCount: 2
+  FootSize: 0.15
+  FootStepCount: 1
   FootStepDuration: 0.5
   FootStepThreshold: 0.1
   FootStepHeight: 0.25

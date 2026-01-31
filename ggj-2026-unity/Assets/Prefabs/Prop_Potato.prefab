@@ -224,6 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eca67220b8284170be8ea4b97bd62a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PossessableObject
+  SpookAttackFX: {fileID: 0}
   StandHeightOffset: 0
   AnimIdleBobScale: 0.05
   AnimIdleBobSpeed: 3
@@ -283,7 +284,7 @@ MonoBehaviour:
   _interactionUIAnchor: {fileID: 6054700829761343563}
   _interactionUIHeight: 0.5
   _interactionText: '!'
-  _interactionRadius: 1.5
+  _interactionRadius: 2
   _requiresLineOfSight: 0
   _autoInteract: 0
   _enableInteraction: 1
