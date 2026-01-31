@@ -53,6 +53,16 @@ public class PlayerActorController : MonoBehaviour
     _currentPossessable = possessable;
     _currentPossessable.transform.parent = _playerVisualRoot;
 
+    Collider[] propColliders = _currentPossessable.GetComponentsInChildren<Collider>();
+    foreach (var c in propColliders)
+      c.enabled = false;
+
+    Rigidbody rb = _currentPossessable.GetComponent<Rigidbody>();
+    if (rb)
+    {
+      rb.isKinematic = true;
+    }
+
     // Set up foot ik info
     _footIK.MaxSteppingFeet = _currentPossessable.FootStepCount;
     _footIK.FootStepDuration = new RangedFloat(_currentPossessable.FootStepDuration, _currentPossessable.FootStepDuration * 0.2f);
@@ -63,6 +73,7 @@ public class PlayerActorController : MonoBehaviour
     {
       GameObject footObj = Instantiate(_footPrefab, transform);
       footObj.transform.localPosition = _currentPossessable.transform.InverseTransformPoint(legSocket.position).WithY(0);
+      footObj.transform.localScale = Vector3.one * _currentPossessable.FootSize;
 
       FootIK.FootInfo footInfo = default;
       footInfo.Root = footObj.transform;
@@ -72,6 +83,7 @@ public class PlayerActorController : MonoBehaviour
       LegNoodleController leg = Instantiate(_legPrefab, _currentPossessable.transform);
       leg.transform.position = legSocket.position;
       leg.FootTarget = footInfo.Root;
+      leg.LegThickness = _currentPossessable.LegThickness;
       leg.InitializeLeg();
     }
 
