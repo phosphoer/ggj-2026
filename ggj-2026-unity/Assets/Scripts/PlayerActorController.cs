@@ -1,10 +1,57 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PlayerActorController : MonoBehaviour
 {
   [SerializeField] private ObjectActorController _actor = null;
+  [SerializeField] private Transform _playerVisualRoot = null;
+  [SerializeField] private GameObject _playerVisual = null;
+  [SerializeField] private FootIK _footIK = null;
   [SerializeField] private LegNoodleController _legPrefab = null;
   [SerializeField] private GameObject _footPrefab = null;
+
+  private PossessableObject _currentPossessable;
+  private List<LegNoodleController> _legs = new();
+
+  public void PossessObject(PossessableObject possessable)
+  {
+    Debug.Log($"Possessing object {possessable.name}");
+
+    // Clear existing possessable
+    _footIK.ClearFeet();
+
+    foreach (var leg in _legs)
+      Destroy(leg.gameObject);
+
+    _legs.Clear();
+
+    // Assign new possessable
+    _currentPossessable = possessable;
+    _currentPossessable.transform.parent = _playerVisualRoot;
+
+    // Set up foot ik info
+    _footIK.MaxSteppingFeet = _currentPossessable.FootStepCount;
+
+    // Set up feet
+    foreach (var legSocket in _currentPossessable.LegSockets)
+    {
+      GameObject footObj = Instantiate(_footPrefab, transform);
+      footObj.transform.localPosition = _currentPossessable.transform.InverseTransformPoint(legSocket.position).WithY(0);
+
+      FootIK.FootInfo footInfo = default;
+      footInfo.Root = footObj.transform;
+      footInfo.Name = $"foot-{_footIK.Feet.Count}";
+      _footIK.AddFoot(footInfo);
+
+      LegNoodleController leg = Instantiate(_legPrefab, _currentPossessable.transform);
+      leg.transform.position = legSocket.position;
+      leg.FootTarget = footInfo.Root;
+      leg.InitializeLeg();
+    }
+
+    // Hide player visual
+    _playerVisual.SetActive(false);
+  }
 
   private void Update()
   {
@@ -14,5 +61,24 @@ public class PlayerActorController : MonoBehaviour
 
     Vector2 targetAxis = new Vector2(horizontalAxis, forwardAxis);
     _actor.MoveAxis = Mathfx.Damp(_actor.MoveAxis, targetAxis, 0.25f, Time.deltaTime * 3);
+
+    if (_currentPossessable)
+    {
+      Transform possessableTransform = _currentPossessable.transform;
+      possessableTransform.localPosition = Mathfx.Damp(possessableTransform.localPosition, Vector3.zero, 0.25f, Time.deltaTime);
+      possessableTransform.localRotation = Mathfx.Damp(possessableTransform.localRotation, Quaternion.identity, 0.25f, Time.deltaTime);
+    }
+  }
+
+  private void OnTriggerEnter(Collider collider)
+  {
+    if (_currentPossessable)
+      return;
+
+    PossessableObject possessable = collider.GetComponentInParent<PossessableObject>();
+    if (possessable)
+    {
+      PossessObject(possessable);
+    }
   }
 }

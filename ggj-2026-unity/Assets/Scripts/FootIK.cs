@@ -3,6 +3,12 @@ using System.Collections.Generic;
 
 public class FootIK : MonoBehaviour
 {
+  public int MaxSteppingFeet
+  {
+    get => _maxSteppingFeet;
+    set => _maxSteppingFeet = value;
+  }
+
   public Vector3 SmoothVelocity => _smoothVelocity;
   public float AverageStepT => _stepTAverage;
   public float TotalStepT => _totalStepCount + _stepTAverage;
@@ -54,6 +60,10 @@ public class FootIK : MonoBehaviour
 
   public void AddFoot(FootInfo footInfo)
   {
+    footInfo.RestPosLocal = footInfo.Root.localPosition;
+    footInfo.RestRotLocal = footInfo.Root.localRotation;
+    footInfo.WorldPos = SnapPositionToGround(footInfo.Root.position);
+    footInfo.WorldRot = footInfo.Root.rotation;
     _feet.Add(footInfo);
   }
 

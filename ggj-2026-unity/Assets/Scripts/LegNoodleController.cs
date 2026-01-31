@@ -3,6 +3,12 @@ using System.Collections.Generic;
 
 public class LegNoodleController : MonoBehaviour
 {
+  public Transform FootTarget
+  {
+    get => _footTarget;
+    set => _footTarget = value;
+  }
+
   [SerializeField] private Transform _footTarget = null;
   [SerializeField] private Transform[] _bones = null;
   [SerializeField] private Mathfx.Axis _forwardAxis = Mathfx.Axis.Z;
@@ -11,7 +17,7 @@ public class LegNoodleController : MonoBehaviour
   private List<Vector3> _bonePositions = new();
   private List<float> _boneLengths = new();
 
-  private void Start()
+  public void InitializeLeg()
   {
     Vector3 boneStartPos = transform.position;
     Vector3 boneEndPos = _footTarget.position;
@@ -31,12 +37,21 @@ public class LegNoodleController : MonoBehaviour
       _boneLengths.Add(boneLength);
     }
 
-    _lineRenderer.positionCount = _bones.Length;
+    _lineRenderer.positionCount = _bones.Length + 1;
+  }
+
+  private void Start()
+  {
+    if (_footTarget)
+      InitializeLeg();
   }
 
   private void LateUpdate()
   {
     float dt = Time.deltaTime;
+
+    if (!_footTarget)
+      return;
 
     Vector3 shoulderPos = transform.position;
     for (int i = 1; i < _bonePositions.Count; ++i)
@@ -50,6 +65,8 @@ public class LegNoodleController : MonoBehaviour
       Vector3 newBonePosLocal = Mathfx.Damp(bonePosLocal, targetBonePosLocal, smoothing, dt * 10);
       _bonePositions[i] = newBonePosLocal;
     }
+
+    _lineRenderer.SetPosition(_bones.Length, _footTarget.position);
 
     for (int i = 0; i < _bones.Length; ++i)
     {
