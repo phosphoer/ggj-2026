@@ -9,6 +9,18 @@ public class FootIK : MonoBehaviour
     set => _maxSteppingFeet = value;
   }
 
+  public RangedFloat FootStepDuration
+  {
+    get => _footStepDurationRange;
+    set => _footStepDurationRange = value;
+  }
+
+  public RangedFloat FootStepThreshold
+  {
+    get => _footStepThresholdRange;
+    set => _footStepThresholdRange = value;
+  }
+
   public Vector3 SmoothVelocity => _smoothVelocity;
   public float AverageStepT => _stepTAverage;
   public float TotalStepT => _totalStepCount + _stepTAverage;

@@ -35,6 +35,8 @@ public class PlayerActorController : MonoBehaviour
 
     // Set up foot ik info
     _footIK.MaxSteppingFeet = _currentPossessable.FootStepCount;
+    _footIK.FootStepDuration = new RangedFloat(_currentPossessable.FootStepDuration, _currentPossessable.FootStepDuration * 0.2f);
+    _footIK.FootStepThreshold = new RangedFloat(_currentPossessable.FootStepThreshold * 0.5f, _currentPossessable.FootStepThreshold);
 
     // Set up feet
     foreach (var legSocket in _currentPossessable.LegSockets)
@@ -63,8 +65,11 @@ public class PlayerActorController : MonoBehaviour
     float horizontalAxis = rewiredPlayer.GetAxis(RewiredConsts.Action.MoveHorizontal);
     float forwardAxis = rewiredPlayer.GetAxis(RewiredConsts.Action.MoveForward);
 
-    Vector2 targetAxis = new Vector2(horizontalAxis, forwardAxis);
-    _actor.MoveAxis = Mathfx.Damp(_actor.MoveAxis, targetAxis, 0.25f, Time.deltaTime * 3);
+    Vector2 inputAxis = new Vector2(horizontalAxis, forwardAxis);
+    Vector3 inputAxisCameraLocal = inputAxis.OnXZPlane();
+    Vector3 inputAxisWorld = MainCamera.Instance.CachedTransform.TransformDirection(inputAxisCameraLocal);
+    Vector2 inputAxis2D = inputAxisWorld.XZ();
+    _actor.MoveAxis = Mathfx.Damp(_actor.MoveAxis, inputAxis2D, 0.25f, Time.deltaTime * 3);
 
     _animTimer += Time.deltaTime;
     _playerVisualRoot.localPosition = Vector3.up * Mathf.Sin(_animTimer * AnimIdleBobSpeed) * AnimIdleBobScale;
