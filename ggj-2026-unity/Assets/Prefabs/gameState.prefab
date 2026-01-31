@@ -53,8 +53,6 @@ MonoBehaviour:
   MusicGame: {fileID: 0}
   MusicEnd: {fileID: 0}
   WinCountDownTime: 10
-  StartMatchHeight: 5
-  SPTopSpeedupThreshold: 0.25
   _initialGameState: 2
   _levelManager: {fileID: 487953526303555448}
   _cameraController: {fileID: 431138630446024495}
@@ -94,7 +92,7 @@ MonoBehaviour:
   _minIdealViewingAngle: 10
   _minDistance: 0
   _maxDistance: 50
-  _zoomSpeed: 2
+  _zoomSpeed: 10
 --- !u!114 &487953526303555448
 MonoBehaviour:
   m_ObjectHideFlags: 0
