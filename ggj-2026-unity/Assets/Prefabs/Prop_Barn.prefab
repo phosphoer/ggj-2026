@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 158824464979154018}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.477, y: 0.0069999956, z: 1.181}
+  m_LocalPosition: {x: -3.98, y: 0.0069999956, z: 1.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 1534090115983952343}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.276, y: 0.035999995, z: 1.219}
+  m_LocalPosition: {x: -2.98, y: 0.035999995, z: 4.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -87,7 +87,7 @@ Transform:
   m_GameObject: {fileID: 2801745081141537100}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.276, y: 0.036, z: -1.698}
+  m_LocalPosition: {x: 7.87, y: 0.036, z: 3.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -151,13 +151,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3883805074955183137}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.0027173785, y: 0.17432027, z: -0.0077043218, w: 0.98465514}
+  m_LocalPosition: {x: 2.01, y: -0.22863567, z: 3}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3271727804137343245}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.153, y: 20.08, z: -0.924}
 --- !u!33 &125137602044042950
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -234,8 +234,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5.5257936, y: 4.00983, z: 3.798039}
-  m_Center: {x: 0.002567768, y: 2.0009801, z: -0.14019942}
+  m_Size: {x: 5.5257936, y: 4.0098295, z: 3.6960282}
+  m_Center: {x: 0.0025678026, y: 2.00098, z: -0.19120474}
 --- !u!1 &4903880130799217915
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,7 +261,7 @@ Transform:
   m_GameObject: {fileID: 4903880130799217915}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.477, y: 0.0069999956, z: -1.717}
+  m_LocalPosition: {x: 6.8, y: 0.0069999956, z: 0.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -292,7 +292,7 @@ Transform:
   m_GameObject: {fileID: 5069299494366477151}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.276, y: 0.035999995, z: -0.08}
+  m_LocalPosition: {x: 5.84, y: 0.035999995, z: -1.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -323,7 +323,7 @@ Transform:
   m_GameObject: {fileID: 6649959356623123224}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.477, y: 0.0069999956, z: -0.09899998}
+  m_LocalPosition: {x: -2.12, y: 0.0069999956, z: 6.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -356,7 +356,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9203549145249929098}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1778216, y: -0.5335564, z: -0.2614356, w: 0.7844415}
+  m_LocalRotation: {x: 0.1778216, y: -0.53355634, z: -0.2614357, w: 0.7844416}
   m_LocalPosition: {x: -0.77, y: 0.348, z: -2.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -383,6 +383,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eca67220b8284170be8ea4b97bd62a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PossessableObject
+  AnimIdleBobScale: 0.05
+  AnimIdleBobSpeed: 3
+  AnimIdleWiggleScale: 5
+  AnimIdleWiggleSpeed: 1
   MoveSpeed: 1
   RotateSpeed: 0.5
   LegThickness: 0.1
@@ -441,7 +445,7 @@ MonoBehaviour:
   _interactionUIAnchor: {fileID: 8106819980401150117}
   _interactionUIHeight: 0.5
   _interactionText: Possess
-  _interactionRadius: 5
+  _interactionRadius: 10
   _requiresLineOfSight: 0
   _autoInteract: 0
   _enableInteraction: 1

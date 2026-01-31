@@ -284,8 +284,16 @@ PrefabInstance:
       value: 1.03
       objectReference: {fileID: 0}
     - target: {fileID: 7416337551860167477, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 28.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416337551860167477, guid: 797bc31feac49404b8221546ed310f04, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416337551860167477, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -590,6 +598,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2097206428930779627, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -70.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2097206428930779627, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -24.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315308623530092922, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+      propertyPath: m_TerrainData
+      value: 
+      objectReference: {fileID: 15600000, guid: 1d1291c77ee674b46b956606fb9844e7, type: 2}
+    - target: {fileID: 3315308623530092922, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+      propertyPath: m_EnableTreeColliders
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3645696290047831676, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.743103
@@ -628,6 +652,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3645696290047831676, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845063694731359992, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+      propertyPath: m_TerrainData
+      value: 
+      objectReference: {fileID: 15600000, guid: 1d1291c77ee674b46b956606fb9844e7, type: 2}
+    - target: {fileID: 6845063694731359992, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+      propertyPath: m_DrawHeightmap
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8794423625747514675, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
