@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class FootIK : MonoBehaviour
 {
@@ -7,9 +8,9 @@ public class FootIK : MonoBehaviour
   public float TotalStepT => _totalStepCount + _stepTAverage;
   public int TotalStepCount => _totalStepCount;
   public int CurrentStepSide => _currentStepSide;
-  public FootInfo[] Feet => _feet;
+  public IReadOnlyList<FootInfo> Feet => _feet;
 
-  [SerializeField] private FootInfo[] _feet = null;
+  [SerializeField] private List<FootInfo> _feet = new();
   [SerializeField] private RangedFloat _footStepThresholdRange = new RangedFloat(0.2f, 0.4f);
   [SerializeField] private RangedFloat _footStepDurationRange = new RangedFloat(0.2f, 0.5f);
   [SerializeField] private int _maxSteppingFeet = 1;
@@ -51,9 +52,19 @@ public class FootIK : MonoBehaviour
     public bool IsStepping;
   }
 
+  public void AddFoot(FootInfo footInfo)
+  {
+    _feet.Add(footInfo);
+  }
+
+  public void ClearFeet()
+  {
+    _feet.Clear();
+  }
+
   private void Awake()
   {
-    for (int i = 0; i < _feet.Length; ++i)
+    for (int i = 0; i < _feet.Count; ++i)
     {
       FootInfo footInfo = _feet[i];
       footInfo.RestPosLocal = footInfo.Root.localPosition;
@@ -84,7 +95,7 @@ public class FootIK : MonoBehaviour
     int nextFootStepIndex = -1;
     float biggestStepDistance = 0;
     int currentSteppingCount = 0;
-    for (int i = 0; i < _feet.Length; ++i)
+    for (int i = 0; i < _feet.Count; ++i)
     {
       FootInfo footInfo = _feet[i];
 
@@ -154,7 +165,7 @@ public class FootIK : MonoBehaviour
 
   private void OnValidate()
   {
-    for (int i = 0; _feet != null && i < _feet.Length; ++i)
+    for (int i = 0; _feet != null && i < _feet.Count; ++i)
     {
       FootInfo footInfo = _feet[i];
       footInfo.Name = footInfo.Root != null ? footInfo.Root.name : "Unassigned Foot";

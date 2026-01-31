@@ -3,6 +3,8 @@ using UnityEngine;
 public class PlayerActorController : MonoBehaviour
 {
   [SerializeField] private ObjectActorController _actor = null;
+  [SerializeField] private LegNoodleController _legPrefab = null;
+  [SerializeField] private GameObject _footPrefab = null;
 
   private void Update()
   {
