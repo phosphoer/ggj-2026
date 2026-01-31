@@ -152,18 +152,18 @@ public class GameController : Singleton<GameController>
   {
     switch (newState)
     {
-    case eGameState.Intro:
-      ShowUI<MainMenuUI>();
-      AudioManager.Instance.PlaySound(MusicTitle);
-      break;
-    case eGameState.Game:
-      SpawnLevel();
-      AudioManager.Instance.PlaySound(MusicGame);
-      break;
-    case eGameState.PostGame:
-      ShowUI<PostGameUI>();
-      AudioManager.Instance.PlaySound(MusicEnd);
-      break;
+      case eGameState.Intro:
+        ShowUI<MainMenuUI>();
+        AudioManager.Instance.PlaySound(MusicTitle);
+        break;
+      case eGameState.Game:
+        SpawnLevel();
+        AudioManager.Instance.PlaySound(MusicGame);
+        break;
+      case eGameState.PostGame:
+        ShowUI<PostGameUI>();
+        AudioManager.Instance.PlaySound(MusicEnd);
+        break;
     }
   }
 
@@ -171,19 +171,19 @@ public class GameController : Singleton<GameController>
   {
     switch (oldState)
     {
-    case eGameState.Intro:
-      HideUI<MainMenuUI>();
-      AudioManager.Instance.StopSound(MusicTitle);
-      break;
-    case eGameState.Game:
-      //HideUI<CountdownTimerUI>();
-      AudioManager.Instance.StopSound(MusicGame);
-      break;
-    case eGameState.PostGame:
-      ClearLevel();
-      HideUI<PostGameUI>();
-      AudioManager.Instance.StopSound(MusicEnd);
-      break;
+      case eGameState.Intro:
+        HideUI<MainMenuUI>();
+        AudioManager.Instance.StopSound(MusicTitle);
+        break;
+      case eGameState.Game:
+        //HideUI<CountdownTimerUI>();
+        AudioManager.Instance.StopSound(MusicGame);
+        break;
+      case eGameState.PostGame:
+        ClearLevel();
+        HideUI<PostGameUI>();
+        AudioManager.Instance.StopSound(MusicEnd);
+        break;
     }
   }
 
@@ -279,7 +279,7 @@ public class GameController : Singleton<GameController>
 
       if (playerSpawnPoint != null)
       {
-        var spawnTransform= playerSpawnPoint.transform;
+        var spawnTransform = playerSpawnPoint.transform;
 
         SpawnPlayerAtLocation(playerIndex, spawnTransform.position, spawnTransform.rotation);
       }

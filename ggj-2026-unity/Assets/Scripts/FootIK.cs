@@ -21,6 +21,12 @@ public class FootIK : MonoBehaviour
     set => _footStepThresholdRange = value;
   }
 
+  public float FootStepHeight
+  {
+    get => _footStepHeight;
+    set => _footStepHeight = value;
+  }
+
   public Vector3 SmoothVelocity => _smoothVelocity;
   public float AverageStepT => _stepTAverage;
   public float TotalStepT => _totalStepCount + _stepTAverage;

@@ -137,7 +137,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 4984817499805943404}
   - component: {fileID: 2147406415660977993}
   m_Layer: 0
-  m_Name: test-possessable
+  m_Name: Prop_Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -227,11 +227,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eca67220b8284170be8ea4b97bd62a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PossessableObject
+  AnimIdleBobScale: 0.05
+  AnimIdleBobSpeed: 3
+  AnimIdleWiggleScale: 5
+  AnimIdleWiggleSpeed: 3
+  MoveSpeed: 3
+  RotateSpeed: 1
   LegThickness: 0.1
   FootSize: 0.1
   FootStepCount: 2
   FootStepDuration: 0.5
   FootStepThreshold: 0.1
+  FootStepHeight: 0.25
   _legSockets:
   - {fileID: 2333532664788984715}
   - {fileID: 2163318184980825821}
