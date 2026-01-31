@@ -285,10 +285,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Cow
       objectReference: {fileID: 0}
-    - target: {fileID: 7516027685762984878, guid: 98946d880a35145ec9de7c60fe989d7f, type: 3}
-      propertyPath: StandHeightOffset
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
