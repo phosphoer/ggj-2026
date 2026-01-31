@@ -33,7 +33,6 @@ public class PlayerActorController : MonoBehaviour
   {
     _playerIndex = playerIndex;
     _playerInput = Rewired.ReInput.players.GetPlayer(playerIndex);
-    //_interaction.RewiredPlayer = _playerInput;
   }
 
   public void SetPlayerColor(string colorName)
@@ -171,7 +170,7 @@ public class PlayerActorController : MonoBehaviour
       possessableTransform.localRotation = Mathfx.Damp(possessableTransform.localRotation, Quaternion.identity, 0.25f, Time.deltaTime);
     }
 
-    if (rewiredPlayer.GetButtonDown(RewiredConsts.Action.Interact))
+    if (_playerInput.GetButtonDown(RewiredConsts.Action.Interact))
     {
       if (_interaction.ClosestInteractable)
       {
@@ -207,16 +206,4 @@ public class PlayerActorController : MonoBehaviour
       PossessObject(possessable);
     }
   }
-
-  // private void OnTriggerEnter(Collider collider)
-  // {
-  //   if (_currentPossessable)
-  //     return;
-
-  //   PossessableObject possessable = collider.GetComponentInParent<PossessableObject>();
-  //   if (possessable)
-  //   {
-  //     PossessObject(possessable);
-  //   }
-  // }
 }
