@@ -96,4 +96,10 @@ public class LevelGenerator : MonoBehaviour
   {
     GenerateLevel(true);
   }
+
+  [ContextMenu("Clear Possessables")]
+  private void EditorClearPossessables()
+  {
+    DestroyLevel(true);
+  }
 }
