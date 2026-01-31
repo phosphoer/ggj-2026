@@ -961,7 +961,7 @@ PrefabInstance:
     - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
       propertyPath: '_farmerSpawns.Array.data[0]'
       value: 
-      objectReference: {fileID: 1045244027}
+      objectReference: {fileID: 0}
     - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
       propertyPath: _possessableSpawns.Array.size
       value: 0
@@ -974,6 +974,10 @@ PrefabInstance:
       propertyPath: '_possessableSpawns.Array.data[1]'
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 960280611689213168, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: _levelManager
+      value: 
+      objectReference: {fileID: 296607019345484481}
     - target: {fileID: 1457427194962030437, guid: 797bc31feac49404b8221546ed310f04, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1040,17 +1044,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 797bc31feac49404b8221546ed310f04, type: 3}
---- !u!114 &1045244027 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1481957687004516002, guid: 797bc31feac49404b8221546ed310f04, type: 3}
-  m_PrefabInstance: {fileID: 1045244024}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d96f8fbccb017964e85570af3c4d1bca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FarmerSpawnPoint
 --- !u!1 &1083874137
 GameObject:
   m_ObjectHideFlags: 0
@@ -1996,6 +1989,17 @@ PrefabInstance:
       addedObject: {fileID: 1988737308}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+--- !u!114 &296607019345484481 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5592746301779933275, guid: 36c9fd8aa8af8af4e8daaaf7d11698f0, type: 3}
+  m_PrefabInstance: {fileID: 296607019345484480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95869248402009249b676374ce1b4023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelGenerator
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
