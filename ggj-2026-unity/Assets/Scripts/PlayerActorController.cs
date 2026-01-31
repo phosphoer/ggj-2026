@@ -6,6 +6,8 @@ public class PlayerActorController : MonoBehaviour
 {
   public float AnimIdleBobScale = 0.05f;
   public float AnimIdleBobSpeed = 3f;
+  public float AnimIdleWiggleScale = 5;
+  public float AnimIdleWiggleSpeed = 1;
 
   public Rewired.Player PlayerInput => _playerInput;
   public int PlayerIndex => _playerIndex;
@@ -53,6 +55,14 @@ public class PlayerActorController : MonoBehaviour
     _currentPossessable = possessable;
     _currentPossessable.transform.parent = _playerVisualRoot;
 
+    _actor.MoveSpeed = _currentPossessable.MoveSpeed;
+    _actor.RotateSpeed = _currentPossessable.RotateSpeed;
+
+    AnimIdleBobScale = _currentPossessable.AnimIdleBobScale;
+    AnimIdleBobSpeed = _currentPossessable.AnimIdleBobSpeed;
+    AnimIdleWiggleScale = _currentPossessable.AnimIdleWiggleScale;
+    AnimIdleWiggleSpeed = _currentPossessable.AnimIdleWiggleSpeed;
+
     Collider[] propColliders = _currentPossessable.GetComponentsInChildren<Collider>();
     foreach (var c in propColliders)
       c.enabled = false;
@@ -74,6 +84,7 @@ public class PlayerActorController : MonoBehaviour
     _footIK.MaxSteppingFeet = _currentPossessable.FootStepCount;
     _footIK.FootStepDuration = new RangedFloat(_currentPossessable.FootStepDuration, _currentPossessable.FootStepDuration * 0.2f);
     _footIK.FootStepThreshold = new RangedFloat(_currentPossessable.FootStepThreshold * 0.5f, _currentPossessable.FootStepThreshold);
+    _footIK.FootStepHeight = _currentPossessable.FootStepHeight;
 
     // Set up feet
     foreach (var legSocket in _currentPossessable.LegSockets)
@@ -160,8 +171,8 @@ public class PlayerActorController : MonoBehaviour
     _animTimer += Time.deltaTime;
     _playerVisualRoot.localPosition = Vector3.up * Mathf.Sin(_animTimer * AnimIdleBobSpeed) * AnimIdleBobScale;
 
-    float targetRot = (_footIK.LeftSideLift + _footIK.RightSideLift) * _footIK.CurrentStepSide;
-    _playerVisualRoot.localRotation = Mathfx.Damp(_playerVisualRoot.localRotation, Quaternion.Euler(0, targetRot * 150, 0), 0.25f, Time.deltaTime * 1);
+    float targetRot = Mathf.Sin(_animTimer * AnimIdleWiggleSpeed) * AnimIdleWiggleScale;
+    _playerVisualRoot.localRotation = Quaternion.Euler(0, targetRot, 0);
 
     if (_currentPossessable)
     {
