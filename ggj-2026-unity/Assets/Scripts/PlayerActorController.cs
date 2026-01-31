@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 public class PlayerActorController : MonoBehaviour
 {
+  public float AnimIdleBobScale = 0.05f;
+  public float AnimIdleBobSpeed = 3f;
+
   [SerializeField] private ObjectActorController _actor = null;
   [SerializeField] private Transform _playerVisualRoot = null;
   [SerializeField] private GameObject _playerVisual = null;
@@ -12,6 +15,7 @@ public class PlayerActorController : MonoBehaviour
 
   private PossessableObject _currentPossessable;
   private List<LegNoodleController> _legs = new();
+  private float _animTimer;
 
   public void PossessObject(PossessableObject possessable)
   {
@@ -61,6 +65,12 @@ public class PlayerActorController : MonoBehaviour
 
     Vector2 targetAxis = new Vector2(horizontalAxis, forwardAxis);
     _actor.MoveAxis = Mathfx.Damp(_actor.MoveAxis, targetAxis, 0.25f, Time.deltaTime * 3);
+
+    _animTimer += Time.deltaTime;
+    _playerVisualRoot.localPosition = Vector3.up * Mathf.Sin(_animTimer * AnimIdleBobSpeed) * AnimIdleBobScale;
+
+    float targetRot = (_footIK.LeftSideLift + _footIK.RightSideLift) * _footIK.CurrentStepSide;
+    _playerVisualRoot.localRotation = Mathfx.Damp(_playerVisualRoot.localRotation, Quaternion.Euler(0, targetRot * 150, 0), 0.25f, Time.deltaTime * 1);
 
     if (_currentPossessable)
     {

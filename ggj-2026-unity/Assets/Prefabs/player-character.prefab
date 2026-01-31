@@ -51,6 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36f8485acc75d48ecb8d8acc8a608372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerActorController
+  AnimIdleBobScale: 0.05
+  AnimIdleBobSpeed: 6
   _actor: {fileID: 5336152264664512036}
   _playerVisualRoot: {fileID: 727708669082882838}
   _playerVisual: {fileID: 8396968982549492615}
