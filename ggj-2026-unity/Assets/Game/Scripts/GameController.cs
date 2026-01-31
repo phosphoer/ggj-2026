@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.FilePathAttribute;
+using UnityEngine.UIElements;
 
 [System.Serializable]
 public struct PlayerColors
@@ -30,14 +32,15 @@ public class GameController : Singleton<GameController>
   [SerializeField] private LevelGenerator _levelManager;
   [SerializeField] private LevelCameraController _cameraController;
   [SerializeField] private PlayerActorController _playerPrefab;
+  [SerializeField] private FarmerController _farmerPrefab;
   [SerializeField] private PlayerColors[] _playerColors = null;
   [SerializeField] private AnimationCurve _riseRateCurve = default;
 
   private bool _isMatchStarted;
   private bool _isInCountdown;
   private bool _isSpawningAllowed;
-  private float _extraRiseRate;
   private List<PlayerActorController> _spawnedPlayers = new List<PlayerActorController>();
+  private FarmerController _spawnedFarmer = null;
   private eGameState _currentGameState = eGameState.None;
 
   public enum eGameState
@@ -226,8 +229,20 @@ public class GameController : Singleton<GameController>
       MainCamera.Instance.CameraStack.PushController(_cameraController);
     }
 
-    // Spawn the level sections
+    // Spawn the level
     _levelManager.GenerateLevel(false);
+
+    // Spawn the farmer
+    SpawnFarmerAtRandomSpawnPoint();
+  }
+
+  void DespawnFarmer()
+  {
+    if (_spawnedFarmer != null)
+    {
+      Destroy(_spawnedFarmer.gameObject);
+      _spawnedFarmer = null;
+    }
   }
 
   void DespawnPlayers()
@@ -238,6 +253,22 @@ public class GameController : Singleton<GameController>
     }
 
     _spawnedPlayers.Clear();
+  }
+
+  void SpawnFarmerAtRandomSpawnPoint()
+  {
+    if (_farmerPrefab != null)
+    {
+      var farmerSpawnPoint = _levelManager.PickFarmerSpawnPoint();
+
+      if (farmerSpawnPoint != null)
+      {
+        var spawnTransform = farmerSpawnPoint.transform;
+        var farmerGO = Instantiate(_farmerPrefab.gameObject, spawnTransform.position, spawnTransform.rotation);
+
+        _spawnedFarmer = farmerGO.GetComponent<FarmerController>();
+      }
+    }
   }
 
   void SpawnPlayerAtSpawnPoint(int playerIndex)
@@ -265,13 +296,6 @@ public class GameController : Singleton<GameController>
     _spawnedPlayers.Add(playerController);
   }
 
-  void DespawnPlayer(PlayerActorController playerController)
-  {
-    _spawnedPlayers.Remove(playerController);
-
-    Destroy(playerController.gameObject);
-  }
-
   private void TriggerCountDown()
   {
     _isInCountdown = true;
@@ -294,6 +318,7 @@ public class GameController : Singleton<GameController>
 
   void ClearLevel()
   {
+    DespawnFarmer();
     DespawnPlayers();
     _cameraController.Reset();
     _levelManager.DestroyLevel(false);

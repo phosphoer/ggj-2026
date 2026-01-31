@@ -59,6 +59,7 @@ MonoBehaviour:
   _levelManager: {fileID: 487953526303555448}
   _cameraController: {fileID: 431138630446024495}
   _playerPrefab: {fileID: 5744845746143887606, guid: 45e9726ae5a1043a5b4996ffdbffcefd, type: 3}
+  _farmerPrefab: {fileID: 2338951115587315654, guid: 6d9cea566f3eb7f4bac7ade1123d8b8b, type: 3}
   _playerColors:
   - ColorName: Red
   - ColorName: Blue
