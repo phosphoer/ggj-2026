@@ -6,13 +6,4 @@ public class PossessableSpawnPoint : MonoBehaviour
 
   [SerializeField] private GameObject _posseessableTemplate;
 
-  void Start()
-  {
-
-  }
-
-  void Update()
-  {
-
-  }
 }
