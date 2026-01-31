@@ -49,7 +49,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectActorController
   MoveAxis: {x: 0, y: 0}
+  LookAxis: {x: 0, y: 0}
   IsSprinting: 0
+  EnableAutoFaceMoveDirection: 0
   Drag: 1
   MoveAirAccel: 5
   MoveAccel: 5
