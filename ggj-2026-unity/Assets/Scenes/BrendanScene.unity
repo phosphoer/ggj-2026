@@ -480,6 +480,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5179629425284172301, guid: 0b00f9c1709417e47b1b3ef9ed7cdb8e, type: 3}
+      propertyPath: _userData.configVars.unityUsePhysicalKeys
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8439505340477703962, guid: 0b00f9c1709417e47b1b3ef9ed7cdb8e, type: 3}
       propertyPath: m_Name
       value: core
