@@ -71,8 +71,9 @@ public class LevelCameraController : CameraControllerDynamic
     }
 
     // Apply adjustment and clamp
-    _currentDistance += distanceAdjustment;
-    _currentDistance = Mathf.Clamp(_currentDistance, _minDistance, _maxDistance);
+    float targetDistance = _currentDistance + distanceAdjustment;
+    targetDistance = Mathf.Clamp(targetDistance, _minDistance, _maxDistance);
+    _currentDistance= Mathfx.Damp(_currentDistance, targetDistance, 0.25f, Time.deltaTime);
 
     // Position the camera along the initial forward direction from the initial position
     Vector3 targetPosition = _initialPosition + _initialForward * _currentDistance;
