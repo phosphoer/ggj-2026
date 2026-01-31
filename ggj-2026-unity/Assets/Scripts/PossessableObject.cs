@@ -3,8 +3,18 @@ using UnityEngine;
 public class PossessableObject : MonoBehaviour
 {
   public Transform[] LegSockets => _legSockets;
+
+  [Header("Idle Animation")]
+  public float AnimIdleBobScale = 0.05f;
+  public float AnimIdleBobSpeed = 3f;
+  public float AnimIdleWiggleScale = 5;
+  public float AnimIdleWiggleSpeed = 1;
+
+  [Header("Movement")]
   public float MoveSpeed = 2;
   public float RotateSpeed = 3;
+
+  [Header("Feet/Leg Config")]
   public float LegThickness = 0.1f;
   public float FootSize = 0.1f;
   public int FootStepCount = 2;
