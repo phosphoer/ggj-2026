@@ -1,20 +1,20 @@
 
 _-_-_-_-_-_-_-_-_-_-_-_-_-_- GHOST:
 T-Pose: 0 <-> 0 (Pose)
-IDLE: 1 <-> 48 (Loop)
-RUN: 49 <-> 72 (Loop)
-POSSESS: 
-EVICTED: 
+IDLE: 		1 <-> 48 (Loop)
+RUN: 		49 <-> 72 (Loop)
+POSSESS: 	
+EVICTED: 	
 
 
 _-_-_-_-_-_-_-_-_-_-_-_-_-_- FARMER:
 T-POSE: 0 <-> 0 (Pose)
-IDLE 
-WALK 
-WALK_SCARED 
-STARTLED 
-SEARCH 
-DAMAGED 
-ATTACK 
-VICTORY 
-FEINT 
+IDLE 		289 <-> 336 (Loop)
+WALK 		193 <-> 240 (Loop)
+WALK_SCARED	241 <-> 288 (Loop)
+STARTLED 		
+SEARCH: 	1 <-> 192 (Loop)
+DAMAGED 	
+ATTACK 		
+VICTORY 	
+FEINT 		
