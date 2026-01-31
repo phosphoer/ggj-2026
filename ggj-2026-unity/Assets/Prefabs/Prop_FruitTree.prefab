@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PossessableObject
   SpookAttackFX: {fileID: 0}
-  StandHeightOffset: 0.25
+  StandHeightOffset: 1
   AnimIdleBobScale: 0.05
   AnimIdleBobSpeed: 3
   AnimIdleWiggleScale: 5
