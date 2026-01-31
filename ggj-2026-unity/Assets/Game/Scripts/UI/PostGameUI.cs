@@ -51,7 +51,7 @@ public class PostGameUI : UIPageBase
 
   public void OnOkClicked()
   {
-    GameController.Instance.SetGameStage(GameController.GameStage.MainMenu);
+    GameController.Instance.SetGameState(GameController.eGameState.Intro);
   }
 
   private void OnShown()

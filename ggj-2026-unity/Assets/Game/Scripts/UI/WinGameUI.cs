@@ -14,6 +14,6 @@ public class WinGameUI : UIPageBase
 
   private void OnShown()
   {
-    WinLabel.text = string.Format("Player {0} killed the farmer!", GameStateManager.Instance.WinningPlayerID + 1);
+    WinLabel.text = string.Format("Player {0} killed the farmer!", GameController.Instance.WinningPlayerID + 1);
   }
 }

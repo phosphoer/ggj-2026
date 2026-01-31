@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1457427194962030437}
   - component: {fileID: 960280611689213168}
-  - component: {fileID: 3611658307801218745}
+  - component: {fileID: 431138630446024495}
+  - component: {fileID: 487953526303555448}
   m_Layer: 0
   m_Name: gameState
   m_TagString: Untagged
@@ -45,14 +46,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4969563d465acb641ac5c27962ff169f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameStateManager
-  EditorDefaultStage: 4
-  GameplayDuration: 300
-  EndCutSceneDuration: 5
-  MusicMenuLoop: {fileID: 0}
-  MusicGameLoop: {fileID: 0}
-  MusicEndLoop: {fileID: 0}
-  MenuCamera: {fileID: 0}
---- !u!114 &3611658307801218745
+  MusicTitle: {fileID: 0}
+  MusicGame: {fileID: 0}
+  MusicEnd: {fileID: 0}
+  WinCountDownTime: 10
+  StartMatchHeight: 5
+  SPTopSpeedupThreshold: 0.25
+  _initialGameState: 2
+  _levelManager: {fileID: 487953526303555448}
+  _cameraController: {fileID: 431138630446024495}
+  _playerPrefab: {fileID: 5744845746143887606, guid: 45e9726ae5a1043a5b4996ffdbffcefd, type: 3}
+  _playerColors:
+  - ColorName: Red
+  - ColorName: Blue
+  - ColorName: Green
+  - ColorName: Yellow
+  _riseRateCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &431138630446024495
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -61,9 +76,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 422541018318296965}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee5fe279cb0d6de438f1c30a6fb1d9b7, type: 3}
+  m_Script: {fileID: 11500000, guid: daf44d9b662f60d40b3bdfb8a5906255, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
-  _playerPrefabs:
-  - {fileID: 6076434876289817097, guid: 1ecc920f146608a4caac6ff586a0f429, type: 3}
-  _spawnPoints: []
+  m_EditorClassIdentifier: Assembly-CSharp::LevelCameraController
+  FieldOfView: 65
+  OrthoSize: 6
+  CameraShakeScalar: 1
+  _mountPoint: {fileID: 0}
+  AxisSensitivty: 1
+  MaxAngle: 5
+  HandheldScale: 1
+--- !u!114 &487953526303555448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422541018318296965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95869248402009249b676374ce1b4023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelGenerator
+  _playerSpawns: []
+  _farmerSpawns: []
+  _possessableSpawns: []
+  _desiredPossessableCount: 30

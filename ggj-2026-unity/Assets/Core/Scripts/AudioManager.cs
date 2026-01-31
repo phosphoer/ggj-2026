@@ -157,7 +157,10 @@ public class AudioManager : Singleton<AudioManager>
   // Play a sound on the global source (multiple simulataneous sounds supported)
   public void PlaySound(SoundBank soundBank, float volumeScale = 1.0f)
   {
-    PlaySound(gameObject, soundBank, volumeScale);
+    if (soundBank != null)
+    {
+      PlaySound(gameObject, soundBank, volumeScale);
+    }
   }
 
   // Play a sound from a specific source, use for spatial sounds or if you want to do things with the 

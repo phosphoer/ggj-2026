@@ -1,10 +1,15 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 public class PlayerActorController : MonoBehaviour
 {
   public float AnimIdleBobScale = 0.05f;
   public float AnimIdleBobSpeed = 3f;
+
+  public Rewired.Player PlayerInput => _playerInput;
+  public int PlayerIndex => _playerIndex;
+  public string PlayerColorName => _playerColorName;
 
   [SerializeField] private ObjectActorController _actor = null;
   [SerializeField] private Transform _playerVisualRoot = null;
@@ -13,9 +18,24 @@ public class PlayerActorController : MonoBehaviour
   [SerializeField] private LegNoodleController _legPrefab = null;
   [SerializeField] private GameObject _footPrefab = null;
 
+  private Rewired.Player _playerInput;
+  private int _playerIndex = -1;
+  private string _playerColorName = "";
   private PossessableObject _currentPossessable;
   private List<LegNoodleController> _legs = new();
   private float _animTimer;
+
+  public void SetPlayerIndex(int playerIndex)
+  {
+    _playerIndex = playerIndex;
+    _playerInput = Rewired.ReInput.players.GetPlayer(playerIndex);
+    //_interaction.RewiredPlayer = _playerInput;
+  }
+
+  public void SetPlayerColor(string colorName)
+  {
+    _playerColorName = colorName;
+  }
 
   public void PossessObject(PossessableObject possessable)
   {
@@ -61,9 +81,15 @@ public class PlayerActorController : MonoBehaviour
 
   private void Update()
   {
-    var rewiredPlayer = Rewired.ReInput.players.GetPlayer(0);
-    float horizontalAxis = rewiredPlayer.GetAxis(RewiredConsts.Action.MoveHorizontal);
-    float forwardAxis = rewiredPlayer.GetAxis(RewiredConsts.Action.MoveForward);
+    if (_playerIndex == -1)
+    {
+      // Local debugging case:
+      // GameController hasn't assigned a player, so just pick the first one
+      SetPlayerIndex(0);
+    }
+
+    float horizontalAxis = _playerInput.GetAxis(RewiredConsts.Action.MoveHorizontal);
+    float forwardAxis = _playerInput.GetAxis(RewiredConsts.Action.MoveForward);
 
     Vector2 inputAxis = new Vector2(horizontalAxis, forwardAxis);
     Vector3 inputAxisCameraLocal = inputAxis.OnXZPlane();
