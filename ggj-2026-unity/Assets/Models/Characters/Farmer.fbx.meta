@@ -63,15 +63,15 @@ ModelImporter:
       name: Idle
       takeName: Take 001
       internalID: -998496362607748373
-      firstFrame: 1
-      lastFrame: 120
+      firstFrame: 289
+      lastFrame: 336
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 1
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -92,15 +92,15 @@ ModelImporter:
       name: Walk
       takeName: Take 001
       internalID: -3291206362154003629
-      firstFrame: 1
-      lastFrame: 120
+      firstFrame: 193
+      lastFrame: 240
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 1
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -121,15 +121,15 @@ ModelImporter:
       name: Walk_Scared
       takeName: Take 001
       internalID: -1493303027246044120
-      firstFrame: 1
-      lastFrame: 120
+      firstFrame: 241
+      lastFrame: 288
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 1
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -180,14 +180,14 @@ ModelImporter:
       takeName: Take 001
       internalID: -4912743690084142542
       firstFrame: 1
-      lastFrame: 120
+      lastFrame: 192
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 1
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
