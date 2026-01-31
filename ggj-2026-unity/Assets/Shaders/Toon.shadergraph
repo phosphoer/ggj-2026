@@ -235,10 +235,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1462.0,
-            "y": 366.0,
+            "x": -1460.5001220703125,
+            "y": 349.0000305175781,
             "width": 208.0,
-            "height": 278.0
+            "height": 278.0000305175781
         }
     },
     "m_Slots": [
@@ -414,7 +414,7 @@
     "m_AllowMaterialOverride": false,
     "m_SurfaceType": 0,
     "m_ZTestMode": 4,
-    "m_ZWriteControl": 0,
+    "m_ZWriteControl": 1,
     "m_AlphaMode": 0,
     "m_RenderFace": 2,
     "m_AlphaClip": false,
@@ -455,7 +455,7 @@
     "m_PerRendererData": false,
     "m_customAttributes": [],
     "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"abc625ee0df73034c86a1cee85e06fe4\",\"type\":3}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "isMainTexture": true,
@@ -1365,8 +1365,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1460.5001220703125,
-            "y": -5.500000953674316,
+            "x": -1460.4998779296875,
+            "y": -14.499993324279786,
             "width": 128.5,
             "height": 33.999996185302737
         }

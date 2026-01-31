@@ -493,7 +493,7 @@
     "m_Group": {
         "m_Id": ""
     },
-    "m_Name": "ApplyDecals",
+    "m_Name": "Apply Decals",
     "m_DrawState": {
         "m_Expanded": false,
         "m_Position": {
@@ -632,6 +632,9 @@
     "m_Guid": {
         "m_GuidSerialized": "4c932254-00d9-4978-9b55-6fc5094b2ee0"
     },
+    "promotedFromAssetID": "",
+    "promotedFromCategoryName": "",
+    "promotedOrdering": -1,
     "m_Name": "AmbientOcclusion",
     "m_DefaultRefNameVersion": 1,
     "m_RefNameGeneratedByDisplayName": "AmbientOcclusion",
@@ -649,6 +652,7 @@
     "m_customAttributes": [],
     "m_Value": 1.0,
     "m_FloatType": 0,
+    "m_LiteralFloatMode": false,
     "m_RangeValues": {
         "x": 0.0,
         "y": 1.0
@@ -700,7 +704,8 @@
     "m_StageCapability": 3,
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
-    "m_Labels": []
+    "m_Labels": [],
+    "m_LiteralMode": false
 }
 
 {
@@ -715,7 +720,8 @@
     "m_StageCapability": 3,
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
-    "m_Labels": []
+    "m_Labels": [],
+    "m_LiteralMode": false
 }
 
 {
@@ -730,7 +736,8 @@
     "m_StageCapability": 3,
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
-    "m_Labels": []
+    "m_Labels": [],
+    "m_LiteralMode": false
 }
 
 {
@@ -745,7 +752,8 @@
     "m_StageCapability": 3,
     "m_Value": 1.0,
     "m_DefaultValue": 0.0,
-    "m_Labels": []
+    "m_Labels": [],
+    "m_LiteralMode": false
 }
 
 {
@@ -760,7 +768,8 @@
     "m_StageCapability": 3,
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
-    "m_Labels": []
+    "m_Labels": [],
+    "m_LiteralMode": false
 }
 
 {
@@ -803,7 +812,8 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_Value": 0.0
+    "m_Value": 0.0,
+    "m_ConstIntMode": false
 }
 
 {
@@ -818,7 +828,8 @@
     "m_StageCapability": 3,
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
-    "m_Labels": []
+    "m_Labels": [],
+    "m_LiteralMode": false
 }
 
 {
@@ -833,7 +844,8 @@
     "m_StageCapability": 3,
     "m_Value": 1.0,
     "m_DefaultValue": 0.0,
-    "m_Labels": []
+    "m_Labels": [],
+    "m_LiteralMode": false
 }
 
 {
@@ -848,7 +860,8 @@
     "m_StageCapability": 3,
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
-    "m_Labels": []
+    "m_Labels": [],
+    "m_LiteralMode": false
 }
 
 {
@@ -899,7 +912,8 @@
     "m_StageCapability": 3,
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
-    "m_Labels": []
+    "m_Labels": [],
+    "m_LiteralMode": false
 }
 
 {
@@ -994,7 +1008,8 @@
     "m_StageCapability": 3,
     "m_Value": 0.5,
     "m_DefaultValue": 0.0,
-    "m_Labels": []
+    "m_Labels": [],
+    "m_LiteralMode": false
 }
 
 {
@@ -1081,7 +1096,8 @@
     "m_StageCapability": 3,
     "m_Value": 1.0,
     "m_DefaultValue": 0.0,
-    "m_Labels": []
+    "m_Labels": [],
+    "m_LiteralMode": false
 }
 
 {
@@ -1119,7 +1135,8 @@
     "m_StageCapability": 3,
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
-    "m_Labels": []
+    "m_Labels": [],
+    "m_LiteralMode": false
 }
 
 {
@@ -1134,7 +1151,8 @@
     "m_StageCapability": 3,
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
-    "m_Labels": []
+    "m_Labels": [],
+    "m_LiteralMode": false
 }
 
 {
@@ -1241,7 +1259,8 @@
     "m_StageCapability": 3,
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
-    "m_Labels": []
+    "m_Labels": [],
+    "m_LiteralMode": false
 }
 
 {
@@ -1251,15 +1270,15 @@
     "m_Group": {
         "m_Id": ""
     },
-    "m_Name": "DebugLighting",
+    "m_Name": "Debug Lighting",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 390.66668701171877,
-            "y": 915.9999389648438,
-            "width": 295.99993896484377,
-            "height": 217.33331298828126
+            "x": 387.0,
+            "y": 919.0,
+            "width": 288.0,
+            "height": 215.0
         }
     },
     "m_Slots": [
@@ -1410,7 +1429,8 @@
     "m_StageCapability": 3,
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
-    "m_Labels": []
+    "m_Labels": [],
+    "m_LiteralMode": false
 }
 
 {
@@ -1425,7 +1445,8 @@
     "m_StageCapability": 3,
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
-    "m_Labels": []
+    "m_Labels": [],
+    "m_LiteralMode": true
 }
 
 {
@@ -1435,6 +1456,9 @@
     "m_Guid": {
         "m_GuidSerialized": "718a43e3-1f38-4717-9aba-f0f8fb5afdc8"
     },
+    "promotedFromAssetID": "",
+    "promotedFromCategoryName": "",
+    "promotedOrdering": -1,
     "m_Name": "Base Color",
     "m_DefaultRefNameVersion": 1,
     "m_RefNameGeneratedByDisplayName": "Base Color",
@@ -1525,7 +1549,8 @@
         "y": 0.0,
         "z": 0.0,
         "w": 0.0
-    }
+    },
+    "m_LiteralMode": false
 }
 
 {
@@ -1549,7 +1574,8 @@
         "y": 0.0,
         "z": 0.0,
         "w": 0.0
-    }
+    },
+    "m_LiteralMode": false
 }
 
 {
@@ -1564,7 +1590,8 @@
     "m_StageCapability": 3,
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
-    "m_Labels": []
+    "m_Labels": [],
+    "m_LiteralMode": false
 }
 
 {
@@ -1622,10 +1649,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -437.33331298828127,
-            "y": 1059.333251953125,
-            "width": 173.99996948242188,
-            "height": 35.9998779296875
+            "x": -435.5,
+            "y": 1059.5,
+            "width": 169.5,
+            "height": 34.0
         }
     },
     "m_Slots": [
@@ -1676,7 +1703,7 @@
     "m_Group": {
         "m_Id": ""
     },
-    "m_Name": "LightToon",
+    "m_Name": "Light Toon",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -1701,6 +1728,9 @@
             "m_Id": "d36bb61158c647cca7a78fa507e76acf"
         },
         {
+            "m_Id": "b597a25f1cb24b9c83fed6407880c9d7"
+        },
+        {
             "m_Id": "071640e5eda64a689297d1b134a70bb5"
         }
     ],
@@ -1717,13 +1747,15 @@
         "5d6ad1cc-e45b-4f15-a3be-3675ac00d956",
         "0e4b64ab-a663-416d-8b63-6d6a46583cb1",
         "68662586-84cf-4f1f-bae3-2945f46cc245",
-        "f91732ea-cc62-40f9-a614-594371974f36"
+        "f91732ea-cc62-40f9-a614-594371974f36",
+        "8492098e-57a1-48d5-947d-0dab9c08d259"
     ],
     "m_PropertyIds": [
         831556504,
         -1804076795,
         663891463,
-        -856130209
+        -856130209,
+        1050159911
     ],
     "m_Dropdowns": [],
     "m_DropdownSelectedEntries": []
@@ -1736,6 +1768,9 @@
     "m_Guid": {
         "m_GuidSerialized": "6eaf9b33-abc4-4a44-82f3-52b810676065"
     },
+    "promotedFromAssetID": "",
+    "promotedFromCategoryName": "",
+    "promotedOrdering": -1,
     "m_Name": "Smoothness",
     "m_DefaultRefNameVersion": 1,
     "m_RefNameGeneratedByDisplayName": "Smoothness",
@@ -1753,6 +1788,7 @@
     "m_customAttributes": [],
     "m_Value": 0.5,
     "m_FloatType": 0,
+    "m_LiteralFloatMode": false,
     "m_RangeValues": {
         "x": 0.0,
         "y": 1.0
@@ -1830,6 +1866,22 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "b597a25f1cb24b9c83fed6407880c9d7",
+    "m_Id": 1050159911,
+    "m_DisplayName": "Steps",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "_Steps",
+    "m_StageCapability": 3,
+    "m_Value": 4.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": [],
+    "m_LiteralMode": false
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "b986326ad9b34d6ea3a7237ba2bd1cd6",
     "m_Group": {
@@ -1871,7 +1923,7 @@
     "m_Group": {
         "m_Id": ""
     },
-    "m_Name": "DebugMaterials",
+    "m_Name": "Debug Materials",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -1974,6 +2026,9 @@
     "m_Guid": {
         "m_GuidSerialized": "8eb882b9-6347-42cd-8cbf-d341cdd48b8d"
     },
+    "promotedFromAssetID": "",
+    "promotedFromCategoryName": "",
+    "promotedOrdering": -1,
     "m_Name": "Emission",
     "m_DefaultRefNameVersion": 1,
     "m_RefNameGeneratedByDisplayName": "Emission",
@@ -2009,7 +2064,8 @@
     "m_StageCapability": 3,
     "m_Value": 0.5,
     "m_DefaultValue": 0.0,
-    "m_Labels": []
+    "m_Labels": [],
+    "m_LiteralMode": false
 }
 
 {
@@ -2024,7 +2080,8 @@
     "m_StageCapability": 3,
     "m_Value": 1.0,
     "m_DefaultValue": 0.0,
-    "m_Labels": []
+    "m_Labels": [],
+    "m_LiteralMode": false
 }
 
 {
@@ -2062,7 +2119,8 @@
     "m_StageCapability": 3,
     "m_Value": 0.5,
     "m_DefaultValue": 0.0,
-    "m_Labels": []
+    "m_Labels": [],
+    "m_LiteralMode": false
 }
 
 {
@@ -2186,7 +2244,8 @@
     "m_StageCapability": 3,
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
-    "m_Labels": []
+    "m_Labels": [],
+    "m_LiteralMode": false
 }
 
 {
@@ -2224,7 +2283,8 @@
     "m_StageCapability": 3,
     "m_Value": 1.0,
     "m_DefaultValue": 0.0,
-    "m_Labels": []
+    "m_Labels": [],
+    "m_LiteralMode": false
 }
 
 {
@@ -2234,6 +2294,9 @@
     "m_Guid": {
         "m_GuidSerialized": "d6a946d5-41cf-43d6-b4a7-66eded6c176a"
     },
+    "promotedFromAssetID": "",
+    "promotedFromCategoryName": "",
+    "promotedOrdering": -1,
     "m_Name": "Alpha",
     "m_DefaultRefNameVersion": 1,
     "m_RefNameGeneratedByDisplayName": "Alpha",
@@ -2251,6 +2314,7 @@
     "m_customAttributes": [],
     "m_Value": 1.0,
     "m_FloatType": 0,
+    "m_LiteralFloatMode": false,
     "m_RangeValues": {
         "x": 0.0,
         "y": 1.0
@@ -2334,7 +2398,8 @@
         "y": 0.0,
         "z": 0.0,
         "w": 0.0
-    }
+    },
+    "m_LiteralMode": false
 }
 
 {
@@ -2344,6 +2409,9 @@
     "m_Guid": {
         "m_GuidSerialized": "cec34e1a-fb90-42a5-830f-1ead68694109"
     },
+    "promotedFromAssetID": "",
+    "promotedFromCategoryName": "",
+    "promotedOrdering": -1,
     "m_Name": "Normal",
     "m_DefaultRefNameVersion": 1,
     "m_RefNameGeneratedByDisplayName": "Normal",
@@ -2402,6 +2470,7 @@
     "m_StageCapability": 3,
     "m_Value": 0.5,
     "m_DefaultValue": 0.0,
-    "m_Labels": []
+    "m_Labels": [],
+    "m_LiteralMode": false
 }
 
