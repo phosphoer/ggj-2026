@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7688372730015314170}
   - component: {fileID: 694956260918204751}
   - component: {fileID: 6441152634549121339}
+  - component: {fileID: 9215027886199151708}
   m_Layer: 7
   m_Name: player-character
   m_TagString: Untagged
@@ -259,6 +260,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionController
   _trackedTransform: {fileID: 2455402990253981667}
+--- !u!114 &9215027886199151708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2406807448321758054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc46ea945960f44b189e9e9f2ffc95c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimator
+  _animator: {fileID: 9189535069046853938}
+  _actor: {fileID: 5336152264664512036}
 --- !u!1 &5700920225036306064
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,5 +605,10 @@ GameObject:
 --- !u!4 &2983605760039422792 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 49730a89e4643e04996e6e3a990378a8, type: 3}
+  m_PrefabInstance: {fileID: 3381460999386754211}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &9189535069046853938 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 49730a89e4643e04996e6e3a990378a8, type: 3}
   m_PrefabInstance: {fileID: 3381460999386754211}
   m_PrefabAsset: {fileID: 0}
