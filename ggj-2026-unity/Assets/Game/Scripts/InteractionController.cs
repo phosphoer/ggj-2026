@@ -11,8 +11,6 @@ public class InteractionController : MonoBehaviour
     set { _trackedTransform = value; }
   }
 
-  public PlayerUI PlayerUI;
-
   public Interactable ClosestInteractable => _closestInteractable;
 
   [SerializeField]
@@ -42,7 +40,7 @@ public class InteractionController : MonoBehaviour
   private void Start()
   {
     //$HACK -- Game specific kludge
-    _ownerPlayer= gameObject.GetComponent<PlayerCharacterController>();
+    _ownerPlayer = gameObject.GetComponent<PlayerCharacterController>();
     //$HACK -- Game specific kludge
   }
 

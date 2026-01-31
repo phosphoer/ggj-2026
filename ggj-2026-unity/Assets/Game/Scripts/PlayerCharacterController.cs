@@ -8,7 +8,6 @@ public class PlayerCharacterController : MonoBehaviour
 
   public CameraControllerStack CameraStack => _cameraStack;
   public CameraControllerPlayer CameraController => _cameraController;
-  public PlayerUI PlayerUI => _playerUI;
   public int PlayerID => _playerID;
   public Transform PlayerHudUIAnchor => _playerHudUIAnchor;
   public InteractableUI PlayerHudPrefab => _playerHudPrefab;
@@ -17,7 +16,6 @@ public class PlayerCharacterController : MonoBehaviour
   public GameCharacterController Character = null;
   public CameraControllerStack CameraStackPrefab = null;
   public CameraControllerPlayer CameraControllerPrefab = null;
-  public PlayerUI PlayerUIPrefab = null;
   public float PlayerHudHeight = 0;
 
   [SerializeField]
@@ -34,7 +32,6 @@ public class PlayerCharacterController : MonoBehaviour
 
   private CameraControllerStack _cameraStack;
   private CameraControllerPlayer _cameraController;
-  private PlayerUI _playerUI;
   private int _playerID = -1;
   private InteractableUI _hudMessageUI;
   private bool _isReady = true;
@@ -56,7 +53,6 @@ public class PlayerCharacterController : MonoBehaviour
     _cameraStack.Camera.cullingMask = _playerWorldLayerMask;
     _cameraStack.UICamera.cullingMask = _playerUILayerMask;
 
-    Character.InteractionController.PlayerUI = _playerUI;
     Character.Slappable.Slapped += OnSlapped;
     Character.OutOfBounds += OnOutOfBounds;
 
@@ -176,12 +172,6 @@ public class PlayerCharacterController : MonoBehaviour
 
   public void ClearHudMessage()
   {
-    if (PlayerUI != null)
-    {
-      //if (_hudMessageUI != null)
-      //  PlayerUI.OnScreenUI.HideItem(_hudMessageUI.transform.parent as RectTransform);
 
-      _hudMessageUI = null;
-    }
   }
 }

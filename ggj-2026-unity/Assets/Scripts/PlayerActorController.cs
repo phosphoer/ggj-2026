@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 public class PlayerActorController : MonoBehaviour
 {
+  public float AnimIdleBobScale = 0.05f;
+  public float AnimIdleBobSpeed = 3f;
+
   [SerializeField] private ObjectActorController _actor = null;
   [SerializeField] private Transform _playerVisualRoot = null;
   [SerializeField] private GameObject _playerVisual = null;
@@ -12,6 +15,7 @@ public class PlayerActorController : MonoBehaviour
 
   private PossessableObject _currentPossessable;
   private List<LegNoodleController> _legs = new();
+  private float _animTimer;
 
   public void PossessObject(PossessableObject possessable)
   {
@@ -29,14 +33,27 @@ public class PlayerActorController : MonoBehaviour
     _currentPossessable = possessable;
     _currentPossessable.transform.parent = _playerVisualRoot;
 
+    Collider[] propColliders = _currentPossessable.GetComponentsInChildren<Collider>();
+    foreach (var c in propColliders)
+      c.enabled = false;
+
+    Rigidbody rb = _currentPossessable.GetComponent<Rigidbody>();
+    if (rb)
+    {
+      rb.isKinematic = true;
+    }
+
     // Set up foot ik info
     _footIK.MaxSteppingFeet = _currentPossessable.FootStepCount;
+    _footIK.FootStepDuration = new RangedFloat(_currentPossessable.FootStepDuration, _currentPossessable.FootStepDuration * 0.2f);
+    _footIK.FootStepThreshold = new RangedFloat(_currentPossessable.FootStepThreshold * 0.5f, _currentPossessable.FootStepThreshold);
 
     // Set up feet
     foreach (var legSocket in _currentPossessable.LegSockets)
     {
       GameObject footObj = Instantiate(_footPrefab, transform);
       footObj.transform.localPosition = _currentPossessable.transform.InverseTransformPoint(legSocket.position).WithY(0);
+      footObj.transform.localScale = Vector3.one * _currentPossessable.FootSize;
 
       FootIK.FootInfo footInfo = default;
       footInfo.Root = footObj.transform;
@@ -46,6 +63,7 @@ public class PlayerActorController : MonoBehaviour
       LegNoodleController leg = Instantiate(_legPrefab, _currentPossessable.transform);
       leg.transform.position = legSocket.position;
       leg.FootTarget = footInfo.Root;
+      leg.LegThickness = _currentPossessable.LegThickness;
       leg.InitializeLeg();
     }
 
@@ -59,8 +77,17 @@ public class PlayerActorController : MonoBehaviour
     float horizontalAxis = rewiredPlayer.GetAxis(RewiredConsts.Action.MoveHorizontal);
     float forwardAxis = rewiredPlayer.GetAxis(RewiredConsts.Action.MoveForward);
 
-    Vector2 targetAxis = new Vector2(horizontalAxis, forwardAxis);
-    _actor.MoveAxis = Mathfx.Damp(_actor.MoveAxis, targetAxis, 0.25f, Time.deltaTime * 3);
+    Vector2 inputAxis = new Vector2(horizontalAxis, forwardAxis);
+    Vector3 inputAxisCameraLocal = inputAxis.OnXZPlane();
+    Vector3 inputAxisWorld = MainCamera.Instance.CachedTransform.TransformDirection(inputAxisCameraLocal);
+    Vector2 inputAxis2D = inputAxisWorld.XZ();
+    _actor.MoveAxis = Mathfx.Damp(_actor.MoveAxis, inputAxis2D, 0.25f, Time.deltaTime * 3);
+
+    _animTimer += Time.deltaTime;
+    _playerVisualRoot.localPosition = Vector3.up * Mathf.Sin(_animTimer * AnimIdleBobSpeed) * AnimIdleBobScale;
+
+    float targetRot = (_footIK.LeftSideLift + _footIK.RightSideLift) * _footIK.CurrentStepSide;
+    _playerVisualRoot.localRotation = Mathfx.Damp(_playerVisualRoot.localRotation, Quaternion.Euler(0, targetRot * 150, 0), 0.25f, Time.deltaTime * 1);
 
     if (_currentPossessable)
     {

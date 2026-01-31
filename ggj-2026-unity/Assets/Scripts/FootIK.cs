@@ -9,11 +9,25 @@ public class FootIK : MonoBehaviour
     set => _maxSteppingFeet = value;
   }
 
+  public RangedFloat FootStepDuration
+  {
+    get => _footStepDurationRange;
+    set => _footStepDurationRange = value;
+  }
+
+  public RangedFloat FootStepThreshold
+  {
+    get => _footStepThresholdRange;
+    set => _footStepThresholdRange = value;
+  }
+
   public Vector3 SmoothVelocity => _smoothVelocity;
   public float AverageStepT => _stepTAverage;
   public float TotalStepT => _totalStepCount + _stepTAverage;
   public int TotalStepCount => _totalStepCount;
   public int CurrentStepSide => _currentStepSide;
+  public float LeftSideLift => _leftSideLift;
+  public float RightSideLift => _rightSideLift;
   public IReadOnlyList<FootInfo> Feet => _feet;
 
   [SerializeField] private List<FootInfo> _feet = new();
@@ -35,6 +49,8 @@ public class FootIK : MonoBehaviour
   private int _totalStepCount;
   private int _currentStepSide;
   private float _smoothStrideT;
+  private float _leftSideLift;
+  private float _rightSideLift;
   private Vector3 _lastPosition;
   private Vector3 _smoothVelocity;
 
@@ -102,6 +118,9 @@ public class FootIK : MonoBehaviour
     _lastPosition = transform.position;
     _smoothStrideT = Mathf.Clamp01(_smoothVelocity.magnitude / _maxStrideSpeed);
 
+    _leftSideLift = 0;
+    _rightSideLift = 0;
+
     int nextFootStepIndex = -1;
     float biggestStepDistance = 0;
     int currentSteppingCount = 0;
@@ -126,6 +145,11 @@ public class FootIK : MonoBehaviour
         float stepHeight = _footStepHeightCurve.Evaluate(smoothT) * _footStepHeight;
         footInfo.WorldPos = Vector3.Lerp(footInfo.StepStartPos, restPosWorldSnapped, smoothT) + Vector3.up * stepHeight;
         footInfo.WorldRot = Quaternion.Slerp(footInfo.StepStartRot, restRotWorld, smoothT);
+
+        if (footInfo.RestPosLocal.x < 0)
+          _leftSideLift = Mathf.Max(_leftSideLift, stepHeight);
+        else
+          _rightSideLift = Mathf.Max(_rightSideLift, stepHeight);
 
         _stepTAverage += footInfo.StepT;
         currentSteppingCount += 1;

@@ -223,20 +223,20 @@ public class GameController : Singleton<GameController>
         }
         break;
 
-		case GameStage.Gameplay:
-		{
-      if (MusicGameLoop != null)
-      {
-        AudioManager.Instance.FadeSound(gameObject, MusicGameLoop, 3.0f);
-      }
+      case GameStage.Gameplay:
+        {
+          if (MusicGameLoop != null)
+          {
+            AudioManager.Instance.FadeSound(gameObject, MusicGameLoop, 3.0f);
+          }
 
-		  // Get rid of any pirate that wasn't assigned to a player
-		  //PlayerManager.Instance.DeactivateUnassignedPirates();
+          // Get rid of any pirate that wasn't assigned to a player
+          //PlayerManager.Instance.DeactivateUnassignedPirates();
 
-		  // Show the game timer UI
-		  ShowUI<GamePlayUI>();
-		}
-		break;
+          // Show the game timer UI
+          ShowUI<GamePlayUI>();
+        }
+        break;
 
       case GameStage.PlayerWinCutscene:
         {
@@ -273,7 +273,7 @@ public class GameController : Singleton<GameController>
 
   public void ShowUI<T>() where T : UIPageBase
   {
-    GameUI GameUI = GameUI.Instance;
+    PlayerUI GameUI = PlayerUI.Instance;
     if (GameUI != null)
     {
       var uiPage = GameUI.GetPage<T>();
@@ -286,7 +286,7 @@ public class GameController : Singleton<GameController>
 
   public void HideUI<T>() where T : UIPageBase
   {
-    GameUI GameUI = GameUI.Instance;
+    PlayerUI GameUI = PlayerUI.Instance;
     if (GameUI != null)
     {
       var uiPage = GameUI.GetPage<T>();
