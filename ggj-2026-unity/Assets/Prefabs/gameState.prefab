@@ -90,6 +90,11 @@ MonoBehaviour:
   AxisSensitivty: 1
   MaxAngle: 5
   HandheldScale: 1
+  _maxIdealViewingAngle: 30
+  _minIdealViewingAngle: 10
+  _minDistance: 0
+  _maxDistance: 50
+  _zoomSpeed: 2
 --- !u!114 &487953526303555448
 MonoBehaviour:
   m_ObjectHideFlags: 0

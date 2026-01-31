@@ -28,6 +28,7 @@ public class PlayerActorController : MonoBehaviour
   private List<LegNoodleController> _legs = new();
   private List<GameObject> _feet = new();
   private float _animTimer;
+  private float _standHeightOffset;
   private bool _possessableWasKinematic;
   private Transform _possessableOriginalParent;
 
@@ -169,7 +170,8 @@ public class PlayerActorController : MonoBehaviour
     _actor.MoveAxis = Mathfx.Damp(_actor.MoveAxis, inputAxis2D, 0.25f, Time.deltaTime * 3);
 
     _animTimer += Time.deltaTime;
-    _playerVisualRoot.localPosition = Vector3.up * Mathf.Sin(_animTimer * AnimIdleBobSpeed) * AnimIdleBobScale;
+    Vector3 posOffset = Vector3.up * _standHeightOffset;
+    _playerVisualRoot.localPosition = Vector3.up * Mathf.Sin(_animTimer * AnimIdleBobSpeed) * AnimIdleBobScale + posOffset;
 
     float targetRot = Mathf.Sin(_animTimer * AnimIdleWiggleSpeed) * AnimIdleWiggleScale;
     _playerVisualRoot.localRotation = Quaternion.Euler(0, targetRot, 0);
@@ -179,6 +181,12 @@ public class PlayerActorController : MonoBehaviour
       Transform possessableTransform = _currentPossessable.transform;
       possessableTransform.localPosition = Mathfx.Damp(possessableTransform.localPosition, Vector3.zero, 0.25f, Time.deltaTime);
       possessableTransform.localRotation = Mathfx.Damp(possessableTransform.localRotation, Quaternion.identity, 0.25f, Time.deltaTime);
+
+      _standHeightOffset = Mathfx.Damp(_standHeightOffset, _currentPossessable.StandHeightOffset, 0.25f, Time.deltaTime);
+    }
+    else
+    {
+      _standHeightOffset = Mathfx.Damp(_standHeightOffset, 0, 0.25f, Time.deltaTime);
     }
 
     if (_playerInput.GetButtonDown(RewiredConsts.Action.Interact))

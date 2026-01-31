@@ -5,6 +5,7 @@ public class PossessableObject : MonoBehaviour
   public Transform[] LegSockets => _legSockets;
 
   [Header("Idle Animation")]
+  public float StandHeightOffset = 0;
   public float AnimIdleBobScale = 0.05f;
   public float AnimIdleBobSpeed = 3f;
   public float AnimIdleWiggleScale = 5;
