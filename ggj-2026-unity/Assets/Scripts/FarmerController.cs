@@ -28,10 +28,37 @@ public class FarmerController : MonoBehaviour
   List<GameObject> shuffledTargets = new List<GameObject>();
   ObjectActorController _actor = null;
 
+  public Animator _animator;
   public GameObject currentTarget = null;
+
+  private static int kLocomotionParameter= Animator.StringToHash("LocomotionParameter");
+  private static int kIsSearching= Animator.StringToHash("IsSearching");
+  private static int kFeintTrigger= Animator.StringToHash("FeintTrigger");
+  private static int kStartledTriggered= Animator.StringToHash("StartledTriggered");
+  private static int kVictoryTrigger= Animator.StringToHash("VictoryTrigger");
+  private static float kIsMovingThreshold= 0.01f;
+
+  private bool _isScared= false;
+  private bool _isMoving= false;
+  private bool _isSearching= false;
+
+  public enum eLocomotionState
+  {
+    idle,
+    walking,
+    walking_scared
+  }
+
+  public enum eEmote
+  {
+    feint,
+    startled,
+    victory
+  }
 
   void Start()
   {
+    
     _actor = GetComponent<ObjectActorController>();
 
     targets = GameObject.FindGameObjectsWithTag("FarmerTarget");
@@ -132,6 +159,94 @@ public class FarmerController : MonoBehaviour
       // if we made it this far, move toward the target
       transform.position += direction * speed * Time.deltaTime;
     }
+
+    SetIsMoving(direction.sqrMagnitude > kIsMovingThreshold * kIsMovingThreshold);
+  }
+
+  private void SetIsMoving(bool isMoving)
+  {
+    if (isMoving != _isMoving)
+    {
+      _isMoving= isMoving;
+      UpdateLocomotionState();
+    }
+  }
+
+  public void SetIsScared(bool isScared)
+  {
+    if (isScared != _isScared)
+    {
+      _isScared = isScared;
+      UpdateLocomotionState();
+    }
+  }
+
+  public void SetIsSearching(bool isSearching)
+  {
+    if (isSearching != _isSearching)
+    {
+      _isSearching= isSearching;
+      SetAnimatorBool(kIsSearching, _isSearching);
+    }
+  }
+
+  private void UpdateLocomotionState()
+  {
+    if (_isMoving)
+    {
+      if (_isScared)
+        SetLocomotionState(eLocomotionState.walking_scared);
+      else
+        SetLocomotionState(eLocomotionState.walking);
+    }
+    else
+    {
+      SetLocomotionState(eLocomotionState.idle);
+    }
+  }
+
+  private void SetLocomotionState(eLocomotionState locomotionState)
+  {
+    float parameter= 0.0f;
+    switch(locomotionState)
+    {
+    case eLocomotionState.idle: parameter = 0.0f; break;
+    case eLocomotionState.walking: parameter = 1.0f; break;
+    case eLocomotionState.walking_scared: parameter = 2.0f; break;
+    }
+
+    SetAnimatorFloat(kLocomotionParameter, parameter);
+  }
+
+  public void PlayEmote(eEmote emote)
+  {
+    switch(emote)
+    {
+    case eEmote.feint:
+      SetAnimatorTrigger(kFeintTrigger);
+      break;
+    case eEmote.startled:
+      SetAnimatorTrigger(kStartledTriggered);
+      break;
+    case eEmote.victory:
+      SetAnimatorTrigger(kVictoryTrigger);
+      break;
+    }
+  }
+
+  private void SetAnimatorTrigger(int triggerId)
+  {
+    _animator.SetTrigger(triggerId);
+  }
+
+  private void SetAnimatorFloat(int parameterId, float value)
+  {
+    _animator.SetFloat(parameterId, value);
+  }
+
+  private void SetAnimatorBool(int parameterId, bool value)
+  {
+    _animator.SetBool(parameterId, value);
   }
 }
 
@@ -180,6 +295,7 @@ public class StartledState : IState
   public void OnEnter(FarmerController controller)
   {
     // Initialize chase state
+    controller.PlayEmote(FarmerController.eEmote.startled);
   }
 
   public void UpdateState(FarmerController controller)
@@ -189,7 +305,6 @@ public class StartledState : IState
 
   public void OnExit(FarmerController controller)
   {
-    // Cleanup chase state
   }
 }
 
