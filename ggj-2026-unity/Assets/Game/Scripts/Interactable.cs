@@ -145,8 +145,11 @@ public class Interactable : MonoBehaviour
   {
     if (_interactionUIAnchor != null)
     {
-      Gizmos.color = Color.white;
+      Gizmos.color = Color.blue;
       Gizmos.DrawWireSphere(transform.position + Vector3.up * _interactionUIHeight, 0.1f);
+
+      Gizmos.color = Color.white;
+      Gizmos.DrawWireSphere(transform.position, _interactionRadius);
     }
   }
 #endif
