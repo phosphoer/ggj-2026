@@ -383,13 +383,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eca67220b8284170be8ea4b97bd62a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PossessableObject
+<<<<<<< HEAD
   StandHeightOffset: 0
+=======
+  StandHeightOffset: 1
+>>>>>>> 0eed85d3a67e1915a65576b9820aee5fe0bc2fe3
   AnimIdleBobScale: 0.05
   AnimIdleBobSpeed: 3
   AnimIdleWiggleScale: 5
   AnimIdleWiggleSpeed: 1
   MoveSpeed: 1
-  RotateSpeed: 0.5
+  RotateSpeed: 0.25
   LegThickness: 0.1
   FootSize: 0.15
   FootStepCount: 1

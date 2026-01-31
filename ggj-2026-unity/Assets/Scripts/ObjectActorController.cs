@@ -18,6 +18,7 @@ public class ObjectActorController : MonoBehaviour, ICharacterController
   public float SprintSpeed = 10;
   public float RotateSpeed = 5;
   public float JumpPower = 1;
+  [Range(0, 1)] public float GroundNormalAlignFactor = 1;
   public float JumpScalableForwardSpeed = 1;
   public float JumpPostGroundingGraceTime = 0f;
   public float JumpPreGroundingGraceTime = 0f;
@@ -53,7 +54,8 @@ public class ObjectActorController : MonoBehaviour, ICharacterController
       Vector3 crossRight = Vector3.Cross(groundNormal, moveDir);
       Vector3 adjustedForward = Vector3.Cross(crossRight, groundNormal);
       Quaternion desiredRot = Quaternion.LookRotation(adjustedForward, groundNormal);
-      // Quaternion desiredRot = Quaternion.LookRotation(moveDir);
+      Quaternion moveRot = Quaternion.LookRotation(moveDir);
+      desiredRot = Quaternion.Slerp(moveRot, desiredRot, GroundNormalAlignFactor);
       currentRotation = Mathfx.Damp(currentRotation, desiredRot, 0.25f, deltaTime * RotateSpeed);
     }
   }
