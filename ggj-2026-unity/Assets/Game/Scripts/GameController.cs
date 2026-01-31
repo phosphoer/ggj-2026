@@ -25,8 +25,6 @@ public class GameController : Singleton<GameController>
   public SoundBank MusicGame;
   public SoundBank MusicEnd;
   public int WinCountDownTime = 10;
-  public float StartMatchHeight = 5;
-  public float SPTopSpeedupThreshold = 0.25f;
 
   [SerializeField] private eGameState _initialGameState = eGameState.Game;
   [SerializeField] private LevelGenerator _levelManager;
@@ -37,7 +35,6 @@ public class GameController : Singleton<GameController>
   [SerializeField] private AnimationCurve _riseRateCurve = default;
 
   private bool _isMatchStarted;
-  private bool _isInCountdown;
   private bool _isSpawningAllowed;
   private List<PlayerActorController> _spawnedPlayers = new List<PlayerActorController>();
   private FarmerController _spawnedFarmer = null;
@@ -101,25 +98,11 @@ public class GameController : Singleton<GameController>
     }
 #endif
 
-    // Win count down
-    if (_isInCountdown)
-    {
-      WinningPlayerCountdownTimer -= Time.deltaTime;
-      if (WinningPlayerCountdownTimer <= 0)
-      {
-        _isInCountdown = false;
-        TriggerPostGame();
-      }
-    }
-
     for (int i = 0; i < _spawnedPlayers.Count; ++i)
     {
       if (!_isMatchStarted)
       {
-        if (_spawnedPlayers[i].transform.position.y > StartMatchHeight)
-        {
           StartMatch();
-        }
       }
     }
 
@@ -296,14 +279,6 @@ public class GameController : Singleton<GameController>
     _spawnedPlayers.Add(playerController);
   }
 
-  private void TriggerCountDown()
-  {
-    _isInCountdown = true;
-    WinningPlayerCountdownTimer = WinCountDownTime;
-
-    //ShowUI<CountdownTimerUI>();
-  }
-
   private void StartMatch()
   {
     _isMatchStarted = true;
@@ -322,13 +297,6 @@ public class GameController : Singleton<GameController>
     DespawnPlayers();
     _cameraController.Reset();
     _levelManager.DestroyLevel(false);
-    _isInCountdown = false;
     MainCamera.Instance.CameraStack.PopController(_cameraController);
-  }
-
-  private void OnDrawGizmos()
-  {
-    Gizmos.color = Color.white;
-    Gizmos.DrawLine(new Vector3(-100, StartMatchHeight, 0), new Vector3(100, StartMatchHeight, 0));
   }
 }
