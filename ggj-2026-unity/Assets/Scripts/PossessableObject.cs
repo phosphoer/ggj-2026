@@ -1,10 +1,31 @@
 using UnityEngine;
 
+public enum SpookAttackType
+{
+  Shoot,
+  Charge,
+}
+
+[System.Serializable]
+public class SpookAttackParams
+{
+  public SpookAttackType Type;
+
+  [Header("Shoot")]
+  public float ShootAttackWidth = 1;
+  public float ShootAttackRange = 3;
+
+  [Header("Charge")]
+  public float ChargeSpeed = 5;
+  public float ChargeDuration = 2;
+}
+
 public class PossessableObject : MonoBehaviour
 {
   public Transform[] LegSockets => _legSockets;
 
   [Header("Spook Attack")]
+  public SpookAttackParams AttackParams = null;
   public ParticleSystem SpookAttackFX = null;
   public Transform SpookAttackRoot = null;
 
