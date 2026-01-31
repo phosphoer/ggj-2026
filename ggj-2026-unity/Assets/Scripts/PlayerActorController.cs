@@ -53,6 +53,7 @@ public class PlayerActorController : MonoBehaviour
     {
       GameObject footObj = Instantiate(_footPrefab, transform);
       footObj.transform.localPosition = _currentPossessable.transform.InverseTransformPoint(legSocket.position).WithY(0);
+      footObj.transform.localScale = Vector3.one * _currentPossessable.FootSize;
 
       FootIK.FootInfo footInfo = default;
       footInfo.Root = footObj.transform;
@@ -62,6 +63,7 @@ public class PlayerActorController : MonoBehaviour
       LegNoodleController leg = Instantiate(_legPrefab, _currentPossessable.transform);
       leg.transform.position = legSocket.position;
       leg.FootTarget = footInfo.Root;
+      leg.LegThickness = _currentPossessable.LegThickness;
       leg.InitializeLeg();
     }
 
