@@ -31,6 +31,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 269857118614488311}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3834505471743985334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6054700829761343563}
+  m_Layer: 0
+  m_Name: interact-root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6054700829761343563
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3834505471743985334}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.284, z: -0.042}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 269857118614488311}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4355515708255977550
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,6 +185,7 @@ GameObject:
   - component: {fileID: 269857118614488311}
   - component: {fileID: 7516027685762984878}
   - component: {fileID: 4423459547633382754}
+  - component: {fileID: 6795762199850863606}
   m_Layer: 0
   m_Name: Prop_Carrot
   m_TagString: Untagged
@@ -177,6 +209,7 @@ Transform:
   - {fileID: 7725665322585178060}
   - {fileID: 5247294176933867653}
   - {fileID: 7176992751024083535}
+  - {fileID: 6054700829761343563}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -68.445, z: -36.864}
 --- !u!114 &7516027685762984878
@@ -226,6 +259,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6795762199850863606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6518306859557908299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49d77b736500b5d40afac4ba1ed0b42f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interactable
+  _interactableUIPrefab: {fileID: 7127637411871555855, guid: 7be408922929a49acaa7ae32a66663e9, type: 3}
+  _interactionUIAnchor: {fileID: 6054700829761343563}
+  _interactionUIHeight: 0.5
+  _interactionText: Possess
+  _interactionRadius: 1.5
+  _requiresLineOfSight: 0
+  _autoInteract: 0
+  _enableInteraction: 1
+  _disableOnInteract: 0
 --- !u!1 &7421315154040654530
 GameObject:
   m_ObjectHideFlags: 0

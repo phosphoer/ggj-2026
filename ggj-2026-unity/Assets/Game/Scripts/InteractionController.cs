@@ -20,10 +20,6 @@ public class InteractionController : MonoBehaviour
   private Interactable _closestInteractable;
   private InteractableUI _interactableUI;
 
-  //$HACK -- Game specific kludge
-  private PlayerCharacterController _ownerPlayer;
-  //$HACK -- Game specific kludge
-
   public void TriggerInteraction()
   {
     if (_closestInteractable != null)
@@ -35,13 +31,6 @@ public class InteractionController : MonoBehaviour
   private void OnDisable()
   {
     SetClosestInteractable(null);
-  }
-
-  private void Start()
-  {
-    //$HACK -- Game specific kludge
-    _ownerPlayer = gameObject.GetComponent<PlayerCharacterController>();
-    //$HACK -- Game specific kludge
   }
 
   private void Update()
@@ -138,24 +127,24 @@ public class InteractionController : MonoBehaviour
 
   private void ShowPrompt(Interactable interactable)
   {
-    //if (PlayerUI != null)
-    //{
-    //  var uiRoot = PlayerUI.OnScreenUI.ShowItem(interactable.InteractionUIAnchor, Vector3.up * interactable.InteractionUIHeight);
-    //  _interactableUI = Instantiate(interactable.InteractableUIPrefab, uiRoot);
-    //  _interactableUI.transform.SetIdentityTransformLocal();
-    //  _interactableUI.InteractionText = interactable.InteractionText;
-    //}
+    if (WorldUIManager.Instance)
+    {
+      var uiRoot = WorldUIManager.Instance.ShowItem(interactable.InteractionUIAnchor, Vector3.up * interactable.InteractionUIHeight);
+      _interactableUI = Instantiate(interactable.InteractableUIPrefab, uiRoot);
+      _interactableUI.transform.SetIdentityTransformLocal();
+      _interactableUI.InteractionText = interactable.InteractionText;
+    }
   }
 
   private void HidePrompt()
   {
-    //if (PlayerUI != null)
-    //{
-    //  if (_interactableUI != null)
-    //    PlayerUI.OnScreenUI.HideItem(_interactableUI.transform.parent as RectTransform);
+    if (WorldUIManager.Instance)
+    {
+      if (_interactableUI != null)
+        WorldUIManager.Instance.HideItem(_interactableUI.transform.parent as RectTransform);
 
-    //  _interactableUI = null;
-    //}
+      _interactableUI = null;
+    }
   }
 
   private bool IsInLineOfSight(Interactable interactable)

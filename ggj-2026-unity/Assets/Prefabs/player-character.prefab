@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1976640222297268944}
   - component: {fileID: 7688372730015314170}
   - component: {fileID: 694956260918204751}
+  - component: {fileID: 6441152634549121339}
   m_Layer: 7
   m_Name: player-character
   m_TagString: Untagged
@@ -37,6 +38,7 @@ Transform:
   m_Children:
   - {fileID: 6631306803756233801}
   - {fileID: 4859691412117686884}
+  - {fileID: 2455402990253981667}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5744845746143887606
@@ -57,6 +59,7 @@ MonoBehaviour:
   _playerVisualRoot: {fileID: 727708669082882838}
   _playerVisual: {fileID: 8396968982549492615}
   _footIK: {fileID: 7688372730015314170}
+  _interaction: {fileID: 6441152634549121339}
   _legPrefab: {fileID: 4487937820184635043, guid: 40daff52233c34fa487aa698d86fdd4c, type: 3}
   _footPrefab: {fileID: 5287424812721548086, guid: 39a290b2c513b4df59c82d878a34d2da, type: 3}
 --- !u!114 &5336152264664512036
@@ -240,6 +243,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6441152634549121339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2406807448321758054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844fb87300114054f989d59b630b93d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionController
+  _trackedTransform: {fileID: 2455402990253981667}
 --- !u!1 &5700920225036306064
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,6 +309,37 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.74
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &6804340217541997904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2455402990253981667}
+  m_Layer: 7
+  m_Name: interaction-root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2455402990253981667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6804340217541997904}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5929995314153875818}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7044169969060253202
 GameObject:
   m_ObjectHideFlags: 0
