@@ -10,6 +10,8 @@ public enum SpookAttackType
 public class SpookAttackParams
 {
   public SpookAttackType Type;
+  public ParticleSystem SpookAttackFX;
+  public Transform SpookAttackRoot;
 
   [Header("Shoot")]
   public float ShootAttackWidth = 1;
@@ -18,6 +20,7 @@ public class SpookAttackParams
   [Header("Charge")]
   public float ChargeSpeed = 5;
   public float ChargeDuration = 2;
+  public float ChargeAttackRadius = 1;
 }
 
 public class PossessableObject : MonoBehaviour
@@ -26,8 +29,6 @@ public class PossessableObject : MonoBehaviour
 
   [Header("Spook Attack")]
   public SpookAttackParams AttackParams = null;
-  public ParticleSystem SpookAttackFX = null;
-  public Transform SpookAttackRoot = null;
 
   [Header("Idle Animation")]
   public float StandHeightOffset = 0;
@@ -39,6 +40,7 @@ public class PossessableObject : MonoBehaviour
   [Header("Movement")]
   public float MoveSpeed = 2;
   public float RotateSpeed = 3;
+  public bool PostPossessKinematicState = false;
 
   [Header("Feet/Leg Config")]
   public float LegThickness = 0.1f;
@@ -62,6 +64,12 @@ public class PossessableObject : MonoBehaviour
           Gizmos.DrawWireSphere(socket.position, 0.05f);
         }
       }
+    }
+
+    if (AttackParams != null && AttackParams.Type == SpookAttackType.Charge)
+    {
+      Gizmos.color = Color.rebeccaPurple;
+      Gizmos.DrawWireSphere(transform.position, AttackParams.ChargeAttackRadius);
     }
   }
 }
