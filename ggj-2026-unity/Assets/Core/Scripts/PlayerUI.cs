@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerUI : UIPageGroup
 {
@@ -10,8 +11,20 @@ public class PlayerUI : UIPageGroup
   [SerializeField]
   private Camera _uiCamera = null;
 
+  [SerializeField]
+  private bool _addUICameraAsOverlay = true;
+
   protected virtual void Awake()
   {
     Instance = this;
+  }
+
+  private void Start()
+  {
+    if (MainCamera.Instance)
+    {
+      var cameraData = MainCamera.Instance.Camera.GetUniversalAdditionalCameraData();
+      cameraData.cameraStack.Add(_uiCamera);
+    }
   }
 }
