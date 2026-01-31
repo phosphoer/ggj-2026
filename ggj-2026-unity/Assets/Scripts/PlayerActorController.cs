@@ -53,6 +53,9 @@ public class PlayerActorController : MonoBehaviour
     _currentPossessable = possessable;
     _currentPossessable.transform.parent = _playerVisualRoot;
 
+    _actor.MoveSpeed = _currentPossessable.MoveSpeed;
+    _actor.RotateSpeed = _currentPossessable.RotateSpeed;
+
     Collider[] propColliders = _currentPossessable.GetComponentsInChildren<Collider>();
     foreach (var c in propColliders)
       c.enabled = false;
@@ -74,6 +77,7 @@ public class PlayerActorController : MonoBehaviour
     _footIK.MaxSteppingFeet = _currentPossessable.FootStepCount;
     _footIK.FootStepDuration = new RangedFloat(_currentPossessable.FootStepDuration, _currentPossessable.FootStepDuration * 0.2f);
     _footIK.FootStepThreshold = new RangedFloat(_currentPossessable.FootStepThreshold * 0.5f, _currentPossessable.FootStepThreshold);
+    _footIK.FootStepHeight = _currentPossessable.FootStepHeight;
 
     // Set up feet
     foreach (var legSocket in _currentPossessable.LegSockets)

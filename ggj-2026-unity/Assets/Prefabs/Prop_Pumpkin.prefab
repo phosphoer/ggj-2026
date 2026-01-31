@@ -239,11 +239,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eca67220b8284170be8ea4b97bd62a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PossessableObject
+  MoveSpeed: 2
+  RotateSpeed: 1
   LegThickness: 0.1
   FootSize: 0.1
   FootStepCount: 2
   FootStepDuration: 0.5
   FootStepThreshold: 0.1
+  FootStepHeight: 0.5
   _legSockets:
   - {fileID: 8243653362273030624}
   - {fileID: 1912063528684368646}
