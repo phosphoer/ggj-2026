@@ -33,6 +33,16 @@ public class PlayerActorController : MonoBehaviour
     _currentPossessable = possessable;
     _currentPossessable.transform.parent = _playerVisualRoot;
 
+    Collider[] propColliders = _currentPossessable.GetComponentsInChildren<Collider>();
+    foreach (var c in propColliders)
+      c.enabled = false;
+
+    Rigidbody rb = _currentPossessable.GetComponent<Rigidbody>();
+    if (rb)
+    {
+      rb.isKinematic = true;
+    }
+
     // Set up foot ik info
     _footIK.MaxSteppingFeet = _currentPossessable.FootStepCount;
     _footIK.FootStepDuration = new RangedFloat(_currentPossessable.FootStepDuration, _currentPossessable.FootStepDuration * 0.2f);
