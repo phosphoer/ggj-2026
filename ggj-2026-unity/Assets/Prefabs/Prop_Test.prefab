@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 4984817499805943404}
   - component: {fileID: 2147406415660977993}
   m_Layer: 0
-  m_Name: test-possessable
+  m_Name: Prop_Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
