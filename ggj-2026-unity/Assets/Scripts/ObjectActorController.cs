@@ -8,7 +8,9 @@ public class ObjectActorController : MonoBehaviour, ICharacterController
   public Vector3 LastAirVelocity => _lastAirVelocity;
 
   public Vector2 MoveAxis;
+  public Vector2 LookAxis;
   public bool IsSprinting;
+  public bool EnableAutoFaceMoveDirection = true;
 
   public float Drag = 1;
   public float MoveAirAccel = 5;
@@ -47,7 +49,10 @@ public class ObjectActorController : MonoBehaviour, ICharacterController
 
   public void UpdateRotation(ref Quaternion currentRotation, float deltaTime)
   {
-    Vector3 moveDir = Motor.Velocity.WithY(0);
+    if (EnableAutoFaceMoveDirection)
+      LookAxis = Motor.Velocity.magnitude > 0 ? Motor.Velocity.WithY(0).XZ() : transform.forward.XZ();
+
+    Vector3 moveDir = LookAxis.OnXZPlane();
     if (moveDir.sqrMagnitude > 0)
     {
       Vector3 groundNormal = Motor.GroundingStatus.GroundNormal;

@@ -12,8 +12,6 @@ public struct PlayerColors
 
 public class GameController : Singleton<GameController>
 {
-  public event System.Action MatchStarted;
-
   public eGameState GameState => _currentGameState;
   public LevelGenerator LevelManager => _levelManager;
   public List<PlayerActorController> SpawnedPlayers => _spawnedPlayers;
@@ -34,7 +32,6 @@ public class GameController : Singleton<GameController>
   [SerializeField] private PlayerColors[] _playerColors = null;
   [SerializeField] private AnimationCurve _riseRateCurve = default;
 
-  private bool _isMatchStarted;
   private bool _isSpawningAllowed;
   private List<PlayerActorController> _spawnedPlayers = new List<PlayerActorController>();
   private FarmerController _spawnedFarmer = null;
@@ -91,20 +88,7 @@ public class GameController : Singleton<GameController>
     {
       TriggerPostGame();
     }
-
-    if (Input.GetKeyDown(KeyCode.L))
-    {
-      StartMatch();
-    }
 #endif
-
-    for (int i = 0; i < _spawnedPlayers.Count; ++i)
-    {
-      if (!_isMatchStarted)
-      {
-          StartMatch();
-      }
-    }
 
     // Iterate over existing rewired players and spawn their character if they press a button
     if (_isSpawningAllowed && !MenuFocus.AnyFocusTaken)
@@ -203,7 +187,6 @@ public class GameController : Singleton<GameController>
 
   void SpawnLevel()
   {
-    _isMatchStarted = false;
     _isSpawningAllowed = true;
 
     // Use the rising game camera
@@ -277,13 +260,6 @@ public class GameController : Singleton<GameController>
     playerController.SetPlayerColor(_playerColors[playerIndex].ColorName);
 
     _spawnedPlayers.Add(playerController);
-  }
-
-  private void StartMatch()
-  {
-    _isMatchStarted = true;
-    _isSpawningAllowed = false;
-    MatchStarted?.Invoke();
   }
 
   private void TriggerPostGame()
