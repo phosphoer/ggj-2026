@@ -15,6 +15,7 @@ public class PlayerActorController : MonoBehaviour
   [SerializeField] private Transform _playerVisualRoot = null;
   [SerializeField] private GameObject _playerVisual = null;
   [SerializeField] private FootIK _footIK = null;
+  [SerializeField] private InteractionController _interaction = null;
   [SerializeField] private LegNoodleController _legPrefab = null;
   [SerializeField] private GameObject _footPrefab = null;
 
@@ -23,7 +24,10 @@ public class PlayerActorController : MonoBehaviour
   private string _playerColorName = "";
   private PossessableObject _currentPossessable;
   private List<LegNoodleController> _legs = new();
+  private List<GameObject> _feet = new();
   private float _animTimer;
+  private bool _possessableWasKinematic;
+  private Transform _possessableOriginalParent;
 
   public void SetPlayerIndex(int playerIndex)
   {
@@ -41,15 +45,12 @@ public class PlayerActorController : MonoBehaviour
   {
     Debug.Log($"Possessing object {possessable.name}");
 
-    // Clear existing possessable
-    _footIK.ClearFeet();
+    _interaction.enabled = false;
 
-    foreach (var leg in _legs)
-      Destroy(leg.gameObject);
-
-    _legs.Clear();
+    ResetLegs();
 
     // Assign new possessable
+    _possessableOriginalParent = possessable.transform.parent;
     _currentPossessable = possessable;
     _currentPossessable.transform.parent = _playerVisualRoot;
 
@@ -60,7 +61,14 @@ public class PlayerActorController : MonoBehaviour
     Rigidbody rb = _currentPossessable.GetComponent<Rigidbody>();
     if (rb)
     {
+      _possessableWasKinematic = rb.isKinematic;
       rb.isKinematic = true;
+    }
+
+    Interactable interactable = _currentPossessable.GetComponent<Interactable>();
+    if (interactable)
+    {
+      interactable.enabled = false;
     }
 
     // Set up foot ik info
@@ -74,6 +82,7 @@ public class PlayerActorController : MonoBehaviour
       GameObject footObj = Instantiate(_footPrefab, transform);
       footObj.transform.localPosition = _currentPossessable.transform.InverseTransformPoint(legSocket.position).WithY(0);
       footObj.transform.localScale = Vector3.one * _currentPossessable.FootSize;
+      _feet.Add(footObj);
 
       FootIK.FootInfo footInfo = default;
       footInfo.Root = footObj.transform;
@@ -85,10 +94,50 @@ public class PlayerActorController : MonoBehaviour
       leg.FootTarget = footInfo.Root;
       leg.LegThickness = _currentPossessable.LegThickness;
       leg.InitializeLeg();
+      _legs.Add(leg);
     }
 
     // Hide player visual
     _playerVisual.SetActive(false);
+  }
+
+  public void StopPossessing()
+  {
+    if (_currentPossessable)
+    {
+      _interaction.enabled = true;
+      ResetLegs();
+      _playerVisual.SetActive(true);
+
+      Collider[] propColliders = _currentPossessable.GetComponentsInChildren<Collider>();
+      foreach (var c in propColliders)
+        c.enabled = true;
+
+      Rigidbody rb = _currentPossessable.GetComponent<Rigidbody>();
+      if (rb)
+      {
+        rb.isKinematic = _possessableWasKinematic;
+      }
+
+      Interactable interactable = _currentPossessable.GetComponent<Interactable>();
+      if (interactable)
+      {
+        interactable.enabled = true;
+      }
+
+      _currentPossessable.transform.parent = _possessableOriginalParent;
+      _currentPossessable = null;
+    }
+  }
+
+  private void OnEnable()
+  {
+    _interaction.InteractionTriggered += OnInteraction;
+  }
+
+  private void OnDisable()
+  {
+    _interaction.InteractionTriggered -= OnInteraction;
   }
 
   private void Update()
@@ -121,17 +170,53 @@ public class PlayerActorController : MonoBehaviour
       possessableTransform.localPosition = Mathfx.Damp(possessableTransform.localPosition, Vector3.zero, 0.25f, Time.deltaTime);
       possessableTransform.localRotation = Mathfx.Damp(possessableTransform.localRotation, Quaternion.identity, 0.25f, Time.deltaTime);
     }
+
+    if (rewiredPlayer.GetButtonDown(RewiredConsts.Action.Interact))
+    {
+      if (_interaction.ClosestInteractable)
+      {
+        Debug.Log($"Interact");
+        _interaction.TriggerInteraction();
+      }
+      else if (_currentPossessable)
+      {
+        StopPossessing();
+      }
+    }
   }
 
-  private void OnTriggerEnter(Collider collider)
+  private void ResetLegs()
   {
-    if (_currentPossessable)
-      return;
+    _footIK.ClearFeet();
 
-    PossessableObject possessable = collider.GetComponentInParent<PossessableObject>();
+    foreach (var foot in _feet)
+      Destroy(foot.gameObject);
+
+    foreach (var leg in _legs)
+      Destroy(leg.gameObject);
+
+    _feet.Clear();
+    _legs.Clear();
+  }
+
+  private void OnInteraction(Interactable interactable)
+  {
+    PossessableObject possessable = interactable.GetComponentInParent<PossessableObject>();
     if (possessable)
     {
       PossessObject(possessable);
     }
   }
+
+  // private void OnTriggerEnter(Collider collider)
+  // {
+  //   if (_currentPossessable)
+  //     return;
+
+  //   PossessableObject possessable = collider.GetComponentInParent<PossessableObject>();
+  //   if (possessable)
+  //   {
+  //     PossessObject(possessable);
+  //   }
+  // }
 }

@@ -98,7 +98,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 828b4d0a2ed8b489b992fbfa46eaf0c9, type: 2}
+  - {fileID: 2100000, guid: 2890f5dbc824d4b1aa1cd8c522cf12c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -186,6 +186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7148143611927659509}
   - component: {fileID: 4984817499805943404}
+  - component: {fileID: 2147406415660977993}
   m_Layer: 0
   m_Name: test-possessable
   m_TagString: Untagged
@@ -226,12 +227,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eca67220b8284170be8ea4b97bd62a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PossessableObject
+  LegThickness: 0.1
+  FootSize: 0.1
   FootStepCount: 2
+  FootStepDuration: 0.5
+  FootStepThreshold: 0.1
   _legSockets:
   - {fileID: 2333532664788984715}
   - {fileID: 2163318184980825821}
   - {fileID: 8512147337642164944}
   - {fileID: 2174052949052259572}
+--- !u!114 &2147406415660977993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2846077458749616251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49d77b736500b5d40afac4ba1ed0b42f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interactable
+  _interactableUIPrefab: {fileID: 7127637411871555855, guid: 7be408922929a49acaa7ae32a66663e9, type: 3}
+  _interactionUIAnchor: {fileID: 5853935543858519123}
+  _interactionUIHeight: 0.5
+  _interactionText: Possess
+  _interactionRadius: 1.5
+  _requiresLineOfSight: 0
+  _autoInteract: 0
+  _enableInteraction: 1
+  _disableOnInteract: 0
 --- !u!1 &3076027991527990880
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,7 +299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5853935543858519123}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: interactable-root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

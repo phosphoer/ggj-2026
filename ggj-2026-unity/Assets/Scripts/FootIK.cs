@@ -85,6 +85,11 @@ public class FootIK : MonoBehaviour
 
   public void ClearFeet()
   {
+    _steppingFeetCount = 0;
+    _totalStepCount = 0;
+    _stepOffsetTimer = 0;
+    _smoothVelocity = Vector3.zero;
+    _smoothStrideT = 0;
     _feet.Clear();
   }
 
