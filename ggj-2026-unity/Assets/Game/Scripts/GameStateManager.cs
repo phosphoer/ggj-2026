@@ -223,17 +223,17 @@ public class GameStateManager : Singleton<GameStateManager>
         }
         break;
 
-		case GameStage.Gameplay:
-		{
-      if (MusicGameLoop != null)
-      {
-        AudioManager.Instance.FadeSound(gameObject, MusicGameLoop, 3.0f);
-      }
+      case GameStage.Gameplay:
+        {
+          if (MusicGameLoop != null)
+          {
+            AudioManager.Instance.FadeSound(gameObject, MusicGameLoop, 3.0f);
+          }
 
-		  // Show the game timer UI
-		  ShowUI<GamePlayUI>();
-		}
-		break;
+          // Show the game timer UI
+          ShowUI<GamePlayUI>();
+        }
+        break;
 
       case GameStage.PlayerWinCutscene:
         {
@@ -345,7 +345,7 @@ public class GameStateManager : Singleton<GameStateManager>
 
   public void ShowUI<T>() where T : UIPageBase
   {
-    GameUI gameUI = GameUI.Instance;
+    PlayerUI gameUI = PlayerUI.Instance;
     if (gameUI != null)
     {
       var uiPage = gameUI.GetPage<T>();
@@ -358,7 +358,7 @@ public class GameStateManager : Singleton<GameStateManager>
 
   public void HideUI<T>() where T : UIPageBase
   {
-    GameUI gameUI = GameUI.Instance;
+    PlayerUI gameUI = PlayerUI.Instance;
     if (gameUI != null)
     {
       var uiPage = gameUI.GetPage<T>();
