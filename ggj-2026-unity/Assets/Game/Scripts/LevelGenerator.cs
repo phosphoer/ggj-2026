@@ -7,12 +7,64 @@ public class LevelGenerator : MonoBehaviour
 {
   [SerializeField] private PlayerSpawnPoint[] _playerSpawns;
   [SerializeField] private FarmerSpawnPoint[] _farmerSpawns;
-  [SerializeField] private PossessableSpawnPoint[] _possessableSpawns;
-  [SerializeField] private int _desiredPossessableCount= 30;
+  [SerializeField] private PossessableSpawnPoint[] _tinyPossessableSpawns;
+  [SerializeField] private int _desiredTinyCount = 1;
+  [SerializeField] private PossessableSpawnPoint[] _smallPossessableSpawns;
+  [SerializeField] private int _desiredSmallCount = 1;
+  [SerializeField] private PossessableSpawnPoint[] _mediumPossessableSpawns;
+  [SerializeField] private int _desiredMediumCount = 1;
+  [SerializeField] private PossessableSpawnPoint[] _largePossessableSpawns;
+  [SerializeField] private int _desiredLargeCount= 1;
+
+  private class ShuffledValues
+  {
+    private int[] _shuffledValues;
+    private int _nextReadIndex;
+
+    public ShuffledValues(int size)
+    {
+      _shuffledValues = new int[size];
+      for (int i = 0; i < _shuffledValues.Length; i++)
+      {
+        _shuffledValues[i] = i;
+      }
+
+      if (size > 1)
+      {
+        // Fisher-Yates shuffle
+        for (var i = 0; i < size - 1; ++i)
+        {
+          var r = UnityEngine.Random.Range(i, size);
+          var tmp = _shuffledValues[i];
+          _shuffledValues[i] = _shuffledValues[r];
+          _shuffledValues[r] = tmp;
+        }
+      }
+
+      _nextReadIndex = 0;
+    }
+
+    public int GetNextValue()
+    {
+      int nextIndex = -1;
+
+      if (_shuffledValues.Length > 0)
+      {
+        nextIndex = _shuffledValues[_nextReadIndex];
+
+        _nextReadIndex = (_nextReadIndex + 1) % _shuffledValues.Length;
+      }
+
+      return nextIndex;
+    }
+  }
 
   private List<PlayerSpawnPoint> _unusedPlayerSpawnPoints;
   private List<FarmerSpawnPoint> _unusedFarmerSpawnPoints;
-  private List<PossessableSpawnPoint> _unusedPossessableSpawnPoints;
+  private ShuffledValues _shuffledTinyPossessableIndices;
+  private ShuffledValues _shuffledSmallPossessableIndices;
+  private ShuffledValues _shuffledMediumPossessableIndices;
+  private ShuffledValues _shuffledLargePossessableIndices;
   private List<GameObject> _spawnedGameObjects;
 
   public void DestroyLevel(bool inEditor)
@@ -43,15 +95,33 @@ public class LevelGenerator : MonoBehaviour
     DestroyLevel(inEditor);
 
     _spawnedGameObjects = new List<GameObject>();
+
     _unusedPlayerSpawnPoints = _playerSpawns.ToList();
     _unusedFarmerSpawnPoints = _farmerSpawns.ToList();
-    _unusedPossessableSpawnPoints = _possessableSpawns.ToList();
 
-    int spawnRemaining= _desiredPossessableCount;
-    while (spawnRemaining > 0 && _unusedPossessableSpawnPoints.Count > 0)
+    // Generate shuffled lists if we haven't already
+    if (_shuffledTinyPossessableIndices == null)
     {
-      var spawner= PickPossessableSpawnPoint();
-      var possessableGO = 
+      _shuffledTinyPossessableIndices = new ShuffledValues(_tinyPossessableSpawns.Length);
+      _shuffledSmallPossessableIndices = new ShuffledValues(_smallPossessableSpawns.Length);
+      _shuffledMediumPossessableIndices = new ShuffledValues(_mediumPossessableSpawns.Length);
+      _shuffledLargePossessableIndices = new ShuffledValues(_largePossessableSpawns.Length);
+    }
+
+    SpawnPossessableObjects(_shuffledTinyPossessableIndices, _tinyPossessableSpawns, _desiredTinyCount);
+    SpawnPossessableObjects(_shuffledSmallPossessableIndices, _smallPossessableSpawns, _desiredSmallCount);
+    SpawnPossessableObjects(_shuffledMediumPossessableIndices, _mediumPossessableSpawns, _desiredMediumCount);
+    SpawnPossessableObjects(_shuffledLargePossessableIndices, _largePossessableSpawns, _desiredLargeCount);
+  }
+
+  private void SpawnPossessableObjects(ShuffledValues shuffledValues, PossessableSpawnPoint[] possessableSpawns, int desiredCount)
+  {
+    int spawnRemaining = Math.Min(desiredCount, possessableSpawns.Length);
+    while (spawnRemaining > 0)
+    {
+      int nextSpawnIndex= shuffledValues.GetNextValue();
+      var spawner = possessableSpawns[nextSpawnIndex];
+      var possessableGO =
         GameObject.Instantiate(
           spawner.PossessableTemplate,
           spawner.transform.position,
@@ -72,10 +142,6 @@ public class LevelGenerator : MonoBehaviour
     return PickSpawnPoint<FarmerSpawnPoint>(_unusedFarmerSpawnPoints);
   }
 
-  public PossessableSpawnPoint PickPossessableSpawnPoint()
-  {
-    return PickSpawnPoint<PossessableSpawnPoint>(_unusedPossessableSpawnPoints);
-  }
 
   public T PickSpawnPoint<T>(List<T> unusedSpawnPoints) where T : MonoBehaviour
   {
