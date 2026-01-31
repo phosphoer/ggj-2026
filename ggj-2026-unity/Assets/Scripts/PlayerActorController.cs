@@ -193,12 +193,20 @@ public class PlayerActorController : MonoBehaviour
     {
       if (_interaction.ClosestInteractable)
       {
-        Debug.Log($"Interact");
         _interaction.TriggerInteraction();
       }
       else if (_currentPossessable)
       {
         StopPossessing();
+      }
+    }
+
+    if (_playerInput.GetButtonDown(RewiredConsts.Action.Attack))
+    {
+      if (_currentPossessable.SpookAttackFX && _currentPossessable.SpookAttackRoot)
+      {
+        ParticleSystem spookFx = Instantiate(_currentPossessable.SpookAttackFX, _currentPossessable.SpookAttackRoot);
+        spookFx.transform.SetIdentityTransformLocal();
       }
     }
   }

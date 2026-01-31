@@ -6,6 +6,7 @@ public class PossessableObject : MonoBehaviour
 
   [Header("Spook Attack")]
   public ParticleSystem SpookAttackFX = null;
+  public Transform SpookAttackRoot = null;
 
   [Header("Idle Animation")]
   public float StandHeightOffset = 0;
