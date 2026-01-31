@@ -270,6 +270,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7559923534252948478}
   - component: {fileID: 5710527674738787719}
+  - component: {fileID: 1725553522927468316}
+  - component: {fileID: 2608212543036010741}
   m_Layer: 5
   m_Name: manager-ui
   m_TagString: Untagged
@@ -310,6 +312,32 @@ MonoBehaviour:
   _pageRoot: {fileID: 8785184493479059322}
   _uiCamera: {fileID: 8511883048754530254}
   _addUICameraAsOverlay: 1
+--- !u!114 &1725553522927468316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4512796975400526323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98652ddc504e54c778c0e61f318a476a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldUIManager
+  _itemTemplate: {fileID: 6143709663610180078}
+  _rootCanvas: {fileID: 4566246995567018774}
+--- !u!114 &2608212543036010741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4512796975400526323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53814c00d91aadd4483c06fa31c4a737, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CanvasFadeManager
 --- !u!1 &5060282366686358542
 GameObject:
   m_ObjectHideFlags: 0
