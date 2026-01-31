@@ -48,6 +48,7 @@ public class FootIK : MonoBehaviour
   [SerializeField] private float _maxFootGroundSnapDist = 20;
   [SerializeField] private float _maxStrideSpeed = 2;
   [SerializeField] private float _footVelocityOffsetScale = 0.2f;
+  [SerializeField] private SoundBank _sfxFootFall = null;
 
   private int _steppingFeetCount = 0;
   private float _stepOffsetTimer;
@@ -170,6 +171,11 @@ public class FootIK : MonoBehaviour
           footInfo.IsStepping = false;
           _steppingFeetCount -= 1;
           _totalStepCount += 1;
+
+          if (_sfxFootFall)
+          {
+            AudioManager.Instance.PlaySound(gameObject, _sfxFootFall);
+          }
         }
       }
       else
