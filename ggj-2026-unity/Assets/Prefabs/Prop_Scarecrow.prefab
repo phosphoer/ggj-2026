@@ -133,6 +133,7 @@ Transform:
   - {fileID: 474999637328133815}
   - {fileID: 3220848246773651213}
   - {fileID: 6376968711367898428}
+  - {fileID: 5777572848542496875}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2387094099516087434
@@ -148,17 +149,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PossessableObject
   AttackParams:
-    Type: 0
-    SpookAttackFX: {fileID: 0}
-    SpookFXRoot: {fileID: 0}
-    SpookAttackRoot: {fileID: 0}
+    Type: 2
+    SpookAttackFX: {fileID: 6839670518580436836, guid: 84470ecb192cd404c819cc608a9b2e1b, type: 3}
+    SpookFXRoot: {fileID: 5777572848542496875}
+    SpookAttackRoot: {fileID: 5777572848542496875}
     ShootAttackWidth: 1
     ShootAttackRange: 3
     ShootRecoil: 5
     ChargeSpeed: 5
     ChargeDuration: 2
     ChargeAttackRadius: 1
-    AOERadius: 3
+    AOERadius: 4.5
   StandHeightOffset: 0.5
   AnimIdleBobScale: 0.32
   AnimIdleBobSpeed: 4.08
@@ -174,8 +175,6 @@ MonoBehaviour:
   FootStepDuration: 0.5
   FootStepThreshold: 0.1
   FootStepHeight: 1.22
-  SFXPossess: {fileID: 11400000, guid: 7d449a1b558c645b6b5a7fd69da3758d, type: 2}
-  SFXDepossess: {fileID: 11400000, guid: 3462049ccdf444bc880b4782fb5b0d8b, type: 2}
   _legSockets:
   - {fileID: 6645024855145557482}
   - {fileID: 7785569692899405556}
@@ -183,6 +182,8 @@ MonoBehaviour:
   - {fileID: 8036617058644638734}
   - {fileID: 474999637328133815}
   - {fileID: 3220848246773651213}
+  SFXPossess: {fileID: 11400000, guid: 7d449a1b558c645b6b5a7fd69da3758d, type: 2}
+  SFXDepossess: {fileID: 11400000, guid: 3462049ccdf444bc880b4782fb5b0d8b, type: 2}
 --- !u!54 &6656023144281736795
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -324,6 +325,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8421738655445934202}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!1 &8655259781328055101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5777572848542496875}
+  m_Layer: 0
+  m_Name: attack-root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5777572848542496875
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8655259781328055101}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.82, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8421738655445934202}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9121818401620361181
 GameObject:
   m_ObjectHideFlags: 0

@@ -249,6 +249,12 @@ public class PlayerActorController : MonoBehaviour
     _spookAttackHitbox.transform.SetIdentityTransformLocal();
     _attackHitboxTimer = 1;
 
+    if (_spookAttackFx)
+    {
+      var fxShape = _spookAttackFx.shape;
+      fxShape.radius = attackParams.AOERadius;
+    }
+
     var collider = _spookAttackHitbox.gameObject.AddComponent<SphereCollider>();
     collider.isTrigger = true;
     collider.radius = attackParams.AOERadius;
