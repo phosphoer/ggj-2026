@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 536422012083581944}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.6344, y: 0.105100036, z: -0.0056129}
+  m_LocalPosition: {x: 1.6344, y: -0.09, z: -0.0056129}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 1799754787897483209}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.24462, y: 0.12050009, z: -0.039277}
+  m_LocalPosition: {x: -0.24462, y: -0.07, z: -0.039277}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -87,7 +87,7 @@ Transform:
   m_GameObject: {fileID: 2115405143996097381}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.33436, y: 0.105100036, z: -0.0056124}
+  m_LocalPosition: {x: 0.33436, y: -0.09, z: -0.0056124}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -183,8 +183,8 @@ Transform:
   m_GameObject: {fileID: 4355515708255977550}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0039687, y: 0.1, z: -0.0083864}
-  m_LocalScale: {x: 1.7071, y: 1.7071, z: 1.7071}
+  m_LocalPosition: {x: -0.0039687, y: -0.1, z: -0.0083864}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 269857118614488311}
@@ -323,7 +323,7 @@ Transform:
   m_GameObject: {fileID: 5200783428375436239}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.98439, y: 0.105100036, z: -0.65565}
+  m_LocalPosition: {x: 0.98439, y: -0.09, z: -0.65565}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -389,8 +389,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PossessableObject
   AttackParams:
     Type: 0
+    FearDamage: 1
     SpookAttackFX: {fileID: 6839670518580436836, guid: 3915724bfa1764c1f90203e0f5869b67, type: 3}
-    SpookAttackSFX: {fileID: 0}
+    SpookAttackSFX: {fileID: 11400000, guid: 1f71c04e909c340119a8e04bcd755d35, type: 2}
     SpookFXRoot: {fileID: 1092562174328480843}
     SpookAttackRoot: {fileID: 1092562174328480843}
     ShootAttackWidth: 3.16
@@ -500,7 +501,7 @@ Transform:
   m_GameObject: {fileID: 7024923449250045721}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.6651, y: 0.12050009, z: -0.039276}
+  m_LocalPosition: {x: -1.6651, y: -0.07, z: -0.039276}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -531,7 +532,7 @@ Transform:
   m_GameObject: {fileID: 7250605652696435333}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.95488, y: 0.12050009, z: -0.74954}
+  m_LocalPosition: {x: -0.95488, y: -0.07, z: -0.74954}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -562,7 +563,7 @@ Transform:
   m_GameObject: {fileID: 7421315154040654530}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.95488, y: 0.12050009, z: 0.67098}
+  m_LocalPosition: {x: -0.95488, y: -0.07, z: 0.67098}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -593,7 +594,7 @@ Transform:
   m_GameObject: {fileID: 7827972194805126861}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.98439, y: 0.105100036, z: 0.64442}
+  m_LocalPosition: {x: 0.98439, y: -0.09, z: 0.64442}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

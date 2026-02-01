@@ -200,7 +200,7 @@ public class AudioManager : Singleton<AudioManager>
 
       // To avoid needing to handle  cases where this returns null due to the sound being culled, we'll do everything normally except
       // actually calling play
-      bool shouldPlay = Time.unscaledTime > info.LastPlayTime + soundBank.MaxPlayInterval;
+      bool shouldPlay = Time.unscaledTime >= info.LastPlayTime + soundBank.MaxPlayInterval;
       if (shouldPlay)
       {
         audioSource.Play();
