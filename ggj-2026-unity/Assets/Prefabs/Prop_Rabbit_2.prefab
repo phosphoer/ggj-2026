@@ -217,37 +217,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6055152695176310489}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8004747928885240941
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8243653362273030624}
-  m_Layer: 0
-  m_Name: leg
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8243653362273030624
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8004747928885240941}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.01, y: 0.042, z: 0.286}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6055152695176310489}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8875918820959913437
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,13 +251,12 @@ Transform:
   m_Children:
   - {fileID: 7904678231948263835}
   - {fileID: 9109697218218084339}
-  - {fileID: 8243653362273030624}
   - {fileID: 1912063528684368646}
-  - {fileID: 3158710644838848231}
-  - {fileID: 329591295135708562}
   - {fileID: 1999430185485607593}
   - {fileID: 4398255515032797080}
   - {fileID: 2959142342055716819}
+  - {fileID: 329591295135708562}
+  - {fileID: 3158710644838848231}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8534716296250183078
@@ -305,8 +273,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PossessableObject
   AttackParams:
     Type: 1
+    FearDamage: 1
     SpookAttackFX: {fileID: 6839670518580436836, guid: b4752a70e8c2148eca1bb9d79aec420a, type: 3}
-    SpookAttackSFX: {fileID: 0}
+    SpookAttackSFX: {fileID: 11400000, guid: 39b287d79ce014d29b74c58bdce03608, type: 2}
     SpookFXRoot: {fileID: 2959142342055716819}
     SpookAttackRoot: {fileID: 2959142342055716819}
     ShootAttackWidth: 1
@@ -333,10 +302,7 @@ MonoBehaviour:
   FootStepThreshold: 0.1
   FootStepHeight: 0.5
   _legSockets:
-  - {fileID: 8243653362273030624}
   - {fileID: 1912063528684368646}
-  - {fileID: 3158710644838848231}
-  - {fileID: 329591295135708562}
   - {fileID: 1999430185485607593}
   SFXPossess: {fileID: 11400000, guid: 7d449a1b558c645b6b5a7fd69da3758d, type: 2}
   SFXDepossess: {fileID: 11400000, guid: 3462049ccdf444bc880b4782fb5b0d8b, type: 2}

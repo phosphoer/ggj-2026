@@ -62,37 +62,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6055152695176310489}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4020508822814769439
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1999430185485607593}
-  m_Layer: 0
-  m_Name: leg (4)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1999430185485607593
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4020508822814769439}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.47, y: 0.8399999, z: 0.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6055152695176310489}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4498716354020307420
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +87,7 @@ Transform:
   m_GameObject: {fileID: 4498716354020307420}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.62, y: 0.8399999, z: 0.01}
+  m_LocalPosition: {x: 0.297, y: 0.17400002, z: -0.316}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -149,38 +118,7 @@ Transform:
   m_GameObject: {fileID: 6640078774481405503}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.07, y: 0.8399999, z: -0.66}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6055152695176310489}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7203224851253296681
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 329591295135708562}
-  m_Layer: 0
-  m_Name: leg (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &329591295135708562
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7203224851253296681}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.65, y: 0.8399999, z: -0.27}
+  m_LocalPosition: {x: -0.405, y: 0.17400002, z: -0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -211,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 8004747928885240941}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1, y: 0.84, z: 0.65}
+  m_LocalPosition: {x: -0.046, y: 0.174, z: 0.435}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -285,8 +223,6 @@ Transform:
   - {fileID: 8243653362273030624}
   - {fileID: 1912063528684368646}
   - {fileID: 3158710644838848231}
-  - {fileID: 329591295135708562}
-  - {fileID: 1999430185485607593}
   - {fileID: 4398255515032797080}
   - {fileID: 8423304623856897698}
   m_Father: {fileID: 0}
@@ -305,8 +241,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PossessableObject
   AttackParams:
     Type: 2
+    FearDamage: 1
     SpookAttackFX: {fileID: 6839670518580436836, guid: a9cc4bf6e2d4444238277bfcb589101f, type: 3}
-    SpookAttackSFX: {fileID: 0}
+    SpookAttackSFX: {fileID: 11400000, guid: f7ec3cb3ff068431688a2518541c4dd0, type: 2}
     SpookFXRoot: {fileID: 8423304623856897698}
     SpookAttackRoot: {fileID: 8423304623856897698}
     ShootAttackWidth: 1
@@ -336,8 +273,8 @@ MonoBehaviour:
   - {fileID: 8243653362273030624}
   - {fileID: 1912063528684368646}
   - {fileID: 3158710644838848231}
-  - {fileID: 329591295135708562}
-  - {fileID: 1999430185485607593}
+  - {fileID: 0}
+  - {fileID: 0}
   SFXPossess: {fileID: 11400000, guid: ec679b7aa4437467c9a40b4c451c5361, type: 2}
   SFXDepossess: {fileID: 11400000, guid: ee60bf2978a4649799be7087082c79fe, type: 2}
 --- !u!54 &4245533315796348343

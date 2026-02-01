@@ -38,6 +38,7 @@ public class GameController : Singleton<GameController>
   private bool _isSpawningAllowed;
   private List<PlayerActorController> _spawnedPlayers = new List<PlayerActorController>();
   private FarmerController _spawnedFarmer = null;
+  public FarmerController Farmer => _spawnedFarmer;
   private eGameState _currentGameState = eGameState.None;
   private List<MaskController> _maskPool = new();
 
@@ -138,6 +139,7 @@ public class GameController : Singleton<GameController>
         break;
       case eGameState.Game:
         SpawnLevel();
+        ShowUI<GamePlayUI>();
         AudioManager.Instance.PlaySound(MusicGame);
         break;
       case eGameState.PostGame:
@@ -156,7 +158,7 @@ public class GameController : Singleton<GameController>
         AudioManager.Instance.StopSound(MusicTitle);
         break;
       case eGameState.Game:
-        //HideUI<CountdownTimerUI>();
+        HideUI<GamePlayUI>();
         AudioManager.Instance.StopSound(MusicGame);
         break;
       case eGameState.PostGame:

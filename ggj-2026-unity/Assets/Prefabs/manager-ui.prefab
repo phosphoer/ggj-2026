@@ -310,6 +310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerUI
   _pagePrefabs:
   - {fileID: 5907318555493027846, guid: 8d3eb00d97de3a14eb1b51b8a45bd96d, type: 3}
+  - {fileID: 2428412803592229, guid: 2ff47a7acb3061045b3a0d3755f7f27c, type: 3}
   _pageRoot: {fileID: 8785184493479059322}
   _uiCamera: {fileID: 8511883048754530254}
   _addUICameraAsOverlay: 1
