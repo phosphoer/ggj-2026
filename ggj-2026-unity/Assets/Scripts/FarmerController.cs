@@ -22,6 +22,7 @@ public class FarmerController : MonoBehaviour
 {
   public float maxHealth = 100;
   public float health = 100;
+  public float rechargeSpeed = 0.5f;
 
   public float speed = 10;
   public float turnSpeed = 45;
@@ -51,17 +52,17 @@ public class FarmerController : MonoBehaviour
   public Animator _animator;
   public GameObject currentTarget = null;
 
-  private static int kLocomotionParameter= Animator.StringToHash("LocomotionParameter");
-  private static int kIsSearching= Animator.StringToHash("IsSearching");
-  private static int kFeintTrigger= Animator.StringToHash("FeintTrigger");
-  private static int kStartledTriggered= Animator.StringToHash("StartledTriggered");
-  private static int kVictoryTrigger= Animator.StringToHash("VictoryTrigger");
+  private static int kLocomotionParameter = Animator.StringToHash("LocomotionParameter");
+  private static int kIsSearching = Animator.StringToHash("IsSearching");
+  private static int kFeintTrigger = Animator.StringToHash("FeintTrigger");
+  private static int kStartledTriggered = Animator.StringToHash("StartledTriggered");
+  private static int kVictoryTrigger = Animator.StringToHash("VictoryTrigger");
   private static int kAttackTrigger = Animator.StringToHash("AttackTrigger");
-  private static float kIsMovingThreshold= 0.01f;
+  private static float kIsMovingThreshold = 0.01f;
 
-  private bool _isScared= false;
-  private bool _isMoving= false;
-  private bool _isSearching= false;
+  private bool _isScared = false;
+  private bool _isMoving = false;
+  private bool _isSearching = false;
 
   public enum eLocomotionState
   {
@@ -184,7 +185,7 @@ public class FarmerController : MonoBehaviour
   {
     if (isMoving != _isMoving)
     {
-      _isMoving= isMoving;
+      _isMoving = isMoving;
       UpdateLocomotionState();
     }
   }
@@ -202,7 +203,7 @@ public class FarmerController : MonoBehaviour
   {
     if (isSearching != _isSearching)
     {
-      _isSearching= isSearching;
+      _isSearching = isSearching;
       SetAnimatorBool(kIsSearching, _isSearching);
     }
   }
@@ -227,12 +228,12 @@ public class FarmerController : MonoBehaviour
 
   private void SetLocomotionState(eLocomotionState locomotionState)
   {
-    float parameter= 0.0f;
-    switch(locomotionState)
+    float parameter = 0.0f;
+    switch (locomotionState)
     {
-    case eLocomotionState.idle: parameter = 0.0f; break;
-    case eLocomotionState.walking: parameter = 1.0f; break;
-    case eLocomotionState.walking_scared: parameter = 2.0f; break;
+      case eLocomotionState.idle: parameter = 0.0f; break;
+      case eLocomotionState.walking: parameter = 1.0f; break;
+      case eLocomotionState.walking_scared: parameter = 2.0f; break;
     }
 
     SetAnimatorFloat(kLocomotionParameter, parameter);
@@ -240,20 +241,20 @@ public class FarmerController : MonoBehaviour
 
   public void PlayEmote(eEmote emote)
   {
-    switch(emote)
+    switch (emote)
     {
-    case eEmote.feint:
-      SetAnimatorTrigger(kFeintTrigger);
-      break;
-    case eEmote.startled:
-      SetAnimatorTrigger(kStartledTriggered);
-      break;
-    case eEmote.victory:
-      SetAnimatorTrigger(kVictoryTrigger);
-      break;
-    case eEmote.attack:
-      SetAnimatorTrigger(kAttackTrigger);
-      break;
+      case eEmote.feint:
+        SetAnimatorTrigger(kFeintTrigger);
+        break;
+      case eEmote.startled:
+        SetAnimatorTrigger(kStartledTriggered);
+        break;
+      case eEmote.victory:
+        SetAnimatorTrigger(kVictoryTrigger);
+        break;
+      case eEmote.attack:
+        SetAnimatorTrigger(kAttackTrigger);
+        break;
     }
   }
 
@@ -298,6 +299,8 @@ public class WalkState : IState
 
   public virtual void UpdateState(FarmerController controller)
   {
+    controller.health = Mathf.Min(controller.maxHealth, controller.health + Time.deltaTime * controller.rechargeSpeed);
+
     // if close to target, change to idle
     float distanceToTarget = Vector3.Distance(controller.currentTarget.transform.position, controller.transform.position);
 
@@ -393,6 +396,8 @@ public class IdleState : IState
       return;
     }
 
+    controller.health = Mathf.Min(controller.maxHealth, controller.health + Time.deltaTime * controller.rechargeSpeed);
+
     if (timeRemaining > 0)
     {
       timeRemaining -= Time.deltaTime;
@@ -455,7 +460,7 @@ public class DamagedState : IState
 
   public void OnEnter(FarmerController controller)
   {
-    timeRemaining = controller.damagedDuration; 
+    timeRemaining = controller.damagedDuration;
     Debug.Log("Farmer State: DAMAGED");
   }
   public void UpdateState(FarmerController controller)
@@ -535,7 +540,7 @@ public class AttackState : IState
 
     if (controller.perceptionObject)
     {
-      List<PlayerActorController> players= controller.perceptionObject.FindVisiblePlayers();
+      List<PlayerActorController> players = controller.perceptionObject.FindVisiblePlayers();
 
       foreach (var player in players)
       {
