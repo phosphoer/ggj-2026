@@ -31,6 +31,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8421738655445934202}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2372256391947118027
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2094905418150497359}
+  m_Layer: 0
+  m_Name: mask-root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2094905418150497359
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2372256391947118027}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -2.72, y: 0.65, z: 0.25}
+  m_LocalScale: {x: 10.04231, y: 10.04231, z: 10.04231}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8421738655445934202}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &2782897219229366416
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,6 +163,7 @@ Transform:
   - {fileID: 2163026278695542689}
   - {fileID: 6376968711367898428}
   - {fileID: 5777572848542496875}
+  - {fileID: 2094905418150497359}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2387094099516087434
@@ -148,6 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PossessableObject
   AttackParams:
     Type: 2
+    FearDamage: 1
     SpookAttackFX: {fileID: 6839670518580436836, guid: 84470ecb192cd404c819cc608a9b2e1b, type: 3}
     SpookAttackSFX: {fileID: 0}
     SpookFXRoot: {fileID: 5777572848542496875}
@@ -159,7 +192,7 @@ MonoBehaviour:
     ChargeDuration: 2
     ChargeAttackRadius: 1
     AOERadius: 4.5
-  MaskRoot: {fileID: 0}
+  MaskRoot: {fileID: 2094905418150497359}
   StandHeightOffset: 1
   AnimIdleBobScale: 0.32
   AnimIdleBobSpeed: 4.08
