@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c345fe0be4353445895a73c7861c323d, type: 3}
-  m_Name: sfx-attack-silo
+  m_Name: sfx-attack-beehive
   m_EditorClassIdentifier: Assembly-CSharp::SoundBank
   AudioClips:
-  - {fileID: 8300000, guid: de0b9480b472e4407b909b437afa0ece, type: 3}
+  - {fileID: 8300000, guid: e0937cef2e8324c249f44ff94bd90f4f, type: 3}
   IsLooping: 0
   IsSpatial: 1
   AllowMultipleSources: 0
