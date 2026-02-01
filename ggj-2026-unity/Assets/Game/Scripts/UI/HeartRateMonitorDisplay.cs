@@ -21,6 +21,14 @@ public class HeartRateMonitorDisplay : MonoBehaviour
   [SerializeField] private Color _lineColor = Color.green;
   [SerializeField] private float _lineWidth = 0.05f;
   [SerializeField] private Material _lineMaterial = null;
+  
+  private GradientColorKey[] _colorKeys;
+  static GradientColorKey[] defaultGradientKeys = new GradientColorKey[]
+    {
+        new GradientColorKey(Color.red, 0f),
+        new GradientColorKey(Color.yellow, 0.5f),
+        new GradientColorKey(Color.green, 1f)
+    };
 
   private LineRenderer _lineRenderer;
   private ECGSignalGenerator _signalGenerator;
@@ -29,9 +37,13 @@ public class HeartRateMonitorDisplay : MonoBehaviour
   private float _targetBPM;
   private bool _isMonitoring = true;
   private FarmerController farmer = null;
+  private Gradient _gradient = null;
 
   private void Awake()
   {
+    _gradient = new Gradient();
+    _gradient.colorKeys = defaultGradientKeys; 
+
     // Initialize signal generator and buffer
     _signalGenerator = new ECGSignalGenerator();
     _signalBuffer = new ECGSignalBuffer(_bufferSize);
@@ -56,8 +68,7 @@ public class HeartRateMonitorDisplay : MonoBehaviour
     _lineRenderer.positionCount = _bufferSize;
 
     // Configure line appearance
-    _lineRenderer.startColor = _lineColor;
-    _lineRenderer.endColor = _lineColor;
+    SetLineColor( _lineColor );
     _lineRenderer.startWidth = _lineWidth;
     _lineRenderer.endWidth = _lineWidth;
 
@@ -75,6 +86,13 @@ public class HeartRateMonitorDisplay : MonoBehaviour
     _lineRenderer.receiveShadows = false;
   }
 
+  private void SetLineColor(Color newColor)
+  {
+    _lineColor = newColor;
+    _lineRenderer.startColor = _lineColor;
+    _lineRenderer.endColor = _lineColor;
+  }
+
   private void LateUpdate()
   {
     if (!_isMonitoring)
@@ -86,9 +104,11 @@ public class HeartRateMonitorDisplay : MonoBehaviour
     if (farmer != null)
     {
       float healthFraction= farmer.health / farmer.maxHealth;
-      float newHR= healthFraction*_minHeartRateBPM + (1.0f - healthFraction)*_maxHeartRateBPM;
+      float newHR= Mathf.Lerp(_minHeartRateBPM, _maxHeartRateBPM, healthFraction);
+      Color newColor = _gradient.Evaluate(healthFraction);;
 
       SetHeartRate(newHR);
+      SetLineColor(newColor);
     }
 
     // Smoothly transition BPM using frame-independent damping
