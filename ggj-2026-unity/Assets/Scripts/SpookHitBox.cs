@@ -10,7 +10,7 @@ public class SpookHitBox : MonoBehaviour
   {
     Debug.Log($"SpookHitBox OnTriggerEnter {c.name}");
 
-    if (_hitConsumed || c.isTrigger)
+    if (_hitConsumed)
       return;
 
     FarmerController farmer = c.GetComponentInParent<FarmerController>();
