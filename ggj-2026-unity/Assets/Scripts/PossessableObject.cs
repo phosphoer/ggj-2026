@@ -10,7 +10,9 @@ public enum SpookAttackType
 [System.Serializable]
 public class SpookAttackParams
 {
+  [Header("General")]
   public SpookAttackType Type;
+  public float FearDamage = 1;
   public ParticleSystem SpookAttackFX;
   public SoundBank SpookAttackSFX;
   public Transform SpookFXRoot;

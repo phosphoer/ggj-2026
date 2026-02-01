@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.FilePathAttribute;
-using UnityEngine.UIElements;
 
 [System.Serializable]
 public struct PlayerColors
@@ -34,12 +32,14 @@ public class GameController : Singleton<GameController>
   [SerializeField] private PlayerActorController _playerPrefab;
   [SerializeField] private FarmerController _farmerPrefab;
   [SerializeField] private PlayerColors[] _playerColors = null;
+  [SerializeField] private MaskController[] _masks = null;
   [SerializeField] private AnimationCurve _riseRateCurve = default;
 
   private bool _isSpawningAllowed;
   private List<PlayerActorController> _spawnedPlayers = new List<PlayerActorController>();
   private FarmerController _spawnedFarmer = null;
   private eGameState _currentGameState = eGameState.None;
+  private List<MaskController> _maskPool = new();
 
   public enum eGameState
   {
@@ -210,6 +210,16 @@ public class GameController : Singleton<GameController>
 
     // Spawn the level
     _levelManager.GenerateLevel(false);
+
+    // Randomize masks
+    _maskPool.Clear();
+    _maskPool.AddRange(_masks);
+    for (int i = 0; i < _playerColors.Length; ++i)
+    {
+      MaskController mask = _maskPool[Random.Range(0, _maskPool.Count)];
+      _playerColors[i].MaskPrefab = mask;
+      _maskPool.Remove(mask);
+    }
 
     // Spawn the farmer
     SpawnFarmerAtRandomSpawnPoint();
