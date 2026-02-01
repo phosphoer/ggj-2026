@@ -20,6 +20,8 @@ public class PlayerActorController : MonoBehaviour
   [SerializeField] private InteractionController _interaction = null;
   [SerializeField] private LegNoodleController _legPrefab = null;
   [SerializeField] private GameObject _footPrefab = null;
+  [SerializeField] private MaskController _maskPrefab = null;
+  [SerializeField] private Transform _maskRoot = null;
   [SerializeField] private SkinnedMeshRenderer _bodyMesh = null;
   [SerializeField] private SkinnedMeshRenderer[] _faceMeshes;
   [SerializeField] private Spring _leanSpring = default;
@@ -40,6 +42,7 @@ public class PlayerActorController : MonoBehaviour
   private Vector2 _chargeDirection;
   private ParticleSystem _spookAttackFx;
   private SpookHitBox _spookAttackHitbox;
+  private MaskController _currentMask;
   private Transform _possessableOriginalParent;
 
   public void SetPlayerIndex(int playerIndex)
@@ -63,6 +66,23 @@ public class PlayerActorController : MonoBehaviour
     }
   }
 
+  public void SetPlayerMaskPrefab(MaskController maskPrefab)
+  {
+    if (_currentMask)
+    {
+      Destroy(_currentMask.gameObject);
+      _currentMask = null;
+    }
+
+    _maskPrefab = maskPrefab;
+
+    if (_maskPrefab)
+    {
+      _currentMask = Instantiate(_maskPrefab, _maskRoot);
+      _currentMask.transform.SetIdentityTransformLocal();
+    }
+  }
+
   public void PossessObject(PossessableObject possessable)
   {
     Debug.Log($"Possessing object {possessable.name}");
@@ -75,6 +95,11 @@ public class PlayerActorController : MonoBehaviour
     _possessableOriginalParent = possessable.transform.parent;
     _currentPossessable = possessable;
     _currentPossessable.transform.parent = _playerVisualRoot;
+
+    if (_maskPrefab)
+    {
+      _currentPossessable.EquipMask(_maskPrefab);
+    }
 
     _actor.MoveSpeed = _currentPossessable.MoveSpeed;
     _actor.RotateSpeed = _currentPossessable.RotateSpeed;
@@ -141,6 +166,8 @@ public class PlayerActorController : MonoBehaviour
       _interaction.enabled = true;
       ResetLegs();
       _playerVisual.SetActive(true);
+
+      _currentPossessable.UnequipMask();
 
       if (_currentPossessable.SFXDepossess)
         AudioManager.Instance.PlaySound(gameObject, _currentPossessable.SFXDepossess);
@@ -240,7 +267,7 @@ public class PlayerActorController : MonoBehaviour
 
     var collider = _spookAttackHitbox.gameObject.AddComponent<BoxCollider>();
     collider.isTrigger = true;
-    collider.size = new Vector3(attackParams.ShootAttackWidth, 10, attackParams.ShootAttackRange);
+    collider.size = new Vector3(attackParams.ShootAttackWidth, attackParams.ShootAttackWidth, attackParams.ShootAttackRange);
     collider.center = Vector3.forward * attackParams.ShootAttackRange * 0.5f;
 
     _leanSpring.Velocity -= attackParams.ShootRecoil;
@@ -263,7 +290,6 @@ public class PlayerActorController : MonoBehaviour
     var collider = _spookAttackHitbox.gameObject.AddComponent<SphereCollider>();
     collider.isTrigger = true;
     collider.radius = attackParams.AOERadius;
-    collider.center = attackParams.SpookAttackRoot.position;
 
     _leanSpring.Velocity -= attackParams.ShootRecoil;
   }

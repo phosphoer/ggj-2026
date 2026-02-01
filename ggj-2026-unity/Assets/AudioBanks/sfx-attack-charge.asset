@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: sfx-attack-charge
   m_EditorClassIdentifier: Assembly-CSharp::SoundBank
   AudioClips:
-  - {fileID: 8300000, guid: 4e59a624bc487494fac8c6d8d467fdd6, type: 3}
+  - {fileID: 8300000, guid: d6acf45e231164325a4a2db9e0ec1ad3, type: 3}
   IsLooping: 0
   IsSpatial: 1
   AllowMultipleSources: 0
