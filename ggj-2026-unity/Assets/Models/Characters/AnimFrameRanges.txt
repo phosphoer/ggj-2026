@@ -3,8 +3,8 @@ _-_-_-_-_-_-_-_-_-_-_-_-_-_- GHOST:
 T-Pose: 0 <-> 0 (Pose)
 IDLE: 		1 <-> 48 (Loop)
 RUN: 		49 <-> 72 (Loop)
-POSSESS: 	
-EVICTED: 	
+POSSESS: 	73 <-> 85 (One Off)
+Depossess: 	86 <-> 109 (One Off)
 
 
 _-_-_-_-_-_-_-_-_-_-_-_-_-_- FARMER:
