@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.075122595, y: -0, z: -0, w: 0.9971744}
   m_LocalPosition: {x: -0.004000634, y: -0.09529996, z: 0.58360153}
-  m_LocalScale: {x: 0.196874, y: 0.16783507, z: 0.098437004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 269857118614488311}
@@ -5075,7 +5075,7 @@ Transform:
   m_GameObject: {fileID: 4470907184964331120}
   serializedVersion: 2
   m_LocalRotation: {x: -0.4869586, y: -0, z: -0, w: 0.8734251}
-  m_LocalPosition: {x: 0, y: 0.609, z: 0.23}
+  m_LocalPosition: {x: 0, y: 0.766, z: 0.327}
   m_LocalScale: {x: 3.4847186, y: 3.4847186, z: 3.4847186}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5284,6 +5284,7 @@ MonoBehaviour:
   - {fileID: 7176992751024083535}
   - {fileID: 8873928532520771303}
   - {fileID: 3360832297463160173}
+  DestroyFX: {fileID: 2291751976532016991, guid: 4c697583cc1bab0468eba3ef33ab6f87, type: 3}
   SFXPossess: {fileID: 11400000, guid: 8baaeecce1486408d85bfed19d379576, type: 2}
   SFXDepossess: {fileID: 11400000, guid: 92e2b978e691c4d2a85b8b03e88082d5, type: 2}
 --- !u!54 &4423459547633382754

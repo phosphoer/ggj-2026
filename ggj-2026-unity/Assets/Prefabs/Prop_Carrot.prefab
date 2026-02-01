@@ -292,7 +292,7 @@ MonoBehaviour:
     Type: 1
     FearDamage: 1
     SpookAttackFX: {fileID: 1253437248862577756, guid: e581f568b086abb4987911b655e5ad8a, type: 3}
-    SpookAttackSFX: {fileID: 0}
+    SpookAttackSFX: {fileID: 11400000, guid: 39b287d79ce014d29b74c58bdce03608, type: 2}
     SpookFXRoot: {fileID: 602808220537237974}
     SpookAttackRoot: {fileID: 602808220537237974}
     ShootAttackWidth: 1
@@ -321,6 +321,7 @@ MonoBehaviour:
   _legSockets:
   - {fileID: 5247294176933867653}
   - {fileID: 7176992751024083535}
+  DestroyFX: {fileID: 2291751976532016991, guid: 4c697583cc1bab0468eba3ef33ab6f87, type: 3}
   SFXPossess: {fileID: 11400000, guid: bcc9c48f089e844548abef2e8321d431, type: 2}
   SFXDepossess: {fileID: 11400000, guid: 5c08b64f7a3dd422ebe189c2761e04a3, type: 2}
 --- !u!54 &4423459547633382754

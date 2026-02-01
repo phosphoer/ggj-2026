@@ -531,6 +531,16 @@ public class AttackState : IState
 
     controller.PlayEmote(FarmerController.eEmote.attack);
 
+
+    if (controller.perceptionObject)
+    {
+      List<PlayerActorController> players= controller.perceptionObject.FindVisiblePlayers();
+
+      foreach (var player in players)
+      {
+        player.EjectPossession();
+      }
+    }
   }
 
   public void UpdateState(FarmerController controller)
