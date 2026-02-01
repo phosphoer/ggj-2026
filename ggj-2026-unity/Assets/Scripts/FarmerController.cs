@@ -99,12 +99,10 @@ public class FarmerController : MonoBehaviour
 
   public void ChangeState(IState newState)
   {
-    //We don't use any exit states right now
-    // but I'm keeping this here in case 
-    //if (currentState != null)
-    //{
-    //  currentState.OnExit(this);
-    //}
+    if (currentState != null)
+    {
+      currentState.OnExit(this);
+    }
     currentState = newState;
     currentState.OnEnter(this);
   }
