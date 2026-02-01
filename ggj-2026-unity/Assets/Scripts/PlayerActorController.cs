@@ -14,6 +14,7 @@ public class PlayerActorController : MonoBehaviour
   public string PlayerColorName => _playerColorName;
 
   [SerializeField] private ObjectActorController _actor = null;
+  [SerializeField] private PlayerAnimator _playerAnimator = null;
   [SerializeField] private Transform _playerVisualRoot = null;
   [SerializeField] private GameObject _playerVisual = null;
   [SerializeField] private FootIK _footIK = null;
@@ -99,6 +100,8 @@ public class PlayerActorController : MonoBehaviour
 
     ResetLegs();
 
+    _playerAnimator.PlayPossess();
+
     // Assign new possessable
     _possessableOriginalParent = possessable.transform.parent;
     _currentPossessable = possessable;
@@ -175,6 +178,7 @@ public class PlayerActorController : MonoBehaviour
       ResetLegs();
       _playerVisual.SetActive(true);
 
+      _playerAnimator.PlayDepossess();
       _currentPossessable.UnequipMask();
 
       if (_currentPossessable.SFXDepossess)

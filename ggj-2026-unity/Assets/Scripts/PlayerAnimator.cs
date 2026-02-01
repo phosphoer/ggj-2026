@@ -6,8 +6,21 @@ public class PlayerAnimator : MonoBehaviour
   [SerializeField] private ObjectActorController _actor = null;
 
   private static readonly int kAnimMoveAmount = Animator.StringToHash("MoveAmount");
+  private static readonly int kAnimPossess = Animator.StringToHash("Possess");
+  private static readonly int kAnimDepossess = Animator.StringToHash("Depossess");
+
 
   private float _moveBlend;
+
+  public void PlayPossess()
+  {
+    _animator.SetTrigger("Possess");
+  }
+
+  public void PlayDepossess()
+  {
+    _animator.SetTrigger("Depossess");
+  }
 
   private void Update()
   {

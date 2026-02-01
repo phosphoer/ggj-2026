@@ -273,8 +273,6 @@ MonoBehaviour:
   - {fileID: 8243653362273030624}
   - {fileID: 1912063528684368646}
   - {fileID: 3158710644838848231}
-  - {fileID: 0}
-  - {fileID: 0}
   SFXPossess: {fileID: 11400000, guid: ec679b7aa4437467c9a40b4c451c5361, type: 2}
   SFXDepossess: {fileID: 11400000, guid: ee60bf2978a4649799be7087082c79fe, type: 2}
 --- !u!54 &4245533315796348343
