@@ -59,8 +59,11 @@ public class FarmerPerceptionComponent : MonoBehaviour
       {
         Vector3 dirToTarget = (target.transform.position - transform.position).normalized;
         float angleToTarget = Vector3.Angle(transform.forward, dirToTarget);
-        
-        visiblePlayers.Add(target);
+
+        if (!target.IsPossessing)
+        {
+          visiblePlayers.Add(target);
+        }
       }
 
       return visiblePlayers;
