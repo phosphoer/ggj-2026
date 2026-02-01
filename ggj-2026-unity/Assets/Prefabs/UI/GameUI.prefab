@@ -51,8 +51,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HeartRateMonitorDisplay
   _heartRateBPM: 60
   _bpmSmoothingSpeed: 0.5
-  _minHeartRateBPM: 30
-  _maxHeartRateBPM: 120
+  _minHeartRateBPM: 10
+  _maxHeartRateBPM: 100
   _bufferSize: 512
   _displayWidth: 300
   _displayHeight: 100
