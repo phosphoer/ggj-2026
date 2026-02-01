@@ -71,7 +71,12 @@ MonoBehaviour:
   - ColorName: Yellow
     BodyColor: {fileID: 2100000, guid: 68bd451d859af374f8bad287eaff350c, type: 2}
     FaceColor: {fileID: 2100000, guid: 62983df0d55535440b6c94114355eb09, type: 2}
-    MaskPrefab: {fileID: -776574324644454278, guid: 2b667ac69760c4fda99147629cf76e59, type: 3}
+    MaskPrefab: {fileID: -776574324644454278, guid: a400194b8171545cd8407d0487a3d76f, type: 3}
+  _masks:
+  - {fileID: -776574324644454278, guid: 2b667ac69760c4fda99147629cf76e59, type: 3}
+  - {fileID: -776574324644454278, guid: 791eb284c79584a569b03912993c50af, type: 3}
+  - {fileID: -776574324644454278, guid: d65875384e39b4157ba5363aa4bce819, type: 3}
+  - {fileID: -776574324644454278, guid: a400194b8171545cd8407d0487a3d76f, type: 3}
   _riseRateCurve:
     serializedVersion: 2
     m_Curve: []

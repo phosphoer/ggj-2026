@@ -136,7 +136,7 @@ public class FarmerController : MonoBehaviour
     shuffledTargets.Remove(currentTarget);
   }
 
-  public void FaceTowards(Vector3 direction)
+  public void FaceTowards(Vector3 direction, float turnSpeed)
   {
     if (_actor != null)
     {
@@ -149,6 +149,7 @@ public class FarmerController : MonoBehaviour
       {
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * turnSpeed); // Smooth rotation
+
       }
     }
   }
@@ -305,7 +306,7 @@ public class WalkState : IState
     Vector3 heading = controller.currentTarget.transform.position - controller.transform.position;
     Vector3 direction = heading.NormalizedSafe();
 
-    controller.FaceTowards(direction);
+    controller.FaceTowards(direction, controller.turnSpeed);
     controller.MoveTowards(direction);
   }
 
@@ -339,8 +340,7 @@ public class StartledState : IState
     Vector3 heading = targetLocation - controller.transform.position;
     Vector3 direction = heading.NormalizedSafe();
 
-    Quaternion targetRotation = Quaternion.LookRotation(direction);
-    controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, targetRotation, Time.deltaTime * controller.startledTurnSpeed); // Smooth rotation
+    controller.FaceTowards(direction, controller.startledTurnSpeed);
   }
 
   public void OnExit(FarmerController controller)
