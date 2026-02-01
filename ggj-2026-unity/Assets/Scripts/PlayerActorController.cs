@@ -36,6 +36,7 @@ public class PlayerActorController : MonoBehaviour
   private bool _isCharging;
   private float _chargeTimer;
   private float _leanAmount;
+  private float _attackHitboxTimer;
   private Vector2 _chargeDirection;
   private ParticleSystem _spookAttackFx;
   private SpookHitBox _spookAttackHitbox;
@@ -185,6 +186,10 @@ public class PlayerActorController : MonoBehaviour
       {
         Shoot();
       }
+      else if (attackParams.Type == SpookAttackType.AOE)
+      {
+        Burst();
+      }
     }
   }
 
@@ -226,11 +231,28 @@ public class PlayerActorController : MonoBehaviour
     _spookAttackHitbox = new GameObject("spook-attack-hitbox").AddComponent<SpookHitBox>();
     _spookAttackHitbox.transform.parent = attackParams.SpookAttackRoot;
     _spookAttackHitbox.transform.SetIdentityTransformLocal();
+    _attackHitboxTimer = 1;
 
     var collider = _spookAttackHitbox.gameObject.AddComponent<BoxCollider>();
     collider.isTrigger = true;
     collider.size = new Vector3(attackParams.ShootAttackWidth, 10, attackParams.ShootAttackRange);
     collider.center = Vector3.forward * attackParams.ShootAttackRange * 0.5f;
+
+    _leanSpring.Velocity -= attackParams.ShootRecoil;
+  }
+
+  private void Burst()
+  {
+    var attackParams = _currentPossessable.AttackParams;
+    _spookAttackHitbox = new GameObject("spook-attack-hitbox").AddComponent<SpookHitBox>();
+    _spookAttackHitbox.transform.parent = attackParams.SpookAttackRoot;
+    _spookAttackHitbox.transform.SetIdentityTransformLocal();
+    _attackHitboxTimer = 1;
+
+    var collider = _spookAttackHitbox.gameObject.AddComponent<SphereCollider>();
+    collider.isTrigger = true;
+    collider.radius = attackParams.AOERadius;
+    collider.center = attackParams.SpookAttackRoot.position;
 
     _leanSpring.Velocity -= attackParams.ShootRecoil;
   }
@@ -275,6 +297,16 @@ public class PlayerActorController : MonoBehaviour
     else
     {
       _attackCooldownTimer -= Time.deltaTime;
+    }
+
+    if (_attackHitboxTimer > 0 && _spookAttackHitbox)
+    {
+      _attackHitboxTimer -= Time.deltaTime;
+      if (_attackHitboxTimer <= 0)
+      {
+        Destroy(_spookAttackHitbox.gameObject);
+        _spookAttackHitbox = null;
+      }
     }
 
     _animTimer += Time.deltaTime;
