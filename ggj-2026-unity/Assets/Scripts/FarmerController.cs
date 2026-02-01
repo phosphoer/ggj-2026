@@ -10,6 +10,8 @@ public interface IState
 {
   void OnEnter(FarmerController controller);
   void UpdateState(FarmerController controller);
+
+  void OnExit(FarmerController controller);
 }
 
 //=======================================================
@@ -25,7 +27,6 @@ public class FarmerController : MonoBehaviour
   public float turnSpeed = 45;
 
   public float minProximityToTarget = 5;
-
 
   public float minIdleTime = 5;
   public float maxIdleTime = 10;
@@ -331,6 +332,7 @@ public class StartledState : IState
 
   public void OnExit(FarmerController controller)
   {
+
   }
 }
 
@@ -367,102 +369,126 @@ public class IdleState : IState
     }
   }
 
-  //-------------------------------------------------------
-  // WALK SCARED
-  //-------------------------------------------------------
-
-  public class WalkScaredState : WalkState
+  public void OnExit(FarmerController controller)
   {
-    float timeRemaining = 5.0f;
 
-    public void OnEnter(FarmerController controller)
-    {
-      Debug.Log("Farmer State: WALKSCARED");
-
-    }
-
-    public void UpdateState(FarmerController controller)
-    {
-      if (timeRemaining > 0)
-      {
-        timeRemaining -= Time.deltaTime;
-        if (timeRemaining < 0)
-        {
-          controller.ChangeState(new WalkState());
-        }
-      }
-    }
-  }
-
-  //-------------------------------------------------------
-  // DAMAGED
-  //-------------------------------------------------------
-
-  public class DamagedState : IState
-  {
-    public void OnEnter(FarmerController controller)
-    {
-      Debug.Log("Farmer State: DAMAGED");
-
-      // take damage
-      // check if faint
-      // if not change state to Search or walk scared?
-    }
-    public void UpdateState(FarmerController controller)
-    {
-      if (controller.health <= 0)
-      {
-        controller.ChangeState(new FaintState());
-      }
-      else
-      {
-        controller.ChangeState(new SearchState());
-      }
-    }
-  }
-
-  //-------------------------------------------------------
-  // FAINT
-  //-------------------------------------------------------
-
-  public class FaintState : IState
-  {
-    public void OnEnter(FarmerController controller)
-    {
-      Debug.Log("Farmer State: FAINT");
-    }
-
-    public void UpdateState(FarmerController controller)
-    {
-      // He's dead Jim
-    }
-  }
-
-  //-------------------------------------------------------
-  // ATTACK
-  //-------------------------------------------------------
-
-  public class AttackState : IState
-  {
-    float timeRemaining = 5.0f;
-    public void OnEnter(FarmerController controller)
-    {
-      Debug.Log("Farmer State: ATTACK");
-    }
-
-    public void UpdateState(FarmerController controller)
-    {
-      if (timeRemaining > 0)
-      {
-        timeRemaining -= Time.deltaTime;
-        if (timeRemaining < 0)
-        {
-          controller.ChangeState(new WalkScaredState());
-        }
-      }
-    }
   }
 }
+
+//-------------------------------------------------------
+// WALK SCARED
+//-------------------------------------------------------
+
+public class WalkScaredState : WalkState
+{
+  float timeRemaining = 5.0f;
+
+  public void OnEnter(FarmerController controller)
+  {
+    Debug.Log("Farmer State: WALKSCARED");
+    controller.SetIsScared(true);
+  }
+
+  public void UpdateState(FarmerController controller)
+  {
+    if (timeRemaining > 0)
+    {
+      timeRemaining -= Time.deltaTime;
+      if (timeRemaining < 0)
+      {
+        controller.ChangeState(new WalkState());
+      }
+    }
+  }
+
+  public void OnExit(FarmerController controller)
+  {
+    controller.SetIsScared(false);
+  }
+}
+
+//-------------------------------------------------------
+// DAMAGED
+//-------------------------------------------------------
+
+public class DamagedState : IState
+{
+  public void OnEnter(FarmerController controller)
+  {
+    Debug.Log("Farmer State: DAMAGED");
+
+    // take damage
+    // check if faint
+    // if not change state to Search or walk scared?
+  }
+  public void UpdateState(FarmerController controller)
+  {
+    if (controller.health <= 0)
+    {
+      controller.ChangeState(new FaintState());
+    }
+    else
+    {
+      controller.ChangeState(new SearchState());
+    }
+  }
+
+  public void OnExit(FarmerController controller)
+  {
+
+  }
+}
+
+//-------------------------------------------------------
+// FAINT
+//-------------------------------------------------------
+
+public class FaintState : IState
+{
+  public void OnEnter(FarmerController controller)
+  {
+    Debug.Log("Farmer State: FAINT");
+  }
+
+  public void UpdateState(FarmerController controller)
+  {
+    // He's dead Jim
+  }
+  public void OnExit(FarmerController controller)
+  {
+
+  }
+}
+
+//-------------------------------------------------------
+// ATTACK
+//-------------------------------------------------------
+
+public class AttackState : IState
+{
+  float timeRemaining = 5.0f;
+  public void OnEnter(FarmerController controller)
+  {
+    Debug.Log("Farmer State: ATTACK");
+  }
+
+  public void UpdateState(FarmerController controller)
+  {
+    if (timeRemaining > 0)
+    {
+      timeRemaining -= Time.deltaTime;
+      if (timeRemaining < 0)
+      {
+        controller.ChangeState(new WalkScaredState());
+      }
+    }
+  }
+  public void OnExit(FarmerController controller)
+  {
+
+  }
+}
+
 
 public class SearchState : IState
 {
@@ -489,5 +515,10 @@ public class SearchState : IState
         controller.ChangeState(new WalkScaredState());
       }
     }
+  }
+
+  public void OnExit(FarmerController controller)
+  {
+
   }
 }
