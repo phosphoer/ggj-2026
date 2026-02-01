@@ -145,11 +145,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da70110497383d4b99f6334489e499c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FarmerController
+  maxHealth: 100
+  health: 100
   speed: 10
   turnSpeed: 45
+  startledTurnSpeed: 50
   minProximityToTarget: 5
   minIdleTime: 5
   maxIdleTime: 10
+  perceptionObject: {fileID: 8102463512470917054}
   _animator: {fileID: 1100442484007578841}
   currentTarget: {fileID: 0}
 --- !u!95 &1100442484007578841
@@ -381,8 +385,36 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -9111297279034050996, guid: 789df6103ffe0cd41bb13c65da5ec8c6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5133309622307976046}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -576819340435710318, guid: 789df6103ffe0cd41bb13c65da5ec8c6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8102463512470917054}
   m_SourcePrefab: {fileID: 100100000, guid: 789df6103ffe0cd41bb13c65da5ec8c6, type: 3}
+--- !u!1 &225260767672492083 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -576819340435710318, guid: 789df6103ffe0cd41bb13c65da5ec8c6, type: 3}
+  m_PrefabInstance: {fileID: 8421432941320765089}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8102463512470917054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225260767672492083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11897145d81ec1d44bd02b55ad61e23a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FarmerPerceptionComponent
+  viewRadius: 10
+  viewAngle: 60
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!4 &8310348409996253514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 789df6103ffe0cd41bb13c65da5ec8c6, type: 3}

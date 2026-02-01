@@ -22,6 +22,7 @@ public class PlayerActorController : MonoBehaviour
   [SerializeField] private GameObject _footPrefab = null;
   [SerializeField] private MaskController _maskPrefab = null;
   [SerializeField] private Transform _maskRoot = null;
+  [SerializeField] private Light _light = null;
   [SerializeField] private SkinnedMeshRenderer _bodyMesh = null;
   [SerializeField] private SkinnedMeshRenderer[] _faceMeshes;
   [SerializeField] private Spring _leanSpring = default;
@@ -55,6 +56,8 @@ public class PlayerActorController : MonoBehaviour
   {
     _playerColorName = colorInfo.ColorName;
 
+    _light.color = colorInfo.BodyColor.color;
+
     if (_bodyMesh != null)
     {
       _bodyMesh.material = colorInfo.BodyColor;
@@ -63,6 +66,11 @@ public class PlayerActorController : MonoBehaviour
     foreach (SkinnedMeshRenderer faceMesh in _faceMeshes)
     {
       faceMesh.material = colorInfo.FaceColor;
+    }
+
+    if (colorInfo.MaskPrefab)
+    {
+      SetPlayerMaskPrefab(colorInfo.MaskPrefab);
     }
   }
 
@@ -222,6 +230,11 @@ public class PlayerActorController : MonoBehaviour
       {
         Burst();
       }
+
+      if (_spookAttackHitbox)
+      {
+        _spookAttackHitbox.Damage = attackParams.FearDamage;
+      }
     }
   }
 
@@ -292,6 +305,11 @@ public class PlayerActorController : MonoBehaviour
     collider.radius = attackParams.AOERadius;
 
     _leanSpring.Velocity -= attackParams.ShootRecoil;
+  }
+
+  private void Awake()
+  {
+    SetPlayerMaskPrefab(_maskPrefab);
   }
 
   private void OnEnable()
