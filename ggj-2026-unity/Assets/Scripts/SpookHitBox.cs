@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class SpookHitBox : MonoBehaviour
 {
+  public float Damage;
+
   private bool _hitConsumed = false;
 
   private void OnTriggerEnter(Collider c)
@@ -16,6 +18,7 @@ public class SpookHitBox : MonoBehaviour
     {
       Debug.Log($"SpookHitBox hit farmer");
       farmer.PlayEmote(FarmerController.eEmote.startled);
+      farmer.health -= Damage;
       _hitConsumed = true;
     }
   }

@@ -227,6 +227,11 @@ public class PlayerActorController : MonoBehaviour
       {
         Burst();
       }
+
+      if (_spookAttackHitbox)
+      {
+        _spookAttackHitbox.Damage = attackParams.FearDamage;
+      }
     }
   }
 
