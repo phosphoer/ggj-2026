@@ -19,6 +19,7 @@ public class SpookHitBox : MonoBehaviour
       Debug.Log($"SpookHitBox hit farmer");
       farmer.PlayEmote(FarmerController.eEmote.startled);
       farmer.health -= Damage;
+      farmer.ChangeState(new DamagedState());
 
       var gameUI = PlayerUI.Instance.GetPage<GamePlayUI>();
       gameUI.HeartRateUI.SetTempHeartRate(100);
