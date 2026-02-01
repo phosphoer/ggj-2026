@@ -4,6 +4,7 @@ public enum SpookAttackType
 {
   Shoot,
   Charge,
+  AOE,
 }
 
 [System.Serializable]
@@ -23,6 +24,9 @@ public class SpookAttackParams
   public float ChargeSpeed = 5;
   public float ChargeDuration = 2;
   public float ChargeAttackRadius = 1;
+
+  [Header("AOE")]
+  public float AOERadius = 3;
 }
 
 public class PossessableObject : MonoBehaviour
@@ -80,6 +84,14 @@ public class PossessableObject : MonoBehaviour
       Gizmos.color = Color.red;
       Gizmos.matrix = AttackParams.SpookAttackRoot.localToWorldMatrix;
       Gizmos.DrawWireCube(Vector3.forward * AttackParams.ShootAttackRange * 0.5f, new Vector3(AttackParams.ShootAttackWidth, AttackParams.ShootAttackWidth, AttackParams.ShootAttackRange));
+      Gizmos.matrix = Matrix4x4.identity;
+    }
+
+    if (AttackParams != null && AttackParams.Type == SpookAttackType.AOE && AttackParams.SpookAttackRoot)
+    {
+      Gizmos.color = Color.red;
+      Gizmos.matrix = AttackParams.SpookAttackRoot.localToWorldMatrix;
+      GizmosEx.DrawCircle(Vector3.zero, Vector3.up, AttackParams.AOERadius);
       Gizmos.matrix = Matrix4x4.identity;
     }
   }
