@@ -325,6 +325,7 @@ MonoBehaviour:
   - {fileID: 157496097685243420}
   - {fileID: 1077019810032711597}
   - {fileID: 6136153821127825909}
+  DestroyFX: {fileID: 4077509742548136707, guid: f2fd0ae37b6ace943a57e82c20508ab3, type: 3}
   SFXPossess: {fileID: 11400000, guid: 8ddb08fdb298f4f198061b56acd783d4, type: 2}
   SFXDepossess: {fileID: 11400000, guid: a88877e29c89e4e048934074ac3ea9de, type: 2}
 --- !u!54 &4423459547633382754

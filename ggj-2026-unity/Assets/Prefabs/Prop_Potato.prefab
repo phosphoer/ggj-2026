@@ -290,6 +290,7 @@ MonoBehaviour:
   _legSockets:
   - {fileID: 5247294176933867653}
   - {fileID: 7176992751024083535}
+  DestroyFX: {fileID: 2291751976532016991, guid: 4c697583cc1bab0468eba3ef33ab6f87, type: 3}
   SFXPossess: {fileID: 11400000, guid: 65ea107dc202743fbba68bb329813365, type: 2}
   SFXDepossess: {fileID: 11400000, guid: a2ee2af34816944c0b7fec199d6ca5b8, type: 2}
 --- !u!54 &4423459547633382754
