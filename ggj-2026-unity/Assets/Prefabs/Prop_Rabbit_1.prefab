@@ -303,9 +303,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eca67220b8284170be8ea4b97bd62a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PossessableObject
+  RequiredXPThreshold: 0
   AttackParams:
     Type: 1
-    FearDamage: 1
+    FearDamage: 2
     SpookAttackFX: {fileID: 1253437248862577756, guid: e581f568b086abb4987911b655e5ad8a, type: 3}
     SpookAttackSFX: {fileID: 11400000, guid: 39b287d79ce014d29b74c58bdce03608, type: 2}
     SpookFXRoot: {fileID: 4045518091158212579}
@@ -380,7 +381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
   _interactableUIPrefab: {fileID: 7127637411871555855, guid: 7be408922929a49acaa7ae32a66663e9, type: 3}
   _interactionUIAnchor: {fileID: 4398255515032797080}
-  _interactionUIHeight: 0.5
+  _interactionUIHeight: 2
   _interactionText: '!'
   _interactionRadius: 2
   _requiresLineOfSight: 0
