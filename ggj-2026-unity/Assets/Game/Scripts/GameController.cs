@@ -10,6 +10,7 @@ public struct PlayerColors
   public string ColorName;
   public Material BodyColor;
   public Material FaceColor;
+  public MaskController MaskPrefab;
 }
 
 public class GameController : Singleton<GameController>
