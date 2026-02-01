@@ -106,6 +106,14 @@ public class FarmerController : MonoBehaviour
       health = maxHealth;
     }
 
+    foreach (var player in perceptionObject.PlayersInCone)
+    {
+      if (player.IsPossessing)
+      {
+        player.EjectPossession();
+      }
+    }
+
     if (currentState != null)
     {
       currentState.UpdateState(this);
@@ -556,17 +564,6 @@ public class AttackState : IState
     AudioManager.Instance.PlaySound(controller.gameObject, controller.SfxAttack);
 
     controller.PlayEmote(FarmerController.eEmote.attack);
-
-
-    if (controller.perceptionObject)
-    {
-      List<PlayerActorController> players = controller.perceptionObject.FindVisiblePlayers();
-
-      foreach (var player in players)
-      {
-        player.EjectPossession();
-      }
-    }
   }
 
   public void UpdateState(FarmerController controller)
@@ -602,8 +599,7 @@ public class SearchState : IState
 
   public void UpdateState(FarmerController controller)
   {
-    List<PlayerActorController> visiblePlayers = controller.perceptionObject.FindVisiblePlayers();
-    if (visiblePlayers.Count > 0)
+    if (controller.perceptionObject.GetDetectedPlayerCount() > 0)
     {
       controller.ChangeState(new AttackState());
     }

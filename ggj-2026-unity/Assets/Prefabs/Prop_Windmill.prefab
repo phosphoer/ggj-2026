@@ -209,6 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PossessableObject
   RequiredXPThreshold: 10
+  RequiredXPLevel: 3
   AttackParams:
     Type: 1
     FearDamage: 30

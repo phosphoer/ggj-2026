@@ -27,8 +27,10 @@ public class PlayerActorController : MonoBehaviour
   [SerializeField] private LegNoodleController _legPrefab = null;
   [SerializeField] private GameObject _footPrefab = null;
   [SerializeField] private MaskController _maskPrefab = null;
+  [SerializeField] private XPBarUI _levelUpUIPrefab = null;
   [SerializeField] private Transform _maskRoot = null;
   [SerializeField] private Light _light = null;
+  [SerializeField] private ParticleSystem _fxLevelUp = null;
   [SerializeField] private SkinnedMeshRenderer _bodyMesh = null;
   [SerializeField] private SkinnedMeshRenderer[] _faceMeshes;
   [SerializeField] private Spring _leanSpring = default;
@@ -40,6 +42,7 @@ public class PlayerActorController : MonoBehaviour
   private List<LegNoodleController> _legs = new();
   private List<GameObject> _feet = new();
   private float _xp;
+  private int _xpLevel;
   private float _animTimer;
   private float _standHeightOffset;
   private float _attackCooldownTimer;
@@ -260,13 +263,40 @@ public class PlayerActorController : MonoBehaviour
     }
   }
 
+  private float GetNextXPLevel()
+  {
+    return 1 + _xpLevel * 2;
+  }
+
+  private void LevelUp()
+  {
+    _xpLevel += 1;
+    _xp = 0;
+    Debug.Log($"Player {_playerIndex} leveled up to level {_xpLevel}!");
+  }
+
   private void OnDamageDealt()
   {
     float xpAmount = _spookAttackHitbox.Damage * XPDamageMultiplier;
-    _xp += xpAmount;
+    float nextXPLevel = GetNextXPLevel();
+    float nextXPAmount = _xp + xpAmount;
     Debug.Log($"Player {_playerIndex} got {xpAmount} and now has {_xp} total xp");
-  }
 
+    RectTransform levelUpUIParent = WorldUIManager.Instance.ShowItem(transform, Vector3.up * 3);
+    XPBarUI levelUpUI = Instantiate(_levelUpUIPrefab, levelUpUIParent);
+    levelUpUI.AnimateXP(_xp / nextXPLevel, nextXPAmount / nextXPLevel, _xpLevel);
+    levelUpUI.LevelUp += OnUILevelUp;
+
+    _xp = nextXPAmount;
+    if (_xp >= nextXPLevel)
+    {
+      LevelUp();
+    }
+  }
+  private void OnUILevelUp()
+  {
+    _fxLevelUp.Play();
+  }
   private void StartCharge()
   {
     var attackParams = _currentPossessable.AttackParams;
@@ -345,7 +375,7 @@ public class PlayerActorController : MonoBehaviour
     PossessableObject possessable = interactable.GetComponent<PossessableObject>();
     if (possessable)
     {
-      return _xp >= possessable.RequiredXPThreshold;
+      return _xpLevel >= possessable.RequiredXPLevel;
     }
 
     return true;

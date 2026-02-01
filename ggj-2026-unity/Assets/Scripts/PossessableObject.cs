@@ -38,6 +38,7 @@ public class PossessableObject : MonoBehaviour
 
   [Header("XP")]
   public float RequiredXPThreshold = 0;
+  public int RequiredXPLevel = 0;
 
   [Header("Spook Attack")]
   public SpookAttackParams AttackParams = null;

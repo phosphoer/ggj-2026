@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8146451197855309188}
   - component: {fileID: 1100442484007578841}
   - component: {fileID: -5893896367540424084}
+  - component: {fileID: 4201678909086226313}
   m_Layer: 0
   m_Name: farmer-character
   m_TagString: Untagged
@@ -163,7 +164,7 @@ MonoBehaviour:
   SfxAttack: {fileID: 11400000, guid: 6a2709792d3ba4b31b74c9734b9b7f24, type: 2}
   SfxDeath: {fileID: 11400000, guid: 31755a011b65e4c2fa7b2e50387c21b0, type: 2}
   SfxStartle: {fileID: 11400000, guid: e093e2d3305764692b8745ef5c1a0900, type: 2}
-  perceptionObject: {fileID: 8102463512470917054}
+  perceptionObject: {fileID: 4201678909086226313}
   _animator: {fileID: 1100442484007578841}
   currentTarget: {fileID: 0}
 --- !u!95 &1100442484007578841
@@ -215,6 +216,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4201678909086226313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33392689137276293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11897145d81ec1d44bd02b55ad61e23a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FarmerPerceptionComponent
+  viewRadius: 6.5
+  viewAngle: 60
+  lightTransform: {fileID: 7726695895279000781}
 --- !u!1001 &4663359328604886149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -317,6 +333,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 15eb71f14d9784b4387dc12474f0b79c, type: 3}
   m_PrefabInstance: {fileID: 4663359328604886149}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &7726695895279000781 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -6085163126361339832, guid: 15eb71f14d9784b4387dc12474f0b79c, type: 3}
+  m_PrefabInstance: {fileID: 4663359328604886149}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8421432941320765089
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -399,30 +420,8 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -9111297279034050996, guid: 789df6103ffe0cd41bb13c65da5ec8c6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5133309622307976046}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: -576819340435710318, guid: 789df6103ffe0cd41bb13c65da5ec8c6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8102463512470917054}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 789df6103ffe0cd41bb13c65da5ec8c6, type: 3}
---- !u!1 &225260767672492083 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -576819340435710318, guid: 789df6103ffe0cd41bb13c65da5ec8c6, type: 3}
-  m_PrefabInstance: {fileID: 8421432941320765089}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8102463512470917054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 225260767672492083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11897145d81ec1d44bd02b55ad61e23a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FarmerPerceptionComponent
-  viewRadius: 6.5
-  viewAngle: 70
 --- !u!4 &8310348409996253514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 789df6103ffe0cd41bb13c65da5ec8c6, type: 3}
