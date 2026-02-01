@@ -285,8 +285,11 @@ public class PlayerActorController : MonoBehaviour
 
   private void StopCharge()
   {
-    Destroy(_spookAttackHitbox.gameObject);
-    _spookAttackHitbox = null;
+    if (_spookAttackHitbox)
+    {
+      Destroy(_spookAttackHitbox.gameObject);
+      _spookAttackHitbox = null;
+    }
 
     _isCharging = false;
     _actor.IsSprinting = false;
