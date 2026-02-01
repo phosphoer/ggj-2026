@@ -1049,6 +1049,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1821869040760643390, guid: 1c20cd88247d5f1438d79b8e3ebc5c5a, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1821869040760643390, guid: 1c20cd88247d5f1438d79b8e3ebc5c5a, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1821869040760643390, guid: 1c20cd88247d5f1438d79b8e3ebc5c5a, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1821869040760643390, guid: 1c20cd88247d5f1438d79b8e3ebc5c5a, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4000188963970883309, guid: 1c20cd88247d5f1438d79b8e3ebc5c5a, type: 3}
       propertyPath: m_Name
       value: FX_Attack_Shoot_Chicken
@@ -1155,6 +1171,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e581f568b086abb4987911b655e5ad8a, type: 3}
+--- !u!1001 &7516929661560051832
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1847518342856187632, guid: 3ce8742f61f11534f82829109070ef97, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1847518342856187632, guid: 3ce8742f61f11534f82829109070ef97, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1847518342856187632, guid: 3ce8742f61f11534f82829109070ef97, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1847518342856187632, guid: 3ce8742f61f11534f82829109070ef97, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1847518342856187632, guid: 3ce8742f61f11534f82829109070ef97, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1847518342856187632, guid: 3ce8742f61f11534f82829109070ef97, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1847518342856187632, guid: 3ce8742f61f11534f82829109070ef97, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1847518342856187632, guid: 3ce8742f61f11534f82829109070ef97, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1847518342856187632, guid: 3ce8742f61f11534f82829109070ef97, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1847518342856187632, guid: 3ce8742f61f11534f82829109070ef97, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2584907910038220845, guid: 3ce8742f61f11534f82829109070ef97, type: 3}
+      propertyPath: m_Name
+      value: FX_Attack_Burst_Cow
+      objectReference: {fileID: 0}
+    - target: {fileID: 3886971871295549273, guid: 3ce8742f61f11534f82829109070ef97, type: 3}
+      propertyPath: SubModule.subEmitters.Array.data[0].emitter
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3ce8742f61f11534f82829109070ef97, type: 3}
 --- !u!1001 &8247539970805278969
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1223,6 +1300,7 @@ SceneRoots:
   - {fileID: 861815913}
   - {fileID: 7159831424467768279}
   - {fileID: 3764213802450818887}
+  - {fileID: 7516929661560051832}
   - {fileID: 1433058327725209417}
   - {fileID: 5797627349164241678}
   - {fileID: 8247539970805278969}
