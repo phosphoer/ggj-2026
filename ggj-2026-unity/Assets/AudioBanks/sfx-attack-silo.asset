@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: sfx-attack-silo
   m_EditorClassIdentifier: Assembly-CSharp::SoundBank
   AudioClips:
-  - {fileID: 8300000, guid: 0e6b502a653294f319a785f4d8ffa996, type: 3}
+  - {fileID: 8300000, guid: de0b9480b472e4407b909b437afa0ece, type: 3}
   IsLooping: 0
   IsSpatial: 1
   AllowMultipleSources: 0

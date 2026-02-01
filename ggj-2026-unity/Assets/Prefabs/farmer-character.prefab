@@ -147,6 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FarmerController
   maxHealth: 100
   health: 100
+  rechargeSpeed: 0.5
   speed: 25
   turnSpeed: 25
   startledTurnSpeed: 40
@@ -269,14 +270,18 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 294b7197fdc274caa85377d2b851f58e, type: 2}
     - target: {fileID: -6085163126361339832, guid: 15eb71f14d9784b4387dc12474f0b79c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: -6085163126361339832, guid: 15eb71f14d9784b4387dc12474f0b79c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: -6085163126361339832, guid: 15eb71f14d9784b4387dc12474f0b79c, type: 3}
       propertyPath: m_LocalScale.z
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: -6085163126361339832, guid: 15eb71f14d9784b4387dc12474f0b79c, type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -2670309554753079834, guid: 15eb71f14d9784b4387dc12474f0b79c, type: 3}

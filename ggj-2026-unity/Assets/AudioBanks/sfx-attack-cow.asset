@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: sfx-attack-cow
   m_EditorClassIdentifier: Assembly-CSharp::SoundBank
   AudioClips:
-  - {fileID: 8300000, guid: 0c3dc5f4221564a27992dfb124e0960d, type: 3}
+  - {fileID: 8300000, guid: dce84eb4cdae54e828a716b739b28bfa, type: 3}
   IsLooping: 0
   IsSpatial: 1
   AllowMultipleSources: 0
