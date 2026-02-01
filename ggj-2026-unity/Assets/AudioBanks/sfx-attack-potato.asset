@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c345fe0be4353445895a73c7861c323d, type: 3}
-  m_Name: sfx-attack-pumpkin
+  m_Name: sfx-attack-potato
   m_EditorClassIdentifier: Assembly-CSharp::SoundBank
   AudioClips:
-  - {fileID: 8300000, guid: bf4295740e2c34f06a5c0051d09a61fe, type: 3}
+  - {fileID: 8300000, guid: 0c3dc5f4221564a27992dfb124e0960d, type: 3}
   IsLooping: 0
   IsSpatial: 1
   AllowMultipleSources: 0

@@ -294,6 +294,11 @@ public class PlayerActorController : MonoBehaviour
     _leanSpring.Velocity -= attackParams.ShootRecoil;
   }
 
+  private void Awake()
+  {
+    SetPlayerMaskPrefab(_maskPrefab);
+  }
+
   private void OnEnable()
   {
     _interaction.InteractionTriggered += OnInteraction;

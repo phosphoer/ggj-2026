@@ -217,6 +217,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6055152695176310489}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8226345328503247910
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2058237979154374768}
+  m_Layer: 0
+  m_Name: mask-root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2058237979154374768
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8226345328503247910}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.23065065, y: -0, z: -0, w: 0.9730367}
+  m_LocalPosition: {x: 0, y: 0.981, z: 0.694}
+  m_LocalScale: {x: 5.61102, y: 5.61102, z: 5.61102}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6055152695176310489}
+  m_LocalEulerAnglesHint: {x: -26.671, y: 0, z: 0}
 --- !u!1 &8875918820959913437
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,6 +280,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2058237979154374768}
   - {fileID: 5780845554005607149}
   - {fileID: 8243653362273030624}
   - {fileID: 1912063528684368646}
@@ -274,6 +306,7 @@ MonoBehaviour:
   AttackParams:
     Type: 2
     SpookAttackFX: {fileID: 6839670518580436836, guid: a9cc4bf6e2d4444238277bfcb589101f, type: 3}
+    SpookAttackSFX: {fileID: 0}
     SpookFXRoot: {fileID: 8423304623856897698}
     SpookAttackRoot: {fileID: 8423304623856897698}
     ShootAttackWidth: 1
@@ -283,6 +316,7 @@ MonoBehaviour:
     ChargeDuration: 2
     ChargeAttackRadius: 1
     AOERadius: 3.57
+  MaskRoot: {fileID: 2058237979154374768}
   StandHeightOffset: 0
   AnimIdleBobScale: 0.05
   AnimIdleBobSpeed: 3

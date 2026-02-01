@@ -66,6 +66,8 @@ MonoBehaviour:
   _interaction: {fileID: 6441152634549121339}
   _legPrefab: {fileID: 4487937820184635043, guid: 40daff52233c34fa487aa698d86fdd4c, type: 3}
   _footPrefab: {fileID: 5287424812721548086, guid: 39a290b2c513b4df59c82d878a34d2da, type: 3}
+  _maskPrefab: {fileID: -776574324644454278, guid: 2b667ac69760c4fda99147629cf76e59, type: 3}
+  _maskRoot: {fileID: 200510748553808407}
   _bodyMesh: {fileID: 3885785043114896838}
   _faceMeshes:
   - {fileID: 1167406424967627205}
@@ -429,6 +431,37 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.74
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &7446586617340641801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 200510748553808407}
+  m_Layer: 7
+  m_Name: mask-root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &200510748553808407
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7446586617340641801}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.67529404, y: -0.6752939, z: -0.2097095, w: 0.20970953}
+  m_LocalPosition: {x: -0.216, y: 0, z: -0.383}
+  m_LocalScale: {x: 3.9633741, y: 3.9633741, z: 3.9633753}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5298520017674626161}
+  m_LocalEulerAnglesHint: {x: 0, y: -145.496, z: -90}
 --- !u!1 &8396968982549492615
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,7 +664,10 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 1a5920495bd4f2b489be9359a102c98c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -1772936941067433774, guid: 49730a89e4643e04996e6e3a990378a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 200510748553808407}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49730a89e4643e04996e6e3a990378a8, type: 3}
 --- !u!137 &27383810943861345 stripped
@@ -657,6 +693,11 @@ Transform:
 --- !u!137 &3885785043114896838 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: -7277737608410873499, guid: 49730a89e4643e04996e6e3a990378a8, type: 3}
+  m_PrefabInstance: {fileID: 3381460999386754211}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5298520017674626161 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -1772936941067433774, guid: 49730a89e4643e04996e6e3a990378a8, type: 3}
   m_PrefabInstance: {fileID: 3381460999386754211}
   m_PrefabAsset: {fileID: 0}
 --- !u!137 &6727781231129254339 stripped
