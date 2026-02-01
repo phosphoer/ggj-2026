@@ -46,10 +46,6 @@ public class LevelCameraController : CameraControllerStatic
       playerCentroid /= (float)players.Count;
     }
 
-    // Put the player centroid on the same plane as the 
-    playerCentroid.y = _initialPosition.y;
-
-
     Vector3 vectorToCentroid3d = playerCentroid - MountPoint.position;
     float distanceToCentroid = vectorToCentroid3d.magnitude;
     Vector3 directonToCentroid = vectorToCentroid3d / distanceToCentroid;
@@ -69,7 +65,7 @@ public class LevelCameraController : CameraControllerStatic
       distanceAdjustment = overshoot * _zoomSpeed * Time.deltaTime;
     }
 
-    Vector3 targetPosition = MountPoint.position + directonToCentroid * distanceAdjustment;
+    Vector3 targetPosition = MountPoint.position + directonToCentroid.WithY(0) * distanceAdjustment;
     MountPoint.position = Mathfx.Damp(MountPoint.position, targetPosition, 0.25f, Time.deltaTime);
 
     Quaternion targetOrientation = Quaternion.LookRotation(vectorToCentroid3d, Vector3.up);
