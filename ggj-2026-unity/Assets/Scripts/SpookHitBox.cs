@@ -10,7 +10,7 @@ public class SpookHitBox : MonoBehaviour
   {
     Debug.Log($"SpookHitBox OnTriggerEnter {c.name}");
 
-    if (_hitConsumed)
+    if (_hitConsumed || c.isTrigger)
       return;
 
     FarmerController farmer = c.GetComponentInParent<FarmerController>();
@@ -19,6 +19,10 @@ public class SpookHitBox : MonoBehaviour
       Debug.Log($"SpookHitBox hit farmer");
       farmer.PlayEmote(FarmerController.eEmote.startled);
       farmer.health -= Damage;
+
+      var gameUI = PlayerUI.Instance.GetPage<GamePlayUI>();
+      gameUI.HeartRateUI.SetTempHeartRate(100);
+
       _hitConsumed = true;
     }
   }
