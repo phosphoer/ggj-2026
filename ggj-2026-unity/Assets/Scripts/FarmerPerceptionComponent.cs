@@ -20,11 +20,11 @@ public class FarmerPerceptionComponent : MonoBehaviour
         objectsInRadius.Remove(otherCollider.gameObject);
     }
 
-    public int GetDetectedObjectCount()
+    public int GetDetectedPlayerCount()
     {
-        return objectsInRadius.Count;
+        List<GameObject> players = FindClosePlayers();
+        return players.Count;
     }
-
 
     public Vector3 GetClosestDetectedObjectLocation()
     {
@@ -47,6 +47,27 @@ public class FarmerPerceptionComponent : MonoBehaviour
         }
 
         return Vector3.zero;
+    }
+
+    public List<GameObject> FindClosePlayers()
+    {
+      List<GameObject> visiblePlayers = new List<GameObject>();
+
+      foreach (var target in objectsInRadius)
+      {
+        if (target.CompareTag("Player"))
+        {
+          Vector3 dirToTarget = (target.transform.position - transform.position).normalized;
+          float angleToTarget = Vector3.Angle(transform.up, dirToTarget);
+        
+          if (!Physics.Raycast(transform.position, dirToTarget, out RaycastHit hit, viewRadius, obstacleMask))
+          {
+            visiblePlayers.Add(target);
+          }
+        }
+      }
+
+      return visiblePlayers;
     }
 
     public List<GameObject> FindVisiblePlayers()
@@ -90,5 +111,4 @@ public class FarmerPerceptionComponent : MonoBehaviour
 
         return closestPlayer.transform.position;
     }
-
 }

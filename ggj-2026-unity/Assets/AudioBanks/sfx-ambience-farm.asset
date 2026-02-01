@@ -20,7 +20,7 @@ MonoBehaviour:
   MaxDistance: 100
   MinDistance: 10
   MaxPlayInterval: 0
-  VolumeScale: 0.5
+  VolumeScale: 0.3
   DopplerLevel: 0
   PitchOffset: 0
   PitchOffsetRange:
