@@ -277,8 +277,9 @@ public class PlayerActorController : MonoBehaviour
 
     _leanSpring = Spring.UpdateSpring(_leanSpring, Time.deltaTime);
 
+    float leanScale = _currentPossessable != null ? _currentPossessable.AnimWalkLeanScale : 20;
     float targetRot = Mathf.Sin(_animTimer * AnimIdleWiggleSpeed) * AnimIdleWiggleScale;
-    float targetLean = _actor.MoveAxis.magnitude * 20 * (_isCharging ? 2 : 1);
+    float targetLean = _actor.MoveAxis.magnitude * leanScale * (_isCharging ? 2 : 1);
     _leanAmount = Mathfx.Damp(_leanAmount, targetLean, 0.25f, Time.deltaTime) + _leanSpring.Value;
     _playerVisualRoot.localRotation = Quaternion.Euler(_leanAmount, targetRot, 0);
 

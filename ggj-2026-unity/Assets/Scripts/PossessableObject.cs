@@ -38,6 +38,7 @@ public class PossessableObject : MonoBehaviour
   public float AnimIdleBobSpeed = 3f;
   public float AnimIdleWiggleScale = 5;
   public float AnimIdleWiggleSpeed = 1;
+  public float AnimWalkLeanScale = 20;
 
   [Header("Movement")]
   public float MoveSpeed = 2;
