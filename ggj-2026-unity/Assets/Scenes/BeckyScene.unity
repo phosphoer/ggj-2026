@@ -479,8 +479,8 @@ MonoBehaviour:
   minProximityToTarget: 1
   minIdleTime: 3
   maxIdleTime: 5
-  startledTurnSpeed: 30
   perceptionObject: {fileID: 1933220422}
+  _animator: {fileID: 5866666021909216657, guid: 789df6103ffe0cd41bb13c65da5ec8c6, type: 3}
   currentTarget: {fileID: 0}
 --- !u!1 &1077114104
 GameObject:

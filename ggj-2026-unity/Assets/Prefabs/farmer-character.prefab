@@ -145,11 +145,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da70110497383d4b99f6334489e499c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FarmerController
+  maxHealth: 100
+  health: 100
   speed: 10
   turnSpeed: 45
   minProximityToTarget: 5
   minIdleTime: 5
   maxIdleTime: 10
+  perceptionObject: {fileID: 0}
   _animator: {fileID: 1100442484007578841}
   currentTarget: {fileID: 0}
 --- !u!95 &1100442484007578841

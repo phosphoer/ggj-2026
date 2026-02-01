@@ -2,23 +2,35 @@ using Assets.Core;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static IdleState;
+
+//=======================================================
 
 public interface IState
 {
   void OnEnter(FarmerController controller);
   void UpdateState(FarmerController controller);
-  void OnExit(FarmerController controller);
 }
+
+//=======================================================
+// THE MAN HIMSELF
+//=======================================================
 
 public class FarmerController : MonoBehaviour
 {
+  public float maxHealth = 100;
+  public float health = 100;
+
   public float speed = 10;
   public float turnSpeed = 45;
 
   public float minProximityToTarget = 5;
 
+
   public float minIdleTime = 5;
   public float maxIdleTime = 10;
+
+  public FarmerPerceptionComponent perceptionObject;
 
   IState currentState;
 
@@ -57,7 +69,6 @@ public class FarmerController : MonoBehaviour
 
   void Start()
   {
-    
     _actor = GetComponent<ObjectActorController>();
 
     targets = GameObject.FindGameObjectsWithTag("FarmerTarget");
@@ -67,9 +78,15 @@ public class FarmerController : MonoBehaviour
 
   void Update()
   {
+    Debug.DrawLine(transform.position, transform.position + transform.forward, Color.red);
+
     if (shuffledTargets.Count <= 0)
     {
+      targets = GameObject.FindGameObjectsWithTag("FarmerTarget");
       ShuffleTargets();
+      ChangeState(new WalkState());
+
+      health = maxHealth;
     }
 
     if (currentState != null)
@@ -80,12 +97,19 @@ public class FarmerController : MonoBehaviour
 
   public void ChangeState(IState newState)
   {
-    if (currentState != null)
-    {
-      currentState.OnExit(this);
-    }
+    //We don't use any exit states right now
+    // but I'm keeping this here in case 
+    //if (currentState != null)
+    //{
+    //  currentState.OnExit(this);
+    //}
     currentState = newState;
     currentState.OnEnter(this);
+  }
+
+  public bool IsStartled()
+  {
+    return perceptionObject.GetDetectedObjectCount() > 0;
   }
 
   public void ShuffleTargets()
@@ -94,7 +118,6 @@ public class FarmerController : MonoBehaviour
     {
       shuffledTargets.Add(targets[targetIndex]);
     }
-
 
     System.Random random = new System.Random();
     int n = shuffledTargets.Count;
@@ -232,10 +255,17 @@ public class FarmerController : MonoBehaviour
   }
 }
 
+//=======================================================
+// FARMER STATES
+//=======================================================
+// WALK
+//-------------------------------------------------------
+
 public class WalkState : IState
 {
   public void OnEnter(FarmerController controller)
   {
+    Debug.Log("Farmer State: WALK");
     controller.FindAndSetNextTarget();
   }
 
@@ -251,12 +281,11 @@ public class WalkState : IState
     }
 
     // something something perceive a player
-    bool fakebool = false;
-    if (fakebool)
+    if (controller.IsStartled())
     {
       controller.ChangeState(new StartledState());
+      return;
     }
-
 
     Vector3 heading = controller.currentTarget.transform.position - controller.transform.position;
     Vector3 direction = heading.NormalizedSafe();
@@ -272,17 +301,32 @@ public class WalkState : IState
   }
 }
 
+//-------------------------------------------------------
+// STARTLED
+//-------------------------------------------------------
+
 public class StartledState : IState
 {
+  float timeRemaining = 3;
+
+  Vector3 targetLocation;
+
   public void OnEnter(FarmerController controller)
   {
-    // Initialize chase state
+    Debug.Log("Farmer State: STARTLED");
+    targetLocation = controller.perceptionObject.GetClosestDetectedObjectLocation();
+
     controller.PlayEmote(FarmerController.eEmote.startled);
   }
 
   public void UpdateState(FarmerController controller)
   {
-    // Chase logic
+    //Vector3 heading = controller.currentTarget.transform.position - controller.transform.position;
+    //Vector3 direction = heading.NormalizedSafe();
+
+    //Quaternion targetRotation = Quaternion.LookRotation(direction);
+    //controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, targetRotation, Time.deltaTime * controller.startledTurnSpeed); // Smooth rotation
+
   }
 
   public void OnExit(FarmerController controller)
@@ -290,17 +334,29 @@ public class StartledState : IState
   }
 }
 
+//-------------------------------------------------------
+// IDLE
+//-------------------------------------------------------
+
+
 public class IdleState : IState
 {
   float timeRemaining = 1000;
 
   public void OnEnter(FarmerController controller)
   {
+    Debug.Log("Farmer State: IDLE");
     timeRemaining = Random.Range(controller.minIdleTime, controller.maxIdleTime);
   }
 
   public void UpdateState(FarmerController controller)
   {
+    if (controller.IsStartled())
+    {
+      controller.ChangeState(new StartledState());
+      return;
+    }
+
     if (timeRemaining > 0)
     {
       timeRemaining -= Time.deltaTime;
@@ -311,8 +367,127 @@ public class IdleState : IState
     }
   }
 
-  public void OnExit(FarmerController controller)
-  {
+  //-------------------------------------------------------
+  // WALK SCARED
+  //-------------------------------------------------------
 
+  public class WalkScaredState : WalkState
+  {
+    float timeRemaining = 5.0f;
+
+    public void OnEnter(FarmerController controller)
+    {
+      Debug.Log("Farmer State: WALKSCARED");
+
+    }
+
+    public void UpdateState(FarmerController controller)
+    {
+      if (timeRemaining > 0)
+      {
+        timeRemaining -= Time.deltaTime;
+        if (timeRemaining < 0)
+        {
+          controller.ChangeState(new WalkState());
+        }
+      }
+    }
+  }
+
+  //-------------------------------------------------------
+  // DAMAGED
+  //-------------------------------------------------------
+
+  public class DamagedState : IState
+  {
+    public void OnEnter(FarmerController controller)
+    {
+      Debug.Log("Farmer State: DAMAGED");
+
+      // take damage
+      // check if faint
+      // if not change state to Search or walk scared?
+    }
+    public void UpdateState(FarmerController controller)
+    {
+      if (controller.health <= 0)
+      {
+        controller.ChangeState(new FaintState());
+      }
+      else
+      {
+        controller.ChangeState(new SearchState());
+      }
+    }
+  }
+
+  //-------------------------------------------------------
+  // FAINT
+  //-------------------------------------------------------
+
+  public class FaintState : IState
+  {
+    public void OnEnter(FarmerController controller)
+    {
+      Debug.Log("Farmer State: FAINT");
+    }
+
+    public void UpdateState(FarmerController controller)
+    {
+      // He's dead Jim
+    }
+  }
+
+  //-------------------------------------------------------
+  // ATTACK
+  //-------------------------------------------------------
+
+  public class AttackState : IState
+  {
+    float timeRemaining = 5.0f;
+    public void OnEnter(FarmerController controller)
+    {
+      Debug.Log("Farmer State: ATTACK");
+    }
+
+    public void UpdateState(FarmerController controller)
+    {
+      if (timeRemaining > 0)
+      {
+        timeRemaining -= Time.deltaTime;
+        if (timeRemaining < 0)
+        {
+          controller.ChangeState(new WalkScaredState());
+        }
+      }
+    }
+  }
+}
+
+public class SearchState : IState
+{
+  float timeRemaining = 5.0f;
+
+  public void OnEnter(FarmerController controller)
+  {
+    Debug.Log("Farmer State: SEARCH");
+  }
+
+  public void UpdateState(FarmerController controller)
+  {
+    if (controller.IsStartled())
+    {
+      controller.ChangeState(new StartledState());
+      return;
+    }
+
+    if (timeRemaining > 0)
+    {
+      timeRemaining -= Time.deltaTime;
+      if (timeRemaining < 0)
+      {
+        controller.ChangeState(new WalkScaredState());
+      }
+    }
   }
 }
