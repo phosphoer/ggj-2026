@@ -118,12 +118,6 @@ public class GameController : Singleton<GameController>
         }
       }
     }
-
-    // Swap out the living farmer with a dead one if their health drops to zero
-    if (_spawnedFarmer != null && _deadFarmer == null && _spawnedFarmer.health <= 0) 
-    {
-      SpawnDeadFarmer();
-    }
   }
 
   public void SetGameState(eGameState newState)
@@ -276,7 +270,7 @@ public class GameController : Singleton<GameController>
     }
   }
 
-  void SpawnDeadFarmer()
+  public void SpawnDeadFarmer()
   {
     if (_deadFarmerPrefab != null && _deadFarmer == null && _spawnedFarmer != null)
     {

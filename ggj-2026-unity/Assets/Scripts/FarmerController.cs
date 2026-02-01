@@ -491,6 +491,7 @@ public class FaintState : IState
   {
     timeRemaining = controller.faintDuration;
     Debug.Log("Farmer State: FAINT");
+    controller.PlayEmote(FarmerController.eEmote.feint);
   }
 
   public void UpdateState(FarmerController controller)
@@ -500,7 +501,7 @@ public class FaintState : IState
       timeRemaining -= Time.deltaTime;
       if (timeRemaining < 0)
       {
-        // He's dead Jim
+        GameController.Instance.SpawnDeadFarmer();
       }
     }
   }
