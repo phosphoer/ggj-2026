@@ -400,9 +400,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -576819340435710318, guid: 789df6103ffe0cd41bb13c65da5ec8c6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8102463512470917054}
-    - targetCorrespondingSourceObject: {fileID: -576819340435710318, guid: 789df6103ffe0cd41bb13c65da5ec8c6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1537271539922934203}
   m_SourcePrefab: {fileID: 100100000, guid: 789df6103ffe0cd41bb13c65da5ec8c6, type: 3}
 --- !u!1 &225260767672492083 stripped
 GameObject:
@@ -421,29 +418,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11897145d81ec1d44bd02b55ad61e23a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FarmerPerceptionComponent
-  viewRadius: 5
+  viewRadius: 6.5
   viewAngle: 70
---- !u!135 &1537271539922934203
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 225260767672492083}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 128
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 5
-  m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!4 &8310348409996253514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 789df6103ffe0cd41bb13c65da5ec8c6, type: 3}

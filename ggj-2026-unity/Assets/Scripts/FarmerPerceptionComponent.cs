@@ -10,24 +10,19 @@ public class FarmerPerceptionComponent : MonoBehaviour
 
     List<PlayerActorController> playersInRadius = new List<PlayerActorController>();
 
-    void OnTriggerEnter(Collider otherCollider)
+  private void Update()
+  {
+    playersInRadius.Clear();
+    foreach(var player in PlayerActorController.Instances)
     {
-      PlayerActorController player = otherCollider.GetComponentInParent<PlayerActorController>();
-      if (player != null)
+      if (Vector3.Distance(player.transform.position, transform.position) < viewRadius) 
       {
         playersInRadius.Add(player);
       }
     }
-    void OnTriggerExit(Collider otherCollider)
-    {
-      PlayerActorController player = otherCollider.GetComponentInParent<PlayerActorController>();
-      if (player != null)
-      {
-        playersInRadius.Remove(player);
-      }
-    } 
+  }
 
-    public int GetDetectedPlayerCount()
+  public int GetDetectedPlayerCount()
     {
         List<PlayerActorController> players = FindClosePlayers();
         return players.Count;
