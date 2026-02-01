@@ -31,7 +31,12 @@ public class PlayerActorController : MonoBehaviour
   private List<GameObject> _feet = new();
   private float _animTimer;
   private float _standHeightOffset;
-  private bool _possessableWasKinematic;
+  private float _attackCooldownTimer;
+  private bool _isCharging;
+  private float _chargeTimer;
+  private Vector2 _chargeDirection;
+  private ParticleSystem _spookAttackFx;
+  private SpookHitBox _spookAttackHitbox;
   private Transform _possessableOriginalParent;
 
   public void SetPlayerIndex(int playerIndex)
@@ -83,7 +88,6 @@ public class PlayerActorController : MonoBehaviour
     Rigidbody rb = _currentPossessable.GetComponent<Rigidbody>();
     if (rb)
     {
-      _possessableWasKinematic = rb.isKinematic;
       rb.isKinematic = true;
     }
 
@@ -139,7 +143,7 @@ public class PlayerActorController : MonoBehaviour
       Rigidbody rb = _currentPossessable.GetComponent<Rigidbody>();
       if (rb)
       {
-        rb.isKinematic = _possessableWasKinematic;
+        rb.isKinematic = _currentPossessable.PostPossessKinematicState;
       }
 
       Interactable interactable = _currentPossessable.GetComponent<Interactable>();
@@ -150,6 +154,55 @@ public class PlayerActorController : MonoBehaviour
 
       _currentPossessable.transform.parent = _possessableOriginalParent;
       _currentPossessable = null;
+    }
+  }
+
+  public void DoSpookAttack()
+  {
+    if (_currentPossessable)
+    {
+      var attackParams = _currentPossessable.AttackParams;
+      if (attackParams.SpookAttackFX)
+      {
+        _spookAttackFx = Instantiate(attackParams.SpookAttackFX, attackParams.SpookAttackRoot);
+      }
+
+      if (attackParams.Type == SpookAttackType.Charge)
+      {
+        StartCharge();
+      }
+    }
+  }
+
+  private void StartCharge()
+  {
+    var attackParams = _currentPossessable.AttackParams;
+    _attackCooldownTimer = 5;
+    _isCharging = true;
+    _chargeTimer = attackParams.ChargeDuration;
+    _actor.SprintSpeed = attackParams.ChargeSpeed;
+    _chargeDirection = _actor.LookAxis;
+    _actor.IsSprinting = true;
+
+    _spookAttackHitbox = new GameObject("spook-attack-hitbox").AddComponent<SpookHitBox>();
+    _spookAttackHitbox.transform.parent = _playerVisualRoot;
+    var collider = _spookAttackHitbox.gameObject.AddComponent<SphereCollider>();
+    collider.isTrigger = true;
+    collider.radius = attackParams.ChargeAttackRadius;
+  }
+
+  private void StopCharge()
+  {
+    Destroy(_spookAttackHitbox.gameObject);
+    _spookAttackHitbox = null;
+
+    _isCharging = false;
+    _actor.IsSprinting = false;
+
+    if (_spookAttackFx)
+    {
+      Destroy(_spookAttackFx.gameObject);
+      _spookAttackFx = null;
     }
   }
 
@@ -181,6 +234,20 @@ public class PlayerActorController : MonoBehaviour
     Vector2 inputAxis2D = inputAxisWorld.XZ();
     _actor.MoveAxis = Mathfx.Damp(_actor.MoveAxis, inputAxis2D, 0.25f, Time.deltaTime * 3);
 
+    if (_isCharging)
+    {
+      _chargeTimer -= Time.deltaTime;
+      _actor.MoveAxis = _chargeDirection;
+      if (_chargeTimer <= 0)
+      {
+        StopCharge();
+      }
+    }
+    else
+    {
+      _attackCooldownTimer -= Time.deltaTime;
+    }
+
     _animTimer += Time.deltaTime;
     Vector3 posOffset = Vector3.up * _standHeightOffset;
     _playerVisualRoot.localPosition = Vector3.up * Mathf.Sin(_animTimer * AnimIdleBobSpeed) * AnimIdleBobScale + posOffset;
@@ -201,24 +268,23 @@ public class PlayerActorController : MonoBehaviour
       _standHeightOffset = Mathfx.Damp(_standHeightOffset, 0, 0.25f, Time.deltaTime);
     }
 
-    if (_playerInput.GetButtonDown(RewiredConsts.Action.Interact))
+    if (!_isCharging)
     {
-      if (_interaction.ClosestInteractable)
+      if (_playerInput.GetButtonDown(RewiredConsts.Action.Interact))
       {
-        _interaction.TriggerInteraction();
+        if (_interaction.ClosestInteractable)
+        {
+          _interaction.TriggerInteraction();
+        }
+        else if (_currentPossessable)
+        {
+          StopPossessing();
+        }
       }
-      else if (_currentPossessable)
-      {
-        StopPossessing();
-      }
-    }
 
-    if (_playerInput.GetButtonDown(RewiredConsts.Action.Attack))
-    {
-      if (_currentPossessable.SpookAttackFX && _currentPossessable.SpookAttackRoot)
+      if (_attackCooldownTimer <= 0 && _playerInput.GetButtonDown(RewiredConsts.Action.Attack))
       {
-        ParticleSystem spookFx = Instantiate(_currentPossessable.SpookAttackFX, _currentPossessable.SpookAttackRoot);
-        spookFx.transform.SetIdentityTransformLocal();
+        DoSpookAttack();
       }
     }
   }
