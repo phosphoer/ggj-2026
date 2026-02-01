@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FX_Water
-  m_Shader: {fileID: -6465566751694194690, guid: d5893bbedda764695b458dd0621098ff, type: 3}
+  m_Name: FX_WhiteTransparent
+  m_Shader: {fileID: -6465566751694194690, guid: cf0115cde0ba249e6a692085ff894e30, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -110,7 +110,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smoothness: 0.5
+    - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
