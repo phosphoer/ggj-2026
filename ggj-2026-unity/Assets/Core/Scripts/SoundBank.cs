@@ -13,6 +13,7 @@ public class SoundBank : ScriptableObject
   public AudioClip[] AudioClips;
   public bool IsLooping;
   public bool IsSpatial;
+  public bool AllowMultipleSources;
   public float MaxDistance = 100.0f;
   public float MinDistance = 10.0f;
   public float MaxPlayInterval = 0f;

@@ -20,6 +20,9 @@ public class PlayerActorController : MonoBehaviour
   [SerializeField] private InteractionController _interaction = null;
   [SerializeField] private LegNoodleController _legPrefab = null;
   [SerializeField] private GameObject _footPrefab = null;
+  [SerializeField] private SkinnedMeshRenderer _bodyMesh = null;
+  [SerializeField] private SkinnedMeshRenderer[] _faceMeshes;
+  [SerializeField] private Spring _leanSpring = default;
 
   private Rewired.Player _playerInput;
   private int _playerIndex = -1;
@@ -29,7 +32,14 @@ public class PlayerActorController : MonoBehaviour
   private List<GameObject> _feet = new();
   private float _animTimer;
   private float _standHeightOffset;
-  private bool _possessableWasKinematic;
+  private float _attackCooldownTimer;
+  private bool _isCharging;
+  private float _chargeTimer;
+  private float _leanAmount;
+  private float _attackHitboxTimer;
+  private Vector2 _chargeDirection;
+  private ParticleSystem _spookAttackFx;
+  private SpookHitBox _spookAttackHitbox;
   private Transform _possessableOriginalParent;
 
   public void SetPlayerIndex(int playerIndex)
@@ -38,9 +48,19 @@ public class PlayerActorController : MonoBehaviour
     _playerInput = Rewired.ReInput.players.GetPlayer(playerIndex);
   }
 
-  public void SetPlayerColor(string colorName)
+  public void SetPlayerColor(PlayerColors colorInfo)
   {
-    _playerColorName = colorName;
+    _playerColorName = colorInfo.ColorName;
+
+    if (_bodyMesh != null)
+    {
+      _bodyMesh.material = colorInfo.BodyColor;
+    }
+
+    foreach (SkinnedMeshRenderer faceMesh in _faceMeshes)
+    {
+      faceMesh.material = colorInfo.FaceColor;
+    }
   }
 
   public void PossessObject(PossessableObject possessable)
@@ -64,6 +84,9 @@ public class PlayerActorController : MonoBehaviour
     AnimIdleWiggleScale = _currentPossessable.AnimIdleWiggleScale;
     AnimIdleWiggleSpeed = _currentPossessable.AnimIdleWiggleSpeed;
 
+    if (_currentPossessable.SFXPossess)
+      AudioManager.Instance.PlaySound(gameObject, _currentPossessable.SFXPossess);
+
     Collider[] propColliders = _currentPossessable.GetComponentsInChildren<Collider>();
     foreach (var c in propColliders)
       c.enabled = false;
@@ -71,7 +94,6 @@ public class PlayerActorController : MonoBehaviour
     Rigidbody rb = _currentPossessable.GetComponent<Rigidbody>();
     if (rb)
     {
-      _possessableWasKinematic = rb.isKinematic;
       rb.isKinematic = true;
     }
 
@@ -120,6 +142,9 @@ public class PlayerActorController : MonoBehaviour
       ResetLegs();
       _playerVisual.SetActive(true);
 
+      if (_currentPossessable.SFXDepossess)
+        AudioManager.Instance.PlaySound(gameObject, _currentPossessable.SFXDepossess);
+
       Collider[] propColliders = _currentPossessable.GetComponentsInChildren<Collider>();
       foreach (var c in propColliders)
         c.enabled = true;
@@ -127,7 +152,7 @@ public class PlayerActorController : MonoBehaviour
       Rigidbody rb = _currentPossessable.GetComponent<Rigidbody>();
       if (rb)
       {
-        rb.isKinematic = _possessableWasKinematic;
+        rb.isKinematic = _currentPossessable.PostPossessKinematicState;
       }
 
       Interactable interactable = _currentPossessable.GetComponent<Interactable>();
@@ -139,6 +164,97 @@ public class PlayerActorController : MonoBehaviour
       _currentPossessable.transform.parent = _possessableOriginalParent;
       _currentPossessable = null;
     }
+  }
+
+  public void DoSpookAttack()
+  {
+    if (_currentPossessable)
+    {
+      var attackParams = _currentPossessable.AttackParams;
+      if (attackParams.SpookAttackFX && attackParams.SpookFXRoot)
+      {
+        _spookAttackFx = Instantiate(attackParams.SpookAttackFX, attackParams.SpookFXRoot);
+      }
+
+      _attackCooldownTimer = 5;
+
+      if (attackParams.Type == SpookAttackType.Charge)
+      {
+        StartCharge();
+      }
+      else if (attackParams.Type == SpookAttackType.Shoot)
+      {
+        Shoot();
+      }
+      else if (attackParams.Type == SpookAttackType.AOE)
+      {
+        Burst();
+      }
+    }
+  }
+
+  private void StartCharge()
+  {
+    var attackParams = _currentPossessable.AttackParams;
+    _isCharging = true;
+    _chargeTimer = attackParams.ChargeDuration;
+    _actor.SprintSpeed = attackParams.ChargeSpeed;
+    _chargeDirection = _actor.LookAxis.normalized;
+    _actor.IsSprinting = true;
+
+    _spookAttackHitbox = new GameObject("spook-attack-hitbox").AddComponent<SpookHitBox>();
+    _spookAttackHitbox.transform.parent = attackParams.SpookAttackRoot;
+    var collider = _spookAttackHitbox.gameObject.AddComponent<SphereCollider>();
+    collider.isTrigger = true;
+    collider.radius = attackParams.ChargeAttackRadius;
+  }
+
+  private void StopCharge()
+  {
+    Destroy(_spookAttackHitbox.gameObject);
+    _spookAttackHitbox = null;
+
+    _isCharging = false;
+    _actor.IsSprinting = false;
+
+    if (_spookAttackFx)
+    {
+      _spookAttackFx.DestroyOnStop();
+      _spookAttackFx.Stop();
+      _spookAttackFx = null;
+    }
+  }
+
+  private void Shoot()
+  {
+    var attackParams = _currentPossessable.AttackParams;
+    _spookAttackHitbox = new GameObject("spook-attack-hitbox").AddComponent<SpookHitBox>();
+    _spookAttackHitbox.transform.parent = attackParams.SpookAttackRoot;
+    _spookAttackHitbox.transform.SetIdentityTransformLocal();
+    _attackHitboxTimer = 1;
+
+    var collider = _spookAttackHitbox.gameObject.AddComponent<BoxCollider>();
+    collider.isTrigger = true;
+    collider.size = new Vector3(attackParams.ShootAttackWidth, 10, attackParams.ShootAttackRange);
+    collider.center = Vector3.forward * attackParams.ShootAttackRange * 0.5f;
+
+    _leanSpring.Velocity -= attackParams.ShootRecoil;
+  }
+
+  private void Burst()
+  {
+    var attackParams = _currentPossessable.AttackParams;
+    _spookAttackHitbox = new GameObject("spook-attack-hitbox").AddComponent<SpookHitBox>();
+    _spookAttackHitbox.transform.parent = attackParams.SpookAttackRoot;
+    _spookAttackHitbox.transform.SetIdentityTransformLocal();
+    _attackHitboxTimer = 1;
+
+    var collider = _spookAttackHitbox.gameObject.AddComponent<SphereCollider>();
+    collider.isTrigger = true;
+    collider.radius = attackParams.AOERadius;
+    collider.center = attackParams.SpookAttackRoot.position;
+
+    _leanSpring.Velocity -= attackParams.ShootRecoil;
   }
 
   private void OnEnable()
@@ -169,12 +285,41 @@ public class PlayerActorController : MonoBehaviour
     Vector2 inputAxis2D = inputAxisWorld.XZ();
     _actor.MoveAxis = Mathfx.Damp(_actor.MoveAxis, inputAxis2D, 0.25f, Time.deltaTime * 3);
 
+    if (_isCharging)
+    {
+      _chargeTimer -= Time.deltaTime;
+      _actor.MoveAxis = _chargeDirection;
+      if (_chargeTimer <= 0)
+      {
+        StopCharge();
+      }
+    }
+    else
+    {
+      _attackCooldownTimer -= Time.deltaTime;
+    }
+
+    if (_attackHitboxTimer > 0 && _spookAttackHitbox)
+    {
+      _attackHitboxTimer -= Time.deltaTime;
+      if (_attackHitboxTimer <= 0)
+      {
+        Destroy(_spookAttackHitbox.gameObject);
+        _spookAttackHitbox = null;
+      }
+    }
+
     _animTimer += Time.deltaTime;
     Vector3 posOffset = Vector3.up * _standHeightOffset;
     _playerVisualRoot.localPosition = Vector3.up * Mathf.Sin(_animTimer * AnimIdleBobSpeed) * AnimIdleBobScale + posOffset;
 
+    _leanSpring = Spring.UpdateSpring(_leanSpring, Time.deltaTime);
+
+    float leanScale = _currentPossessable != null ? _currentPossessable.AnimWalkLeanScale : 20;
     float targetRot = Mathf.Sin(_animTimer * AnimIdleWiggleSpeed) * AnimIdleWiggleScale;
-    _playerVisualRoot.localRotation = Quaternion.Euler(0, targetRot, 0);
+    float targetLean = _actor.MoveAxis.magnitude * leanScale * (_isCharging ? 2 : 1);
+    _leanAmount = Mathfx.Damp(_leanAmount, targetLean, 0.25f, Time.deltaTime) + _leanSpring.Value;
+    _playerVisualRoot.localRotation = Quaternion.Euler(_leanAmount, targetRot, 0);
 
     if (_currentPossessable)
     {
@@ -189,16 +334,23 @@ public class PlayerActorController : MonoBehaviour
       _standHeightOffset = Mathfx.Damp(_standHeightOffset, 0, 0.25f, Time.deltaTime);
     }
 
-    if (_playerInput.GetButtonDown(RewiredConsts.Action.Interact))
+    if (!_isCharging)
     {
-      if (_interaction.ClosestInteractable)
+      if (_playerInput.GetButtonDown(RewiredConsts.Action.Interact))
       {
-        Debug.Log($"Interact");
-        _interaction.TriggerInteraction();
+        if (_interaction.ClosestInteractable)
+        {
+          _interaction.TriggerInteraction();
+        }
+        else if (_currentPossessable)
+        {
+          StopPossessing();
+        }
       }
-      else if (_currentPossessable)
+
+      if (_attackCooldownTimer <= 0 && _playerInput.GetButtonDown(RewiredConsts.Action.Attack))
       {
-        StopPossessing();
+        DoSpookAttack();
       }
     }
   }

@@ -40,60 +40,64 @@ public class InteractionController : MonoBehaviour
       SetClosestInteractable(null);
     }
 
-    if (_lazyUpdateIndex < Interactable.Instances.Count)
+    const int kUpdateCount = 10;
+    for (int i = 0; i < Mathf.Min(kUpdateCount, Interactable.Instances.Count); ++i)
     {
-      // Check if the current interactable is still in range
-      float distToClosest = Mathf.Infinity;
-      if (_closestInteractable != null)
+      if (_lazyUpdateIndex < Interactable.Instances.Count)
       {
-        distToClosest = Vector3.Distance(_trackedTransform.position, _closestInteractable.transform.position);
-        bool isInLightOfSight = IsInLineOfSight(_closestInteractable);
-        if (distToClosest >= _closestInteractable.InteractionRadius || !isInLightOfSight || !_closestInteractable.enabled)
+        // Check if the current interactable is still in range
+        float distToClosest = Mathf.Infinity;
+        if (_closestInteractable != null)
         {
-          SetClosestInteractable(null);
+          distToClosest = Vector3.Distance(_trackedTransform.position, _closestInteractable.transform.position);
+          bool isInLightOfSight = IsInLineOfSight(_closestInteractable);
+          if (distToClosest >= _closestInteractable.InteractionRadius || !isInLightOfSight || !_closestInteractable.enabled)
+          {
+            SetClosestInteractable(null);
+            distToClosest = Mathf.Infinity;
+          }
+        }
+
+        // If the interactable does not have interaction enabled, any other interactable in range should 
+        // take priority
+        if (_closestInteractable != null && !_closestInteractable.IsInteractionEnabled)
+        {
           distToClosest = Mathf.Infinity;
         }
-      }
 
-      // If the interactable does not have interaction enabled, any other interactable in range should 
-      // take priority
-      if (_closestInteractable != null && !_closestInteractable.IsInteractionEnabled)
-      {
-        distToClosest = Mathf.Infinity;
-      }
+        // Get the distance to the next potential interactable
+        Interactable interactable = Interactable.Instances[_lazyUpdateIndex];
+        Vector3 toInteractable = interactable.transform.position - _trackedTransform.position;
+        float distToInteractable = toInteractable.magnitude;
 
-      // Get the distance to the next potential interactable
-      Interactable interactable = Interactable.Instances[_lazyUpdateIndex];
-      Vector3 toInteractable = interactable.transform.position - _trackedTransform.position;
-      float distToInteractable = toInteractable.magnitude;
-
-      // Decide if this interactable is more contextual than the current one
-      bool isInteractableMoreContextual = distToInteractable < distToClosest;
-      isInteractableMoreContextual &= distToInteractable < interactable.InteractionRadius;
-      isInteractableMoreContextual &= interactable != _closestInteractable;
-      if (_closestInteractable != null && !interactable.IsInteractionEnabled)
-      {
-        isInteractableMoreContextual = false;
-      }
-
-      // If the new interactable is more contextual than the previous, make it the highlighted one
-      if (isInteractableMoreContextual)
-      {
-        // Make this interactable the current one, if it was in line of sight
-        if (CanInteractWith(interactable) && IsInLineOfSight(interactable))
+        // Decide if this interactable is more contextual than the current one
+        bool isInteractableMoreContextual = distToInteractable < distToClosest;
+        isInteractableMoreContextual &= distToInteractable < interactable.InteractionRadius;
+        isInteractableMoreContextual &= interactable != _closestInteractable;
+        if (_closestInteractable != null && !interactable.IsInteractionEnabled)
         {
-          SetClosestInteractable(interactable);
+          isInteractableMoreContextual = false;
+        }
+
+        // If the new interactable is more contextual than the previous, make it the highlighted one
+        if (isInteractableMoreContextual)
+        {
+          // Make this interactable the current one, if it was in line of sight
+          if (CanInteractWith(interactable) && IsInLineOfSight(interactable))
+          {
+            SetClosestInteractable(interactable);
+          }
         }
       }
-    }
-    else
-    {
-      SetClosestInteractable(null);
-    }
+      else
+      {
+        SetClosestInteractable(null);
+      }
 
-    if (Interactable.Instances.Count > 0)
-    {
-      _lazyUpdateIndex = (_lazyUpdateIndex + 1) % Interactable.Instances.Count;
+      if (Interactable.Instances.Count > 0)
+      {
+        _lazyUpdateIndex = (_lazyUpdateIndex + 1) % Interactable.Instances.Count;
+      }
     }
   }
 

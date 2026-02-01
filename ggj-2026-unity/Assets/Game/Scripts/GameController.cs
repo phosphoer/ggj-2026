@@ -8,6 +8,8 @@ using UnityEngine.UIElements;
 public struct PlayerColors
 {
   public string ColorName;
+  public Material BodyColor;
+  public Material FaceColor;
 }
 
 public class GameController : Singleton<GameController>
@@ -24,7 +26,8 @@ public class GameController : Singleton<GameController>
   public SoundBank MusicEnd;
   public int WinCountDownTime = 10;
 
-  [SerializeField] private eGameState _initialGameState = eGameState.Game;
+  [SerializeField] private eGameState _initialGameState = eGameState.Intro;
+  [SerializeField] private eGameState _initialEditorGameState = eGameState.Game;
   [SerializeField] private LevelGenerator _levelManager;
   [SerializeField] private LevelCameraController _cameraController;
   [SerializeField] private PlayerActorController _playerPrefab;
@@ -78,7 +81,16 @@ public class GameController : Singleton<GameController>
   {
     Application.targetFrameRate = 60;
 
-    SetGameState(_initialGameState);
+#if UNITY_EDITOR
+    if (Application.isEditor)
+    {
+      SetGameState(_initialEditorGameState);
+    }
+    else
+#endif
+    {
+      SetGameState(_initialGameState);
+    }
   }
 
   private void Update()
@@ -257,7 +269,7 @@ public class GameController : Singleton<GameController>
     var playerGO = Instantiate(_playerPrefab.gameObject, position, rotation);
     var playerController = playerGO.GetComponent<PlayerActorController>();
     playerController.SetPlayerIndex(playerIndex);
-    playerController.SetPlayerColor(_playerColors[playerIndex].ColorName);
+    playerController.SetPlayerColor(_playerColors[playerIndex]);
 
     _spawnedPlayers.Add(playerController);
   }

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c345fe0be4353445895a73c7861c323d, type: 3}
+  m_Name: sfx-footstep-stick
+  m_EditorClassIdentifier: Assembly-CSharp::SoundBank
+  AudioClips:
+  - {fileID: 8300000, guid: d30fc7c0bbb3948d3ad599cb5c177a7b, type: 3}
+  - {fileID: 8300000, guid: 2d0fdd14841c641d6883c251ce80c42e, type: 3}
+  - {fileID: 8300000, guid: b47c2d8d6f0824564af350c3913ee03d, type: 3}
+  - {fileID: 8300000, guid: ef906fac89f744a42a4484a0e8da3e15, type: 3}
+  - {fileID: 8300000, guid: a63bd8a9442c946f7ba5c5fcc7c285c1, type: 3}
+  - {fileID: 8300000, guid: beb442de7ad0843f39919ac0bc370894, type: 3}
+  - {fileID: 8300000, guid: b3035effbdc594faf8cb996dff070a25, type: 3}
+  - {fileID: 8300000, guid: 6925a2952b2e246ddb4acb10e5bcd6ed, type: 3}
+  - {fileID: 8300000, guid: 4d2b3f58bc99140fab267b95e15a5b16, type: 3}
+  - {fileID: 8300000, guid: 2ada049cd4734470ca2cd5af711bf6fd, type: 3}
+  - {fileID: 8300000, guid: 394489435abd146ffa72bad6a1635748, type: 3}
+  IsLooping: 0
+  IsSpatial: 1
+  AllowMultipleSources: 0
+  MaxDistance: 30
+  MinDistance: 1
+  MaxPlayInterval: 0
+  VolumeScale: 0.25
+  DopplerLevel: 0
+  PitchOffset: 0
+  PitchOffsetRange:
+    MinValue: 0
+    MaxValue: 0
+  AudioMixerGroup: {fileID: 0}

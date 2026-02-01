@@ -5,338 +5,314 @@ using UnityEngine.UIElements;
 
 public interface IState
 {
-    void OnEnter(FarmerController controller);
-    void UpdateState(FarmerController controller);
-    void OnExit(FarmerController controller);
+  void OnEnter(FarmerController controller);
+  void UpdateState(FarmerController controller);
+  void OnExit(FarmerController controller);
 }
 
 public class FarmerController : MonoBehaviour
 {
-    public float maxHealth = 100;
-    public float health = 100;
+  public float speed = 10;
+  public float turnSpeed = 45;
 
-    public float speed = 10;
-    public float turnSpeed = 45;
+  public float minProximityToTarget = 5;
 
-    public float minProximityToTarget = 5;
+  public float minIdleTime = 5;
+  public float maxIdleTime = 10;
 
-    public float minIdleTime = 5;
-    public float maxIdleTime = 10;
+  IState currentState;
 
-    public float startledTurnSpeed = 30;
+  GameObject[] targets;
 
-    public FarmerPerceptionComponent perceptionObject;
+  List<GameObject> shuffledTargets = new List<GameObject>();
+  ObjectActorController _actor = null;
+
+  public Animator _animator;
+  public GameObject currentTarget = null;
+
+  private static int kLocomotionParameter= Animator.StringToHash("LocomotionParameter");
+  private static int kIsSearching= Animator.StringToHash("IsSearching");
+  private static int kFeintTrigger= Animator.StringToHash("FeintTrigger");
+  private static int kStartledTriggered= Animator.StringToHash("StartledTriggered");
+  private static int kVictoryTrigger= Animator.StringToHash("VictoryTrigger");
+  private static float kIsMovingThreshold= 0.01f;
+
+  private bool _isScared= false;
+  private bool _isMoving= false;
+  private bool _isSearching= false;
+
+  public enum eLocomotionState
+  {
+    idle,
+    walking,
+    walking_scared
+  }
+
+  public enum eEmote
+  {
+    feint,
+    startled,
+    victory
+  }
+
+  void Start()
+  {
     
-    IState currentState;
+    _actor = GetComponent<ObjectActorController>();
 
-    GameObject[] targets;
-    List<GameObject> shuffledTargets = new List<GameObject>();
-    public GameObject currentTarget = null;
+    targets = GameObject.FindGameObjectsWithTag("FarmerTarget");
+    ShuffleTargets();
+    ChangeState(new WalkState());
+  }
 
-    void Start()
+  void Update()
+  {
+    if (shuffledTargets.Count <= 0)
     {
-        targets = GameObject.FindGameObjectsWithTag("FarmerTarget");
-        ShuffleTargets();
-        ChangeState(new WalkState());
-
-        health = maxHealth;
+      ShuffleTargets();
     }
 
-    void Update()
+    if (currentState != null)
     {
-        Debug.DrawLine(transform.position, transform.position + transform.forward, Color.red);
+      currentState.UpdateState(this);
+    }
+  }
 
-        if (shuffledTargets.Count <= 0)
-        {
-            ShuffleTargets();
-        }
+  public void ChangeState(IState newState)
+  {
+    if (currentState != null)
+    {
+      currentState.OnExit(this);
+    }
+    currentState = newState;
+    currentState.OnEnter(this);
+  }
 
-        if (currentState != null)
-        {
-            currentState.UpdateState(this);
-        }
+  public void ShuffleTargets()
+  {
+    for (int targetIndex = 0; targetIndex < targets.Length; targetIndex++)
+    {
+      shuffledTargets.Add(targets[targetIndex]);
     }
 
-    public void ChangeState(IState newState)
+
+    System.Random random = new System.Random();
+    int n = shuffledTargets.Count;
+    for (int i = 0; i < n; i++)
     {
-        if (currentState != null)
-        {
-            currentState.OnExit(this);
-        }
-        currentState = newState;
-        currentState.OnEnter(this);
+      int r = i + random.Next(n - i);
+      GameObject temp = shuffledTargets[r];
+      shuffledTargets[r] = shuffledTargets[i];
+      shuffledTargets[i] = temp;
+    }
+  }
+
+  public void FindAndSetNextTarget()
+  {
+    currentTarget = shuffledTargets[0];
+    shuffledTargets.Remove(currentTarget);
+  }
+
+  public void FaceTowards(Vector3 direction)
+  {
+    if (_actor != null)
+    {
+      _actor.LookAxis = direction.XZ();
+    }
+    else
+    {
+      // if not facing target, turn towards it
+      if (direction != -transform.forward)
+      {
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * turnSpeed); // Smooth rotation
+      }
+    }
+  }
+
+  public void MoveTowards(Vector3 direction)
+  {
+    if (_actor != null)
+    {
+      _actor.MoveAxis = direction.XZ();
+    }
+    else
+    {
+      // if we made it this far, move toward the target
+      transform.position += direction * speed * Time.deltaTime;
     }
 
-    public bool IsStartled()
-    {
-        return perceptionObject.GetDetectedObjectCount() > 0;
-    }   
+    SetIsMoving(direction.sqrMagnitude > kIsMovingThreshold * kIsMovingThreshold);
+  }
 
-    public void ShuffleTargets()
+  private void SetIsMoving(bool isMoving)
+  {
+    if (isMoving != _isMoving)
     {
-        for (int targetIndex = 0; targetIndex < targets.Length; targetIndex++)
-        {
-            shuffledTargets.Add(targets[targetIndex]);
-        }
+      _isMoving= isMoving;
+      UpdateLocomotionState();
+    }
+  }
 
-        System.Random random = new System.Random();
-        int n = shuffledTargets.Count;
-        for (int i = 0; i < n; i++)
-        {
-            int r = i + random.Next(n - i);
-            GameObject temp = shuffledTargets[r];
-            shuffledTargets[r] = shuffledTargets[i];
-            shuffledTargets[i] = temp;
-        }
+  public void SetIsScared(bool isScared)
+  {
+    if (isScared != _isScared)
+    {
+      _isScared = isScared;
+      UpdateLocomotionState();
+    }
+  }
+
+  public void SetIsSearching(bool isSearching)
+  {
+    if (isSearching != _isSearching)
+    {
+      _isSearching= isSearching;
+      SetAnimatorBool(kIsSearching, _isSearching);
+    }
+  }
+
+  private void UpdateLocomotionState()
+  {
+    if (_isMoving)
+    {
+      if (_isScared)
+        SetLocomotionState(eLocomotionState.walking_scared);
+      else
+        SetLocomotionState(eLocomotionState.walking);
+    }
+    else
+    {
+      SetLocomotionState(eLocomotionState.idle);
+    }
+  }
+
+  private void SetLocomotionState(eLocomotionState locomotionState)
+  {
+    float parameter= 0.0f;
+    switch(locomotionState)
+    {
+    case eLocomotionState.idle: parameter = 0.0f; break;
+    case eLocomotionState.walking: parameter = 1.0f; break;
+    case eLocomotionState.walking_scared: parameter = 2.0f; break;
     }
 
-    public void FindAndSetNextTarget()
+    SetAnimatorFloat(kLocomotionParameter, parameter);
+  }
+
+  public void PlayEmote(eEmote emote)
+  {
+    switch(emote)
     {
-        currentTarget = shuffledTargets[0];
-        shuffledTargets.Remove(currentTarget);
+    case eEmote.feint:
+      SetAnimatorTrigger(kFeintTrigger);
+      break;
+    case eEmote.startled:
+      SetAnimatorTrigger(kStartledTriggered);
+      break;
+    case eEmote.victory:
+      SetAnimatorTrigger(kVictoryTrigger);
+      break;
     }
+  }
+
+  private void SetAnimatorTrigger(int triggerId)
+  {
+    _animator.SetTrigger(triggerId);
+  }
+
+  private void SetAnimatorFloat(int parameterId, float value)
+  {
+    _animator.SetFloat(parameterId, value);
+  }
+
+  private void SetAnimatorBool(int parameterId, bool value)
+  {
+    _animator.SetBool(parameterId, value);
+  }
 }
 
 public class WalkState : IState
 {
-    public void OnEnter(FarmerController controller)
+  public void OnEnter(FarmerController controller)
+  {
+    controller.FindAndSetNextTarget();
+  }
+
+  public void UpdateState(FarmerController controller)
+  {
+    // if close to target, change to idle
+    float distanceToTarget = Vector3.Distance(controller.currentTarget.transform.position, controller.transform.position);
+
+    if (distanceToTarget <= controller.minProximityToTarget)
     {
-        Debug.Log("Farmer State: WALK");
-        controller.FindAndSetNextTarget();
+      controller.ChangeState(new IdleState());
+      return;
     }
 
-    public void UpdateState(FarmerController controller)
+    // something something perceive a player
+    bool fakebool = false;
+    if (fakebool)
     {
-        // if close to target, change to idle
-        float distanceToTarget = Vector3.Distance(controller.currentTarget.transform.position, controller.transform.position);
-
-        if (distanceToTarget <= controller.minProximityToTarget)
-        {
-            controller.ChangeState(new IdleState());
-            return;
-        }
-
-        if(controller.IsStartled())
-        { 
-            controller.ChangeState(new StartledState());
-            return;
-        }
-
-
-        Vector3 heading = controller.currentTarget.transform.position - controller.transform.position;
-        Vector3 direction = heading.NormalizedSafe();
-
-        // if not facing target, turn towards it
-        if (direction != -controller.transform.forward)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, targetRotation, Time.deltaTime * controller.turnSpeed); // Smooth rotation
-        }
-
-        if(Mathf.Approximately(Vector3.Angle(controller.transform.forward, direction), 0.0f))
-        {
-            // if we made it this far, move toward the target
-            controller.transform.position += direction * controller.speed * Time.deltaTime;        
-        }
-
+      controller.ChangeState(new StartledState());
     }
 
-    public void OnExit(FarmerController controller)
-    {
-        // Cleanup patrol state
-    }
+
+    Vector3 heading = controller.currentTarget.transform.position - controller.transform.position;
+    Vector3 direction = heading.NormalizedSafe();
+
+    controller.FaceTowards(direction);
+    controller.MoveTowards(direction);
+  }
+
+  public void OnExit(FarmerController controller)
+  {
+    // Cleanup patrol state
+    controller.MoveTowards(Vector3.zero);
+  }
 }
 
 public class StartledState : IState
 {
-    float timeRemaining = 3;
+  public void OnEnter(FarmerController controller)
+  {
+    // Initialize chase state
+    controller.PlayEmote(FarmerController.eEmote.startled);
+  }
 
-    Vector3 targetLocation;
+  public void UpdateState(FarmerController controller)
+  {
+    // Chase logic
+  }
 
-    public void OnEnter(FarmerController controller)
-    {
-        Debug.Log("Farmer State: STARTLED");
-        targetLocation = controller.perceptionObject.GetClosestDetectedObjectLocation();
-    }
-
-    public void UpdateState(FarmerController controller)
-    {
-        //Vector3 heading = controller.currentTarget.transform.position - controller.transform.position;
-        //Vector3 direction = heading.NormalizedSafe();
-
-        //Quaternion targetRotation = Quaternion.LookRotation(direction);
-        //controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, targetRotation, Time.deltaTime * controller.startledTurnSpeed); // Smooth rotation
-    }
-
-    public void OnExit(FarmerController controller)
-    {
-        
-    }
-}
-
-public class WalkScaredState : WalkState
-{
-    float timeRemaining = 5.0f;
-
-    public void OnEnter(FarmerController controller)
-    {
-        Debug.Log("Farmer State: WALKSCARED");
-    }
-
-    public void UpdateState(FarmerController controller)
-    {
-        if (timeRemaining > 0)
-        {
-            timeRemaining -= Time.deltaTime;
-            if (timeRemaining < 0)
-            {
-                controller.ChangeState(new WalkState());
-            }
-        }
-    }
-
-    public void OnExit(FarmerController controller)
-    {
-
-    }
-}
-
-public class DamagedState : IState
-{
-    public void OnEnter(FarmerController controller)
-    {
-        Debug.Log("Farmer State: DAMAGED");
-
-        // take damage
-        // check if faint
-        // if not change state to Search or walk scared?
-    }
-    public void UpdateState(FarmerController controller)
-    {
-        if (controller.health <= 0)
-        {
-            controller.ChangeState(new FaintState());
-        }
-        else
-        {
-            controller.ChangeState(new SearchState());
-        }
-
-
-    }
-
-    public void OnExit(FarmerController controller)
-    {
-    }
-
-}
-
-
-public class FaintState : IState
-{
-    public void OnEnter(FarmerController controller)
-    {
-        Debug.Log("Farmer State: FAINT");
-    }
-
-    public void UpdateState(FarmerController controller)
-    {
-        // He's dead Jim
-    }
-
-    public void OnExit(FarmerController controller)
-    {
-    }
-}
-
-public class AttackState : IState
-{
-    float timeRemaining = 5.0f;
-    public void OnEnter(FarmerController controller)
-    {
-        // take damage
-        Debug.Log("Farmer State: ATTACK");
-    }
-
-    public void UpdateState(FarmerController controller)
-    {
-        if (timeRemaining > 0)
-        {
-            timeRemaining -= Time.deltaTime;
-            if (timeRemaining < 0)
-            {
-                controller.ChangeState(new WalkScaredState());
-            }
-        }
-    }
-
-    public void OnExit(FarmerController controller)
-    {
-        // recover
-    }
-}
-
-public class SearchState : IState
-{
-    float timeRemaining = 5.0f;
-
-    public void OnEnter(FarmerController controller)
-    {
-        Debug.Log("Farmer State: SEARCH");
-    }
-
-    public void UpdateState(FarmerController controller)
-    {
-        if(controller.IsStartled())
-        {
-            controller.ChangeState(new StartledState());
-        }
-
-        if (timeRemaining > 0)
-        {
-            timeRemaining -= Time.deltaTime;
-            if (timeRemaining < 0)
-            {
-                controller.ChangeState(new WalkScaredState());
-            }
-        }
-    }
-
-    public void OnExit(FarmerController controller)
-    {
-
-    }
+  public void OnExit(FarmerController controller)
+  {
+  }
 }
 
 public class IdleState : IState
 {
-    float timeRemaining = 1000;
+  float timeRemaining = 1000;
 
-    public void OnEnter(FarmerController controller)
+  public void OnEnter(FarmerController controller)
+  {
+    timeRemaining = Random.Range(controller.minIdleTime, controller.maxIdleTime);
+  }
+
+  public void UpdateState(FarmerController controller)
+  {
+    if (timeRemaining > 0)
     {
-        Debug.Log("Farmer State: IDLE");
-        timeRemaining = Random.Range(controller.minIdleTime, controller.maxIdleTime);
+      timeRemaining -= Time.deltaTime;
+      if (timeRemaining < 0)
+      {
+        controller.ChangeState(new WalkState());
+      }
     }
+  }
 
-    public void UpdateState(FarmerController controller)
-    {
-        if (controller.IsStartled())
-        {
-            controller.ChangeState(new StartledState());
-        }
+  public void OnExit(FarmerController controller)
+  {
 
-        if (timeRemaining > 0)
-        {
-            timeRemaining -= Time.deltaTime;
-            if(timeRemaining < 0)
-            {
-                controller.ChangeState(new WalkState());
-            }
-        }
-    }
-
-    public void OnExit(FarmerController controller)
-    {
-
-    }
+  }
 }
