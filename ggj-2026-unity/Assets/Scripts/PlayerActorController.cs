@@ -22,6 +22,7 @@ public class PlayerActorController : MonoBehaviour
   [SerializeField] private GameObject _footPrefab = null;
   [SerializeField] private SkinnedMeshRenderer _bodyMesh = null;
   [SerializeField] private SkinnedMeshRenderer[] _faceMeshes;
+  [SerializeField] private Spring _leanSpring = default;
 
   private Rewired.Player _playerInput;
   private int _playerIndex = -1;
@@ -224,6 +225,8 @@ public class PlayerActorController : MonoBehaviour
     collider.isTrigger = true;
     collider.size = new Vector3(attackParams.ShootAttackWidth, 10, attackParams.ShootAttackRange);
     collider.center = Vector3.forward * attackParams.ShootAttackRange * 0.5f;
+
+    _leanSpring.Velocity -= attackParams.ShootRecoil;
   }
 
   private void OnEnable()
@@ -272,9 +275,11 @@ public class PlayerActorController : MonoBehaviour
     Vector3 posOffset = Vector3.up * _standHeightOffset;
     _playerVisualRoot.localPosition = Vector3.up * Mathf.Sin(_animTimer * AnimIdleBobSpeed) * AnimIdleBobScale + posOffset;
 
+    _leanSpring = Spring.UpdateSpring(_leanSpring, Time.deltaTime);
+
     float targetRot = Mathf.Sin(_animTimer * AnimIdleWiggleSpeed) * AnimIdleWiggleScale;
     float targetLean = _actor.MoveAxis.magnitude * 20 * (_isCharging ? 2 : 1);
-    _leanAmount = Mathfx.Damp(_leanAmount, targetLean, 0.25f, Time.deltaTime);
+    _leanAmount = Mathfx.Damp(_leanAmount, targetLean, 0.25f, Time.deltaTime) + _leanSpring.Value;
     _playerVisualRoot.localRotation = Quaternion.Euler(_leanAmount, targetRot, 0);
 
     if (_currentPossessable)

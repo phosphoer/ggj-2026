@@ -1319,7 +1319,7 @@ MonoBehaviour:
   - {fileID: 8863760941124612939}
   - {fileID: 4423428825535103975}
   - {fileID: 8316144730629896223}
-  _desiredTinyCount: 60
+  _desiredTinyCount: 30
   _smallPossessableSpawns:
   - {fileID: 4131869359473458029}
   - {fileID: 1257222447013440793}
@@ -2795,6 +2795,10 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0.024905207
       objectReference: {fileID: 0}
+    - target: {fileID: 191489515224221397, guid: 3c5833c0832a59241900b8cd43bc5fa9, type: 3}
+      propertyPath: _interactionRadius
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4690121560595910928, guid: 3c5833c0832a59241900b8cd43bc5fa9, type: 3}
       propertyPath: m_Name
       value: Prop_Scarecrow
@@ -2805,11 +2809,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6656023144281736795, guid: 3c5833c0832a59241900b8cd43bc5fa9, type: 3}
       propertyPath: m_LinearDamping
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6656023144281736795, guid: 3c5833c0832a59241900b8cd43bc5fa9, type: 3}
       propertyPath: m_AngularDamping
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8421738655445934202, guid: 3c5833c0832a59241900b8cd43bc5fa9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7424,11 +7428,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6656023144281736795, guid: 3c5833c0832a59241900b8cd43bc5fa9, type: 3}
       propertyPath: m_LinearDamping
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6656023144281736795, guid: 3c5833c0832a59241900b8cd43bc5fa9, type: 3}
       propertyPath: m_AngularDamping
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 8421738655445934202, guid: 3c5833c0832a59241900b8cd43bc5fa9, type: 3}
       propertyPath: m_LocalPosition.x

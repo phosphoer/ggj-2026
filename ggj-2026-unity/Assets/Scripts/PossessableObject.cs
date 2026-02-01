@@ -17,6 +17,7 @@ public class SpookAttackParams
   [Header("Shoot")]
   public float ShootAttackWidth = 1;
   public float ShootAttackRange = 3;
+  public float ShootRecoil = 5;
 
   [Header("Charge")]
   public float ChargeSpeed = 5;
