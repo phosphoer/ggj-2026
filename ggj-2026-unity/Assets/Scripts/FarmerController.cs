@@ -32,6 +32,13 @@ public class FarmerController : MonoBehaviour
   public float minIdleTime = 5;
   public float maxIdleTime = 10;
 
+  public float startledDuration = 1.0f;
+  public float scaredWalkDuration = 5.0f;
+  public float damagedDuration = 3.0f;
+  public float faintDuration = 3.0f;
+  public float attackDuration = 3.0f;
+  public float searchDuration = 3.0f;
+
   public FarmerPerceptionComponent perceptionObject;
 
   IState currentState;
@@ -279,13 +286,13 @@ public class FarmerController : MonoBehaviour
 
 public class WalkState : IState
 {
-  public void OnEnter(FarmerController controller)
+  public virtual void OnEnter(FarmerController controller)
   {
     Debug.Log("Farmer State: WALK");
     controller.FindAndSetNextTarget();
   }
 
-  public void UpdateState(FarmerController controller)
+  public virtual void UpdateState(FarmerController controller)
   {
     // if close to target, change to idle
     float distanceToTarget = Vector3.Distance(controller.currentTarget.transform.position, controller.transform.position);
@@ -310,7 +317,7 @@ public class WalkState : IState
     controller.MoveTowards(direction);
   }
 
-  public void OnExit(FarmerController controller)
+  public virtual void OnExit(FarmerController controller)
   {
     // Cleanup patrol state
     controller.MoveTowards(Vector3.zero);
@@ -323,13 +330,14 @@ public class WalkState : IState
 
 public class StartledState : IState
 {
-  float timeRemaining = 3;
+  float timeRemaining = 0.0f;
 
   Vector3 targetLocation;
 
   public void OnEnter(FarmerController controller)
   {
     Debug.Log("Farmer State: STARTLED");
+    timeRemaining = controller.startledDuration;
     targetLocation = controller.perceptionObject.GetClosestDetectedObjectLocation();
 
     controller.PlayEmote(FarmerController.eEmote.startled);
@@ -341,6 +349,15 @@ public class StartledState : IState
     Vector3 direction = heading.NormalizedSafe();
 
     controller.FaceTowards(direction, controller.startledTurnSpeed);
+
+    if (timeRemaining > 0)
+    {
+      timeRemaining -= Time.deltaTime;
+      if (timeRemaining < 0)
+      {
+        controller.ChangeState(new SearchState());
+      }
+    }
   }
 
   public void OnExit(FarmerController controller)
@@ -356,7 +373,7 @@ public class StartledState : IState
 
 public class IdleState : IState
 {
-  float timeRemaining = 1000;
+  float timeRemaining = 0.0f;
 
   public void OnEnter(FarmerController controller)
   {
@@ -394,15 +411,17 @@ public class IdleState : IState
 
 public class WalkScaredState : WalkState
 {
-  float timeRemaining = 5.0f;
+  float timeRemaining = 0.0f;
 
-  public void OnEnter(FarmerController controller)
+  public override void OnEnter(FarmerController controller)
   {
     Debug.Log("Farmer State: WALKSCARED");
+    timeRemaining = controller.scaredWalkDuration;
     controller.SetIsScared(true);
+    base.OnEnter(controller);
   }
 
-  public void UpdateState(FarmerController controller)
+  public override void UpdateState(FarmerController controller)
   {
     if (timeRemaining > 0)
     {
@@ -412,11 +431,13 @@ public class WalkScaredState : WalkState
         controller.ChangeState(new WalkState());
       }
     }
+    base.UpdateState(controller);
   }
 
-  public void OnExit(FarmerController controller)
+  public override void OnExit(FarmerController controller)
   {
     controller.SetIsScared(false);
+    base.OnExit(controller);
   }
 }
 
@@ -426,8 +447,11 @@ public class WalkScaredState : WalkState
 
 public class DamagedState : IState
 {
+  float timeRemaining = 0.0f;
+
   public void OnEnter(FarmerController controller)
   {
+    timeRemaining = controller.damagedDuration; 
     Debug.Log("Farmer State: DAMAGED");
 
     // take damage
@@ -442,7 +466,14 @@ public class DamagedState : IState
     }
     else
     {
-      controller.ChangeState(new SearchState());
+      if (timeRemaining > 0)
+      {
+        timeRemaining -= Time.deltaTime;
+        if (timeRemaining < 0)
+        {
+          controller.ChangeState(new SearchState());
+        }
+      }
     }
   }
 
@@ -458,15 +489,25 @@ public class DamagedState : IState
 
 public class FaintState : IState
 {
+  float timeRemaining = 0.0f;
   public void OnEnter(FarmerController controller)
   {
+    timeRemaining = controller.faintDuration;
     Debug.Log("Farmer State: FAINT");
   }
 
   public void UpdateState(FarmerController controller)
   {
-    // He's dead Jim
+    if (timeRemaining > 0)
+    {
+      timeRemaining -= Time.deltaTime;
+      if (timeRemaining < 0)
+      {
+        // He's dead Jim
+      }
+    }
   }
+
   public void OnExit(FarmerController controller)
   {
 
@@ -479,10 +520,11 @@ public class FaintState : IState
 
 public class AttackState : IState
 {
-  float timeRemaining = 5.0f;
+  float timeRemaining = 0.0f;
   public void OnEnter(FarmerController controller)
   {
     Debug.Log("Farmer State: ATTACK");
+    timeRemaining = controller.attackDuration;
   }
 
   public void UpdateState(FarmerController controller)
@@ -505,11 +547,12 @@ public class AttackState : IState
 
 public class SearchState : IState
 {
-  float timeRemaining = 5.0f;
+  float timeRemaining = 0.0f;
 
   public void OnEnter(FarmerController controller)
   {
     Debug.Log("Farmer State: SEARCH");
+    timeRemaining = controller.searchDuration;
   }
 
   public void UpdateState(FarmerController controller)
