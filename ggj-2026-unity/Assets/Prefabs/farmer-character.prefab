@@ -147,9 +147,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FarmerController
   maxHealth: 100
   health: 100
-  speed: 10
-  turnSpeed: 45
-  startledTurnSpeed: 25
+  speed: 25
+  turnSpeed: 25
+  startledTurnSpeed: 40
   minProximityToTarget: 5
   minIdleTime: 5
   maxIdleTime: 10
@@ -158,7 +158,7 @@ MonoBehaviour:
   damagedDuration: 3
   faintDuration: 3
   attackDuration: 3
-  searchDuration: 3
+  searchDuration: 5
   perceptionObject: {fileID: 8102463512470917054}
   _animator: {fileID: 1100442484007578841}
   currentTarget: {fileID: 0}

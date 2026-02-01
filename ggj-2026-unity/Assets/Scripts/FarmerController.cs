@@ -454,10 +454,6 @@ public class DamagedState : IState
   {
     timeRemaining = controller.damagedDuration; 
     Debug.Log("Farmer State: DAMAGED");
-
-    // take damage
-    // check if faint
-    // if not change state to Search or walk scared?
   }
   public void UpdateState(FarmerController controller)
   {
@@ -554,15 +550,16 @@ public class SearchState : IState
   {
     Debug.Log("Farmer State: SEARCH");
     timeRemaining = controller.searchDuration;
+    controller.SetIsSearching(true);
   }
 
   public void UpdateState(FarmerController controller)
   {
-    if (controller.IsStartled())
-    {
-      controller.ChangeState(new StartledState());
-      return;
-    }
+    //if (controller.IsStartled())
+    //{
+    //  controller.ChangeState(new StartledState());
+    //  return;
+    //}
 
     if (timeRemaining > 0)
     {
@@ -576,6 +573,6 @@ public class SearchState : IState
 
   public void OnExit(FarmerController controller)
   {
-
+    controller.SetIsSearching(false);
   }
 }
