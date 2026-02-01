@@ -56,6 +56,7 @@ public class FarmerController : MonoBehaviour
   private static int kFeintTrigger= Animator.StringToHash("FeintTrigger");
   private static int kStartledTriggered= Animator.StringToHash("StartledTriggered");
   private static int kVictoryTrigger= Animator.StringToHash("VictoryTrigger");
+  private static int kAttackTrigger = Animator.StringToHash("AttackTrigger");
   private static float kIsMovingThreshold= 0.01f;
 
   private bool _isScared= false;
@@ -73,7 +74,8 @@ public class FarmerController : MonoBehaviour
   {
     feint,
     startled,
-    victory
+    victory,
+    attack
   }
 
   void Start()
@@ -87,8 +89,6 @@ public class FarmerController : MonoBehaviour
 
   void Update()
   {
-    Debug.DrawLine(transform.position, transform.position + transform.forward, Color.red);
-
     if (shuffledTargets.Count <= 0)
     {
       targets = GameObject.FindGameObjectsWithTag("FarmerTarget");
@@ -250,6 +250,9 @@ public class FarmerController : MonoBehaviour
       break;
     case eEmote.victory:
       SetAnimatorTrigger(kVictoryTrigger);
+      break;
+    case eEmote.attack:
+      SetAnimatorTrigger(kAttackTrigger);
       break;
     }
   }
@@ -518,14 +521,22 @@ public class FaintState : IState
 public class AttackState : IState
 {
   float timeRemaining = 0.0f;
+  Vector3 attackLocation;
+
   public void OnEnter(FarmerController controller)
   {
     Debug.Log("Farmer State: ATTACK");
     timeRemaining = controller.attackDuration;
+    attackLocation = controller.perceptionObject.FindClosestPlayerLocation();
+
+    controller.PlayEmote(FarmerController.eEmote.attack);
+
   }
 
   public void UpdateState(FarmerController controller)
   {
+    controller.FaceTowards(attackLocation, controller.turnSpeed);
+
     if (timeRemaining > 0)
     {
       timeRemaining -= Time.deltaTime;
@@ -555,11 +566,11 @@ public class SearchState : IState
 
   public void UpdateState(FarmerController controller)
   {
-    //if (controller.IsStartled())
-    //{
-    //  controller.ChangeState(new StartledState());
-    //  return;
-    //}
+    List<PlayerActorController> visiblePlayers = controller.perceptionObject.FindVisiblePlayers();
+    if (visiblePlayers.Count > 0)
+    {
+      controller.ChangeState(new AttackState());
+    }
 
     if (timeRemaining > 0)
     {

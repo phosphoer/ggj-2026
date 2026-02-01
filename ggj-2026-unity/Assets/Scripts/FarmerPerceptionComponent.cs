@@ -7,7 +7,6 @@ public class FarmerPerceptionComponent : MonoBehaviour
 {
     public float viewRadius = 10f;
     public float viewAngle = 60f;
-    public LayerMask targetMask, obstacleMask;
 
     List<PlayerActorController> playersInRadius = new List<PlayerActorController>();
 
@@ -66,10 +65,7 @@ public class FarmerPerceptionComponent : MonoBehaviour
         Vector3 dirToTarget = (target.transform.position - transform.position).normalized;
         float angleToTarget = Vector3.Angle(transform.up, dirToTarget);
         
-        if (!Physics.Raycast(transform.position, dirToTarget, out RaycastHit hit, viewRadius, obstacleMask))
-        {
-          visiblePlayers.Add(target);
-        }
+        visiblePlayers.Add(target);
       }
 
       return visiblePlayers;
@@ -83,13 +79,13 @@ public class FarmerPerceptionComponent : MonoBehaviour
         {
           Vector3 dirToTarget = (target.transform.position - transform.position).normalized;
           float angleToTarget = Vector3.Angle(transform.up, dirToTarget);
-          if (angleToTarget < viewAngle / 2)
+          if (angleToTarget < viewAngle)
           {
-              if (!Physics.Raycast(transform.position, dirToTarget, out RaycastHit hit, viewRadius, obstacleMask))
-              {
-                  visiblePlayers.Add(target);
-              }
-           }
+            if (target.IsPossessing)
+            {
+              visiblePlayers.Add(target);
+            } 
+          }
         }
 
         return visiblePlayers;
