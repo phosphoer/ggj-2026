@@ -63,7 +63,7 @@ public class FarmerPerceptionComponent : MonoBehaviour
       foreach (var target in playersInRadius)
       {
         Vector3 dirToTarget = (target.transform.position - transform.position).normalized;
-        float angleToTarget = Vector3.Angle(transform.up, dirToTarget);
+        float angleToTarget = Vector3.Angle(transform.forward, dirToTarget);
         
         visiblePlayers.Add(target);
       }
@@ -78,8 +78,8 @@ public class FarmerPerceptionComponent : MonoBehaviour
         foreach (var target in playersInRadius)
         {
           Vector3 dirToTarget = (target.transform.position - transform.position).normalized;
-          float angleToTarget = Vector3.Angle(transform.up, dirToTarget);
-          if (angleToTarget < viewAngle)
+          float angleToTarget = Vector3.Angle(transform.forward, dirToTarget);
+          if (angleToTarget < viewAngle/2)
           {
             if (target.IsPossessing)
             {

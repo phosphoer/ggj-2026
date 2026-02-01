@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FarmerPerceptionComponent
   viewRadius: 5
-  viewAngle: 100
+  viewAngle: 70
 --- !u!135 &1537271539922934203
 SphereCollider:
   m_ObjectHideFlags: 0
