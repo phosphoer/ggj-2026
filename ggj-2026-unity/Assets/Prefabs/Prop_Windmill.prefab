@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eca67220b8284170be8ea4b97bd62a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PossessableObject
-  RequiredXPThreshold: 20
+  RequiredXPThreshold: 10
   AttackParams:
     Type: 1
     FearDamage: 30
