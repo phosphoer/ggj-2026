@@ -3159,7 +3159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6656023144281736795, guid: 3c5833c0832a59241900b8cd43bc5fa9, type: 3}
       propertyPath: m_IsKinematic
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6656023144281736795, guid: 3c5833c0832a59241900b8cd43bc5fa9, type: 3}
       propertyPath: m_LinearDamping
@@ -8706,7 +8706,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6656023144281736795, guid: 3c5833c0832a59241900b8cd43bc5fa9, type: 3}
       propertyPath: m_IsKinematic
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6656023144281736795, guid: 3c5833c0832a59241900b8cd43bc5fa9, type: 3}
       propertyPath: m_LinearDamping
@@ -11850,6 +11850,10 @@ PrefabInstance:
     - target: {fileID: 269857118614488311, guid: c0bcf0e536b22494b8ee6b833e3474f9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4423459547633382754, guid: c0bcf0e536b22494b8ee6b833e3474f9, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6518306859557908299, guid: c0bcf0e536b22494b8ee6b833e3474f9, type: 3}
       propertyPath: m_Name
