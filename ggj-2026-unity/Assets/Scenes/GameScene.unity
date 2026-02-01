@@ -951,9 +951,21 @@ PrefabInstance:
       value: gameState
       objectReference: {fileID: 0}
     - target: {fileID: 431138630446024495, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: _zoomSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 431138630446024495, guid: 797bc31feac49404b8221546ed310f04, type: 3}
       propertyPath: _mountPoint
       value: 
       objectReference: {fileID: 2079447396}
+    - target: {fileID: 431138630446024495, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: _maxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 431138630446024495, guid: 797bc31feac49404b8221546ed310f04, type: 3}
+      propertyPath: _minDistance
+      value: 19
+      objectReference: {fileID: 0}
     - target: {fileID: 487953526303555448, guid: 797bc31feac49404b8221546ed310f04, type: 3}
       propertyPath: _farmerSpawns.Array.size
       value: 1

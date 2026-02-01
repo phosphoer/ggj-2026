@@ -236,6 +236,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.151358, y: 4.0686045, z: 1.0390822}
   m_Center: {x: 0, y: 2.0343018, z: 0.0070451195}
+--- !u!1 &4529231747920109306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1092562174328480843}
+  m_Layer: 0
+  m_Name: attack-root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1092562174328480843
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4529231747920109306}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 269857118614488311}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5200783428375436239
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,6 +340,7 @@ Transform:
   - {fileID: 1398250277418830267}
   - {fileID: 7821187354325374350}
   - {fileID: 6054700829761343563}
+  - {fileID: 1092562174328480843}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7516027685762984878
@@ -325,11 +357,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PossessableObject
   AttackParams:
     Type: 0
-    SpookAttackFX: {fileID: 0}
-    SpookFXRoot: {fileID: 0}
-    SpookAttackRoot: {fileID: 0}
-    ShootAttackWidth: 1
-    ShootAttackRange: 3
+    SpookAttackFX: {fileID: 6839670518580436836, guid: 3915724bfa1764c1f90203e0f5869b67, type: 3}
+    SpookAttackSFX: {fileID: 0}
+    SpookFXRoot: {fileID: 1092562174328480843}
+    SpookAttackRoot: {fileID: 1092562174328480843}
+    ShootAttackWidth: 3.16
+    ShootAttackRange: 7.37
     ShootRecoil: 5
     ChargeSpeed: 5
     ChargeDuration: 2

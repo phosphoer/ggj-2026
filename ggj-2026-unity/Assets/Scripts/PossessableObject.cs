@@ -12,6 +12,7 @@ public class SpookAttackParams
 {
   public SpookAttackType Type;
   public ParticleSystem SpookAttackFX;
+  public SoundBank SpookAttackSFX;
   public Transform SpookFXRoot;
   public Transform SpookAttackRoot;
 

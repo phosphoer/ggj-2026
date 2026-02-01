@@ -155,6 +155,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6055152695176310489}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7548044270423142688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2959142342055716819}
+  m_Layer: 0
+  m_Name: attack-root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2959142342055716819
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7548044270423142688}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.521, z: 0.169}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6055152695176310489}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8004747928885240941
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,6 +256,7 @@ Transform:
   - {fileID: 329591295135708562}
   - {fileID: 1999430185485607593}
   - {fileID: 4398255515032797080}
+  - {fileID: 2959142342055716819}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8534716296250183078
@@ -240,10 +272,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PossessableObject
   AttackParams:
-    Type: 0
-    SpookAttackFX: {fileID: 0}
-    SpookFXRoot: {fileID: 0}
-    SpookAttackRoot: {fileID: 0}
+    Type: 1
+    SpookAttackFX: {fileID: 6839670518580436836, guid: b4752a70e8c2148eca1bb9d79aec420a, type: 3}
+    SpookAttackSFX: {fileID: 0}
+    SpookFXRoot: {fileID: 2959142342055716819}
+    SpookAttackRoot: {fileID: 2959142342055716819}
     ShootAttackWidth: 1
     ShootAttackRange: 3
     ShootRecoil: 5
@@ -266,14 +299,14 @@ MonoBehaviour:
   FootStepDuration: 0.5
   FootStepThreshold: 0.1
   FootStepHeight: 0.5
-  SFXPossess: {fileID: 11400000, guid: 7d449a1b558c645b6b5a7fd69da3758d, type: 2}
-  SFXDepossess: {fileID: 11400000, guid: 3462049ccdf444bc880b4782fb5b0d8b, type: 2}
   _legSockets:
   - {fileID: 8243653362273030624}
   - {fileID: 1912063528684368646}
   - {fileID: 3158710644838848231}
   - {fileID: 329591295135708562}
   - {fileID: 1999430185485607593}
+  SFXPossess: {fileID: 11400000, guid: 7d449a1b558c645b6b5a7fd69da3758d, type: 2}
+  SFXDepossess: {fileID: 11400000, guid: 3462049ccdf444bc880b4782fb5b0d8b, type: 2}
 --- !u!54 &4245533315796348343
 Rigidbody:
   m_ObjectHideFlags: 0

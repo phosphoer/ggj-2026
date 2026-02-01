@@ -176,6 +176,11 @@ public class PlayerActorController : MonoBehaviour
         _spookAttackFx = Instantiate(attackParams.SpookAttackFX, attackParams.SpookFXRoot);
       }
 
+      if (attackParams.SpookAttackSFX)
+      {
+        AudioManager.Instance.PlaySound(gameObject, attackParams.SpookAttackSFX);
+      }
+
       _attackCooldownTimer = 5;
 
       if (attackParams.Type == SpookAttackType.Charge)
@@ -235,7 +240,7 @@ public class PlayerActorController : MonoBehaviour
 
     var collider = _spookAttackHitbox.gameObject.AddComponent<BoxCollider>();
     collider.isTrigger = true;
-    collider.size = new Vector3(attackParams.ShootAttackWidth, 10, attackParams.ShootAttackRange);
+    collider.size = new Vector3(attackParams.ShootAttackWidth, attackParams.ShootAttackWidth, attackParams.ShootAttackRange);
     collider.center = Vector3.forward * attackParams.ShootAttackRange * 0.5f;
 
     _leanSpring.Velocity -= attackParams.ShootRecoil;
@@ -258,7 +263,6 @@ public class PlayerActorController : MonoBehaviour
     var collider = _spookAttackHitbox.gameObject.AddComponent<SphereCollider>();
     collider.isTrigger = true;
     collider.radius = attackParams.AOERadius;
-    collider.center = attackParams.SpookAttackRoot.position;
 
     _leanSpring.Velocity -= attackParams.ShootRecoil;
   }
