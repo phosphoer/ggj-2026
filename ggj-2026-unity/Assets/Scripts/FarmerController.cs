@@ -25,6 +25,7 @@ public class FarmerController : MonoBehaviour
 
   public float speed = 10;
   public float turnSpeed = 45;
+  public float startledTurnSpeed = 50;
 
   public float minProximityToTarget = 5;
 
@@ -337,12 +338,11 @@ public class StartledState : IState
 
   public void UpdateState(FarmerController controller)
   {
-    //Vector3 heading = controller.currentTarget.transform.position - controller.transform.position;
-    //Vector3 direction = heading.NormalizedSafe();
+    Vector3 heading = targetLocation - controller.transform.position;
+    Vector3 direction = heading.NormalizedSafe();
 
-    //Quaternion targetRotation = Quaternion.LookRotation(direction);
-    //controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, targetRotation, Time.deltaTime * controller.startledTurnSpeed); // Smooth rotation
-
+    Quaternion targetRotation = Quaternion.LookRotation(direction);
+    controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, targetRotation, Time.deltaTime * controller.startledTurnSpeed); // Smooth rotation
   }
 
   public void OnExit(FarmerController controller)
