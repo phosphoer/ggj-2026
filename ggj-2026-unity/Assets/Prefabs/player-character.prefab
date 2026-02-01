@@ -236,7 +236,7 @@ MonoBehaviour:
   _maxFootGroundSnapDist: 2
   _maxStrideSpeed: 3
   _footVelocityOffsetScale: 0.2
-  _sfxFootFall: {fileID: 0}
+  _sfxFootFall: {fileID: 11400000, guid: d6c40c20898be48f4b06ab743dbae89c, type: 2}
 --- !u!54 &694956260918204751
 Rigidbody:
   m_ObjectHideFlags: 0
