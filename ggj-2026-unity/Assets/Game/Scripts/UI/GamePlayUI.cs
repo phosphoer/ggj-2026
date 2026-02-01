@@ -17,7 +17,7 @@ public class GamePlayUI : UIPageBase
   {
   //  if (_heartRateMonitor != null)
   //    _heartRateMonitor.StartMonitoring();
-  //}
+  }
 
   private void Update()
   {
