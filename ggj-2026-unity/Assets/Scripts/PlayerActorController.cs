@@ -64,6 +64,11 @@ public class PlayerActorController : MonoBehaviour
     {
       faceMesh.material = colorInfo.FaceColor;
     }
+
+    if (colorInfo.MaskPrefab)
+    {
+      SetPlayerMaskPrefab(colorInfo.MaskPrefab);
+    }
   }
 
   public void SetPlayerMaskPrefab(MaskController maskPrefab)
