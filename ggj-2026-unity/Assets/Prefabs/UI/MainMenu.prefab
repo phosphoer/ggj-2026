@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6978601535683285418}
   - component: {fileID: 5907318555493027846}
+  - component: {fileID: -8619465331016108517}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -32,10 +33,10 @@ RectTransform:
   - {fileID: 513429533442501511}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5907318555493027846
 MonoBehaviour:
@@ -57,6 +58,14 @@ MonoBehaviour:
   _fadeOnShow: []
   _buttonNewSinglePlayerGame: {fileID: 924620234409197670}
   _buttonQuit: {fileID: 5293175519537372478}
+--- !u!222 &-8619465331016108517
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580541854608173931}
+  m_CullTransparentMesh: 1
 --- !u!1 &3716843865198626923
 GameObject:
   m_ObjectHideFlags: 0
