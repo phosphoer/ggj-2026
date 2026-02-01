@@ -63,8 +63,8 @@ ModelImporter:
       name: Idle
       takeName: Take 001
       internalID: -998496362607748373
-      firstFrame: 289
-      lastFrame: 336
+      firstFrame: 290
+      lastFrame: 335
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -121,8 +121,8 @@ ModelImporter:
       name: Walk_Scared
       takeName: Take 001
       internalID: -1493303027246044120
-      firstFrame: 241
-      lastFrame: 288
+      firstFrame: 243
+      lastFrame: 287
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -150,8 +150,8 @@ ModelImporter:
       name: Startled
       takeName: Take 001
       internalID: -5665051857912407913
-      firstFrame: 1
-      lastFrame: 120
+      firstFrame: 337
+      lastFrame: 360
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -180,7 +180,7 @@ ModelImporter:
       takeName: Take 001
       internalID: -4912743690084142542
       firstFrame: 1
-      lastFrame: 192
+      lastFrame: 191
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -208,8 +208,8 @@ ModelImporter:
       name: Attack
       takeName: Take 001
       internalID: 5781074022923015010
-      firstFrame: 1
-      lastFrame: 120
+      firstFrame: 409
+      lastFrame: 456
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -237,8 +237,8 @@ ModelImporter:
       name: Damaged
       takeName: Take 001
       internalID: -4762819918396753626
-      firstFrame: 1
-      lastFrame: 120
+      firstFrame: 361
+      lastFrame: 408
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -266,8 +266,8 @@ ModelImporter:
       name: Victory
       takeName: Take 001
       internalID: 9093586079265926502
-      firstFrame: 1
-      lastFrame: 120
+      firstFrame: 457
+      lastFrame: 504
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -295,8 +295,95 @@ ModelImporter:
       name: Feint
       takeName: Take 001
       internalID: -4045831500588228705
-      firstFrame: 1
-      lastFrame: 120
+      firstFrame: 505
+      lastFrame: 553
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 1
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Attack_Loop
+      takeName: Take 001
+      internalID: 7731641710072435382
+      firstFrame: 425
+      lastFrame: 442
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 1
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Attack_Into
+      takeName: Take 001
+      internalID: -6577145938085917429
+      firstFrame: 409
+      lastFrame: 425
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 1
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Attack_Out
+      takeName: Take 001
+      internalID: -5912188926831197812
+      firstFrame: 442
+      lastFrame: 456
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

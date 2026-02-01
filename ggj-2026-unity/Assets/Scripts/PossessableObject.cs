@@ -11,11 +11,13 @@ public class SpookAttackParams
 {
   public SpookAttackType Type;
   public ParticleSystem SpookAttackFX;
+  public Transform SpookFXRoot;
   public Transform SpookAttackRoot;
 
   [Header("Shoot")]
   public float ShootAttackWidth = 1;
   public float ShootAttackRange = 3;
+  public float ShootRecoil = 5;
 
   [Header("Charge")]
   public float ChargeSpeed = 5;
@@ -36,6 +38,7 @@ public class PossessableObject : MonoBehaviour
   public float AnimIdleBobSpeed = 3f;
   public float AnimIdleWiggleScale = 5;
   public float AnimIdleWiggleSpeed = 1;
+  public float AnimWalkLeanScale = 20;
 
   [Header("Movement")]
   public float MoveSpeed = 2;
@@ -66,10 +69,18 @@ public class PossessableObject : MonoBehaviour
       }
     }
 
-    if (AttackParams != null && AttackParams.Type == SpookAttackType.Charge)
+    if (AttackParams != null && AttackParams.Type == SpookAttackType.Charge && AttackParams.SpookAttackRoot)
     {
-      Gizmos.color = Color.rebeccaPurple;
-      Gizmos.DrawWireSphere(transform.position, AttackParams.ChargeAttackRadius);
+      Gizmos.color = Color.red;
+      Gizmos.DrawWireSphere(AttackParams.SpookAttackRoot.position, AttackParams.ChargeAttackRadius);
+    }
+
+    if (AttackParams != null && AttackParams.Type == SpookAttackType.Shoot && AttackParams.SpookAttackRoot)
+    {
+      Gizmos.color = Color.red;
+      Gizmos.matrix = AttackParams.SpookAttackRoot.localToWorldMatrix;
+      Gizmos.DrawWireCube(Vector3.forward * AttackParams.ShootAttackRange * 0.5f, new Vector3(AttackParams.ShootAttackWidth, AttackParams.ShootAttackWidth, AttackParams.ShootAttackRange));
+      Gizmos.matrix = Matrix4x4.identity;
     }
   }
 }

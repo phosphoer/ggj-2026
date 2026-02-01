@@ -72,6 +72,13 @@ MonoBehaviour:
   - {fileID: 27383810943861345}
   - {fileID: 8193586353729173821}
   - {fileID: 6727781231129254339}
+  _leanSpring:
+    Value: 0
+    TargetValue: 0
+    Velocity: 0
+    SpringStrength: 20
+    SpringVelocityScale: 2
+    SpringDamping: 10
 --- !u!114 &5336152264664512036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,6 +236,7 @@ MonoBehaviour:
   _maxFootGroundSnapDist: 2
   _maxStrideSpeed: 3
   _footVelocityOffsetScale: 0.2
+  _sfxFootFall: {fileID: 11400000, guid: d6c40c20898be48f4b06ab743dbae89c, type: 2}
 --- !u!54 &694956260918204751
 Rigidbody:
   m_ObjectHideFlags: 0
