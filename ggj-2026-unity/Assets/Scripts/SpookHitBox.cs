@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class SpookHitBox : MonoBehaviour
 {
+  public event System.Action DamageDealt;
+
   public float Damage;
 
   private bool _hitConsumed = false;
@@ -23,6 +25,8 @@ public class SpookHitBox : MonoBehaviour
 
       var gameUI = PlayerUI.Instance.GetPage<GamePlayUI>();
       gameUI.HeartRateUI.SetTempHeartRate(100);
+
+      DamageDealt?.Invoke();
 
       _hitConsumed = true;
     }

@@ -36,6 +36,9 @@ public class PossessableObject : MonoBehaviour
 {
   public Transform[] LegSockets => _legSockets;
 
+  [Header("XP")]
+  public float RequiredXPThreshold = 0;
+
   [Header("Spook Attack")]
   public SpookAttackParams AttackParams = null;
 

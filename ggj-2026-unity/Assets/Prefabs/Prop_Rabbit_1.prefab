@@ -303,6 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eca67220b8284170be8ea4b97bd62a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PossessableObject
+  RequiredXPThreshold: 0
   AttackParams:
     Type: 1
     FearDamage: 2
@@ -380,7 +381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
   _interactableUIPrefab: {fileID: 7127637411871555855, guid: 7be408922929a49acaa7ae32a66663e9, type: 3}
   _interactionUIAnchor: {fileID: 4398255515032797080}
-  _interactionUIHeight: 0.5
+  _interactionUIHeight: 2
   _interactionText: '!'
   _interactionRadius: 2
   _requiresLineOfSight: 0
