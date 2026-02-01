@@ -237,7 +237,8 @@ public class AudioManager : Singleton<AudioManager>
   // Stop a currently playing sound on the global source
   public void StopSound(SoundBank soundBank)
   {
-    StopSound(gameObject, soundBank);
+    if (soundBank)
+      StopSound(gameObject, soundBank);
   }
 
   // Stop a currently playing sound on a specific source

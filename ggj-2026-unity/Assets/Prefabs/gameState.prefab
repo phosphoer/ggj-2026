@@ -49,7 +49,7 @@ MonoBehaviour:
   MusicGame: {fileID: 0}
   MusicEnd: {fileID: 0}
   WinCountDownTime: 10
-  _initialGameState: 2
+  _initialGameState: 1
   _levelManager: {fileID: 0}
   _cameraController: {fileID: 431138630446024495}
   _playerPrefab: {fileID: 5744845746143887606, guid: 45e9726ae5a1043a5b4996ffdbffcefd, type: 3}

@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerUI
   _pagePrefabs:
-  - {fileID: 0}
+  - {fileID: 5907318555493027846, guid: 8d3eb00d97de3a14eb1b51b8a45bd96d, type: 3}
   _pageRoot: {fileID: 8785184493479059322}
   _uiCamera: {fileID: 8511883048754530254}
   _addUICameraAsOverlay: 1

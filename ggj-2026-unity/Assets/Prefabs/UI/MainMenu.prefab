@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6978601535683285418}
-  - component: {fileID: 4023183455950014571}
+  - component: {fileID: 5907318555493027846}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -26,7 +26,7 @@ RectTransform:
   m_GameObject: {fileID: 1580541854608173931}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 513429533442501511}
@@ -34,32 +34,29 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
---- !u!223 &4023183455950014571
-Canvas:
+  m_AnchoredPosition: {x: 960, y: 540}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5907318555493027846
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580541854608173931}
   m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
-  m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d40417ee090005c4e8ae2b299c9c350d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainMenuUI
+  ShowCursor: 1
+  FadeDuration: 0.5
+  _hydrateOnShow:
+  - {fileID: 3302501517301530171}
+  - {fileID: 7526954798805607267}
+  _fadeOnShow: []
+  _buttonNewSinglePlayerGame: {fileID: 924620234409197670}
+  _buttonQuit: {fileID: 5293175519537372478}
 --- !u!1 &3716843865198626923
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,7 +225,6 @@ GameObject:
   m_Component:
   - component: {fileID: 513429533442501511}
   - component: {fileID: 1671226025121735900}
-  - component: {fileID: 6161991278672517999}
   - component: {fileID: 1248599748651629917}
   m_Layer: 5
   m_Name: MenuController
@@ -266,24 +262,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5976135959831628260}
   m_CullTransparentMesh: 1
---- !u!114 &6161991278672517999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5976135959831628260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d40417ee090005c4e8ae2b299c9c350d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MainMenuUI
-  ShowCursor: 0
-  FadeDuration: 0.5
-  _hydrateOnShow: []
-  _fadeOnShow: []
-  _buttonNewSinglePlayerGame: {fileID: 924620234409197670}
-  _buttonQuit: {fileID: 5293175519537372478}
 --- !u!114 &1248599748651629917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,6 +391,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5647013026965766540, guid: 7f92a2f872b13604cbc1c39d0239c9b1, type: 3}
   m_PrefabInstance: {fileID: 42549612414742388}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7526954798805607267 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7557663766036696087, guid: 7f92a2f872b13604cbc1c39d0239c9b1, type: 3}
+  m_PrefabInstance: {fileID: 42549612414742388}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed003a223ff5cec44a63f04754845d47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIHydrate
 --- !u!1001 &4987420507155952172
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -530,3 +519,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d7b4489ee8649ae9513a248e585fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuItemUI
+--- !u!114 &3302501517301530171 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7557663766036696087, guid: 57416bbe4c5fed24787af7628f63a3d4, type: 3}
+  m_PrefabInstance: {fileID: 4987420507155952172}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed003a223ff5cec44a63f04754845d47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIHydrate
