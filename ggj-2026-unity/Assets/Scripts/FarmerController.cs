@@ -166,7 +166,10 @@ public class FarmerController : MonoBehaviour
       transform.position += direction * speed * Time.deltaTime;
     }
 
-    SetIsMoving(direction.sqrMagnitude > kIsMovingThreshold * kIsMovingThreshold);
+    if (_animator != null)
+    {
+      SetIsMoving(direction.sqrMagnitude > kIsMovingThreshold * kIsMovingThreshold);
+    }
   }
 
   private void SetIsMoving(bool isMoving)
@@ -198,16 +201,19 @@ public class FarmerController : MonoBehaviour
 
   private void UpdateLocomotionState()
   {
-    if (_isMoving)
+    if (_animator != null)
     {
-      if (_isScared)
-        SetLocomotionState(eLocomotionState.walking_scared);
+      if (_isMoving)
+      {
+        if (_isScared)
+          SetLocomotionState(eLocomotionState.walking_scared);
+        else
+          SetLocomotionState(eLocomotionState.walking);
+      }
       else
-        SetLocomotionState(eLocomotionState.walking);
-    }
-    else
-    {
-      SetLocomotionState(eLocomotionState.idle);
+      {
+        SetLocomotionState(eLocomotionState.idle);
+      }
     }
   }
 
@@ -242,17 +248,26 @@ public class FarmerController : MonoBehaviour
 
   private void SetAnimatorTrigger(int triggerId)
   {
-    _animator.SetTrigger(triggerId);
+    if (_animator != null)
+    {
+      _animator.SetTrigger(triggerId);
+    }
   }
 
   private void SetAnimatorFloat(int parameterId, float value)
   {
-    _animator.SetFloat(parameterId, value);
+    if (_animator != null)
+    {
+      _animator.SetFloat(parameterId, value);
+    }
   }
 
   private void SetAnimatorBool(int parameterId, bool value)
   {
-    _animator.SetBool(parameterId, value);
+    if (_animator != null)
+    {
+      _animator.SetBool(parameterId, value);
+    }
   }
 }
 
