@@ -31,6 +31,7 @@ public class GameController : Singleton<GameController>
   [SerializeField] private LevelCameraController _cameraController;
   [SerializeField] private PlayerActorController _playerPrefab;
   [SerializeField] private FarmerController _farmerPrefab;
+  [SerializeField] private GameObject _deadFarmerPrefab;
   [SerializeField] private PlayerColors[] _playerColors = null;
   [SerializeField] private MaskController[] _masks = null;
   [SerializeField] private AnimationCurve _riseRateCurve = default;
@@ -39,6 +40,7 @@ public class GameController : Singleton<GameController>
   private List<PlayerActorController> _spawnedPlayers = new List<PlayerActorController>();
   private FarmerController _spawnedFarmer = null;
   public FarmerController Farmer => _spawnedFarmer;
+  private GameObject _deadFarmer = null;
   private eGameState _currentGameState = eGameState.None;
   private List<MaskController> _maskPool = new();
 
@@ -115,6 +117,12 @@ public class GameController : Singleton<GameController>
           SpawnPlayerAtSpawnPoint(player.id);
         }
       }
+    }
+
+    // Swap out the living farmer with a dead one if their health drops to zero
+    if (_spawnedFarmer != null && _deadFarmer == null && _spawnedFarmer.health <= 0) 
+    {
+      SpawnDeadFarmer();
     }
   }
 
@@ -234,6 +242,12 @@ public class GameController : Singleton<GameController>
       Destroy(_spawnedFarmer.gameObject);
       _spawnedFarmer = null;
     }
+
+    if (_deadFarmer != null)
+    {
+      Destroy( _deadFarmer );
+      _deadFarmer = null;
+    }
   }
 
   void DespawnPlayers()
@@ -259,6 +273,19 @@ public class GameController : Singleton<GameController>
 
         _spawnedFarmer = farmerGO.GetComponent<FarmerController>();
       }
+    }
+  }
+
+  void SpawnDeadFarmer()
+  {
+    if (_deadFarmerPrefab != null && _deadFarmer == null && _spawnedFarmer != null)
+    {
+      var spawnTransform = _spawnedFarmer.transform;
+
+      _deadFarmer = Instantiate(_deadFarmerPrefab, spawnTransform.position, spawnTransform.rotation);
+
+      Destroy(_spawnedFarmer.gameObject);
+      _spawnedFarmer= null;
     }
   }
 
