@@ -37,6 +37,9 @@ public class PossessableObject : MonoBehaviour
   [Header("Spook Attack")]
   public SpookAttackParams AttackParams = null;
 
+  [Header("Mask Config")]
+  public Transform MaskRoot;
+
   [Header("Idle Animation")]
   public float StandHeightOffset = 0;
   public float AnimIdleBobScale = 0.05f;
@@ -63,6 +66,24 @@ public class PossessableObject : MonoBehaviour
   public SoundBank SFXPossess;
   public SoundBank SFXDepossess;
 
+  private MaskController _mask;
+
+  public void EquipMask(MaskController maskPrefab)
+  {
+    UnequipMask();
+
+    _mask = Instantiate(maskPrefab, MaskRoot);
+    _mask.transform.SetIdentityTransformLocal();
+  }
+
+  public void UnequipMask()
+  {
+    if (_mask)
+    {
+      Destroy(_mask.gameObject);
+      _mask = null;
+    }
+  }
 
   private void OnDrawGizmos()
   {
