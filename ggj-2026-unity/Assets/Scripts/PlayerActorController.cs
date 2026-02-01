@@ -176,6 +176,11 @@ public class PlayerActorController : MonoBehaviour
         _spookAttackFx = Instantiate(attackParams.SpookAttackFX, attackParams.SpookFXRoot);
       }
 
+      if (attackParams.SpookAttackSFX)
+      {
+        AudioManager.Instance.PlaySound(gameObject, attackParams.SpookAttackSFX);
+      }
+
       _attackCooldownTimer = 5;
 
       if (attackParams.Type == SpookAttackType.Charge)
