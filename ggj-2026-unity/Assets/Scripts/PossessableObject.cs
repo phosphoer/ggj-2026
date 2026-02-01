@@ -56,12 +56,12 @@ public class PossessableObject : MonoBehaviour
   public float FootStepDuration = 0.5f;
   public float FootStepThreshold = 0.1f;
   public float FootStepHeight = 0.25f;
+  [SerializeField] private Transform[] _legSockets = null;
 
   [Header("SFX")]
   public SoundBank SFXPossess;
   public SoundBank SFXDepossess;
 
-  [SerializeField] private Transform[] _legSockets = null;
 
   private void OnDrawGizmos()
   {
