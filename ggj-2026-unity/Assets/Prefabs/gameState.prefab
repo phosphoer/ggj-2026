@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameStateManager
   MusicTitle: {fileID: 0}
-  MusicGame: {fileID: 0}
+  MusicGame: {fileID: 11400000, guid: 29c2d2fa5675b48cdac3ad23f803baf6, type: 2}
   MusicEnd: {fileID: 0}
   WinCountDownTime: 10
   _initialGameState: 1

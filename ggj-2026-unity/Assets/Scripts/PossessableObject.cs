@@ -64,6 +64,9 @@ public class PossessableObject : MonoBehaviour
   public float FootStepHeight = 0.25f;
   [SerializeField] private Transform[] _legSockets = null;
 
+  [Header("Eject")]
+  public ParticleSystem EjectVFX = null;
+
   [Header("SFX")]
   public SoundBank SFXPossess;
   public SoundBank SFXDepossess;
