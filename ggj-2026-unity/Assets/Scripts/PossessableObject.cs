@@ -85,6 +85,12 @@ public class PossessableObject : MonoBehaviour
     }
   }
 
+  private void Awake()
+  {
+    if (MaskRoot)
+      MaskRoot.DestroyAllChildren();
+  }
+
   private void OnDrawGizmos()
   {
     Gizmos.color = Color.white;
