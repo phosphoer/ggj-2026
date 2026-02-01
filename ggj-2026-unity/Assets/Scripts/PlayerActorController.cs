@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerActorController : MonoBehaviour
 {
+  public static IReadOnlyList<PlayerActorController> Instances => _instances;
+
   public float AnimIdleBobScale = 0.05f;
   public float AnimIdleBobSpeed = 3f;
   public float AnimIdleWiggleScale = 5;
@@ -47,6 +49,17 @@ public class PlayerActorController : MonoBehaviour
   private SpookHitBox _spookAttackHitbox;
   private MaskController _currentMask;
   private Transform _possessableOriginalParent;
+
+  private static List<PlayerActorController> _instances = new();
+
+  // Reset static state for editor without domain reload
+#if UNITY_EDITOR
+  [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+  private static void EditorInit()
+  {
+    _instances.Clear();
+  }
+#endif
 
   public void SetPlayerIndex(int playerIndex)
   {
@@ -320,11 +333,13 @@ public class PlayerActorController : MonoBehaviour
   private void OnEnable()
   {
     _interaction.InteractionTriggered += OnInteraction;
+    _instances.Add(this);
   }
 
   private void OnDisable()
   {
     _interaction.InteractionTriggered -= OnInteraction;
+    _instances.Remove(this);
   }
 
   private void Update()
