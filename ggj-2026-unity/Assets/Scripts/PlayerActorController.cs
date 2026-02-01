@@ -415,6 +415,24 @@ public class PlayerActorController : MonoBehaviour
     }
   }
 
+  public void EjectPossession()
+  {
+    if (_currentPossessable)
+    {
+      var possessableGO= _currentPossessable.gameObject;
+
+      if (_currentPossessable.EjectVFX)
+      {
+          _spookAttackFx = Instantiate(_currentPossessable.EjectVFX, possessableGO.transform);
+      }
+
+      StopPossessing();
+
+      // Gracefully shirink the object out of existence
+      DespawnManager.Instance.AddObject(possessableGO, 0.0f, 0.25f);
+    }
+  }
+
   private void ResetLegs()
   {
     _footIK.ClearFeet();
