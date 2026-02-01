@@ -239,7 +239,7 @@ public class GameController : Singleton<GameController>
 
     if (_deadFarmer != null)
     {
-      Destroy( _deadFarmer );
+      Destroy(_deadFarmer);
       _deadFarmer = null;
     }
   }
@@ -279,7 +279,7 @@ public class GameController : Singleton<GameController>
       _deadFarmer = Instantiate(_deadFarmerPrefab, spawnTransform.position, spawnTransform.rotation);
 
       Destroy(_spawnedFarmer.gameObject);
-      _spawnedFarmer= null;
+      _spawnedFarmer = null;
     }
   }
 

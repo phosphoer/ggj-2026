@@ -434,11 +434,11 @@ public class PlayerActorController : MonoBehaviour
   {
     if (_currentPossessable)
     {
-      var possessableGO= _currentPossessable.gameObject;
+      var possessableGO = _currentPossessable.gameObject;
 
-      if (_currentPossessable.EjectVFX)
+      if (_currentPossessable.DestroyFX)
       {
-          _spookAttackFx = Instantiate(_currentPossessable.EjectVFX, possessableGO.transform);
+        _spookAttackFx = Instantiate(_currentPossessable.DestroyFX, possessableGO.transform);
       }
 
       StopPossessing();
