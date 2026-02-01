@@ -293,7 +293,7 @@ MonoBehaviour:
   AttackParams:
     Type: 1
     FearDamage: 1
-    SpookAttackFX: {fileID: 6839670518580436836, guid: b4752a70e8c2148eca1bb9d79aec420a, type: 3}
+    SpookAttackFX: {fileID: 1253437248862577756, guid: e581f568b086abb4987911b655e5ad8a, type: 3}
     SpookAttackSFX: {fileID: 11400000, guid: 3d74e097097be4b6d92b3b48d294364a, type: 2}
     SpookFXRoot: {fileID: 1993536853746204078}
     SpookAttackRoot: {fileID: 1993536853746204078}
