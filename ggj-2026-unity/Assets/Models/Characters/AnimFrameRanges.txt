@@ -8,13 +8,14 @@ EVICTED:
 
 
 _-_-_-_-_-_-_-_-_-_-_-_-_-_- FARMER:
-T-POSE: 0 <-> 0 (Pose)
+T-POSE:		0 <-> 0 (Pose)
 IDLE 		289 <-> 336 (Loop)
 WALK 		193 <-> 240 (Loop)
 WALK_SCARED	241 <-> 288 (Loop)
-STARTLED 		
+STARTLED 	337 <-> 360 (One Off)
 SEARCH: 	1 <-> 192 (Loop)
-DAMAGED 	
-ATTACK 		
-VICTORY 	
-FEINT 		
+DAMAGED 	361 <-> 408 (One Off)
+ATTACK 		409 <-> 456 (One Off)
+				425 <-> 442 (Attack Loop Section)
+VICTORY 	457 <-> 504 (One Off)
+FEINT 		505 <-> 553 (One Off) > Hold last frame

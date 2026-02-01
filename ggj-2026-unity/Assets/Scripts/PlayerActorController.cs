@@ -22,6 +22,7 @@ public class PlayerActorController : MonoBehaviour
   [SerializeField] private GameObject _footPrefab = null;
   [SerializeField] private SkinnedMeshRenderer _bodyMesh = null;
   [SerializeField] private SkinnedMeshRenderer[] _faceMeshes;
+  [SerializeField] private Spring _leanSpring = default;
 
   private Rewired.Player _playerInput;
   private int _playerIndex = -1;
@@ -52,12 +53,12 @@ public class PlayerActorController : MonoBehaviour
 
     if (_bodyMesh != null)
     {
-      _bodyMesh.material= colorInfo.BodyColor;
+      _bodyMesh.material = colorInfo.BodyColor;
     }
 
     foreach (SkinnedMeshRenderer faceMesh in _faceMeshes)
     {
-      faceMesh.material= colorInfo.FaceColor;
+      faceMesh.material = colorInfo.FaceColor;
     }
   }
 
@@ -163,14 +164,20 @@ public class PlayerActorController : MonoBehaviour
     if (_currentPossessable)
     {
       var attackParams = _currentPossessable.AttackParams;
-      if (attackParams.SpookAttackFX)
+      if (attackParams.SpookAttackFX && attackParams.SpookFXRoot)
       {
-        _spookAttackFx = Instantiate(attackParams.SpookAttackFX, attackParams.SpookAttackRoot);
+        _spookAttackFx = Instantiate(attackParams.SpookAttackFX, attackParams.SpookFXRoot);
       }
+
+      _attackCooldownTimer = 5;
 
       if (attackParams.Type == SpookAttackType.Charge)
       {
         StartCharge();
+      }
+      else if (attackParams.Type == SpookAttackType.Shoot)
+      {
+        Shoot();
       }
     }
   }
@@ -178,7 +185,6 @@ public class PlayerActorController : MonoBehaviour
   private void StartCharge()
   {
     var attackParams = _currentPossessable.AttackParams;
-    _attackCooldownTimer = 5;
     _isCharging = true;
     _chargeTimer = attackParams.ChargeDuration;
     _actor.SprintSpeed = attackParams.ChargeSpeed;
@@ -186,7 +192,7 @@ public class PlayerActorController : MonoBehaviour
     _actor.IsSprinting = true;
 
     _spookAttackHitbox = new GameObject("spook-attack-hitbox").AddComponent<SpookHitBox>();
-    _spookAttackHitbox.transform.parent = _playerVisualRoot;
+    _spookAttackHitbox.transform.parent = attackParams.SpookAttackRoot;
     var collider = _spookAttackHitbox.gameObject.AddComponent<SphereCollider>();
     collider.isTrigger = true;
     collider.radius = attackParams.ChargeAttackRadius;
@@ -206,6 +212,21 @@ public class PlayerActorController : MonoBehaviour
       _spookAttackFx.Stop();
       _spookAttackFx = null;
     }
+  }
+
+  private void Shoot()
+  {
+    var attackParams = _currentPossessable.AttackParams;
+    _spookAttackHitbox = new GameObject("spook-attack-hitbox").AddComponent<SpookHitBox>();
+    _spookAttackHitbox.transform.parent = attackParams.SpookAttackRoot;
+    _spookAttackHitbox.transform.SetIdentityTransformLocal();
+
+    var collider = _spookAttackHitbox.gameObject.AddComponent<BoxCollider>();
+    collider.isTrigger = true;
+    collider.size = new Vector3(attackParams.ShootAttackWidth, 10, attackParams.ShootAttackRange);
+    collider.center = Vector3.forward * attackParams.ShootAttackRange * 0.5f;
+
+    _leanSpring.Velocity -= attackParams.ShootRecoil;
   }
 
   private void OnEnable()
@@ -254,9 +275,11 @@ public class PlayerActorController : MonoBehaviour
     Vector3 posOffset = Vector3.up * _standHeightOffset;
     _playerVisualRoot.localPosition = Vector3.up * Mathf.Sin(_animTimer * AnimIdleBobSpeed) * AnimIdleBobScale + posOffset;
 
+    _leanSpring = Spring.UpdateSpring(_leanSpring, Time.deltaTime);
+
     float targetRot = Mathf.Sin(_animTimer * AnimIdleWiggleSpeed) * AnimIdleWiggleScale;
     float targetLean = _actor.MoveAxis.magnitude * 20 * (_isCharging ? 2 : 1);
-    _leanAmount = Mathfx.Damp(_leanAmount, targetLean, 0.25f, Time.deltaTime);
+    _leanAmount = Mathfx.Damp(_leanAmount, targetLean, 0.25f, Time.deltaTime) + _leanSpring.Value;
     _playerVisualRoot.localRotation = Quaternion.Euler(_leanAmount, targetRot, 0);
 
     if (_currentPossessable)
