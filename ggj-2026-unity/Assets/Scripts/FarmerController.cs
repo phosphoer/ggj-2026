@@ -58,6 +58,8 @@ public class FarmerController : MonoBehaviour
   private static int kStartledTriggered = Animator.StringToHash("StartledTriggered");
   private static int kVictoryTrigger = Animator.StringToHash("VictoryTrigger");
   private static int kAttackTrigger = Animator.StringToHash("AttackTrigger");
+  private static int kDamageTrigger = Animator.StringToHash("DamageTrigger");
+
   private static float kIsMovingThreshold = 0.01f;
 
   private bool _isScared = false;
@@ -76,7 +78,8 @@ public class FarmerController : MonoBehaviour
     feint,
     startled,
     victory,
-    attack
+    attack,
+    damage
   }
 
   void Start()
@@ -254,6 +257,9 @@ public class FarmerController : MonoBehaviour
         break;
       case eEmote.attack:
         SetAnimatorTrigger(kAttackTrigger);
+        break;
+      case eEmote.damage:
+        SetAnimatorTrigger(kDamageTrigger);
         break;
     }
   }
@@ -462,6 +468,7 @@ public class DamagedState : IState
   {
     timeRemaining = controller.damagedDuration;
     Debug.Log("Farmer State: DAMAGED");
+    controller.PlayEmote(FarmerController.eEmote.damage);
   }
   public void UpdateState(FarmerController controller)
   {
