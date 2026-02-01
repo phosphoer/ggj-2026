@@ -255,6 +255,8 @@ Transform:
   - {fileID: 1999430185485607593}
   - {fileID: 4398255515032797080}
   - {fileID: 2959142342055716819}
+  - {fileID: 329591295135708562}
+  - {fileID: 3158710644838848231}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8534716296250183078
@@ -271,8 +273,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PossessableObject
   AttackParams:
     Type: 1
+    FearDamage: 1
     SpookAttackFX: {fileID: 6839670518580436836, guid: b4752a70e8c2148eca1bb9d79aec420a, type: 3}
-    SpookAttackSFX: {fileID: 0}
+    SpookAttackSFX: {fileID: 11400000, guid: 39b287d79ce014d29b74c58bdce03608, type: 2}
     SpookFXRoot: {fileID: 2959142342055716819}
     SpookAttackRoot: {fileID: 2959142342055716819}
     ShootAttackWidth: 1
