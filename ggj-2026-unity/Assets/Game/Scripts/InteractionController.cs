@@ -19,6 +19,12 @@ public class InteractionController : MonoBehaviour
   private int _lazyUpdateIndex;
   private Interactable _closestInteractable;
   private InteractableUI _interactableUI;
+  private System.Predicate<Interactable> _canInteractPredicate;
+
+  public void SetInteractPredicate(System.Predicate<Interactable> predicate)
+  {
+    _canInteractPredicate = predicate;
+  }
 
   public void TriggerInteraction()
   {
@@ -103,6 +109,9 @@ public class InteractionController : MonoBehaviour
 
   private bool CanInteractWith(Interactable interactable)
   {
+    if (_canInteractPredicate != null)
+      return _canInteractPredicate.Invoke(interactable);
+
     return true;
   }
 
