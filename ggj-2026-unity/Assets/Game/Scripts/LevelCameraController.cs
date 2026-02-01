@@ -1,7 +1,7 @@
 using UnityEngine;
 using static UnityEngine.UI.Image;
 
-public class LevelCameraController : CameraControllerDynamic
+public class LevelCameraController : CameraControllerStatic
 {
   [Header("Dynamic Framing")]
   [SerializeField] private float _minDistance = 10f; // Minimum distance from initial position
@@ -14,7 +14,7 @@ public class LevelCameraController : CameraControllerDynamic
 
   public void Awake()
   {
-    var forward= MountPoint.forward;
+    var forward = MountPoint.forward;
 
     _initialPosition = MountPoint.position;
     _initialForward = new Vector3(forward.x, 0, forward.z).normalized;
@@ -35,24 +35,24 @@ public class LevelCameraController : CameraControllerDynamic
     // Calculate current camera position along the track
     Vector3 currentCameraPos = MountPoint.position;
 
-    var playerCentroid= Vector3.zero;
+    var playerCentroid = Vector3.zero;
     if (players.Count > 0)
     {
       foreach (var player in players)
       {
-        playerCentroid+= player.transform.position;
+        playerCentroid += player.transform.position;
       }
 
-      playerCentroid/= (float)players.Count;
+      playerCentroid /= (float)players.Count;
     }
 
     // Put the player centroid on the same plane as the 
-    playerCentroid.y= _initialPosition.y;
+    playerCentroid.y = _initialPosition.y;
 
 
-    Vector3 vectorToCentroid3d= playerCentroid - MountPoint.position;
-    float distanceToCentroid= vectorToCentroid3d.magnitude;
-    Vector3 directonToCentroid= vectorToCentroid3d / distanceToCentroid;
+    Vector3 vectorToCentroid3d = playerCentroid - MountPoint.position;
+    float distanceToCentroid = vectorToCentroid3d.magnitude;
+    Vector3 directonToCentroid = vectorToCentroid3d / distanceToCentroid;
 
     // Adjust distance based on viewing angles
     float distanceAdjustment = 0f;
@@ -70,10 +70,10 @@ public class LevelCameraController : CameraControllerDynamic
     }
 
     Vector3 targetPosition = MountPoint.position + directonToCentroid * distanceAdjustment;
-    MountPoint.position= Mathfx.Damp(MountPoint.position, targetPosition, 0.25f, Time.deltaTime);
+    MountPoint.position = Mathfx.Damp(MountPoint.position, targetPosition, 0.25f, Time.deltaTime);
 
     Quaternion targetOrientation = Quaternion.LookRotation(vectorToCentroid3d, Vector3.up);
-    MountPoint.rotation= Mathfx.Damp(MountPoint.rotation, targetOrientation, 0.25f, Time.deltaTime);
+    MountPoint.rotation = Mathfx.Damp(MountPoint.rotation, targetOrientation, 0.25f, Time.deltaTime);
   }
 
   public void Reset()
