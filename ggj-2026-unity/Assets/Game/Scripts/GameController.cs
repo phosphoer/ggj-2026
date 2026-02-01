@@ -26,7 +26,8 @@ public class GameController : Singleton<GameController>
   public SoundBank MusicEnd;
   public int WinCountDownTime = 10;
 
-  [SerializeField] private eGameState _initialGameState = eGameState.Game;
+  [SerializeField] private eGameState _initialGameState = eGameState.Intro;
+  [SerializeField] private eGameState _initialEditorGameState = eGameState.Game;
   [SerializeField] private LevelGenerator _levelManager;
   [SerializeField] private LevelCameraController _cameraController;
   [SerializeField] private PlayerActorController _playerPrefab;
@@ -80,7 +81,16 @@ public class GameController : Singleton<GameController>
   {
     Application.targetFrameRate = 60;
 
-    SetGameState(_initialGameState);
+#if UNITY_EDITOR
+    if (Application.isEditor)
+    {
+      SetGameState(_initialEditorGameState);
+    }
+    else
+#endif
+    {
+      SetGameState(_initialGameState);
+    }
   }
 
   private void Update()
