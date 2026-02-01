@@ -60,6 +60,7 @@ MonoBehaviour:
   AnimIdleBobSpeed: 6
   AnimIdleWiggleScale: 5
   AnimIdleWiggleSpeed: 1
+  XPDamageMultiplier: 0.5
   _actor: {fileID: 5336152264664512036}
   _playerAnimator: {fileID: 9215027886199151708}
   _playerVisualRoot: {fileID: 727708669082882838}
@@ -104,7 +105,7 @@ MonoBehaviour:
   MoveAirAccel: 5
   MoveAccel: 5
   AirSpeed: 3
-  MoveSpeed: 2
+  MoveSpeed: 3
   SprintSpeed: 3
   RotateSpeed: 1
   JumpPower: 1

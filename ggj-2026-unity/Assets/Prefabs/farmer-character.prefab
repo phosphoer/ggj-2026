@@ -160,6 +160,9 @@ MonoBehaviour:
   faintDuration: 3
   attackDuration: 3
   searchDuration: 5
+  SfxAttack: {fileID: 11400000, guid: 6a2709792d3ba4b31b74c9734b9b7f24, type: 2}
+  SfxDeath: {fileID: 11400000, guid: 31755a011b65e4c2fa7b2e50387c21b0, type: 2}
+  SfxStartle: {fileID: 11400000, guid: e093e2d3305764692b8745ef5c1a0900, type: 2}
   perceptionObject: {fileID: 8102463512470917054}
   _animator: {fileID: 1100442484007578841}
   currentTarget: {fileID: 0}

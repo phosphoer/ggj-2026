@@ -278,6 +278,7 @@ public class PlayerActorController : MonoBehaviour
 
     _spookAttackHitbox = new GameObject("spook-attack-hitbox").AddComponent<SpookHitBox>();
     _spookAttackHitbox.transform.parent = attackParams.SpookAttackRoot;
+    _spookAttackHitbox.transform.SetIdentityTransformLocal();
     var collider = _spookAttackHitbox.gameObject.AddComponent<SphereCollider>();
     collider.isTrigger = true;
     collider.radius = attackParams.ChargeAttackRadius;
