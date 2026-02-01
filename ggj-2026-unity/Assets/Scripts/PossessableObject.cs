@@ -11,6 +11,7 @@ public class SpookAttackParams
 {
   public SpookAttackType Type;
   public ParticleSystem SpookAttackFX;
+  public Transform SpookFXRoot;
   public Transform SpookAttackRoot;
 
   [Header("Shoot")]
@@ -66,10 +67,18 @@ public class PossessableObject : MonoBehaviour
       }
     }
 
-    if (AttackParams != null && AttackParams.Type == SpookAttackType.Charge)
+    if (AttackParams != null && AttackParams.Type == SpookAttackType.Charge && AttackParams.SpookAttackRoot)
     {
-      Gizmos.color = Color.rebeccaPurple;
-      Gizmos.DrawWireSphere(transform.position, AttackParams.ChargeAttackRadius);
+      Gizmos.color = Color.red;
+      Gizmos.DrawWireSphere(AttackParams.SpookAttackRoot.position, AttackParams.ChargeAttackRadius);
+    }
+
+    if (AttackParams != null && AttackParams.Type == SpookAttackType.Shoot && AttackParams.SpookAttackRoot)
+    {
+      Gizmos.color = Color.red;
+      Gizmos.matrix = AttackParams.SpookAttackRoot.localToWorldMatrix;
+      Gizmos.DrawWireCube(Vector3.forward * AttackParams.ShootAttackRange * 0.5f, new Vector3(AttackParams.ShootAttackWidth, AttackParams.ShootAttackWidth, AttackParams.ShootAttackRange));
+      Gizmos.matrix = Matrix4x4.identity;
     }
   }
 }
