@@ -21,7 +21,7 @@ public class HeartRateMonitorDisplay : MonoBehaviour
   [SerializeField] private Color _lineColor = Color.green;
   [SerializeField] private float _lineWidth = 0.05f;
   [SerializeField] private Material _lineMaterial = null;
-  
+
   private GradientColorKey[] _colorKeys;
   static GradientColorKey[] defaultGradientKeys = new GradientColorKey[]
     {
@@ -42,7 +42,7 @@ public class HeartRateMonitorDisplay : MonoBehaviour
   private void Awake()
   {
     _gradient = new Gradient();
-    _gradient.colorKeys = defaultGradientKeys; 
+    _gradient.colorKeys = defaultGradientKeys;
 
     // Initialize signal generator and buffer
     _signalGenerator = new ECGSignalGenerator();
@@ -68,7 +68,7 @@ public class HeartRateMonitorDisplay : MonoBehaviour
     _lineRenderer.positionCount = _bufferSize;
 
     // Configure line appearance
-    SetLineColor( _lineColor );
+    SetLineColor(_lineColor);
     _lineRenderer.startWidth = _lineWidth;
     _lineRenderer.endWidth = _lineWidth;
 
@@ -100,12 +100,12 @@ public class HeartRateMonitorDisplay : MonoBehaviour
 
     float dt = Time.deltaTime;
 
-    float newTargetBPM= _targetBPM;
+    float newTargetBPM = _targetBPM;
     if (farmer != null)
     {
-      float healthFraction= farmer.health / farmer.maxHealth;
-      float newHR= Mathf.Lerp(_minHeartRateBPM, _maxHeartRateBPM, healthFraction);
-      Color newColor = _gradient.Evaluate(healthFraction);;
+      float healthFraction = farmer.health / farmer.maxHealth;
+      float newHR = Mathf.Lerp(_maxHeartRateBPM, _minHeartRateBPM, healthFraction);
+      Color newColor = _gradient.Evaluate(healthFraction); ;
 
       SetHeartRate(newHR);
       SetLineColor(newColor);
@@ -151,6 +151,11 @@ public class HeartRateMonitorDisplay : MonoBehaviour
   public void SetHeartRate(float bpm)
   {
     _targetBPM = Mathf.Max(bpm, 1f);
+  }
+
+  public void SetTempHeartRate(float bpm)
+  {
+    _currentBPM = bpm;
   }
 
   /// <summary>

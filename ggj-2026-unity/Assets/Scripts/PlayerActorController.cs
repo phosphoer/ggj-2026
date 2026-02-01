@@ -9,6 +9,7 @@ public class PlayerActorController : MonoBehaviour
   public float AnimIdleWiggleScale = 5;
   public float AnimIdleWiggleSpeed = 1;
 
+  public bool IsPossessing => _currentPossessable != null;
   public Rewired.Player PlayerInput => _playerInput;
   public int PlayerIndex => _playerIndex;
   public string PlayerColorName => _playerColorName;
