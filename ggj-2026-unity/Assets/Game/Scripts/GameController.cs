@@ -280,6 +280,8 @@ public class GameController : Singleton<GameController>
 
       Destroy(_spawnedFarmer.gameObject);
       _spawnedFarmer = null;
+
+      TriggerPostGame();
     }
   }
 
