@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GamePlayUI : UIPageBase
 {
-  [SerializeField] private HeartRateMonitorDisplay _heartRateMonitor = null;
+  //[SerializeField] private HeartRateMonitorDisplay _heartRateMonitor = null;
 
   protected override void Awake()
   {
