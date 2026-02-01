@@ -1,12 +1,11 @@
 using UnityEngine;
+using static UnityEngine.UI.Image;
 
 public class LevelCameraController : CameraControllerDynamic
 {
   [Header("Dynamic Framing")]
-  [SerializeField] private float _maxIdealViewingAngle = 30f; // Max angle from center before zooming out (degrees)
-  [SerializeField] private float _minIdealViewingAngle = 10f; // Min angle from center before zooming in (degrees)
-  [SerializeField] private float _minDistance = 0f; // Minimum distance from initial position
-  [SerializeField] private float _maxDistance = 80f; // Maximum distance from initial position
+  [SerializeField] private float _minDistance = 10f; // Minimum distance from initial position
+  [SerializeField] private float _maxDistance = 30f; // Maximum distance from initial position
   [SerializeField] private float _zoomSpeed = 2f; // How quickly the camera zooms in/out
 
   private Vector3 _initialPosition = Vector3.zero;
@@ -15,8 +14,10 @@ public class LevelCameraController : CameraControllerDynamic
 
   public void Awake()
   {
+    var forward= MountPoint.forward;
+
     _initialPosition = MountPoint.position;
-    _initialForward = MountPoint.forward.normalized;
+    _initialForward = new Vector3(forward.x, 0, forward.z).normalized;
     _currentDistance = 0f;
   }
 
@@ -34,50 +35,45 @@ public class LevelCameraController : CameraControllerDynamic
     // Calculate current camera position along the track
     Vector3 currentCameraPos = MountPoint.position;
 
-    // Check viewing angles for all players
-    float maxAngle = 0f;
-    bool anyPlayerOutside = false;
-    bool allPlayersInside = true;
-
-    foreach (var player in players)
+    var playerCentroid= Vector3.zero;
+    if (players.Count > 0)
     {
-      Vector3 toPlayer = player.transform.position - currentCameraPos;
-      float angle = Vector3.Angle(_initialForward, toPlayer);
+      foreach (var player in players)
+      {
+        playerCentroid+= player.transform.position;
+      }
 
-      if (angle > maxAngle)
-        maxAngle = angle;
-
-      if (angle > _maxIdealViewingAngle)
-        anyPlayerOutside = true;
-
-      if (angle > _minIdealViewingAngle)
-        allPlayersInside = false;
+      playerCentroid/= (float)players.Count;
     }
+
+    // Put the player centroid on the same plane as the 
+    playerCentroid.y= _initialPosition.y;
+
+
+    Vector3 vectorToCentroid3d= playerCentroid - MountPoint.position;
+    float distanceToCentroid= vectorToCentroid3d.magnitude;
+    Vector3 directonToCentroid= vectorToCentroid3d / distanceToCentroid;
 
     // Adjust distance based on viewing angles
     float distanceAdjustment = 0f;
-
-    if (anyPlayerOutside)
+    if (distanceToCentroid < _minDistance)
     {
       // Players too close to edge - zoom out
-      float overshoot = maxAngle - _maxIdealViewingAngle;
-      distanceAdjustment = -overshoot * _zoomSpeed * Time.deltaTime;
+      float undershoot = _minDistance - distanceToCentroid;
+      distanceAdjustment = -undershoot * _zoomSpeed * Time.deltaTime;
     }
-    else if (allPlayersInside)
+    else if (distanceToCentroid > _maxDistance)
     {
       // All players well within view - zoom in
-      float undershoot = _minIdealViewingAngle - maxAngle;
-      distanceAdjustment = undershoot * _zoomSpeed * Time.deltaTime;
+      float overshoot = distanceToCentroid - _maxDistance;
+      distanceAdjustment = overshoot * _zoomSpeed * Time.deltaTime;
     }
 
-    // Apply adjustment and clamp
-    float targetDistance = _currentDistance + distanceAdjustment;
-    targetDistance = Mathf.Clamp(targetDistance, _minDistance, _maxDistance);
-    _currentDistance= Mathfx.Damp(_currentDistance, targetDistance, 0.25f, Time.deltaTime);
+    Vector3 targetPosition = MountPoint.position + directonToCentroid * distanceAdjustment;
+    MountPoint.position= Mathfx.Damp(MountPoint.position, targetPosition, 0.25f, Time.deltaTime);
 
-    // Position the camera along the initial forward direction from the initial position
-    Vector3 targetPosition = _initialPosition + _initialForward * _currentDistance;
-    MountPoint.position = targetPosition;
+    Quaternion targetOrientation = Quaternion.LookRotation(vectorToCentroid3d, Vector3.up);
+    MountPoint.rotation= Mathfx.Damp(MountPoint.rotation, targetOrientation, 0.25f, Time.deltaTime);
   }
 
   public void Reset()
