@@ -20,6 +20,8 @@ public class PlayerActorController : MonoBehaviour
   [SerializeField] private InteractionController _interaction = null;
   [SerializeField] private LegNoodleController _legPrefab = null;
   [SerializeField] private GameObject _footPrefab = null;
+  [SerializeField] private SkinnedMeshRenderer _bodyMesh = null;
+  [SerializeField] private SkinnedMeshRenderer[] _faceMeshes;
 
   private Rewired.Player _playerInput;
   private int _playerIndex = -1;
@@ -38,9 +40,19 @@ public class PlayerActorController : MonoBehaviour
     _playerInput = Rewired.ReInput.players.GetPlayer(playerIndex);
   }
 
-  public void SetPlayerColor(string colorName)
+  public void SetPlayerColor(PlayerColors colorInfo)
   {
-    _playerColorName = colorName;
+    _playerColorName = colorInfo.ColorName;
+
+    if (_bodyMesh != null)
+    {
+      _bodyMesh.material= colorInfo.BodyColor;
+    }
+
+    foreach (SkinnedMeshRenderer faceMesh in _faceMeshes)
+    {
+      faceMesh.material= colorInfo.FaceColor;
+    }
   }
 
   public void PossessObject(PossessableObject possessable)

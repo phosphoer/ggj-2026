@@ -8,6 +8,8 @@ using UnityEngine.UIElements;
 public struct PlayerColors
 {
   public string ColorName;
+  public Material BodyColor;
+  public Material FaceColor;
 }
 
 public class GameController : Singleton<GameController>
@@ -257,7 +259,7 @@ public class GameController : Singleton<GameController>
     var playerGO = Instantiate(_playerPrefab.gameObject, position, rotation);
     var playerController = playerGO.GetComponent<PlayerActorController>();
     playerController.SetPlayerIndex(playerIndex);
-    playerController.SetPlayerColor(_playerColors[playerIndex].ColorName);
+    playerController.SetPlayerColor(_playerColors[playerIndex]);
 
     _spawnedPlayers.Add(playerController);
   }

@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ghost_Blue
+  m_Name: Ghost_Green
   m_Shader: {fileID: -6465566751694194690, guid: f44bac8e3c5354684829585f016b251e, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -56,6 +56,6 @@ Material:
     - _QueueOffset: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _FresnelColor: {r: 0.60355103, g: 0.8880352, b: 0.9339623, a: 1}
+    - _FresnelColor: {r: 0.6039216, g: 0.93333334, b: 0.6308069, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
