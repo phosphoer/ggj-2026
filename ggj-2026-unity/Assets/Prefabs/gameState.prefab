@@ -55,6 +55,7 @@ MonoBehaviour:
   _cameraController: {fileID: 431138630446024495}
   _playerPrefab: {fileID: 5744845746143887606, guid: 45e9726ae5a1043a5b4996ffdbffcefd, type: 3}
   _farmerPrefab: {fileID: 8146451197855309188, guid: 0bebd106f9bdc144bb5f47158745d8d8, type: 3}
+  _deadFarmerPrefab: {fileID: 6518306859557908299, guid: 56ddce08dedc98842aee78e293afed59, type: 3}
   _playerColors:
   - ColorName: Red
     BodyColor: {fileID: 2100000, guid: 2ce64ea7603c1f54cbfabd81a5c27e1c, type: 2}
