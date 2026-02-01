@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6839670518580436836}
   - component: {fileID: 996745853286289535}
   m_Layer: 0
-  m_Name: FX_Attack_Charge_Lines
+  m_Name: FX_Attack_Charge_Generic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
