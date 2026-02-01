@@ -52,12 +52,12 @@ public class PlayerActorController : MonoBehaviour
 
     if (_bodyMesh != null)
     {
-      _bodyMesh.material= colorInfo.BodyColor;
+      _bodyMesh.material = colorInfo.BodyColor;
     }
 
     foreach (SkinnedMeshRenderer faceMesh in _faceMeshes)
     {
-      faceMesh.material= colorInfo.FaceColor;
+      faceMesh.material = colorInfo.FaceColor;
     }
   }
 
@@ -163,14 +163,20 @@ public class PlayerActorController : MonoBehaviour
     if (_currentPossessable)
     {
       var attackParams = _currentPossessable.AttackParams;
-      if (attackParams.SpookAttackFX)
+      if (attackParams.SpookAttackFX && attackParams.SpookFXRoot)
       {
-        _spookAttackFx = Instantiate(attackParams.SpookAttackFX, attackParams.SpookAttackRoot);
+        _spookAttackFx = Instantiate(attackParams.SpookAttackFX, attackParams.SpookFXRoot);
       }
+
+      _attackCooldownTimer = 5;
 
       if (attackParams.Type == SpookAttackType.Charge)
       {
         StartCharge();
+      }
+      else if (attackParams.Type == SpookAttackType.Shoot)
+      {
+        Shoot();
       }
     }
   }
@@ -178,7 +184,6 @@ public class PlayerActorController : MonoBehaviour
   private void StartCharge()
   {
     var attackParams = _currentPossessable.AttackParams;
-    _attackCooldownTimer = 5;
     _isCharging = true;
     _chargeTimer = attackParams.ChargeDuration;
     _actor.SprintSpeed = attackParams.ChargeSpeed;
@@ -186,7 +191,7 @@ public class PlayerActorController : MonoBehaviour
     _actor.IsSprinting = true;
 
     _spookAttackHitbox = new GameObject("spook-attack-hitbox").AddComponent<SpookHitBox>();
-    _spookAttackHitbox.transform.parent = _playerVisualRoot;
+    _spookAttackHitbox.transform.parent = attackParams.SpookAttackRoot;
     var collider = _spookAttackHitbox.gameObject.AddComponent<SphereCollider>();
     collider.isTrigger = true;
     collider.radius = attackParams.ChargeAttackRadius;
@@ -206,6 +211,19 @@ public class PlayerActorController : MonoBehaviour
       _spookAttackFx.Stop();
       _spookAttackFx = null;
     }
+  }
+
+  private void Shoot()
+  {
+    var attackParams = _currentPossessable.AttackParams;
+    _spookAttackHitbox = new GameObject("spook-attack-hitbox").AddComponent<SpookHitBox>();
+    _spookAttackHitbox.transform.parent = attackParams.SpookAttackRoot;
+    _spookAttackHitbox.transform.SetIdentityTransformLocal();
+
+    var collider = _spookAttackHitbox.gameObject.AddComponent<BoxCollider>();
+    collider.isTrigger = true;
+    collider.size = new Vector3(attackParams.ShootAttackWidth, 10, attackParams.ShootAttackRange);
+    collider.center = Vector3.forward * attackParams.ShootAttackRange * 0.5f;
   }
 
   private void OnEnable()
