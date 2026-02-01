@@ -59,15 +59,19 @@ MonoBehaviour:
   - ColorName: Red
     BodyColor: {fileID: 2100000, guid: 2ce64ea7603c1f54cbfabd81a5c27e1c, type: 2}
     FaceColor: {fileID: 2100000, guid: 6a3cc77a826a16145ba32f08929d693f, type: 2}
+    MaskPrefab: {fileID: -776574324644454278, guid: 2b667ac69760c4fda99147629cf76e59, type: 3}
   - ColorName: Blue
     BodyColor: {fileID: 2100000, guid: 9c19d8baa74f24d4891d2e93fc2890c3, type: 2}
     FaceColor: {fileID: 2100000, guid: c02b911a6caef4adfb3abed5bdee46e6, type: 2}
+    MaskPrefab: {fileID: -776574324644454278, guid: 791eb284c79584a569b03912993c50af, type: 3}
   - ColorName: Green
     BodyColor: {fileID: 2100000, guid: 11fdbdc85146db64e8915f425425a669, type: 2}
     FaceColor: {fileID: 2100000, guid: e540dbbab4b2ee446b9c873f2b62e9d6, type: 2}
+    MaskPrefab: {fileID: -776574324644454278, guid: d65875384e39b4157ba5363aa4bce819, type: 3}
   - ColorName: Yellow
     BodyColor: {fileID: 2100000, guid: 68bd451d859af374f8bad287eaff350c, type: 2}
     FaceColor: {fileID: 2100000, guid: 62983df0d55535440b6c94114355eb09, type: 2}
+    MaskPrefab: {fileID: -776574324644454278, guid: 2b667ac69760c4fda99147629cf76e59, type: 3}
   _riseRateCurve:
     serializedVersion: 2
     m_Curve: []
@@ -90,9 +94,6 @@ MonoBehaviour:
   OrthoSize: 6
   CameraShakeScalar: 1
   _mountPoint: {fileID: 0}
-  AxisSensitivty: 1
-  MaxAngle: 5
-  HandheldScale: 1
   _minDistance: 19
   _maxDistance: 20
   _zoomSpeed: 20

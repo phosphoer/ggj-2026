@@ -111,7 +111,7 @@ public class FarmerController : MonoBehaviour
 
   public bool IsStartled()
   {
-    return perceptionObject.GetDetectedObjectCount() > 0;
+    return perceptionObject ? perceptionObject.GetDetectedObjectCount() > 0 : false;
   }
 
   public void ShuffleTargets()
