@@ -116,7 +116,7 @@ public class FarmerController : MonoBehaviour
 
   public bool IsStartled()
   {
-    return perceptionObject ? perceptionObject.GetDetectedObjectCount() > 0 : false;
+    return perceptionObject ? perceptionObject.GetDetectedPlayerCount() > 0 : false;
   }
 
   public void ShuffleTargets()
@@ -147,6 +147,7 @@ public class FarmerController : MonoBehaviour
   {
     if (_actor != null)
     {
+      _actor.RotateSpeed = turnSpeed;
       _actor.LookAxis = direction.XZ();
     }
     else
