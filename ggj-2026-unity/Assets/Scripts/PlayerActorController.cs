@@ -11,6 +11,8 @@ public class PlayerActorController : MonoBehaviour
   public float AnimIdleWiggleScale = 5;
   public float AnimIdleWiggleSpeed = 1;
 
+  public float XPDamageMultiplier = 0.5f;
+
   public bool IsPossessing => _currentPossessable != null;
   public Rewired.Player PlayerInput => _playerInput;
   public int PlayerIndex => _playerIndex;
@@ -37,6 +39,7 @@ public class PlayerActorController : MonoBehaviour
   private PossessableObject _currentPossessable;
   private List<LegNoodleController> _legs = new();
   private List<GameObject> _feet = new();
+  private float _xp;
   private float _animTimer;
   private float _standHeightOffset;
   private float _attackCooldownTimer;
@@ -252,8 +255,16 @@ public class PlayerActorController : MonoBehaviour
       if (_spookAttackHitbox)
       {
         _spookAttackHitbox.Damage = attackParams.FearDamage;
+        _spookAttackHitbox.DamageDealt += OnDamageDealt;
       }
     }
+  }
+
+  private void OnDamageDealt()
+  {
+    float xpAmount = _spookAttackHitbox.Damage * XPDamageMultiplier;
+    _xp += xpAmount;
+    Debug.Log($"Player {_playerIndex} got {xpAmount} and now has {_xp} total xp");
   }
 
   private void StartCharge()
@@ -325,9 +336,22 @@ public class PlayerActorController : MonoBehaviour
     _leanSpring.Velocity -= attackParams.ShootRecoil;
   }
 
+  private bool CanInteract(Interactable interactable)
+  {
+    PossessableObject possessable = interactable.GetComponent<PossessableObject>();
+    if (possessable)
+    {
+      return _xp >= possessable.RequiredXPThreshold;
+    }
+
+    return true;
+  }
+
   private void Awake()
   {
     SetPlayerMaskPrefab(_maskPrefab);
+
+    _interaction.SetInteractPredicate(CanInteract);
   }
 
   private void OnEnable()
