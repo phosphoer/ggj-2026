@@ -174,6 +174,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.15677151, y: 0.6024477, z: 0.24851906}
   m_Center: {x: -0.0017760335, y: 0.12832299, z: -0.049128484}
+--- !u!1 &4444668255682552604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 602808220537237974}
+  m_Layer: 0
+  m_Name: spook-fx-root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &602808220537237974
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4444668255682552604}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.267, y: 0.825, z: -0.156}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 269857118614488311}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6518306859557908299
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +241,7 @@ Transform:
   - {fileID: 5247294176933867653}
   - {fileID: 7176992751024083535}
   - {fileID: 6054700829761343563}
+  - {fileID: 602808220537237974}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -68.445, z: -36.864}
 --- !u!114 &7516027685762984878
@@ -226,12 +258,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PossessableObject
   AttackParams:
     Type: 1
-    SpookAttackFX: {fileID: 0}
-    SpookAttackRoot: {fileID: 0}
+    SpookAttackFX: {fileID: 6839670518580436836, guid: b4752a70e8c2148eca1bb9d79aec420a, type: 3}
+    SpookAttackRoot: {fileID: 602808220537237974}
     ShootAttackWidth: 1
     ShootAttackRange: 3
     ChargeSpeed: 5
     ChargeDuration: 2
+    ChargeAttackRadius: 1
   StandHeightOffset: 0
   AnimIdleBobScale: 0.05
   AnimIdleBobSpeed: 3
@@ -239,6 +272,7 @@ MonoBehaviour:
   AnimIdleWiggleSpeed: 4
   MoveSpeed: 2
   RotateSpeed: 2
+  PostPossessKinematicState: 0
   LegThickness: 0.1
   FootSize: 0.15
   FootStepCount: 1
