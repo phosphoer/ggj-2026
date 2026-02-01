@@ -15,9 +15,9 @@ public class GamePlayUI : UIPageBase
 
   private void OnShown()
   {
-    if (_heartRateMonitor != null)
-      _heartRateMonitor.StartMonitoring();
-  }
+  //  if (_heartRateMonitor != null)
+  //    _heartRateMonitor.StartMonitoring();
+  //}
 
   private void Update()
   {
