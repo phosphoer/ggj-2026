@@ -9,29 +9,37 @@ public class FarmerPerceptionComponent : MonoBehaviour
     public float viewAngle = 60f;
     public LayerMask targetMask, obstacleMask;
 
-    List<GameObject> objectsInRadius = new List<GameObject>();
+    List<PlayerActorController> playersInRadius = new List<PlayerActorController>();
 
     void OnTriggerEnter(Collider otherCollider)
     {
-        objectsInRadius.Add(otherCollider.gameObject);
+      PlayerActorController player = otherCollider.GetComponentInParent<PlayerActorController>();
+      if (player != null)
+      {
+        playersInRadius.Add(player);
+      }
     }
     void OnTriggerExit(Collider otherCollider)
     {
-        objectsInRadius.Remove(otherCollider.gameObject);
-    }
+      PlayerActorController player = otherCollider.GetComponentInParent<PlayerActorController>();
+      if (player != null)
+      {
+        playersInRadius.Remove(player);
+      }
+    } 
 
     public int GetDetectedPlayerCount()
     {
-        List<GameObject> players = FindClosePlayers();
+        List<PlayerActorController> players = FindClosePlayers();
         return players.Count;
     }
 
     public Vector3 GetClosestDetectedObjectLocation()
     {
         float minDistance = 1000;
-        GameObject closestObject = null;
+        PlayerActorController closestObject = null;
 
-        foreach (GameObject player in objectsInRadius)
+        foreach (var player in playersInRadius)
         {
             float distance = Vector3.Distance(player.transform.position, transform.position);
             if (distance < minDistance)
@@ -49,45 +57,39 @@ public class FarmerPerceptionComponent : MonoBehaviour
         return Vector3.zero;
     }
 
-    public List<GameObject> FindClosePlayers()
+    public List<PlayerActorController> FindClosePlayers()
     {
-      List<GameObject> visiblePlayers = new List<GameObject>();
+      List<PlayerActorController> visiblePlayers = new List<PlayerActorController>();
 
-      foreach (var target in objectsInRadius)
+      foreach (var target in playersInRadius)
       {
-        if (target.CompareTag("Player"))
-        {
-          Vector3 dirToTarget = (target.transform.position - transform.position).normalized;
-          float angleToTarget = Vector3.Angle(transform.up, dirToTarget);
+        Vector3 dirToTarget = (target.transform.position - transform.position).normalized;
+        float angleToTarget = Vector3.Angle(transform.up, dirToTarget);
         
-          if (!Physics.Raycast(transform.position, dirToTarget, out RaycastHit hit, viewRadius, obstacleMask))
-          {
-            visiblePlayers.Add(target);
-          }
+        if (!Physics.Raycast(transform.position, dirToTarget, out RaycastHit hit, viewRadius, obstacleMask))
+        {
+          visiblePlayers.Add(target);
         }
       }
 
       return visiblePlayers;
     }
 
-    public List<GameObject> FindVisiblePlayers()
+    public List<PlayerActorController> FindVisiblePlayers()
     {
-        List<GameObject> visiblePlayers = new List<GameObject>();
+        List<PlayerActorController> visiblePlayers = new List<PlayerActorController>();
 
-        foreach (var target in objectsInRadius)
+        foreach (var target in playersInRadius)
         {
-            if(target.CompareTag("Player"))
-            {
-                Vector3 dirToTarget = (target.transform.position - transform.position).normalized;
-                float angleToTarget = Vector3.Angle(transform.up, dirToTarget);
-                if (angleToTarget < viewAngle / 2)
-                {
-                    if (!Physics.Raycast(transform.position, dirToTarget, out RaycastHit hit, viewRadius, obstacleMask))
-                    {
-                        visiblePlayers.Add(target);
-                    }
-                }
-            }
+          Vector3 dirToTarget = (target.transform.position - transform.position).normalized;
+          float angleToTarget = Vector3.Angle(transform.up, dirToTarget);
+          if (angleToTarget < viewAngle / 2)
+          {
+              if (!Physics.Raycast(transform.position, dirToTarget, out RaycastHit hit, viewRadius, obstacleMask))
+              {
+                  visiblePlayers.Add(target);
+              }
+           }
         }
 
         return visiblePlayers;
@@ -96,10 +98,10 @@ public class FarmerPerceptionComponent : MonoBehaviour
     public Vector3 FindClosestPlayerLocation()
     {
         float minDistance = 1000;
-        GameObject closestPlayer = null;
+        PlayerActorController closestPlayer = null;
 
-        List<GameObject> visiblePlayers = FindVisiblePlayers();
-        foreach (GameObject player in visiblePlayers)
+        List<PlayerActorController> visiblePlayers = FindVisiblePlayers();
+        foreach (var player in visiblePlayers)
         {
             float distance = Vector3.Distance(player.transform.position, transform.position);
             if (distance < minDistance)
