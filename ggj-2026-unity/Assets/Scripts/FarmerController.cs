@@ -40,6 +40,10 @@ public class FarmerController : MonoBehaviour
   public float attackDuration = 3.0f;
   public float searchDuration = 3.0f;
 
+  public SoundBank SfxAttack;
+  public SoundBank SfxDeath;
+  public SoundBank SfxStartle;
+
   public FarmerPerceptionComponent perceptionObject;
 
   IState currentState;
@@ -353,6 +357,8 @@ public class StartledState : IState
     timeRemaining = controller.startledDuration;
     targetLocation = controller.perceptionObject.GetClosestDetectedObjectLocation();
 
+    AudioManager.Instance.PlaySound(controller.gameObject, controller.SfxStartle);
+
     controller.PlayEmote(FarmerController.eEmote.startled);
   }
 
@@ -469,6 +475,8 @@ public class DamagedState : IState
     timeRemaining = controller.damagedDuration;
     Debug.Log("Farmer State: DAMAGED");
     controller.PlayEmote(FarmerController.eEmote.damage);
+
+    AudioManager.Instance.PlaySound(controller.gameObject, controller.SfxStartle);
   }
   public void UpdateState(FarmerController controller)
   {
@@ -507,6 +515,9 @@ public class FaintState : IState
     timeRemaining = controller.faintDuration;
     Debug.Log("Farmer State: FAINT");
     controller.PlayEmote(FarmerController.eEmote.feint);
+
+    AudioManager.Instance.PlaySound(controller.gameObject, controller.SfxDeath);
+
   }
 
   public void UpdateState(FarmerController controller)
@@ -541,6 +552,8 @@ public class AttackState : IState
     Debug.Log("Farmer State: ATTACK");
     timeRemaining = controller.attackDuration;
     attackLocation = controller.perceptionObject.FindClosestPlayerLocation();
+
+    AudioManager.Instance.PlaySound(controller.gameObject, controller.SfxAttack);
 
     controller.PlayEmote(FarmerController.eEmote.attack);
 
