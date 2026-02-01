@@ -4,9 +4,9 @@ using UnityEngine;
 public class PostGameUI : UIPageBase
 {
   [SerializeField] private RectTransform _menuRectTransform = null;
-  [SerializeField] private MenuItemUI _buttonOk = null;
+  [SerializeField] private MenuItemUI _buttonRestart = null;
+  [SerializeField] private MenuItemUI _buttonQuit = null;
 
-  public TMPro.TMP_Text WinLabel;
   public float SlideInDuration = 1;
 
   private float _initialYPosition;
@@ -25,7 +25,8 @@ public class PostGameUI : UIPageBase
     _initialYPosition= _menuRectTransform.localPosition.y;
 
     Shown += OnShown;
-    _buttonOk.Activated += OnOkClicked;
+    _buttonRestart.Activated += OnRestartClicked;
+    _buttonQuit.Activated += OnQuitClicked;
   }
 
   protected void Update()
@@ -43,37 +44,41 @@ public class PostGameUI : UIPageBase
 
       if (_slideTimer >= SlideInDuration)
       {
-        _buttonOk.SetDisabled(false);
+        _buttonRestart.SetDisabled(false);
+        _buttonQuit.SetDisabled(false);
         _state = eAnimationState.ready;
       }
     }
   }
 
-  public void OnOkClicked()
+  public void OnRestartClicked()
   {
     GameController.Instance.SetGameState(GameController.eGameState.Intro);
   }
 
+  public void OnQuitClicked()
+  {
+    //If we are running in a standalone build of the game
+#if UNITY_STANDALONE
+    //Quit the application
+    Application.Quit();
+#endif
+
+    //If we are running in the editor
+#if UNITY_EDITOR
+    //Stop playing the scene
+    UnityEditor.EditorApplication.isPlaying = false;
+#endif
+  }
+
   private void OnShown()
   {
-    int playerIndex= GameController.Instance.WinningPlayerID;
-
-    if (playerIndex >= 0)
-    {
-      //string colorName = GameController.Instance.GetPlayerColorName(playerIndex);
-      //WinLabel.text = string.Format("{0} Player Wins!",colorName);
-      WinLabel.text = string.Format("Player {0} Wins!",playerIndex+1);
-    }
-    else
-    {
-      WinLabel.text = string.Format("No players survived!");
-    }
-
     _state= eAnimationState.slidingIn;
     _slideTimer= 0;
     SetMenuYPosition(_initialYPosition);
 
-    _buttonOk.SetDisabled(true);
+    _buttonRestart.SetDisabled(true);
+    _buttonQuit.SetDisabled(true);
   }
 
   private void SetMenuYPosition(float newYPosition)
