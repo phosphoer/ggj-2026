@@ -324,7 +324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PossessableObject
   AttackParams:
     Type: 2
-    FearDamage: 1
+    FearDamage: 8
     SpookAttackFX: {fileID: 3886971871295549273, guid: 3ce8742f61f11534f82829109070ef97, type: 3}
     SpookAttackSFX: {fileID: 11400000, guid: 4061ae2682fb245e6a81865ab2b08590, type: 2}
     SpookFXRoot: {fileID: 784316397013199235}
