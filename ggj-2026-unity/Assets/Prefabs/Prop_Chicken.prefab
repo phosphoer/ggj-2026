@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2893577450183918857
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8126135592183510054}
-  m_Layer: 0
-  m_Name: leg-socket (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8126135592183510054
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2893577450183918857}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.36329, y: 0.4674, z: 0.41277}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 269857118614488311}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3834505471743985334
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,13 +55,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4184563954171022012}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.3804759, y: -0, z: -0, w: 0.92479086}
-  m_LocalPosition: {x: 0, y: 1.135, z: 0.554}
-  m_LocalScale: {x: 3.6392138, y: 3.6392138, z: 3.6392138}
+  m_LocalRotation: {x: 0.02083146, y: -0, z: -0, w: 0.99978304}
+  m_LocalPosition: {x: 0, y: 0.929, z: 0.445}
+  m_LocalScale: {x: 3.4462264, y: 3.4462264, z: 3.4462264}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 269857118614488311}
-  m_LocalEulerAnglesHint: {x: -44.726, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 2.387, y: 0, z: 0}
 --- !u!1 &4355515708255977550
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +103,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4355515708255977550}
-  m_Mesh: {fileID: 6076529774107624143, guid: ab2b750efed774e23b38d8e2635d4428, type: 3}
+  m_Mesh: {fileID: 3944825945900920507, guid: ab2b750efed774e23b38d8e2635d4428, type: 3}
 --- !u!23 &4619003667870017741
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -205,37 +174,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.46234265, y: 0.5416559, z: 0.634873}
   m_Center: {x: 0, y: 0.2708254, z: 0.010087027}
---- !u!1 &5577751828152075814
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 254586265845996457}
-  m_Layer: 0
-  m_Name: leg-socket (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &254586265845996457
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5577751828152075814}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.36677, y: 0.4674, z: 0.41277}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 269857118614488311}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6518306859557908299
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +187,7 @@ GameObject:
   - component: {fileID: 4423459547633382754}
   - component: {fileID: 6795762199850863606}
   m_Layer: 0
-  m_Name: Prop_Piggie
+  m_Name: Prop_Chicken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -272,8 +210,6 @@ Transform:
   - {fileID: 7725665322585178060}
   - {fileID: 5247294176933867653}
   - {fileID: 3688242001757857193}
-  - {fileID: 254586265845996457}
-  - {fileID: 8126135592183510054}
   - {fileID: 6054700829761343563}
   - {fileID: 1993536853746204078}
   m_Father: {fileID: 0}
@@ -291,10 +227,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PossessableObject
   AttackParams:
-    Type: 1
+    Type: 0
     FearDamage: 1
-    SpookAttackFX: {fileID: 1253437248862577756, guid: e581f568b086abb4987911b655e5ad8a, type: 3}
-    SpookAttackSFX: {fileID: 11400000, guid: 3d74e097097be4b6d92b3b48d294364a, type: 2}
+    SpookAttackFX: {fileID: 3298231691044482000, guid: 4ef09a2267777f44cb61882d183813c8, type: 3}
+    SpookAttackSFX: {fileID: 11400000, guid: f4a3e4f537ef048d28ef7c3ccbd0d8d3, type: 2}
     SpookFXRoot: {fileID: 1993536853746204078}
     SpookAttackRoot: {fileID: 1993536853746204078}
     ShootAttackWidth: 1
@@ -323,8 +259,6 @@ MonoBehaviour:
   _legSockets:
   - {fileID: 5247294176933867653}
   - {fileID: 3688242001757857193}
-  - {fileID: 254586265845996457}
-  - {fileID: 8126135592183510054}
   SFXPossess: {fileID: 11400000, guid: 283b554057e5e42ac87a6f704485629d, type: 2}
   SFXDepossess: {fileID: 11400000, guid: c75a091b9944f4207b3fc68abd49dd18, type: 2}
 --- !u!54 &4423459547633382754
@@ -400,7 +334,7 @@ Transform:
   m_GameObject: {fileID: 7421315154040654530}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.27381, y: 0.4674, z: -0.31282}
+  m_LocalPosition: {x: 0.225, y: 0.527, z: 0.065}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -431,7 +365,7 @@ Transform:
   m_GameObject: {fileID: 7796623416765619578}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.27032, y: 0.4674, z: -0.31282}
+  m_LocalPosition: {x: -0.224, y: 0.562, z: 0.017}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -462,7 +396,7 @@ Transform:
   m_GameObject: {fileID: 8006001992910488885}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.754, z: 0.657}
+  m_LocalPosition: {x: 0, y: 0.893, z: 0.323}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

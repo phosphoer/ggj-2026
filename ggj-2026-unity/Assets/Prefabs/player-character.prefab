@@ -61,6 +61,7 @@ MonoBehaviour:
   AnimIdleWiggleScale: 5
   AnimIdleWiggleSpeed: 1
   _actor: {fileID: 5336152264664512036}
+  _playerAnimator: {fileID: 9215027886199151708}
   _playerVisualRoot: {fileID: 727708669082882838}
   _playerVisual: {fileID: 2462401426723557874}
   _footIK: {fileID: 7688372730015314170}
