@@ -110,6 +110,11 @@ public class HeartRateMonitorDisplay : MonoBehaviour
       SetHeartRate(newHR);
       SetLineColor(newColor);
     }
+    else
+    {
+      SetLineColor(Color.red);
+      SetHeartRate(0);
+    }
 
     // Smoothly transition BPM using frame-independent damping
     _currentBPM = Mathfx.Damp(_currentBPM, _targetBPM, _bpmSmoothingSpeed, dt);
