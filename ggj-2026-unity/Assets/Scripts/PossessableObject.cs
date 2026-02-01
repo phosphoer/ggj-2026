@@ -93,6 +93,17 @@ public class PossessableObject : MonoBehaviour
       MaskRoot.DestroyAllChildren();
   }
 
+  private void OnValidate()
+  {
+    foreach (var socket in _legSockets)
+    {
+      if (!socket)
+      {
+        Debug.LogWarning($"{name} has null log socket entries!", gameObject);
+      }
+    }
+  }
+
   private void OnDrawGizmos()
   {
     Gizmos.color = Color.white;
