@@ -120,7 +120,7 @@ public class GameController : Singleton<GameController>
     }
 
     // Swap out the living farmer with a dead one if their health drops to zero
-    if (_spawnedFarmer != null && _deadFarmer == null && _spawnedFarmer.health <= 0) 
+    if (_spawnedFarmer != null && _deadFarmer == null && _spawnedFarmer.health <= 0)
     {
       SpawnDeadFarmer();
     }
@@ -245,7 +245,7 @@ public class GameController : Singleton<GameController>
 
     if (_deadFarmer != null)
     {
-      Destroy( _deadFarmer );
+      Destroy(_deadFarmer);
       _deadFarmer = null;
     }
   }
@@ -285,7 +285,7 @@ public class GameController : Singleton<GameController>
       _deadFarmer = Instantiate(_deadFarmerPrefab, spawnTransform.position, spawnTransform.rotation);
 
       Destroy(_spawnedFarmer.gameObject);
-      _spawnedFarmer= null;
+      _spawnedFarmer = null;
     }
   }
 
