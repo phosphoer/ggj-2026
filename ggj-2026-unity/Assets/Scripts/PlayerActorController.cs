@@ -83,6 +83,9 @@ public class PlayerActorController : MonoBehaviour
     AnimIdleWiggleScale = _currentPossessable.AnimIdleWiggleScale;
     AnimIdleWiggleSpeed = _currentPossessable.AnimIdleWiggleSpeed;
 
+    if (_currentPossessable.SFXPossess)
+      AudioManager.Instance.PlaySound(gameObject, _currentPossessable.SFXPossess);
+
     Collider[] propColliders = _currentPossessable.GetComponentsInChildren<Collider>();
     foreach (var c in propColliders)
       c.enabled = false;
@@ -137,6 +140,9 @@ public class PlayerActorController : MonoBehaviour
       _interaction.enabled = true;
       ResetLegs();
       _playerVisual.SetActive(true);
+
+      if (_currentPossessable.SFXDepossess)
+        AudioManager.Instance.PlaySound(gameObject, _currentPossessable.SFXDepossess);
 
       Collider[] propColliders = _currentPossessable.GetComponentsInChildren<Collider>();
       foreach (var c in propColliders)

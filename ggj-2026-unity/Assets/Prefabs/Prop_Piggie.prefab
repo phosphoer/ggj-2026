@@ -257,19 +257,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eca67220b8284170be8ea4b97bd62a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PossessableObject
+  AttackParams:
+    Type: 0
+    SpookAttackFX: {fileID: 0}
+    SpookFXRoot: {fileID: 0}
+    SpookAttackRoot: {fileID: 0}
+    ShootAttackWidth: 1
+    ShootAttackRange: 3
+    ShootRecoil: 5
+    ChargeSpeed: 5
+    ChargeDuration: 2
+    ChargeAttackRadius: 1
+    AOERadius: 3
   StandHeightOffset: 0
   AnimIdleBobScale: 0.05
   AnimIdleBobSpeed: 3
   AnimIdleWiggleScale: 5
   AnimIdleWiggleSpeed: 4
+  AnimWalkLeanScale: 20
   MoveSpeed: 2
   RotateSpeed: 1
+  PostPossessKinematicState: 0
   LegThickness: 0.1
   FootSize: 0.15
   FootStepCount: 1
   FootStepDuration: 0.5
   FootStepThreshold: 0.1
   FootStepHeight: 0.25
+  SFXPossess: {fileID: 11400000, guid: 7d449a1b558c645b6b5a7fd69da3758d, type: 2}
+  SFXDepossess: {fileID: 11400000, guid: 3462049ccdf444bc880b4782fb5b0d8b, type: 2}
   _legSockets:
   - {fileID: 5247294176933867653}
   - {fileID: 3688242001757857193}
