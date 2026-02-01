@@ -56,9 +56,17 @@ MonoBehaviour:
   _farmerPrefab: {fileID: 8146451197855309188, guid: 0bebd106f9bdc144bb5f47158745d8d8, type: 3}
   _playerColors:
   - ColorName: Red
+    BodyColor: {fileID: 2100000, guid: 2ce64ea7603c1f54cbfabd81a5c27e1c, type: 2}
+    FaceColor: {fileID: 2100000, guid: 6a3cc77a826a16145ba32f08929d693f, type: 2}
   - ColorName: Blue
+    BodyColor: {fileID: 2100000, guid: 9c19d8baa74f24d4891d2e93fc2890c3, type: 2}
+    FaceColor: {fileID: 2100000, guid: c02b911a6caef4adfb3abed5bdee46e6, type: 2}
   - ColorName: Green
+    BodyColor: {fileID: 2100000, guid: 11fdbdc85146db64e8915f425425a669, type: 2}
+    FaceColor: {fileID: 2100000, guid: e540dbbab4b2ee446b9c873f2b62e9d6, type: 2}
   - ColorName: Yellow
+    BodyColor: {fileID: 2100000, guid: 68bd451d859af374f8bad287eaff350c, type: 2}
+    FaceColor: {fileID: 2100000, guid: 62983df0d55535440b6c94114355eb09, type: 2}
   _riseRateCurve:
     serializedVersion: 2
     m_Curve: []

@@ -20,6 +20,8 @@ public class PlayerActorController : MonoBehaviour
   [SerializeField] private InteractionController _interaction = null;
   [SerializeField] private LegNoodleController _legPrefab = null;
   [SerializeField] private GameObject _footPrefab = null;
+  [SerializeField] private SkinnedMeshRenderer _bodyMesh = null;
+  [SerializeField] private SkinnedMeshRenderer[] _faceMeshes;
 
   private Rewired.Player _playerInput;
   private int _playerIndex = -1;
@@ -32,6 +34,7 @@ public class PlayerActorController : MonoBehaviour
   private float _attackCooldownTimer;
   private bool _isCharging;
   private float _chargeTimer;
+  private float _leanAmount;
   private Vector2 _chargeDirection;
   private ParticleSystem _spookAttackFx;
   private SpookHitBox _spookAttackHitbox;
@@ -43,9 +46,19 @@ public class PlayerActorController : MonoBehaviour
     _playerInput = Rewired.ReInput.players.GetPlayer(playerIndex);
   }
 
-  public void SetPlayerColor(string colorName)
+  public void SetPlayerColor(PlayerColors colorInfo)
   {
-    _playerColorName = colorName;
+    _playerColorName = colorInfo.ColorName;
+
+    if (_bodyMesh != null)
+    {
+      _bodyMesh.material= colorInfo.BodyColor;
+    }
+
+    foreach (SkinnedMeshRenderer faceMesh in _faceMeshes)
+    {
+      faceMesh.material= colorInfo.FaceColor;
+    }
   }
 
   public void PossessObject(PossessableObject possessable)
@@ -169,7 +182,7 @@ public class PlayerActorController : MonoBehaviour
     _isCharging = true;
     _chargeTimer = attackParams.ChargeDuration;
     _actor.SprintSpeed = attackParams.ChargeSpeed;
-    _chargeDirection = _actor.LookAxis;
+    _chargeDirection = _actor.LookAxis.normalized;
     _actor.IsSprinting = true;
 
     _spookAttackHitbox = new GameObject("spook-attack-hitbox").AddComponent<SpookHitBox>();
@@ -189,7 +202,8 @@ public class PlayerActorController : MonoBehaviour
 
     if (_spookAttackFx)
     {
-      Destroy(_spookAttackFx.gameObject);
+      _spookAttackFx.DestroyOnStop();
+      _spookAttackFx.Stop();
       _spookAttackFx = null;
     }
   }
@@ -241,7 +255,9 @@ public class PlayerActorController : MonoBehaviour
     _playerVisualRoot.localPosition = Vector3.up * Mathf.Sin(_animTimer * AnimIdleBobSpeed) * AnimIdleBobScale + posOffset;
 
     float targetRot = Mathf.Sin(_animTimer * AnimIdleWiggleSpeed) * AnimIdleWiggleScale;
-    _playerVisualRoot.localRotation = Quaternion.Euler(0, targetRot, 0);
+    float targetLean = _actor.MoveAxis.magnitude * 20 * (_isCharging ? 2 : 1);
+    _leanAmount = Mathfx.Damp(_leanAmount, targetLean, 0.25f, Time.deltaTime);
+    _playerVisualRoot.localRotation = Quaternion.Euler(_leanAmount, targetRot, 0);
 
     if (_currentPossessable)
     {
