@@ -315,13 +315,13 @@ MonoBehaviour:
   FootStepDuration: 0.5
   FootStepThreshold: 0.1
   FootStepHeight: 0.25
-  SFXPossess: {fileID: 11400000, guid: 7d449a1b558c645b6b5a7fd69da3758d, type: 2}
-  SFXDepossess: {fileID: 11400000, guid: 3462049ccdf444bc880b4782fb5b0d8b, type: 2}
   _legSockets:
   - {fileID: 5247294176933867653}
   - {fileID: 7176992751024083535}
   - {fileID: 7082852553784586772}
   - {fileID: 7200394542977348107}
+  SFXPossess: {fileID: 11400000, guid: 31e3ed40a27ac4d6eaf43e9298ced703, type: 2}
+  SFXDepossess: {fileID: 11400000, guid: c0f745100c2f6458bb8653e5dc37dd55, type: 2}
 --- !u!54 &4423459547633382754
 Rigidbody:
   m_ObjectHideFlags: 0
