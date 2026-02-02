@@ -230,7 +230,7 @@ Transform:
   m_GameObject: {fileID: 5836171842045539019}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.35, z: 0}
+  m_LocalPosition: {x: -0, y: 1.08, z: 0.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -295,12 +295,12 @@ MonoBehaviour:
   AttackParams:
     Type: 0
     FearDamage: 15
-    SpookAttackFX: {fileID: 3298231691044482000, guid: 4ef09a2267777f44cb61882d183813c8, type: 3}
+    SpookAttackFX: {fileID: 8185996219524588625, guid: 10a541b14f1f9f747b48d37b6cfa4a9f, type: 3}
     SpookAttackSFX: {fileID: 11400000, guid: bc55dbb5f656446f2af0ffd676762e8f, type: 2}
     SpookFXRoot: {fileID: 3228770297614144124}
     SpookAttackRoot: {fileID: 3228770297614144124}
-    ShootAttackWidth: 1
-    ShootAttackRange: 3
+    ShootAttackWidth: 1.25
+    ShootAttackRange: 5
     ShootRecoil: 5
     ChargeSpeed: 5
     ChargeDuration: 2
