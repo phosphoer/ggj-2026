@@ -86,6 +86,13 @@ public class FarmerController : MonoBehaviour
     damage
   }
 
+  [ContextMenu("Debug Die")]
+  void DebugDie()
+  {
+    ChangeState(new FaintState());
+
+  }
+
   void Start()
   {
     _actor = GetComponent<ObjectActorController>();

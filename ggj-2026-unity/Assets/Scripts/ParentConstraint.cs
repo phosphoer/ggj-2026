@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityGLTF.Interactivity.VisualScripting.Export;
 
 public class ParentConstraint : MonoBehaviour
 {
@@ -27,23 +26,23 @@ public class ParentConstraint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(constrain && Target!=null)
+        if (constrain && Target != null)
         {
-            if(Constrain_Position) transform.position = Target.position + position_offset;
-            if(Constrain_Rotation) transform.eulerAngles = Target.eulerAngles + euler_offset;
+            if (Constrain_Position) transform.position = Target.position + position_offset;
+            if (Constrain_Rotation) transform.eulerAngles = Target.eulerAngles + euler_offset;
         }
     }
 
     public void SetConstraint(bool constraint_enabled)
     {
-        if(UpdateOffsetOnEnable) SetOffset();
+        if (UpdateOffsetOnEnable) SetOffset();
 
         constrain = constraint_enabled;
     }
 
     public void SetOffset()
     {
-        if(MaintainOffset)
+        if (MaintainOffset)
         {
             position_offset = transform.position - Target.position;
             euler_offset = transform.eulerAngles - Target.eulerAngles;

@@ -370,7 +370,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2132968292746305008}
-  - component: {fileID: 3200893840618108468}
+  - component: {fileID: 6263372529280280049}
   m_Layer: 0
   m_Name: mask-root
   m_TagString: Untagged
@@ -386,32 +386,41 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7885698654609847920}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.79668814, y: 0, z: 0, w: 0.6043907}
-  m_LocalPosition: {x: -0, y: 0.964, z: -2.12}
+  m_LocalRotation: {x: -0.79668814, y: -0, z: 0, w: 0.6043907}
+  m_LocalPosition: {x: 0.00000023841858, y: 0.9640003, z: -2.1199996}
   m_LocalScale: {x: 4.7, y: 4.7, z: 4.7}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 252795620416590232}
   m_Father: {fileID: 269857118614488311}
   m_LocalEulerAnglesHint: {x: -105.63, y: 0, z: 0}
---- !u!114 &3200893840618108468
-MonoBehaviour:
+--- !u!1773428102 &6263372529280280049
+ParentConstraint:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7885698654609847920}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bf6c2c708b0f404d959042911f14575, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ParentConstraint
-  DefaultEnabled: 1
-  Target: {fileID: 7517320678555397818}
-  Constrain_Position: 1
-  Constrain_Rotation: 1
-  MaintainOffset: 1
-  UpdateOffsetOnEnable: 0
+  serializedVersion: 2
+  m_Weight: 1
+  m_TranslationAtRest: {x: 0, y: 0.964, z: -2.12}
+  m_RotationAtRest: {x: -74.370026, y: 180, z: 180}
+  m_TranslationOffsets:
+  - {x: 0, y: -0.07665682, z: 0.13595843}
+  m_RotationOffsets:
+  - {x: 9.370026, y: 0, z: 0}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_AffectRotationX: 1
+  m_AffectRotationY: 1
+  m_AffectRotationZ: 1
+  m_Active: 1
+  m_IsLocked: 1
+  m_Sources:
+  - sourceTransform: {fileID: 7517320678555397818}
+    weight: 1
 --- !u!1001 &1469822024338414948
 PrefabInstance:
   m_ObjectHideFlags: 0
