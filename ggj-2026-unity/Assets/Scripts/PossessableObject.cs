@@ -34,7 +34,11 @@ public class SpookAttackParams
 
 public class PossessableObject : MonoBehaviour
 {
+  public static event System.Action DeadFarmerPossessed;
+
   public Transform[] LegSockets => _legSockets;
+
+  public bool IsDeadFarmer = false;
 
   [Header("XP")]
   public float RequiredXPThreshold = 0;

@@ -41,7 +41,6 @@ public class GameController : Singleton<GameController>
   private FarmerController _spawnedFarmer = null;
   public FarmerController Farmer => _spawnedFarmer;
   private GameObject _deadFarmer = null;
-  private float _postGameTimer;
   private bool _postGameUIShown;
   private eGameState _currentGameState = eGameState.None;
   private List<MaskController> _maskPool = new();
@@ -99,6 +98,11 @@ public class GameController : Singleton<GameController>
     }
   }
 
+  private void OnDestroy()
+  {
+    Instance = null;
+  }
+
   private void Update()
   {
 #if UNITY_EDITOR
@@ -118,16 +122,6 @@ public class GameController : Singleton<GameController>
         {
           SpawnPlayerAtSpawnPoint(player.id);
         }
-      }
-    }
-
-    if (_currentGameState == eGameState.PostGame)
-    {
-      _postGameTimer += Time.deltaTime;
-      if (_postGameTimer > 10 && !_postGameUIShown)
-      {
-        _postGameUIShown = true;
-        ShowUI<PostGameUI>();
       }
     }
   }
@@ -152,7 +146,6 @@ public class GameController : Singleton<GameController>
         AudioManager.Instance.PlaySound(MusicTitle);
         break;
       case eGameState.Game:
-        _postGameTimer = 0;
         _postGameUIShown = false;
         SpawnLevel();
         ShowUI<GamePlayUI>();
@@ -182,11 +175,6 @@ public class GameController : Singleton<GameController>
         AudioManager.Instance.StopSound(MusicEnd);
         break;
     }
-  }
-
-  private void OnDestroy()
-  {
-    GameController.Instance = null;
   }
 
   public void ShowUI<T>() where T : UIPageBase

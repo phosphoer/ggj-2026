@@ -229,6 +229,11 @@ public class PlayerActorController : MonoBehaviour
   {
     if (_currentPossessable)
     {
+      if (_currentPossessable.IsDeadFarmer)
+      {
+        PlayerUI.Instance.GetPage<PostGameUI>().Show();
+      }
+
       var attackParams = _currentPossessable.AttackParams;
       if (attackParams.SpookAttackFX && attackParams.SpookFXRoot)
       {

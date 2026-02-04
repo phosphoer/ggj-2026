@@ -17,12 +17,12 @@ public class PostGameUI : UIPageBase
     slidingIn,
     ready
   }
-  private eAnimationState _state; 
+  private eAnimationState _state;
 
   protected override void Awake()
   {
     base.Awake();
-    _initialYPosition= _menuRectTransform.localPosition.y;
+    _initialYPosition = _menuRectTransform.localPosition.y;
 
     Shown += OnShown;
     _buttonRestart.Activated += OnRestartClicked;
@@ -31,14 +31,14 @@ public class PostGameUI : UIPageBase
 
   protected void Update()
   {
-    float dt= Time.deltaTime;
+    float dt = Time.deltaTime;
 
     if (_state == eAnimationState.slidingIn)
     {
-      _slideTimer+= dt;
+      _slideTimer += dt;
 
       float u = Mathf.Clamp01(_slideTimer / SlideInDuration);
-      float targetY= Mathf.Lerp(_initialYPosition, 0, u);
+      float targetY = Mathf.Lerp(_initialYPosition, 0, u);
 
       SetMenuYPosition(targetY);
 
@@ -53,7 +53,7 @@ public class PostGameUI : UIPageBase
 
   public void OnRestartClicked()
   {
-    GameController.Instance.SetGameState(GameController.eGameState.Intro);
+    UnityEngine.SceneManagement.SceneManager.LoadScene(0, UnityEngine.SceneManagement.LoadSceneMode.Single);
   }
 
   public void OnQuitClicked()
@@ -73,8 +73,8 @@ public class PostGameUI : UIPageBase
 
   private void OnShown()
   {
-    _state= eAnimationState.slidingIn;
-    _slideTimer= 0;
+    _state = eAnimationState.slidingIn;
+    _slideTimer = 0;
     SetMenuYPosition(_initialYPosition);
 
     _buttonRestart.SetDisabled(true);
